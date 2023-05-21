@@ -47,8 +47,8 @@ export function stopVideo() {
 
 // 3.2.4 Start time lapse photography
 export function startTimeLapse(
-  intervalTime: number,
-  outTime: number,
+  intervalTime,
+  outTime,
   name = `Timelapse ${now()}`
 ) {
   // intervalTime value: 1s-60s

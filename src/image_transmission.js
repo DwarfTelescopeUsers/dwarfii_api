@@ -23,7 +23,7 @@ export function turnOffCamera(camera = telephotoCamera) {
 }
 
 // 3.1.4 Set preview image quality
-export function setPreviewImageQuality(previewQuality: number) {
+export function setPreviewImageQuality(previewQuality) {
   // previewQuality value: 30-85
   const options = {
     interface: previewImageQuality,
