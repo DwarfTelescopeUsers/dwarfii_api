@@ -12,7 +12,12 @@ export function startTrace() {
 }
 
 // 4.2.2 Start tacking
-export function startTracking(x, y, width, height) {
+export function startTracking(
+  x: number,
+  y: number,
+  width: number,
+  height: number
+) {
   // x 0-1920
   // y 0-1080
   // w 0-1920

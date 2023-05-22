@@ -8,13 +8,13 @@ import {
 
 // 5.1 Start
 export function startMotion(
-  motor,
-  mode,
-  mStep,
-  speed,
-  direction,
-  pulse,
-  accelStep
+  motor: number,
+  mode: number,
+  mStep: number,
+  speed: number,
+  direction: number,
+  pulse: number,
+  accelStep: number
 ) {
   // motor: 1:spin 2:pitch
   // mode: 1:continuous mode 2:pulse mode
@@ -40,7 +40,7 @@ export function startMotion(
 }
 
 // 5.2 Stop
-export function stopMotion(motor, decelStep) {
+export function stopMotion(motor: number, decelStep: number) {
   // motor: 1:spin 2:pitch
   // decelStep: 0-1000
   const options = {
@@ -52,7 +52,12 @@ export function stopMotion(motor, decelStep) {
 }
 
 // 5.3 Set speed
-export function setSpeed(motor, speed, accelStep, trend) {
+export function setSpeed(
+  motor: number,
+  speed: number,
+  accelStep: number,
+  trend: number
+) {
   // speed: 0-50000
   // accelStep: 0-1000
   // trend: 0:decelerate 1:accelerate
@@ -67,7 +72,7 @@ export function setSpeed(motor, speed, accelStep, trend) {
 }
 
 // 5.4 Set direction
-export function setDirection(motor, direction) {
+export function setDirection(motor: number, direction: number) {
   // direction: 0:anticlockwise 1:clockwise
   const options = {
     interface: setDirectionCmd,
@@ -78,7 +83,7 @@ export function setDirection(motor, direction) {
 }
 
 // 5.5 Set subdivide
-export function setSubdivide(motor, mStep) {
+export function setSubdivide(motor: number, mStep: number) {
   // 1 2 4 8 16 32 64 128 256
   const options = {
     interface: setSubdivideCmd,

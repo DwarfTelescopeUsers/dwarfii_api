@@ -3,16 +3,16 @@ import { now } from "./api_utils";
 
 // 4.3.1 Start panorama
 export function startPano(
-  numRows,
-  numColumns,
-  mStep1,
-  mStep2,
-  speed1,
-  speed2,
-  pulse1,
-  pulse2,
-  accelStep1,
-  accelStep2
+  numRows: number,
+  numColumns: number,
+  mStep1: number,
+  mStep2: number,
+  speed1: number,
+  speed2: number,
+  pulse1: number,
+  pulse2: number,
+  accelStep1: number,
+  accelStep2: number
 ) {
   // mStep 1 2 4 8 16 32 64 128 256
   // speed 0-1000*mStep

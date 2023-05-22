@@ -21,7 +21,7 @@ export function formatUtcUrl() {
 }
 
 // 4.1.2 correction
-export function calibrateGoto(latitude, longitude) {
+export function calibrateGoto(latitude: number, longitude: number) {
   const options = {
     interface: calibrateGotoCmd,
     camId: telephotoCamera,
@@ -35,11 +35,11 @@ export function calibrateGoto(latitude, longitude) {
 
 // 4.1.3 Start goto
 export function startGoto(
-  planet,
-  rightAscension,
-  declination,
-  latitude,
-  longitude
+  planet: null | number,
+  rightAscension: number,
+  declination: number,
+  latitude: number,
+  longitude: number
 ) {
   const options = {
     interface: startGotoCmd,
@@ -48,7 +48,7 @@ export function startGoto(
     lat: latitude,
     date: now(),
     path: "DWARF_GOTO_timestamp",
-  };
+  } as { [k: string]: string | number };
 
   if (planet !== undefined && planet !== null) {
     options.planet = planet;
@@ -61,10 +61,10 @@ export function startGoto(
 
 // 4.1.4 Take raw pictures
 export function takeAstroPhoto(
-  rightAscension,
-  declination,
-  exposureTime,
-  gain,
+  rightAscension: number,
+  declination: number,
+  exposureTime: number,
+  gain: number,
   binning = binning2x2,
   count = 1,
   fileFormat = fileTiff
@@ -111,7 +111,7 @@ export function updateRawPreviewSource(
 
 // 4.1.10 Taking dark field
 // BUG: response is {interface: 11003, value: 100, code: 0} when darks already exists
-export function takeAstroDarks(binning, exposure, count = 40) {
+export function takeAstroDarks(binning: number, exposure: number, count = 40) {
   const options = {
     interface: takeAstroDarkFramesCmd,
     camId: telephotoCamera,
@@ -125,7 +125,7 @@ export function takeAstroDarks(binning, exposure, count = 40) {
 }
 
 // 4.1.11 Query the shot field
-export function queryShotField(binning) {
+export function queryShotField(binning: number) {
   const options = {
     interface: queryShotFieldCmd,
     camId: telephotoCamera,
