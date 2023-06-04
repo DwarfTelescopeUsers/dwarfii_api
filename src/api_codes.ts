@@ -1,11 +1,11 @@
 /* eslint no-unused-vars: 0 */
 
-const IP = "192.168.88.1";
-export const wsURL = `ws://${IP}:9900`;
-export const wideangleURL = `http://${IP}:8092/thirdstream`;
-export const telephotoURL = `http://${IP}:8092/mainstream`;
-export const rawPreviewURL = `http://${IP}:8092/rawstream`;
-export const utcURL = `http://${IP}:8092/date?date=`;
+export const DwarfIP = "192.168.88.1";
+export const wsURL = (IP: string) => `ws://${IP}:9900`;
+export const wideangleURL = (IP: string) => `http://${IP}:8092/thirdstream`;
+export const telephotoURL = (IP: string) => `http://${IP}:8092/mainstream`;
+export const rawPreviewURL = (IP: string) => `http://${IP}:8092/rawstream`;
+export const utcURL = (IP: string) => `http://${IP}:8092/date?date=`;
 
 // ===============
 // 3.1 image transmission

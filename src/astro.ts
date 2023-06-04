@@ -16,8 +16,8 @@ import {
 import { now } from "./api_utils";
 
 // 4.1.1 UTC+0 time
-export function formatUtcUrl() {
-  return `${utcURL}${now()}`;
+export function formatUtcUrl(IP: string) {
+  return `${utcURL(IP)}${now()}`;
 }
 
 // 4.1.2 correction
