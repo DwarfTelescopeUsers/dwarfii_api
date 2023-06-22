@@ -13,7 +13,7 @@ import {
   queryShotFieldCmd,
   setRAWPreviewCmd,
 } from "./api_codes";
-import { now } from "./api_utils";
+import { now, nowFileName } from "./api_utils";
 
 // 4.1.1 UTC+0 time
 export function formatUtcUrl(IP: string) {
@@ -79,7 +79,7 @@ export function takeAstroPhoto(
     gain: gain,
     binning: binning,
     count: count,
-    name: `Astro ${now()}`,
+    name: `DWARF_RAW_${nowFileName()}`,
     overlayCount: 1,
     format: fileFormat,
   };
@@ -116,7 +116,7 @@ export function takeAstroDarks(binning: number, exposure: number, count = 40) {
     interface: takeAstroDarkFramesCmd,
     camId: telephotoCamera,
     count,
-    name: `DWARF_DARK ${now()}`,
+    name: `DWARF_DARK_${nowFileName()}`,
     binning: binning,
     darkGain: darkGainDefault,
     darkExposure: exposure,
