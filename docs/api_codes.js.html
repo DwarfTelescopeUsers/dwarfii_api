@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>api_codes.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/DwarfTelescopeUsers/dwarfii_api" target="_blank" class="menu-item" id="website_link" >Github repo</a></h2><h3>Modules</h3><ul><li><a href="module-api_codes.html">api_codes</a><ul class='members'><li data-type='member'><a href="module-api_codes.html#.rawPreviewURL">rawPreviewURL</a></li><li data-type='member'><a href="module-api_codes.html#.telephotoURL">telephotoURL</a></li><li data-type='member'><a href="module-api_codes.html#.utcURL">utcURL</a></li><li data-type='member'><a href="module-api_codes.html#.wideangleURL">wideangleURL</a></li><li data-type='member'><a href="module-api_codes.html#.wsURL">wsURL</a></li></ul></li><li><a href="module-api_utils.html">api_utils</a><ul class='methods'><li data-type='method'><a href="module-api_utils.html#.now">now</a></li><li data-type='method'><a href="module-api_utils.html#.nowFileName">nowFileName</a></li><li data-type='method'><a href="module-api_utils.html#.socketSend">socketSend</a></li></ul></li><li><a href="module-astro.html">astro</a><ul class='methods'><li data-type='method'><a href="module-astro.html#.calibrateGoto">calibrateGoto</a></li><li data-type='method'><a href="module-astro.html#.formatUtcUrl">formatUtcUrl</a></li><li data-type='method'><a href="module-astro.html#.queryShotField">queryShotField</a></li><li data-type='method'><a href="module-astro.html#.startGoto">startGoto</a></li><li data-type='method'><a href="module-astro.html#.stopAstroPhoto">stopAstroPhoto</a></li><li data-type='method'><a href="module-astro.html#.takeAstroDarks">takeAstroDarks</a></li><li data-type='method'><a href="module-astro.html#.takeAstroPhoto">takeAstroPhoto</a></li><li data-type='method'><a href="module-astro.html#.updateRawPreviewSource">updateRawPreviewSource</a></li></ul></li><li><a href="module-camera_settings.html">camera_settings</a><ul class='methods'><li data-type='method'><a href="module-camera_settings.html#.cameraSettings">cameraSettings</a></li><li data-type='method'><a href="module-camera_settings.html#.cameraWorkingState">cameraWorkingState</a></li><li data-type='method'><a href="module-camera_settings.html#.iRSettings">iRSettings</a></li></ul></li><li><a href="module-image_transmission.html">image_transmission</a><ul class='methods'><li data-type='method'><a href="module-image_transmission.html#.setPreviewImageQuality">setPreviewImageQuality</a></li><li data-type='method'><a href="module-image_transmission.html#.turnOffCamera">turnOffCamera</a></li><li data-type='method'><a href="module-image_transmission.html#.turnOnCamera">turnOnCamera</a></li></ul></li><li><a href="module-motion_control.html">motion_control</a><ul class='methods'><li data-type='method'><a href="module-motion_control.html#.setDirection">setDirection</a></li><li data-type='method'><a href="module-motion_control.html#.setSpeed">setSpeed</a></li><li data-type='method'><a href="module-motion_control.html#.setSubdivide">setSubdivide</a></li><li data-type='method'><a href="module-motion_control.html#.startMotion">startMotion</a></li><li data-type='method'><a href="module-motion_control.html#.stopMotion">stopMotion</a></li></ul></li><li><a href="module-panoramic.html">panoramic</a><ul class='methods'><li data-type='method'><a href="module-panoramic.html#.startPano">startPano</a></li><li data-type='method'><a href="module-panoramic.html#.stopPano">stopPano</a></li></ul></li><li><a href="module-photo_video.html">photo_video</a><ul class='methods'><li data-type='method'><a href="module-photo_video.html#.startTimeLapse">startTimeLapse</a></li><li data-type='method'><a href="module-photo_video.html#.startVideo">startVideo</a></li><li data-type='method'><a href="module-photo_video.html#.stopTimeLapse">stopTimeLapse</a></li><li data-type='method'><a href="module-photo_video.html#.stopVideo">stopVideo</a></li><li data-type='method'><a href="module-photo_video.html#.takePhoto">takePhoto</a></li></ul></li><li><a href="module-set_isp_settings.html">set_isp_settings</a><ul class='methods'><li data-type='method'><a href="module-set_isp_settings.html#.autoFocus">autoFocus</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setBrightness">setBrightness</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setContrast">setContrast</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setExposure">setExposure</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setExposureMode">setExposureMode</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setGain">setGain</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setGainMode">setGainMode</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setHue">setHue</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setIR">setIR</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setSaturation">setSaturation</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setSharpness">setSharpness</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setWhiteBalanceColor">setWhiteBalanceColor</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setWhiteBalanceMode">setWhiteBalanceMode</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setWhiteBalanceScene">setWhiteBalanceScene</a></li></ul></li><li><a href="module-system_settings.html">system_settings</a><ul class='methods'><li data-type='method'><a href="module-system_settings.html#.shutDown">shutDown</a></li></ul></li><li><a href="module-tracking.html">tracking</a><ul class='methods'><li data-type='method'><a href="module-tracking.html#.startTrace">startTrace</a></li><li data-type='method'><a href="module-tracking.html#.startTracking">startTracking</a></li><li data-type='method'><a href="module-tracking.html#.stopTracking">stopTracking</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">api_codes.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module api_codes */
+/* eslint no-unused-vars: 0 */
+
+export const DwarfIP = "192.168.88.1";
+
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const wsURL = (IP) => `ws://${IP}:9900`;
+
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const wideangleURL = (IP) => `http://${IP}:8092/thirdstream`;
+
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const telephotoURL = (IP) => `http://${IP}:8092/mainstream`;
+
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const rawPreviewURL = (IP) => `http://${IP}:8092/rawstream`;
+
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const utcURL = (IP) => `http://${IP}:8092/date?date=`;
+
+// ===============
+// 3.1 image transmission
+// ===============
+
+// camera
+export const turnOnCameraCmd = 10000;
+export const turnOffCameraCmd = 10017;
+
+export const telephotoCamera = 0;
+export const wideangleCamera = 1;
+
+export const previewImageQuality = 10016;
+
+// ===============
+// 3.2 photo and video
+// ===============
+
+// photo
+export const takePhotoCmd = 10006;
+export const photoSingleShot = 0;
+export const photoContinuous = 1;
+
+// video
+export const startRecordingCmd = 10007;
+export const stopRecordingCmd = 10009;
+
+// timelapse photos
+export const startTimelapseCmd = 10018;
+export const stopTimelapseCmd = 10019;
+
+// ===============
+// 3.3 ISP settings
+// ===============
+
+export const modeAuto = 0;
+export const modeManual = 1;
+
+// brightness
+export const setBrightnessValueCmd = 10204;
+
+// contrast
+export const setContrastValueCmd = 10205;
+
+// saturation
+export const setSaturationValueCmd = 10206;
+
+// hue
+export const setHueValueCmd = 10207;
+
+// sharpness
+export const setSharpnessValueCmd = 10208;
+
+// exposure
+export const setExposureModeCmd = 10001;
+export const setExposureValueCmd = 10003;
+export const exposureTelephotoModeAuto = 0;
+export const exposureWideangleModeAuto = 3;
+
+// gain
+export const setGainModeCmd = 10004;
+export const setGainValueCmd = 10005;
+
+// autofocus
+export const autofocusCmd = 10211;
+export const autofocusGlobal = 0;
+export const autofocusArea = 1;
+
+// whitebalance
+export const setWhiteBalanceModeCmd = 10212;
+export const setWhiteBalanceScenceCmd = 10213;
+export const whiteBalanceScenesIDValue = {
+  0: "incandescent lamp",
+  1: "fluorescent lamp",
+  2: "warm fluorescent lamp",
+  3: "sunlight",
+  4: "overcast sky",
+  5: "evening twilight",
+  6: "shadow",
+};
+export const whiteBalanceScenesValueID = {
+  "incandescent lamp": 0,
+  "fluorescent lamp": 1,
+  "warm fluorescent lamp": 2,
+  sunlight: 3,
+  "overcast sky": 4,
+  "evening twilight": 5,
+  shadow: 6,
+};
+export const setWhiteBalanceColorCmd = 10214;
+
+// IR
+export const setIRCmd = 10203;
+export const IRCut = 0;
+export const IRPass = 3;
+
+// ===============
+// 3.4 status
+// ===============
+
+// telephoto
+export const statusTelephotoCmd = 10215;
+export const statusIRTelephotoCmd = 10216;
+export const statusWorkingStateTelephotoCmd = 10022;
+
+// wideangle
+export const statusWideangleCmd = 10217;
+
+// ===============
+// 4.1 Astro
+// ===============
+
+// goto
+export const calibrateGotoCmd = 11205;
+export const startGotoCmd = 11203;
+
+export const planetsValueId = {
+  Mercury: 0,
+  Venus: 1,
+  Mars: 2,
+  Jupiter: 3,
+  Saturn: 4,
+  Uranus: 5,
+  Neptune: 6,
+  Moon: 7,
+};
+
+export const planetsIdValue = {
+  0: "Mercury",
+  1: "Venus",
+  2: "Mars",
+  3: "Jupiter",
+  4: "Saturn",
+  5: "Uranus",
+  6: "Neptune",
+  7: "Moon",
+};
+
+// RAW astro photo
+export const takeAstroPhotoCmd = 10011;
+export const stopAstroPhotoCmd = 10015;
+
+export const binning1x1 = 0;
+export const binning2x2 = 1;
+
+export const fileFits = 0;
+export const fileTiff = 1;
+
+export const numberRawImagesCmd = 10014;
+export const numberSuperImposedImages = 10023;
+
+// raw preview
+export const setRAWPreviewCmd = 10020;
+export const rawPreviewContinousSuperimpose = 0;
+export const rawPreviewSingle15 = 1;
+export const rawPreviewSingleComposite = 2;
+
+// astro dark frames
+export const takeAstroDarkFramesCmd = 10026;
+export const darkGainDefault = 65528;
+
+// query shot field
+export const queryShotFieldCmd = 10027;
+
+// ===============
+// 4.2 tracking
+// ===============
+
+export const traceInitCmd = 11200;
+export const startTrackingCmd = 11201;
+export const stopTrackingCmd = 11202;
+
+// ===============
+// 4.3 panoromic
+// ===============
+
+export const startPanoCmd = 10103;
+export const stopPanoCmd = 10106;
+
+// ===============
+// 5 motion control
+// ===============
+
+export const startMotionCmd = 10100;
+export const continuous_mode = 1;
+export const pulse_mode = 2;
+
+export const stopMotionCmd = 10101;
+
+export const setSpeedCmd = 10107;
+export const speedDecelerate = 0;
+export const speedAccelerate = 1;
+
+export const setDirectionCmd = 10108;
+export const anticlockwise = 0;
+export const clockwise = 1;
+
+export const setSubdivideCmd = 10109;
+
+export const spinMotor = 1;
+export const pitchMotor = 2;
+
+// ===============
+// 7.1 system status
+// ===============
+
+export const systemStatusCmd = 11407;
+
+// ===============
+// 7.2 microsd card status
+// ===============
+
+export const microsdStatusCmd = 11405;
+export const microsdAvailableCmd = 11409;
+
+// ===============
+// 7.4 dwarf status
+// ===============
+
+export const dwarfSoftwareVersionCmd = 11410;
+export const dwarfChargingStatusCmd = 11011;
+
+// ===============
+// 7.11 shut down
+// ===============
+
+export const shutDownCmd = 11004;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Sat Jun 24 2023 10:47:18 GMT-0700 (Pacific Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
