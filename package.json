@@ -1,7 +1,7 @@
 {
-  "name": "dwarf2_api",
+  "name": "dwarfii_api",
   "version": "0.0.1",
-  "description": "wrapper for Dwarf II API",
+  "description": "wrapper for Dwarf II telescope API",
   "main": "index.js",
   "scripts": {
     "lint": "eslint src/**/*",
@@ -9,7 +9,12 @@
     "format:fix": "prettier --write \"src/**/*.{ts,js}\"",
     "CI": "npm run lint && npm run format"
   },
-  "author": "",
+  "type": "module",
+  "author": "wykhuh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DwarfTelescopeUsers/dwarfii_api"
+  },
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.40.0",
