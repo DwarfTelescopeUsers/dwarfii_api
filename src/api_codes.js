@@ -96,13 +96,13 @@ export const setGainValueCmd = 10005;
 
 // autofocus
 export const autofocusCmd = 10211;
-const autofocusGlobal = 0;
+export const autofocusGlobal = 0;
 export const autofocusArea = 1;
 
 // whitebalance
 export const setWhiteBalanceModeCmd = 10212;
 export const setWhiteBalanceScenceCmd = 10213;
-const whiteBalanceScenesIDValue = {
+export const whiteBalanceScenesIDValue = {
   0: "incandescent lamp",
   1: "fluorescent lamp",
   2: "warm fluorescent lamp",
@@ -125,7 +125,7 @@ export const setWhiteBalanceColorCmd = 10214;
 // IR
 export const setIRCmd = 10203;
 export const IRCut = 0;
-const IRPass = 3;
+export const IRPass = 3;
 
 // ===============
 // 3.4 status
@@ -147,7 +147,7 @@ export const statusWideangleCmd = 10217;
 export const calibrateGotoCmd = 11205;
 export const startGotoCmd = 11203;
 
-const planetsValueId = {
+export const planetsValueId = {
   Mercury: 0,
   Venus: 1,
   Mars: 2,
@@ -158,7 +158,7 @@ const planetsValueId = {
   Moon: 7,
 };
 
-const planetsIdValue = {
+export const planetsIdValue = {
   0: "Mercury",
   1: "Venus",
   2: "Mars",
@@ -176,17 +176,17 @@ export const stopAstroPhotoCmd = 10015;
 export const binning1x1 = 0;
 export const binning2x2 = 1;
 
-const fileFits = 0;
+export const fileFits = 0;
 export const fileTiff = 1;
 
-const numberRawImagesCmd = 10014;
-const numberSuperImposedImages = 10023;
+export const numberRawImagesCmd = 10014;
+export const numberSuperImposedImages = 10023;
 
 // raw preview
 export const setRAWPreviewCmd = 10020;
 export const rawPreviewContinousSuperimpose = 0;
-const rawPreviewSingle15 = 1;
-const rawPreviewSingleComposite = 2;
+export const rawPreviewSingle15 = 1;
+export const rawPreviewSingleComposite = 2;
 
 // astro dark frames
 export const takeAstroDarkFramesCmd = 10026;
@@ -225,8 +225,8 @@ export const speedDecelerate = 0;
 export const speedAccelerate = 1;
 
 export const setDirectionCmd = 10108;
-const anticlockwise = 0;
-const clockwise = 1;
+export const anticlockwise = 0;
+export const clockwise = 1;
 
 export const setSubdivideCmd = 10109;
 
@@ -237,21 +237,21 @@ export const pitchMotor = 2;
 // 7.1 system status
 // ===============
 
-const systemStatusCmd = 11407;
+export const systemStatusCmd = 11407;
 
 // ===============
 // 7.2 microsd card status
 // ===============
 
-const microsdStatusCmd = 11405;
-const microsdAvailableCmd = 11409;
+export const microsdStatusCmd = 11405;
+export const microsdAvailableCmd = 11409;
 
 // ===============
 // 7.4 dwarf status
 // ===============
 
-const dwarfSoftwareVersionCmd = 11410;
-const dwarfChargingStatusCmd = 11011;
+export const dwarfSoftwareVersionCmd = 11410;
+export const dwarfChargingStatusCmd = 11011;
 
 // ===============
 // 7.11 shut down
