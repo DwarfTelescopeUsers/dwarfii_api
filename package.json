@@ -1,6 +1,6 @@
 {
   "name": "dwarfii_api",
-  "version": "0.0.2-alpha.2",
+  "version": "0.0.2-alpha.3",
   "description": "wrapper for Dwarf II telescope API",
   "main": "index.js",
   "scripts": {
