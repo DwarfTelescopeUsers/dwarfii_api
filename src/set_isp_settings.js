@@ -109,7 +109,7 @@ export function setSharpness(camera = telephotoCamera, value) {
  * 3.3.6 Set exposure mode
  * @param {number} camera
  * @param {number} mode
- * @returns
+ * @returns {Object}
  */
 export function setExposureMode(camera = telephotoCamera, mode = modeManual) {
   const options = {
@@ -124,7 +124,7 @@ export function setExposureMode(camera = telephotoCamera, mode = modeManual) {
  * 3.3.7 Set exposure value
  * @param {number} camera
  * @param {number} value
- * @returns
+ * @returns {Object}
  */
 export function setExposure(camera = telephotoCamera, value) {
   // Long focal camera:0.0000-15.0000
