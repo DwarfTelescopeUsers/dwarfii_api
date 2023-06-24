@@ -4,10 +4,14 @@ import {
   statusWideangleCmd,
   statusIRTelephotoCmd,
   statusWorkingStateTelephotoCmd,
-} from "./api_codes";
+} from "./api_codes.js";
 
-// 3.4.1 Get telephoto ISP parameters
-// 3.4.4 Returns the wide-angle ISP parameter
+/**
+ * 3.4.1 Get telephoto ISP parameters
+ * 3.4.4 Returns the wide-angle ISP parameter
+ * @param {number} camera
+ * @returns {Object}
+ */
 export function cameraSettings(camera = telephotoCamera) {
   let command;
   if (camera === telephotoCamera) {
@@ -19,13 +23,19 @@ export function cameraSettings(camera = telephotoCamera) {
   return options;
 }
 
-// 3.4.2 Get telephoto IRCUT state (when shooting raw)
+/**
+ * 3.4.2 Get telephoto IRCUT state (when shooting raw)
+ * @returns {Object}
+ */
 export function iRSettings() {
   const options = { interface: statusIRTelephotoCmd, camId: telephotoCamera };
   return options;
 }
 
-// 3.4.3 Returns to the telephoto working state
+/**
+ *  3.4.3 Returns to the telephoto working state
+ * @returns {Object}
+ */
 export function cameraWorkingState() {
   const options = {
     interface: statusWorkingStateTelephotoCmd,

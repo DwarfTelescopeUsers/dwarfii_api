@@ -4,9 +4,14 @@ import {
   turnOnCameraCmd,
   turnOffCameraCmd,
   previewImageQuality,
-} from "./api_codes";
+} from "./api_codes.js";
 
-// 3.1.1 Turn on the camera
+/**
+ * 3.1.1 Turn on the camera
+ * @param {number} binning
+ * @param {number} camera
+ * @returns {Object}
+ */
 export function turnOnCamera(binning = binning2x2, camera = telephotoCamera) {
   const options = {
     interface: turnOnCameraCmd,
@@ -16,14 +21,22 @@ export function turnOnCamera(binning = binning2x2, camera = telephotoCamera) {
   return options;
 }
 
-// 3.1.2 Turn off the camera
+/**
+ * 3.1.2 Turn off the camera
+ * @param {number} camera
+ * @returns {Object}
+ */
 export function turnOffCamera(camera = telephotoCamera) {
   const options = { interface: turnOffCameraCmd, camId: camera };
   return options;
 }
 
-// 3.1.4 Set preview image quality
-export function setPreviewImageQuality(previewQuality: number) {
+/**
+ * 3.1.4 Set preview image quality
+ * @param {number} previewQuality
+ * @returns {Object}
+ */
+export function setPreviewImageQuality(previewQuality) {
   // previewQuality value: 30-85
   const options = {
     interface: previewImageQuality,

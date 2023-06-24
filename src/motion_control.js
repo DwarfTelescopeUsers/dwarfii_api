@@ -4,17 +4,27 @@ import {
   setSpeedCmd,
   setDirectionCmd,
   setSubdivideCmd,
-} from "./api_codes";
+} from "./api_codes.js";
 
-// 5.1 Start
+/**
+ * 5.1 Start
+ * @param {number} motor
+ * @param {number} mode
+ * @param {number} mStep
+ * @param {number} speed
+ * @param {number} direction
+ * @param {number} pulse
+ * @param {number} accelStep
+ * @returns {Object}
+ */
 export function startMotion(
-  motor: number,
-  mode: number,
-  mStep: number,
-  speed: number,
-  direction: number,
-  pulse: number,
-  accelStep: number
+  motor,
+  mode,
+  mStep,
+  speed,
+  direction,
+  pulse,
+  accelStep
 ) {
   // motor: 1:spin 2:pitch
   // mode: 1:continuous mode 2:pulse mode
@@ -39,8 +49,13 @@ export function startMotion(
   return options;
 }
 
-// 5.2 Stop
-export function stopMotion(motor: number, decelStep: number) {
+/**
+ * 5.2 Stop
+ * @param {number} motor
+ * @param {number} decelStep
+ * @returns {Object}
+ */
+export function stopMotion(motor, decelStep) {
   // motor: 1:spin 2:pitch
   // decelStep: 0-1000
   const options = {
@@ -51,13 +66,15 @@ export function stopMotion(motor: number, decelStep: number) {
   return options;
 }
 
-// 5.3 Set speed
-export function setSpeed(
-  motor: number,
-  speed: number,
-  accelStep: number,
-  trend: number
-) {
+/**
+ * 5.3 Set speed
+ * @param {number} motor
+ * @param {number} speed
+ * @param {number} accelStep
+ * @param {number} trend
+ * @returns {Object}
+ */
+export function setSpeed(motor, speed, accelStep, trend) {
   // speed: 0-50000
   // accelStep: 0-1000
   // trend: 0:decelerate 1:accelerate
@@ -71,8 +88,13 @@ export function setSpeed(
   return options;
 }
 
-// 5.4 Set direction
-export function setDirection(motor: number, direction: number) {
+/**
+ * 5.4 Set direction
+ * @param {number} motor
+ * @param {number} direction
+ * @returns {Object}
+ */
+export function setDirection(motor, direction) {
   // direction: 0:anticlockwise 1:clockwise
   const options = {
     interface: setDirectionCmd,
@@ -82,8 +104,13 @@ export function setDirection(motor: number, direction: number) {
   return options;
 }
 
-// 5.5 Set subdivide
-export function setSubdivide(motor: number, mStep: number) {
+/**
+ * 5.5 Set subdivide
+ * @param {number} motor
+ * @param {number} mStep
+ * @returns {Object}
+ */
+export function setSubdivide(motor, mStep) {
   // 1 2 4 8 16 32 64 128 256
   const options = {
     interface: setSubdivideCmd,
