@@ -1,3 +1,5 @@
+/** @module set_isp_settings */
+
 import {
   telephotoCamera,
   setExposureModeCmd,

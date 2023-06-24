@@ -1,3 +1,4 @@
+/** @module api_codes */
 /* eslint no-unused-vars: 0 */
 
 export const DwarfIP = "192.168.88.1";

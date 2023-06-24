@@ -1,3 +1,5 @@
+/** @module panoramic */
+
 import { startPanoCmd, stopPanoCmd } from "./api_codes.js";
 import { now } from "./api_utils.js";
 

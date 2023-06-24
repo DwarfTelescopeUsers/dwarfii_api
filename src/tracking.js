@@ -1,3 +1,5 @@
+/** @module tracking */
+
 import {
   traceInitCmd,
   startTrackingCmd,

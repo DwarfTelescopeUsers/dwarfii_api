@@ -1,3 +1,5 @@
+/** @module motion_control */
+
 import {
   startMotionCmd,
   stopMotionCmd,

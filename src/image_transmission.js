@@ -1,3 +1,5 @@
+/** @module image_transmission */
+
 import {
   telephotoCamera,
   binning2x2,

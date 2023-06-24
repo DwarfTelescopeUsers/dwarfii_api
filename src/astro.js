@@ -1,3 +1,5 @@
+/** @module astro */
+
 import {
   telephotoCamera,
   calibrateGotoCmd,

@@ -7,7 +7,8 @@
     "lint": "eslint src/**/*",
     "format": "prettier --check \"src/**/*.{ts,js}\"",
     "format:fix": "prettier --write \"src/**/*.{ts,js}\"",
-    "CI": "npm run lint && npm run format"
+    "CI": "npm run lint && npm run format",
+    "generate-docs": "jsdoc -c jsdoc.json  -R README.md"
   },
   "type": "module",
   "author": "wykhuh",
@@ -17,8 +18,10 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "docdash": "^2.0.1",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
+    "jsdoc": "^4.0.2",
     "prettier": "^2.8.8"
   }
 }

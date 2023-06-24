@@ -1,3 +1,5 @@
+/** @module camera_settings */
+
 import {
   telephotoCamera,
   statusTelephotoCmd,

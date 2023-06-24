@@ -1,3 +1,5 @@
+/** @module photo_video */
+
 import {
   telephotoCamera,
   photoSingleShot,

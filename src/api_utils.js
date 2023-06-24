@@ -1,3 +1,5 @@
+/** @module api_utils */
+
 /**
  * Returns the now time as 'yyyy-mm-dd hh:mm:ss'
  * @returns {string}

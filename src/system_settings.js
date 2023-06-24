@@ -1,3 +1,5 @@
+/** @module system_settings */
+
 import { shutDownCmd } from "./api_codes.js";
 
 /**
