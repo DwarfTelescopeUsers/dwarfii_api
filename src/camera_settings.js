@@ -35,13 +35,14 @@ export function iRSettings() {
 }
 
 /**
- *  3.4.3 Returns to the telephoto working state
+ *  3.4.3 Returns to the camera working state
+ * @param {number} camera
  * @returns {Object}
  */
-export function cameraWorkingState() {
+export function cameraWorkingState(camera = telephotoCamera) {
   const options = {
     interface: statusWorkingStateTelephotoCmd,
-    camId: telephotoCamera,
+    camId: camera,
   };
   return options;
 }
