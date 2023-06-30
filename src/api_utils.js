@@ -27,6 +27,5 @@ export function nowFileName() {
  */
 export function socketSend(socket, command) {
   // eslint-disable-next-line no-undef
-  console.log("send", command);
   socket.send(JSON.stringify(command));
 }
