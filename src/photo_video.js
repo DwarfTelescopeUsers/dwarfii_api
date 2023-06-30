@@ -9,7 +9,7 @@ import {
   startTimelapseCmd,
   stopTimelapseCmd,
 } from "./api_codes.js";
-import { now } from "./api_utils.js";
+import { nowLocalFileName } from "./api_utils.js";
 
 /**
  * 3.2.1 Photograph
@@ -23,7 +23,7 @@ export function takePhoto(
   camera = telephotoCamera,
   photoMode = photoSingleShot,
   count = 1,
-  name = `Photo ${now()}`
+  name = `DWARF_${nowLocalFileName()}`
 ) {
   const options = {
     interface: takePhotoCmd,
@@ -40,7 +40,7 @@ export function takePhoto(
  * @param {string} name
  * @returns {Object}
  */
-export function startVideo(name = `Video ${now()}`) {
+export function startVideo(name = `DWARF_${nowLocalFileName()}`) {
   const options = {
     interface: startRecordingCmd,
     camId: telephotoCamera,
@@ -71,7 +71,7 @@ export function stopVideo() {
 export function startTimeLapse(
   intervalTime,
   outTime,
-  name = `Timelapse ${now()}`
+  name = `DWARF_TL_${nowLocalFileName()}`
 ) {
   // intervalTime value: 1s-60s
   const options = {

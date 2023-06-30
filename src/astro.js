@@ -15,7 +15,7 @@ import {
   queryShotFieldCmd,
   setRAWPreviewCmd,
 } from "./api_codes.js";
-import { now, nowFileName } from "./api_utils.js";
+import { nowUTC, nowLocalFileName } from "./api_utils.js";
 
 /**
  * 4.1.1 UTC+0 time
@@ -23,7 +23,7 @@ import { now, nowFileName } from "./api_utils.js";
  * @returns {string}
  */
 export function formatUtcUrl(IP) {
-  return `${utcURL(IP)}${now()}`;
+  return `${utcURL(IP)}${nowUTC()}`;
 }
 
 /**
@@ -38,7 +38,7 @@ export function calibrateGoto(latitude, longitude) {
     camId: telephotoCamera,
     lon: longitude,
     lat: latitude,
-    date: now(),
+    date: nowUTC(),
     path: "DWARF_GOTO_timestamp",
   };
   return options;
@@ -65,7 +65,7 @@ export function startGoto(
     camId: telephotoCamera,
     lon: longitude,
     lat: latitude,
-    date: now(),
+    date: nowUTC(),
     path: "DWARF_GOTO_timestamp",
   };
 
@@ -108,7 +108,7 @@ export function takeAstroPhoto(
     gain: gain,
     binning: binning,
     count: count,
-    name: `DWARF_RAW_${nowFileName()}`,
+    name: `DWARF_RAW_${nowLocalFileName()}`,
     overlayCount: 1,
     format: fileFormat,
   };
@@ -158,7 +158,7 @@ export function takeAstroDarks(binning, exposure, count = 40) {
     interface: takeAstroDarkFramesCmd,
     camId: telephotoCamera,
     count,
-    name: `DWARF_DARK_${nowFileName()}`,
+    name: `DWARF_DARK_${nowLocalFileName()}`,
     binning: binning,
     darkGain: darkGainDefault,
     darkExposure: exposure,
