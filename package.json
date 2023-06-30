@@ -7,9 +7,10 @@
     "lint": "eslint src/**/*",
     "format": "prettier --check \"src/**/*.{ts,js}\"",
     "format:fix": "prettier --write \"src/**/*.{ts,js}\"",
-    "CI": "npm run lint && npm run format",
+    "CI": "npm run lint && npm run format && npm run typecheck",
     "generate-docs": "jsdoc -c jsdoc.json  -R README.md",
-    "ts": "tsc -p ./tsconfig.json"
+    "ts": "tsc -p ./tsconfig.json",
+    "typecheck": "tsc -p ./tsconfig.json --noEmit"
   },
   "type": "module",
   "author": "wykhuh",
