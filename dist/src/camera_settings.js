@@ -31,9 +31,11 @@ export function iRSettings() {
  * @returns {Object}
  */
 export function cameraWorkingState(camera = telephotoCamera) {
-    const options = {
-        interface: statusWorkingStateTelephotoCmd,
-        camId: camera,
-    };
-    return options;
+    if (camera === telephotoCamera) {
+        const options = {
+            interface: statusWorkingStateTelephotoCmd,
+            camId: telephotoCamera,
+        };
+        return options;
+    }
 }

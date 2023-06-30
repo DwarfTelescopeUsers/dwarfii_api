@@ -14,13 +14,13 @@ export function calibrateGoto(latitude: number, longitude: number): any;
 /**
  * 4.1.3 Start goto
  * @param {number|null} planet
- * @param {number} rightAscension
- * @param {number} declination
+ * @param {string} rightAscension
+ * @param {string} declination
  * @param {number} latitude
  * @param {number} longitude
  * @returns {Object}
  */
-export function startGoto(planet: number | null, rightAscension: number, declination: number, latitude: number, longitude: number): any;
+export function startGoto(planet: number | null, rightAscension: string, declination: string, latitude: number, longitude: number): any;
 /**
  * 4.1.4 Take raw pictures
  * @param {number} rightAscension

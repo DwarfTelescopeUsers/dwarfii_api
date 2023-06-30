@@ -29,8 +29,8 @@ export function calibrateGoto(latitude, longitude) {
 /**
  * 4.1.3 Start goto
  * @param {number|null} planet
- * @param {number} rightAscension
- * @param {number} declination
+ * @param {string} rightAscension
+ * @param {string} declination
  * @param {number} latitude
  * @param {number} longitude
  * @returns {Object}
