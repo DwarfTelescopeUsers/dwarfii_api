@@ -1,6 +1,6 @@
 /** @module panoramic */
 import { startPanoCmd, stopPanoCmd } from "./api_codes.js";
-import { now } from "./api_utils.js";
+import { nowLocalFileName } from "./api_utils.js";
 /**
  * 4.3.1 Start panorama
  * @param {number} numRows
@@ -30,7 +30,7 @@ export function startPano(numRows, numColumns, mStep1, mStep2, speed1, speed2, p
         speed2,
         pulse1,
         pulse2,
-        imgPath: `DWARF_PANORAMA_${now()}`,
+        imgPath: `DWARF_${nowLocalFileName()}`,
         accelStep1,
         accelStep2,
     };
