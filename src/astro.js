@@ -66,7 +66,7 @@ export function startGoto(
     lon: longitude,
     lat: latitude,
     date: nowLocal(),
-    path: `DWARF_GOTO_${nowLocalFileName}`,
+    path: `DWARF_GOTO_${nowLocalFileName()}`,
   };
 
   if (planet !== undefined && planet !== null) {
