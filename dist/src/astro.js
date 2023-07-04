@@ -1,6 +1,6 @@
 /** @module astro */
 import { telephotoCamera, calibrateGotoCmd, startGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
-import { nowUTC, nowLocalFileName } from "./api_utils.js";
+import { nowUTC, nowLocal, nowLocalFileName } from "./api_utils.js";
 /**
  * 4.1.1 UTC+0 time
  * @param {string} IP
@@ -21,7 +21,7 @@ export function calibrateGoto(latitude, longitude) {
         camId: telephotoCamera,
         lon: longitude,
         lat: latitude,
-        date: nowUTC(),
+        date: nowLocal(),
         path: "DWARF_GOTO_timestamp",
     };
     return options;
@@ -41,7 +41,7 @@ export function startGoto(planet, rightAscension, declination, latitude, longitu
         camId: telephotoCamera,
         lon: longitude,
         lat: latitude,
-        date: nowUTC(),
+        date: nowLocal(),
         path: "DWARF_GOTO_timestamp",
     };
     if (planet !== undefined && planet !== null) {
@@ -55,16 +55,17 @@ export function startGoto(planet, rightAscension, declination, latitude, longitu
 }
 /**
  * 4.1.4 Take raw pictures
- * @param {number} rightAscension
- * @param {number} declination
+ * @param {string} rightAscension
+ * @param {string} declination
  * @param {number} exposureTime
  * @param {number} gain
  * @param {number} binning
  * @param {number} count
  * @param {number} fileFormat
+ * @param {string} fileName
  * @returns {Object}
  */
-export function takeAstroPhoto(rightAscension, declination, exposureTime, gain, binning = binning2x2, count = 1, fileFormat = fileTiff) {
+export function takeAstroPhoto(rightAscension, declination, exposureTime, gain, binning = binning2x2, count = 1, fileFormat = fileTiff, fileName = `DWARF_RAW_${nowLocalFileName()}`) {
     const options = {
         interface: takeAstroPhotoCmd,
         camId: telephotoCamera,
@@ -75,7 +76,7 @@ export function takeAstroPhoto(rightAscension, declination, exposureTime, gain, 
         gain: gain,
         binning: binning,
         count: count,
-        name: `DWARF_RAW_${nowLocalFileName()}`,
+        name: fileName,
         overlayCount: 1,
         format: fileFormat,
     };
@@ -113,14 +114,15 @@ export function updateRawPreviewSource(source = rawPreviewContinousSuperimpose) 
  * @param {number} binning
  * @param {number} exposure
  * @param {number} count
+ * @param {string} fileName
  * @returns {Object}
  */
-export function takeAstroDarks(binning, exposure, count = 40) {
+export function takeAstroDarks(binning, exposure, count = 40, fileName = `DWARF_DARK_${nowLocalFileName()}`) {
     const options = {
         interface: takeAstroDarkFramesCmd,
         camId: telephotoCamera,
         count,
-        name: `DWARF_DARK_${nowLocalFileName()}`,
+        name: fileName,
         binning: binning,
         darkGain: darkGainDefault,
         darkExposure: exposure,

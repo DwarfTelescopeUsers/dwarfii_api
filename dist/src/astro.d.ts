@@ -23,16 +23,17 @@ export function calibrateGoto(latitude: number, longitude: number): any;
 export function startGoto(planet: number | null, rightAscension: string, declination: string, latitude: number, longitude: number): any;
 /**
  * 4.1.4 Take raw pictures
- * @param {number} rightAscension
- * @param {number} declination
+ * @param {string} rightAscension
+ * @param {string} declination
  * @param {number} exposureTime
  * @param {number} gain
  * @param {number} binning
  * @param {number} count
  * @param {number} fileFormat
+ * @param {string} fileName
  * @returns {Object}
  */
-export function takeAstroPhoto(rightAscension: number, declination: number, exposureTime: number, gain: number, binning?: number, count?: number, fileFormat?: number): any;
+export function takeAstroPhoto(rightAscension: string, declination: string, exposureTime: number, gain: number, binning?: number, count?: number, fileFormat?: number, fileName?: string): any;
 /**
  * 4.1.7 Stop taking RAW images
  * @returns {Object}
@@ -49,9 +50,10 @@ export function updateRawPreviewSource(source?: number): any;
  * @param {number} binning
  * @param {number} exposure
  * @param {number} count
+ * @param {string} fileName
  * @returns {Object}
  */
-export function takeAstroDarks(binning: number, exposure: number, count?: number): any;
+export function takeAstroDarks(binning: number, exposure: number, count?: number, fileName?: string): any;
 /**
  * 4.1.11 Query the shot field
  * @param {number} binning
