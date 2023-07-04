@@ -15,7 +15,7 @@ import {
   queryShotFieldCmd,
   setRAWPreviewCmd,
 } from "./api_codes.js";
-import { nowUTC, nowLocalFileName } from "./api_utils.js";
+import { nowUTC, nowLocal, nowLocalFileName } from "./api_utils.js";
 
 /**
  * 4.1.1 UTC+0 time
@@ -38,7 +38,7 @@ export function calibrateGoto(latitude, longitude) {
     camId: telephotoCamera,
     lon: longitude,
     lat: latitude,
-    date: nowUTC(),
+    date: nowLocal(),
     path: "DWARF_GOTO_timestamp",
   };
   return options;
@@ -65,7 +65,7 @@ export function startGoto(
     camId: telephotoCamera,
     lon: longitude,
     lat: latitude,
-    date: nowUTC(),
+    date: nowLocal(),
     path: "DWARF_GOTO_timestamp",
   };
 
