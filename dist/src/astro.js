@@ -42,7 +42,7 @@ export function startGoto(planet, rightAscension, declination, latitude, longitu
         lon: longitude,
         lat: latitude,
         date: nowLocal(),
-        path: `DWARF_GOTO_${nowLocalFileName}`,
+        path: `DWARF_GOTO_${nowLocalFileName()}`,
     };
     if (planet !== undefined && planet !== null) {
         options.planet = planet;
