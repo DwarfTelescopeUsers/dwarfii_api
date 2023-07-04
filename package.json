@@ -1,6 +1,6 @@
 {
   "name": "dwarfii_api",
-  "version": "0.0.2-alpha.6",
+  "version": "0.0.2-alpha.7",
   "description": "wrapper for Dwarf II telescope API",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "CI": "npm run lint && npm run format && npm run typecheck",
     "generate-docs": "jsdoc -c jsdoc.json  -R README.md",
     "ts": "tsc -p ./tsconfig.json",
-    "typecheck": "tsc -p ./tsconfig.json --noEmit"
+    "typecheck": "tsc -p ./tsconfig.json --noEmit",
+    "build": "npm run CI && npm run ts && npm run generate-docs"
   },
   "type": "module",
   "author": "wykhuh",
