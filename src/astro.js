@@ -80,8 +80,8 @@ export function startGoto(
 
 /**
  * 4.1.4 Take raw pictures
- * @param {number} rightAscension
- * @param {number} declination
+ * @param {string} rightAscension
+ * @param {string} declination
  * @param {number} exposureTime
  * @param {number} gain
  * @param {number} binning
