@@ -1,13 +1,25 @@
 /** @module astro */
-import { telephotoCamera, calibrateGotoCmd, startGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
-import { nowUTC, nowLocal, nowLocalFileName } from "./api_utils.js";
+import pkg from "intl";
+const { Intl } = pkg;
+import { telephotoCamera, calibrateGotoCmd, startGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, timeZoneURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
+import { nowUTC, nowLocalFileName } from "./api_utils.js";
 /**
- * 4.1.1 UTC+0 time
+ * 4.1.0 UTC+0 time
  * @param {string} IP
  * @returns {string}
  */
 export function formatUtcUrl(IP) {
     return `${utcURL(IP)}${nowUTC()}`;
+}
+/**
+ * 4.1.1 TimeZone name
+ * @param {string} IP
+ * @returns {string}
+ */
+export function formatTimeZoneUrl(IP) {
+    //return `${timeZoneURL(IP)}Europe/Paris}`;
+    // can't get it working !
+    return `${timeZoneURL(IP)}${Intl.DateTimeFormat().resolvedOptions().timeZone}`;
 }
 /**
  * 4.1.2 correction
@@ -21,16 +33,16 @@ export function calibrateGoto(latitude, longitude) {
         camId: telephotoCamera,
         lon: longitude,
         lat: latitude,
-        date: nowLocal(),
+        date: nowUTC(),
         path: `DWARF_GOTO_${nowLocalFileName()}`,
     };
     return options;
 }
 /**
  * 4.1.3 Start goto
- * @param {number|null} planet
- * @param {string} rightAscension
- * @param {string} declination
+ * @param {number|null|undefined} planet
+ * @param {number} rightAscension
+ * @param {number} declination
  * @param {number} latitude
  * @param {number} longitude
  * @returns {Object}
@@ -41,7 +53,7 @@ export function startGoto(planet, rightAscension, declination, latitude, longitu
         camId: telephotoCamera,
         lon: longitude,
         lat: latitude,
-        date: nowLocal(),
+        date: nowUTC(),
         path: `DWARF_GOTO_${nowLocalFileName()}`,
     };
     if (planet !== undefined && planet !== null) {

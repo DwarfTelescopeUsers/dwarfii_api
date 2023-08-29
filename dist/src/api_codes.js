@@ -26,6 +26,11 @@ export const rawPreviewURL = (IP) => `http://${IP}:8092/rawstream`;
  * @returns {string}
  */
 export const utcURL = (IP) => `http://${IP}:8092/date?date=`;
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const timeZoneURL = (IP) => `http://${IP}:8092/timezone?timezone=`;
 // ===============
 // 3.1 image transmission
 // ===============

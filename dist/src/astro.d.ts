@@ -1,9 +1,15 @@
 /**
- * 4.1.1 UTC+0 time
+ * 4.1.0 UTC+0 time
  * @param {string} IP
  * @returns {string}
  */
 export function formatUtcUrl(IP: string): string;
+/**
+ * 4.1.1 TimeZone name
+ * @param {string} IP
+ * @returns {string}
+ */
+export function formatTimeZoneUrl(IP: string): string;
 /**
  * 4.1.2 correction
  * @param {number} latitude
@@ -13,14 +19,14 @@ export function formatUtcUrl(IP: string): string;
 export function calibrateGoto(latitude: number, longitude: number): any;
 /**
  * 4.1.3 Start goto
- * @param {number|null} planet
- * @param {string} rightAscension
- * @param {string} declination
+ * @param {number|null|undefined} planet
+ * @param {number} rightAscension
+ * @param {number} declination
  * @param {number} latitude
  * @param {number} longitude
  * @returns {Object}
  */
-export function startGoto(planet: number | null, rightAscension: string, declination: string, latitude: number, longitude: number): any;
+export function startGoto(planet: number | null | undefined, rightAscension: number, declination: number, latitude: number, longitude: number): any;
 /**
  * 4.1.4 Take raw pictures
  * @param {string} rightAscension

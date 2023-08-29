@@ -5,6 +5,7 @@ export function wideangleURL(IP: string): string;
 export function telephotoURL(IP: string): string;
 export function rawPreviewURL(IP: string): string;
 export function utcURL(IP: string): string;
+export function timeZoneURL(IP: string): string;
 export const turnOnCameraCmd: 10000;
 export const turnOffCameraCmd: 10017;
 export const telephotoCamera: 0;
