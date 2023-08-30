@@ -1,6 +1,4 @@
 /** @module astro */
-import pkg from "intl";
-const { Intl } = pkg;
 
 import {
   telephotoCamera,
@@ -33,14 +31,13 @@ export function formatUtcUrl(IP) {
 /**
  * 4.1.1 TimeZone name
  * @param {string} IP
+ * @param {string} timezone
  * @returns {string}
  */
-export function formatTimeZoneUrl(IP) {
+export function formatTimeZoneUrl(IP, timezone) {
   //return `${timeZoneURL(IP)}Europe/Paris}`;
   // can't get it working !
-  return `${timeZoneURL(IP)}${
-    Intl.DateTimeFormat().resolvedOptions().timeZone
-  }`;
+  return `${timeZoneURL(IP)}${timezone}`;
 }
 
 /**

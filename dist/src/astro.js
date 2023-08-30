@@ -1,6 +1,4 @@
 /** @module astro */
-import pkg from "intl";
-const { Intl } = pkg;
 import { telephotoCamera, calibrateGotoCmd, startGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, timeZoneURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
 import { nowUTC, nowLocalFileName } from "./api_utils.js";
 /**
@@ -14,12 +12,13 @@ export function formatUtcUrl(IP) {
 /**
  * 4.1.1 TimeZone name
  * @param {string} IP
+ * @param {string} timezone
  * @returns {string}
  */
-export function formatTimeZoneUrl(IP) {
+export function formatTimeZoneUrl(IP, timezone) {
     //return `${timeZoneURL(IP)}Europe/Paris}`;
     // can't get it working !
-    return `${timeZoneURL(IP)}${Intl.DateTimeFormat().resolvedOptions().timeZone}`;
+    return `${timeZoneURL(IP)}${timezone}`;
 }
 /**
  * 4.1.2 correction

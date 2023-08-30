@@ -7,9 +7,10 @@ export function formatUtcUrl(IP: string): string;
 /**
  * 4.1.1 TimeZone name
  * @param {string} IP
+ * @param {string} timezone
  * @returns {string}
  */
-export function formatTimeZoneUrl(IP: string): string;
+export function formatTimeZoneUrl(IP: string, timezone: string): string;
 /**
  * 4.1.2 correction
  * @param {number} latitude
