@@ -29,6 +29,11 @@ export function calibrateGoto(latitude: number, longitude: number): any;
  */
 export function startGoto(planet: number | null | undefined, rightAscension: number, declination: number, latitude: number, longitude: number): any;
 /**
+ * 4.1.31 Stop goto
+ * @returns {Object}
+ */
+export function stopGoto(): any;
+/**
  * 4.1.4 Take raw pictures
  * @param {string} rightAscension
  * @param {string} declination

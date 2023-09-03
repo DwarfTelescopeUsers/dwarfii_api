@@ -1,5 +1,5 @@
 /** @module astro */
-import { telephotoCamera, calibrateGotoCmd, startGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, timeZoneURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
+import { telephotoCamera, calibrateGotoCmd, startGotoCmd, stopGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, timeZoneURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
 import { nowUTC, nowLocalFileName } from "./api_utils.js";
 /**
  * 4.1.0 UTC+0 time
@@ -62,6 +62,17 @@ export function startGoto(planet, rightAscension, declination, latitude, longitu
         options.ra = rightAscension;
         options.dec = declination;
     }
+    return options;
+}
+/**
+ * 4.1.31 Stop goto
+ * @returns {Object}
+ */
+export function stopGoto() {
+    const options = {
+        interface: stopGotoCmd,
+        camId: telephotoCamera,
+    };
     return options;
 }
 /**

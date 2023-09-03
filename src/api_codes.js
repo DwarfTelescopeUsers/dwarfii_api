@@ -153,6 +153,7 @@ export const statusWideangleCmd = 10217;
 // goto
 export const calibrateGotoCmd = 11205;
 export const startGotoCmd = 11203;
+export const stopGotoCmd = 11204;
 
 export const planetsValueId = {
   Mercury: 0,

@@ -64,6 +64,7 @@ export const statusWorkingStateTelephotoCmd: 10022;
 export const statusWideangleCmd: 10217;
 export const calibrateGotoCmd: 11205;
 export const startGotoCmd: 11203;
+export const stopGotoCmd: 11204;
 export namespace planetsValueId {
     let Mercury: number;
     let Venus: number;

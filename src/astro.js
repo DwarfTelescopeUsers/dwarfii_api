@@ -4,6 +4,7 @@ import {
   telephotoCamera,
   calibrateGotoCmd,
   startGotoCmd,
+  stopGotoCmd,
   binning2x2,
   fileTiff,
   takeAstroPhotoCmd,
@@ -89,6 +90,18 @@ export function startGoto(
     options.ra = rightAscension;
     options.dec = declination;
   }
+  return options;
+}
+
+/**
+ * 4.1.31 Stop goto
+ * @returns {Object}
+ */
+export function stopGoto() {
+  const options = {
+    interface: stopGotoCmd,
+    camId: telephotoCamera,
+  };
   return options;
 }
 
