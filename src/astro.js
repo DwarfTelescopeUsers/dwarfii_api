@@ -151,6 +151,7 @@ export function takeAstroPhoto(
 export function stopAstroPhoto() {
   const options = {
     interface: stopAstroPhotoCmd,
+    camId: telephotoCamera,
   };
   return options;
 }

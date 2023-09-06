@@ -111,6 +111,7 @@ export function takeAstroPhoto(rightAscension, declination, exposureTime, gain, 
 export function stopAstroPhoto() {
     const options = {
         interface: stopAstroPhotoCmd,
+        camId: telephotoCamera,
     };
     return options;
 }
