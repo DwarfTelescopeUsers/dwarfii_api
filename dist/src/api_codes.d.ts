@@ -100,6 +100,7 @@ export const rawPreviewSingleComposite: 2;
 export const takeAstroDarkFramesCmd: 10026;
 export const darkGainDefault: 65528;
 export const queryShotFieldCmd: 10027;
+export const astroAutofocusCmd: 10031;
 export const traceInitCmd: 11200;
 export const startTrackingCmd: 11201;
 export const stopTrackingCmd: 11202;

@@ -203,6 +203,9 @@ export const darkGainDefault = 65528;
 // query shot field
 export const queryShotFieldCmd = 10027;
 
+// astro Autofocus
+export const astroAutofocusCmd = 10031;
+
 // ===============
 // 4.2 tracking
 // ===============

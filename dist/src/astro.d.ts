@@ -72,4 +72,9 @@ export function takeAstroDarks(binning: number, exposure: number, count?: number
  * @returns {Object}
  */
 export function queryShotField(binning: number): any;
+/**
+ * 4.1.12 Astro Autofocus
+ * @returns {Object}
+ */
+export function astroAutofocus(): any;
 //# sourceMappingURL=astro.d.ts.map

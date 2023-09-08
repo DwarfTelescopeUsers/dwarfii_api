@@ -1,5 +1,5 @@
 /** @module astro */
-import { telephotoCamera, calibrateGotoCmd, startGotoCmd, stopGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, timeZoneURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
+import { telephotoCamera, calibrateGotoCmd, startGotoCmd, stopGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, timeZoneURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, astroAutofocusCmd, setRAWPreviewCmd, } from "./api_codes.js";
 import { nowUTC, nowLocalFileName } from "./api_utils.js";
 /**
  * 4.1.0 UTC+0 time
@@ -162,6 +162,17 @@ export function queryShotField(binning) {
         interface: queryShotFieldCmd,
         camId: telephotoCamera,
         binning: binning,
+    };
+    return options;
+}
+/**
+ * 4.1.12 Astro Autofocus
+ * @returns {Object}
+ */
+export function astroAutofocus() {
+    const options = {
+        interface: astroAutofocusCmd,
+        camId: telephotoCamera,
     };
     return options;
 }
