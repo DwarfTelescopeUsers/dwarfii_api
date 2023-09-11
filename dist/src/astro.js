@@ -57,6 +57,8 @@ export function startGoto(planet, rightAscension, declination, latitude, longitu
     };
     if (planet !== undefined && planet !== null) {
         options.planet = planet;
+        options.ra = 0.0;
+        options.dec = 0.0;
     }
     else {
         options.ra = rightAscension;
