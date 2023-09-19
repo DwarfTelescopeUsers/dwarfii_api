@@ -1,11 +1,11 @@
 /**
- * 4.1.0 UTC+0 time
+ * 4.1.1 UTC+0 time
  * @param {string} IP
  * @returns {string}
  */
 export function formatUtcUrl(IP: string): string;
 /**
- * 4.1.1 TimeZone name
+ * 4.1.1bis TimeZone name (Not Documented)
  * @param {string} IP
  * @param {string} timezone
  * @returns {string}
@@ -29,7 +29,7 @@ export function calibrateGoto(latitude: number, longitude: number): any;
  */
 export function startGoto(planet: number | null | undefined, rightAscension: number, declination: number, latitude: number, longitude: number): any;
 /**
- * 4.1.31 Stop goto
+ * 4.1.3bis Stop goto (Not documented)
  * @returns {Object}
  */
 export function stopGoto(): any;

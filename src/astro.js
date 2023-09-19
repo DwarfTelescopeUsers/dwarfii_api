@@ -22,7 +22,7 @@ import {
 import { nowUTC, nowLocalFileName } from "./api_utils.js";
 
 /**
- * 4.1.0 UTC+0 time
+ * 4.1.1 UTC+0 time
  * @param {string} IP
  * @returns {string}
  */
@@ -31,14 +31,12 @@ export function formatUtcUrl(IP) {
 }
 
 /**
- * 4.1.1 TimeZone name
+ * 4.1.1bis TimeZone name (Not Documented)
  * @param {string} IP
  * @param {string} timezone
  * @returns {string}
  */
 export function formatTimeZoneUrl(IP, timezone) {
-  //return `${timeZoneURL(IP)}Europe/Paris}`;
-  // can't get it working !
   return `${timeZoneURL(IP)}${timezone}`;
 }
 
@@ -97,7 +95,7 @@ export function startGoto(
 }
 
 /**
- * 4.1.31 Stop goto
+ * 4.1.3bis Stop goto (Not documented)
  * @returns {Object}
  */
 export function stopGoto() {
