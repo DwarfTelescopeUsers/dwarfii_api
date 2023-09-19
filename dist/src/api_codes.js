@@ -26,6 +26,11 @@ export const rawPreviewURL = (IP) => `http://${IP}:8092/rawstream`;
  * @returns {string}
  */
 export const utcURL = (IP) => `http://${IP}:8092/date?date=`;
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const timeZoneURL = (IP) => `http://${IP}:8092/timezone?timezone=`;
 // ===============
 // 3.1 image transmission
 // ===============
@@ -116,6 +121,7 @@ export const statusWideangleCmd = 10217;
 // goto
 export const calibrateGotoCmd = 11205;
 export const startGotoCmd = 11203;
+export const stopGotoCmd = 11204;
 export const planetsValueId = {
     Mercury: 0,
     Venus: 1,
@@ -155,6 +161,8 @@ export const takeAstroDarkFramesCmd = 10026;
 export const darkGainDefault = 65528;
 // query shot field
 export const queryShotFieldCmd = 10027;
+// astro Autofocus
+export const astroAutofocusCmd = 10031;
 // ===============
 // 4.2 tracking
 // ===============

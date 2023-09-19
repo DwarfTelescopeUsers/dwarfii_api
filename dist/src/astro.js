@@ -1,6 +1,6 @@
 /** @module astro */
-import { telephotoCamera, calibrateGotoCmd, startGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
-import { nowUTC, nowLocal, nowLocalFileName } from "./api_utils.js";
+import { telephotoCamera, calibrateGotoCmd, startGotoCmd, stopGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, timeZoneURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, astroAutofocusCmd, setRAWPreviewCmd, } from "./api_codes.js";
+import { nowUTC, nowLocalFileName } from "./api_utils.js";
 /**
  * 4.1.1 UTC+0 time
  * @param {string} IP
@@ -8,6 +8,15 @@ import { nowUTC, nowLocal, nowLocalFileName } from "./api_utils.js";
  */
 export function formatUtcUrl(IP) {
     return `${utcURL(IP)}${nowUTC()}`;
+}
+/**
+ * 4.1.1bis TimeZone name (Not Documented)
+ * @param {string} IP
+ * @param {string} timezone
+ * @returns {string}
+ */
+export function formatTimeZoneUrl(IP, timezone) {
+    return `${timeZoneURL(IP)}${timezone}`;
 }
 /**
  * 4.1.2 correction
@@ -21,16 +30,16 @@ export function calibrateGoto(latitude, longitude) {
         camId: telephotoCamera,
         lon: longitude,
         lat: latitude,
-        date: nowLocal(),
+        date: nowUTC(),
         path: `DWARF_GOTO_${nowLocalFileName()}`,
     };
     return options;
 }
 /**
  * 4.1.3 Start goto
- * @param {number|null} planet
- * @param {string} rightAscension
- * @param {string} declination
+ * @param {number|null|undefined} planet
+ * @param {number} rightAscension
+ * @param {number} declination
  * @param {number} latitude
  * @param {number} longitude
  * @returns {Object}
@@ -41,16 +50,29 @@ export function startGoto(planet, rightAscension, declination, latitude, longitu
         camId: telephotoCamera,
         lon: longitude,
         lat: latitude,
-        date: nowLocal(),
+        date: nowUTC(),
         path: `DWARF_GOTO_${nowLocalFileName()}`,
     };
     if (planet !== undefined && planet !== null) {
         options.planet = planet;
+        options.ra = 0.0;
+        options.dec = 0.0;
     }
     else {
         options.ra = rightAscension;
         options.dec = declination;
     }
+    return options;
+}
+/**
+ * 4.1.3bis Stop goto (Not documented)
+ * @returns {Object}
+ */
+export function stopGoto() {
+    const options = {
+        interface: stopGotoCmd,
+        camId: telephotoCamera,
+    };
     return options;
 }
 /**
@@ -89,6 +111,7 @@ export function takeAstroPhoto(rightAscension, declination, exposureTime, gain, 
 export function stopAstroPhoto() {
     const options = {
         interface: stopAstroPhotoCmd,
+        camId: telephotoCamera,
     };
     return options;
 }
@@ -139,6 +162,17 @@ export function queryShotField(binning) {
         interface: queryShotFieldCmd,
         camId: telephotoCamera,
         binning: binning,
+    };
+    return options;
+}
+/**
+ * 4.1.12 Astro Autofocus
+ * @returns {Object}
+ */
+export function astroAutofocus() {
+    const options = {
+        interface: astroAutofocusCmd,
+        camId: telephotoCamera,
     };
     return options;
 }

@@ -6,7 +6,7 @@
     "outDir": "./dist",
     "skipLibCheck": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
   },
   "include": ["src/*", "index.js"],
   "exclude": ["node_modules"]

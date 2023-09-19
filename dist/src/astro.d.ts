@@ -5,6 +5,13 @@
  */
 export function formatUtcUrl(IP: string): string;
 /**
+ * 4.1.1bis TimeZone name (Not Documented)
+ * @param {string} IP
+ * @param {string} timezone
+ * @returns {string}
+ */
+export function formatTimeZoneUrl(IP: string, timezone: string): string;
+/**
  * 4.1.2 correction
  * @param {number} latitude
  * @param {number} longitude
@@ -13,14 +20,19 @@ export function formatUtcUrl(IP: string): string;
 export function calibrateGoto(latitude: number, longitude: number): any;
 /**
  * 4.1.3 Start goto
- * @param {number|null} planet
- * @param {string} rightAscension
- * @param {string} declination
+ * @param {number|null|undefined} planet
+ * @param {number} rightAscension
+ * @param {number} declination
  * @param {number} latitude
  * @param {number} longitude
  * @returns {Object}
  */
-export function startGoto(planet: number | null, rightAscension: string, declination: string, latitude: number, longitude: number): any;
+export function startGoto(planet: number | null | undefined, rightAscension: number, declination: number, latitude: number, longitude: number): any;
+/**
+ * 4.1.3bis Stop goto (Not documented)
+ * @returns {Object}
+ */
+export function stopGoto(): any;
 /**
  * 4.1.4 Take raw pictures
  * @param {string} rightAscension
@@ -60,4 +72,9 @@ export function takeAstroDarks(binning: number, exposure: number, count?: number
  * @returns {Object}
  */
 export function queryShotField(binning: number): any;
+/**
+ * 4.1.12 Astro Autofocus
+ * @returns {Object}
+ */
+export function astroAutofocus(): any;
 //# sourceMappingURL=astro.d.ts.map
