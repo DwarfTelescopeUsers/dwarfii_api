@@ -10,8 +10,11 @@
     "CI": "npm run lint && npm run format && npm run typecheck",
     "generate-docs": "jsdoc -c jsdoc.json  -R README.md",
     "ts": "tsc -p ./tsconfig.json",
-    "typecheck": "tsc -p ./tsconfig.json --noEmit",
-    "build": "npm run CI && npm run ts && npm run generate-docs"
+    "typecheck": "tsc -p ./tsconfig.json",
+    "compile-proto": "npx pbjs -t static-module -w ./wrapper/wrapper.js --dependency protobufjs/minimal.js -o ./src/protobuf/protobuf.js ./src/proto/*.proto && prettier --write \"./src/protobuf/protobuf.js\"",
+    "generate-types": "npx pbts -o dist/src/protobuf/protobuf.d.ts ./dist/src/protobuf/protobuf.js",
+    "copy-files": "copyfiles -u 1 src/proto/*.proto dist/src/",
+    "build": "npm run compile-proto && npm run CI && npm run ts && npm run generate-types && npm run copy-files && npm run generate-docs"
   },
   "type": "module",
   "author": "wykhuh & stevejcl",
@@ -27,5 +30,10 @@
     "jsdoc": "^4.0.2",
     "prettier": "^2.8.8",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "copyfiles": "^2.4.1",
+    "protobufjs": "^7.2.6",
+    "protobufjs-cli": "^1.1.2"
   }
 }

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+//设置系统时间
+message ReqSetTime {
+    uint64 timestamp = 1;
+}
+
+//设置系统时区
+message ReqSetTimezone {
+    string timezone = 1;
+}
+
+// 设置MTP模式
+message ReqSetMtpMode {
+    int32 mode = 1;
+}
+
+// 设置CPU模式
+message ReqSetCpuMode {
+    int32 mode = 1;
+}

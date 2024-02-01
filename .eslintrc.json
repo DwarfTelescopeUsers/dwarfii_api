@@ -4,5 +4,10 @@
     "sourceType": "module",
     "ecmaVersion": 2020
   },
+  "env": {
+    "node":true
+  },
+  // Add an exception for the generated protobuf.js file
+  "ignorePatterns": ["src/protobuf/protobuf/*.*", "src/proto/*.*"],
   "root": true
 }

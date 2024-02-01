@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+// 开始校准
+message ReqStartCalibration {
+    
+}
+
+// 停止校准
+message ReqStopCalibration {
+    
+}
+
+// Goto深空天体
+message ReqGotoDSO {
+    double ra = 1;
+    double dec = 2;
+    string target_name = 3;
+}
+
+// Goto太阳系
+message ReqGotoSolarSystem {
+    int32 index = 1;
+    double lon = 2;
+    double lat = 3;
+    string target_name = 4;
+}
+
+// 停止Goto
+message ReqStopGoto {
+    
+}
+
+// 开始叠图
+message ReqCaptureRawLiveStacking {
+
+}
+
+// 停止叠图
+message ReqStopCaptureRawLiveStacking {
+
+}
+
+// 查询暗场进度
+message ReqCheckDarkFrame {
+
+}
+
+// 暗场进度返回
+message ResCheckDarkFrame {
+    int32 progress = 1;
+    int32 code = 2;
+}
+
+// 开始拍摄暗场
+message ReqCaptureDarkFrame {
+    int32 reshoot = 1;
+}
+
+// 停止拍摄暗场
+message ReqStopCaptureDarkFrame {
+
+}
+
+// GO LIVE接口
+message ReqGoLive {
+
+}
+
+// 开始日月跟踪
+message ReqTrackSpecialTarget {
+    int32 index = 1;
+    double lon = 2;
+    double lat = 3;
+}
+
+// 停止日月跟踪
+message ReqStopTrackSpecialTarget {
+
+}
