@@ -14,9 +14,14 @@ enum ModuleId {
     MODULE_PANORAMA = 10; // 15500-15599 Panoramic module
 }
 
+enum MessageTypeId {
+    TYPE_REQUEST = 0; // Message Type Request
+    TYPE_REQUEST_RESPONSE = 1; // Message Type Request Response
+    TYPE_NOTIFICATION = 2; // Message Type Notification
+    TYPE_NOTIFICATION_RESPONSE = 3; // Message Type Notification Response
+}
 
-
-enum AstroCMD {
+enum DwarfCMD {
     NO_CMD = 0; // No Cmd
 
     CMD_CAMERA_TELE_OPEN_CAMERA = 10000; // Turn on the camera
@@ -110,6 +115,20 @@ enum AstroCMD {
     CMD_SYSTEM_SET_MTP_MODE = 13002; // Set MTP mode
     CMD_SYSTEM_SET_CPU_MODE = 13003; // Set CPU mode
 
+    CMD_RGB_POWER_OPEN_RGB = 13500; // Turn on the ring light
+    CMD_RGB_POWER_CLOSE_RGB = 13501; // Turn off the ring light
+    CMD_RGB_POWER_POWER_DOWN = 13502; // Shut down
+    CMD_RGB_POWER_POWERIND_ON = 13503; // Turn on the battery indicator
+    CMD_RGB_POWER_POWERIND_OFF = 13504; // Turn off battery indicator = 
+    CMD_RGB_POWER_REBOOT = 13505; // Restart
+
+    CMD_FOCUS_AUTO_FOCUS = 15000; // Normal mode autofocus
+    CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS = 15001; // Manual single-step focusing
+    CMD_FOCUS_START_MANUAL_CONTINU_FOCUS = 15002; // Start manual continuous focus
+    CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS = 15003; // Stop manual continuous focus
+    CMD_FOCUS_START_ASTRO_AUTO_FOCUS = 15004; // Start astronomical autofocus
+    CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS = 15005; // Stop astronomical autofocus
+
     CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING = 15200; // Telephoto wide-angle image matching
     CMD_NOTIFY_ELE = 15201; // Battery Notification
     CMD_NOTIFY_CHARGE = 15202; // Charge status notification
@@ -142,7 +161,7 @@ enum AstroCMD {
     CMD_NOTIFY_POWER_OFF = 15229; // Shutdown notification
 }
 
-enum ErrorCodeAstro {
+enum DwarfErrorCode {
     NO_ERROR = 0; // No Error
     WS_PARSE_PROTOBUF_ERROR = -1; // Protobuf parsing failed
     WS_SDCARD_NOT_EXIST = -2; // SD card not detected
@@ -189,3 +208,14 @@ enum AstroTrackingSpecial {
     TRACKING_MOON = 1;
 }
 
+enum SolarSystemTarget {
+    Mercury = 1; 
+    Venus = 2;
+    Mars = 3;
+    Jupiter = 4;
+    Saturn = 5;
+    Uranus = 6;
+    Neptune = 7;
+    Moon = 8;
+    Sun = 9;
+}

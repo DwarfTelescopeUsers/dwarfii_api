@@ -39,6 +39,12 @@ export const utcURL = (IP) => `http://${IP}:8092/date?date=`;
  */
 export const timeZoneURL = (IP) => `http://${IP}:8092/timezone?timezone=`;
 
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const firmwareVersion = (IP) => `http://${IP}:8082/firmwareVersion`;
+
 // ===============
 // 3.1 image transmission
 // ===============

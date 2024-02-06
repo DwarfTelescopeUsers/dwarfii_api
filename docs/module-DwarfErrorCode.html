@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>DwarfErrorCode - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/DwarfTelescopeUsers/dwarfii_api" target="_blank" class="menu-item" id="website_link" >Github repo</a></h2><h3>Modules</h3><ul><li><a href="module-AstroState.html">AstroState</a></li><li><a href="module-AstroTrackingSpecial.html">AstroTrackingSpecial</a></li><li><a href="module-DwarfCMD.html">DwarfCMD</a></li><li><a href="module-DwarfErrorCode.html">DwarfErrorCode</a></li><li><a href="module-MessageTypeId.html">MessageTypeId</a></li><li><a href="module-ModuleId.html">ModuleId</a></li><li><a href="module-OperationState.html">OperationState</a></li><li><a href="module-SolarSystemTarget.html">SolarSystemTarget</a></li><li><a href="module-State.html">State</a></li><li><a href="module-WsMajorVersion.html">WsMajorVersion</a></li><li><a href="module-WsMinorVersion.html">WsMinorVersion</a></li><li><a href="module-api_codes.html">api_codes</a><ul class='members'><li data-type='member'><a href="module-api_codes.html#.firmwareVersion">firmwareVersion</a></li><li data-type='member'><a href="module-api_codes.html#.rawPreviewURL">rawPreviewURL</a></li><li data-type='member'><a href="module-api_codes.html#.telephotoURL">telephotoURL</a></li><li data-type='member'><a href="module-api_codes.html#.timeZoneURL">timeZoneURL</a></li><li data-type='member'><a href="module-api_codes.html#.utcURL">utcURL</a></li><li data-type='member'><a href="module-api_codes.html#.wideangleURL">wideangleURL</a></li><li data-type='member'><a href="module-api_codes.html#.wsURL">wsURL</a></li></ul></li><li><a href="module-api_utils.html">api_utils</a><ul class='methods'><li data-type='method'><a href="module-api_utils.html#.analyzePacket">analyzePacket</a></li><li data-type='method'><a href="module-api_utils.html#.createPacket">createPacket</a></li><li data-type='method'><a href="module-api_utils.html#.decodePacket">decodePacket</a></li><li data-type='method'><a href="module-api_utils.html#.messageAstroStartCalibration">messageAstroStartCalibration</a></li><li data-type='method'><a href="module-api_utils.html#.messageAstroStartGotoDso">messageAstroStartGotoDso</a></li><li data-type='method'><a href="module-api_utils.html#.messageAstroStartGotoSolarSystem">messageAstroStartGotoSolarSystem</a></li><li data-type='method'><a href="module-api_utils.html#.messageAstroStopCalibration">messageAstroStopCalibration</a></li><li data-type='method'><a href="module-api_utils.html#.messageAstroStopGoto">messageAstroStopGoto</a></li><li data-type='method'><a href="module-api_utils.html#.messageSetTime">messageSetTime</a></li><li data-type='method'><a href="module-api_utils.html#.messageSetTimezone">messageSetTimezone</a></li><li data-type='method'><a href="module-api_utils.html#.messageTeleGetSystemWorkingState">messageTeleGetSystemWorkingState</a></li><li data-type='method'><a href="module-api_utils.html#.nowLocal">nowLocal</a></li><li data-type='method'><a href="module-api_utils.html#.nowLocalFileName">nowLocalFileName</a></li><li data-type='method'><a href="module-api_utils.html#.nowUTC">nowUTC</a></li><li data-type='method'><a href="module-api_utils.html#.nowUTCFileName">nowUTCFileName</a></li><li data-type='method'><a href="module-api_utils.html#.socketSend">socketSend</a></li></ul></li><li><a href="module-astro.html">astro</a><ul class='methods'><li data-type='method'><a href="module-astro.html#.astroAutofocus">astroAutofocus</a></li><li data-type='method'><a href="module-astro.html#.calibrateGoto">calibrateGoto</a></li><li data-type='method'><a href="module-astro.html#.formatTimeZoneUrl">formatTimeZoneUrl</a></li><li data-type='method'><a href="module-astro.html#.formatUtcUrl">formatUtcUrl</a></li><li data-type='method'><a href="module-astro.html#.queryShotField">queryShotField</a></li><li data-type='method'><a href="module-astro.html#.startGoto">startGoto</a></li><li data-type='method'><a href="module-astro.html#.stopAstroPhoto">stopAstroPhoto</a></li><li data-type='method'><a href="module-astro.html#.stopGoto">stopGoto</a></li><li data-type='method'><a href="module-astro.html#.takeAstroDarks">takeAstroDarks</a></li><li data-type='method'><a href="module-astro.html#.takeAstroPhoto">takeAstroPhoto</a></li><li data-type='method'><a href="module-astro.html#.updateRawPreviewSource">updateRawPreviewSource</a></li></ul></li><li><a href="module-camera_settings.html">camera_settings</a><ul class='methods'><li data-type='method'><a href="module-camera_settings.html#.cameraSettings">cameraSettings</a></li><li data-type='method'><a href="module-camera_settings.html#.cameraWorkingState">cameraWorkingState</a></li><li data-type='method'><a href="module-camera_settings.html#.iRSettings">iRSettings</a></li></ul></li><li><a href="module-image_transmission.html">image_transmission</a><ul class='methods'><li data-type='method'><a href="module-image_transmission.html#.setPreviewImageQuality">setPreviewImageQuality</a></li><li data-type='method'><a href="module-image_transmission.html#.turnOffCamera">turnOffCamera</a></li><li data-type='method'><a href="module-image_transmission.html#.turnOnCamera">turnOnCamera</a></li></ul></li><li><a href="module-motion_control.html">motion_control</a><ul class='methods'><li data-type='method'><a href="module-motion_control.html#.setDirection">setDirection</a></li><li data-type='method'><a href="module-motion_control.html#.setSpeed">setSpeed</a></li><li data-type='method'><a href="module-motion_control.html#.setSubdivide">setSubdivide</a></li><li data-type='method'><a href="module-motion_control.html#.startMotion">startMotion</a></li><li data-type='method'><a href="module-motion_control.html#.stopMotion">stopMotion</a></li></ul></li><li><a href="module-panoramic.html">panoramic</a><ul class='methods'><li data-type='method'><a href="module-panoramic.html#.startPano">startPano</a></li><li data-type='method'><a href="module-panoramic.html#.stopPano">stopPano</a></li></ul></li><li><a href="module-photo_video.html">photo_video</a><ul class='methods'><li data-type='method'><a href="module-photo_video.html#.startTimeLapse">startTimeLapse</a></li><li data-type='method'><a href="module-photo_video.html#.startVideo">startVideo</a></li><li data-type='method'><a href="module-photo_video.html#.stopTimeLapse">stopTimeLapse</a></li><li data-type='method'><a href="module-photo_video.html#.stopVideo">stopVideo</a></li><li data-type='method'><a href="module-photo_video.html#.takePhoto">takePhoto</a></li></ul></li><li><a href="module-set_isp_settings.html">set_isp_settings</a><ul class='methods'><li data-type='method'><a href="module-set_isp_settings.html#.autoFocus">autoFocus</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setBrightness">setBrightness</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setContrast">setContrast</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setExposure">setExposure</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setExposureMode">setExposureMode</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setGain">setGain</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setGainMode">setGainMode</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setHue">setHue</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setIR">setIR</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setSaturation">setSaturation</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setSharpness">setSharpness</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setWhiteBalanceColor">setWhiteBalanceColor</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setWhiteBalanceMode">setWhiteBalanceMode</a></li><li data-type='method'><a href="module-set_isp_settings.html#.setWhiteBalanceScene">setWhiteBalanceScene</a></li></ul></li><li><a href="module-system_settings.html">system_settings</a><ul class='methods'><li data-type='method'><a href="module-system_settings.html#.shutDown">shutDown</a></li></ul></li><li><a href="module-tracking.html">tracking</a><ul class='methods'><li data-type='method'><a href="module-tracking.html#.startTrace">startTrace</a></li><li data-type='method'><a href="module-tracking.html#.startTracking">startTracking</a></li><li data-type='method'><a href="module-tracking.html#.stopTracking">stopTracking</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">DwarfErrorCode</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>DwarfErrorCode enum.</li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="protobuf_protobuf.js.html">protobuf/protobuf.js</a>, <a href="protobuf_protobuf.js.html#line19493">line 19493</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>NO_ERROR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">NO_ERROR value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>WS_PARSE_PROTOBUF_ERROR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WS_PARSE_PROTOBUF_ERROR value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>WS_SDCARD_NOT_EXIST</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WS_SDCARD_NOT_EXIST value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>WS_INVALID_PARAM</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WS_INVALID_PARAM value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>WS_SDCARD_WRITE_ERROR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WS_SDCARD_WRITE_ERROR value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_TELE_OPENED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_TELE_OPENED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_TELE_CLOSED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_TELE_CLOSED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_TELE_ISP_SET_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_TELE_ISP_SET_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_TELE_OPEN_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_TELE_OPEN_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_TELE_WORKING_BUSY_STACK</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_TELE_WORKING_BUSY_STACK value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_TELE_CAPTURE_RAW_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_TELE_CAPTURE_RAW_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_TELE_WORKING_BUSY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_TELE_WORKING_BUSY value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_PLATE_SOLVING_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_PLATE_SOLVING_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_FUNCTION_BUSY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_FUNCTION_BUSY value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_DARK_GAIN_OUT_OF_RANGE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_DARK_GAIN_OUT_OF_RANGE value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_DARK_NOT_FOUND</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_DARK_NOT_FOUND value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_CALIBRATION_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_CALIBRATION_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_GOTO_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_GOTO_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_NEED_GOTO</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_NEED_GOTO value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_WIDE_OPENED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_WIDE_OPENED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_WIDE_CLOSED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_WIDE_CLOSED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_WIDE_CANNOT_FOUND</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_WIDE_CANNOT_FOUND value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_WIDE_OPEN_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_WIDE_OPEN_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_WIDE_CLOSE_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_WIDE_CLOSE_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_WIDE_SET_ISP_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_WIDE_SET_ISP_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_CAMERA_WIDE_PHOTOGRAPHING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_CAMERA_WIDE_PHOTOGRAPHING value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_SYSTEM_SET_TIME_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_SYSTEM_SET_TIME_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_SYSTEM_SET_TIMEZONE_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_SYSTEM_SET_TIMEZONE_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_SYSTEM_SETTING_TIMEZONE_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_SYSTEM_SETTING_TIMEZONE_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_STEP_MOTOR_LIMIT_POSITION_WARNING</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_STEP_MOTOR_LIMIT_POSITION_WARNING value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_STEP_MOTOR_LIMIT_POSITION_HITTED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_STEP_MOTOR_LIMIT_POSITION_HITTED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_PANORAMA_PHOTO_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_PANORAMA_PHOTO_FAILED value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_PANORAMA_MOTOR_RESET_FAILED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">CODE_PANORAMA_MOTOR_RESET_FAILED value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+            
+                <div class="description usertext">DwarfErrorCode enum.</div>
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Feb 06 2024 23:24:18 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

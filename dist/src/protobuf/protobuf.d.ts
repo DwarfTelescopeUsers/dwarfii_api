@@ -5789,6 +5789,546 @@ export class ReqGetJpgQuality implements IReqGetJpgQuality {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a ReqManualSingleStepFocus. */
+export class ReqManualSingleStepFocus implements IReqManualSingleStepFocus {
+
+    /**
+     * Constructs a new ReqManualSingleStepFocus.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqManualSingleStepFocus);
+
+    /** ReqManualSingleStepFocus direction. */
+    public direction: number;
+
+    /**
+     * Creates a new ReqManualSingleStepFocus instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqManualSingleStepFocus instance
+     */
+    public static create(properties?: IReqManualSingleStepFocus): ReqManualSingleStepFocus;
+
+    /**
+     * Encodes the specified ReqManualSingleStepFocus message. Does not implicitly {@link ReqManualSingleStepFocus.verify|verify} messages.
+     * @param message ReqManualSingleStepFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqManualSingleStepFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqManualSingleStepFocus message, length delimited. Does not implicitly {@link ReqManualSingleStepFocus.verify|verify} messages.
+     * @param message ReqManualSingleStepFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqManualSingleStepFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqManualSingleStepFocus message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqManualSingleStepFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqManualSingleStepFocus;
+
+    /**
+     * Decodes a ReqManualSingleStepFocus message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqManualSingleStepFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqManualSingleStepFocus;
+
+    /**
+     * Verifies a ReqManualSingleStepFocus message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqManualSingleStepFocus message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqManualSingleStepFocus
+     */
+    public static fromObject(object: { [k: string]: any }): ReqManualSingleStepFocus;
+
+    /**
+     * Creates a plain object from a ReqManualSingleStepFocus message. Also converts values to other types if specified.
+     * @param message ReqManualSingleStepFocus
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqManualSingleStepFocus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqManualSingleStepFocus to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqManualSingleStepFocus
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqManualContinuFocus. */
+export class ReqManualContinuFocus implements IReqManualContinuFocus {
+
+    /**
+     * Constructs a new ReqManualContinuFocus.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqManualContinuFocus);
+
+    /** ReqManualContinuFocus direction. */
+    public direction: number;
+
+    /**
+     * Creates a new ReqManualContinuFocus instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqManualContinuFocus instance
+     */
+    public static create(properties?: IReqManualContinuFocus): ReqManualContinuFocus;
+
+    /**
+     * Encodes the specified ReqManualContinuFocus message. Does not implicitly {@link ReqManualContinuFocus.verify|verify} messages.
+     * @param message ReqManualContinuFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqManualContinuFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqManualContinuFocus message, length delimited. Does not implicitly {@link ReqManualContinuFocus.verify|verify} messages.
+     * @param message ReqManualContinuFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqManualContinuFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqManualContinuFocus message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqManualContinuFocus;
+
+    /**
+     * Decodes a ReqManualContinuFocus message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqManualContinuFocus;
+
+    /**
+     * Verifies a ReqManualContinuFocus message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqManualContinuFocus message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqManualContinuFocus
+     */
+    public static fromObject(object: { [k: string]: any }): ReqManualContinuFocus;
+
+    /**
+     * Creates a plain object from a ReqManualContinuFocus message. Also converts values to other types if specified.
+     * @param message ReqManualContinuFocus
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqManualContinuFocus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqManualContinuFocus to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqManualContinuFocus
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqStopManualContinuFocus. */
+export class ReqStopManualContinuFocus implements IReqStopManualContinuFocus {
+
+    /**
+     * Constructs a new ReqStopManualContinuFocus.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStopManualContinuFocus);
+
+    /**
+     * Creates a new ReqStopManualContinuFocus instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStopManualContinuFocus instance
+     */
+    public static create(properties?: IReqStopManualContinuFocus): ReqStopManualContinuFocus;
+
+    /**
+     * Encodes the specified ReqStopManualContinuFocus message. Does not implicitly {@link ReqStopManualContinuFocus.verify|verify} messages.
+     * @param message ReqStopManualContinuFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStopManualContinuFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStopManualContinuFocus message, length delimited. Does not implicitly {@link ReqStopManualContinuFocus.verify|verify} messages.
+     * @param message ReqStopManualContinuFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStopManualContinuFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStopManualContinuFocus message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStopManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStopManualContinuFocus;
+
+    /**
+     * Decodes a ReqStopManualContinuFocus message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStopManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStopManualContinuFocus;
+
+    /**
+     * Verifies a ReqStopManualContinuFocus message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStopManualContinuFocus message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStopManualContinuFocus
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStopManualContinuFocus;
+
+    /**
+     * Creates a plain object from a ReqStopManualContinuFocus message. Also converts values to other types if specified.
+     * @param message ReqStopManualContinuFocus
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStopManualContinuFocus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStopManualContinuFocus to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStopManualContinuFocus
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqNormalAutoFocus. */
+export class ReqNormalAutoFocus implements IReqNormalAutoFocus {
+
+    /**
+     * Constructs a new ReqNormalAutoFocus.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqNormalAutoFocus);
+
+    /** ReqNormalAutoFocus mode. */
+    public mode: number;
+
+    /** ReqNormalAutoFocus centerX. */
+    public centerX: number;
+
+    /** ReqNormalAutoFocus centerY. */
+    public centerY: number;
+
+    /**
+     * Creates a new ReqNormalAutoFocus instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqNormalAutoFocus instance
+     */
+    public static create(properties?: IReqNormalAutoFocus): ReqNormalAutoFocus;
+
+    /**
+     * Encodes the specified ReqNormalAutoFocus message. Does not implicitly {@link ReqNormalAutoFocus.verify|verify} messages.
+     * @param message ReqNormalAutoFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqNormalAutoFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqNormalAutoFocus message, length delimited. Does not implicitly {@link ReqNormalAutoFocus.verify|verify} messages.
+     * @param message ReqNormalAutoFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqNormalAutoFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqNormalAutoFocus message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqNormalAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqNormalAutoFocus;
+
+    /**
+     * Decodes a ReqNormalAutoFocus message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqNormalAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqNormalAutoFocus;
+
+    /**
+     * Verifies a ReqNormalAutoFocus message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqNormalAutoFocus message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqNormalAutoFocus
+     */
+    public static fromObject(object: { [k: string]: any }): ReqNormalAutoFocus;
+
+    /**
+     * Creates a plain object from a ReqNormalAutoFocus message. Also converts values to other types if specified.
+     * @param message ReqNormalAutoFocus
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqNormalAutoFocus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqNormalAutoFocus to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqNormalAutoFocus
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqAstroAutoFocus. */
+export class ReqAstroAutoFocus implements IReqAstroAutoFocus {
+
+    /**
+     * Constructs a new ReqAstroAutoFocus.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqAstroAutoFocus);
+
+    /** ReqAstroAutoFocus mode. */
+    public mode: number;
+
+    /**
+     * Creates a new ReqAstroAutoFocus instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqAstroAutoFocus instance
+     */
+    public static create(properties?: IReqAstroAutoFocus): ReqAstroAutoFocus;
+
+    /**
+     * Encodes the specified ReqAstroAutoFocus message. Does not implicitly {@link ReqAstroAutoFocus.verify|verify} messages.
+     * @param message ReqAstroAutoFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqAstroAutoFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqAstroAutoFocus message, length delimited. Does not implicitly {@link ReqAstroAutoFocus.verify|verify} messages.
+     * @param message ReqAstroAutoFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqAstroAutoFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqAstroAutoFocus message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqAstroAutoFocus;
+
+    /**
+     * Decodes a ReqAstroAutoFocus message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqAstroAutoFocus;
+
+    /**
+     * Verifies a ReqAstroAutoFocus message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqAstroAutoFocus message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqAstroAutoFocus
+     */
+    public static fromObject(object: { [k: string]: any }): ReqAstroAutoFocus;
+
+    /**
+     * Creates a plain object from a ReqAstroAutoFocus message. Also converts values to other types if specified.
+     * @param message ReqAstroAutoFocus
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqAstroAutoFocus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqAstroAutoFocus to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqAstroAutoFocus
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqStopAstroAutoFocus. */
+export class ReqStopAstroAutoFocus implements IReqStopAstroAutoFocus {
+
+    /**
+     * Constructs a new ReqStopAstroAutoFocus.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStopAstroAutoFocus);
+
+    /**
+     * Creates a new ReqStopAstroAutoFocus instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStopAstroAutoFocus instance
+     */
+    public static create(properties?: IReqStopAstroAutoFocus): ReqStopAstroAutoFocus;
+
+    /**
+     * Encodes the specified ReqStopAstroAutoFocus message. Does not implicitly {@link ReqStopAstroAutoFocus.verify|verify} messages.
+     * @param message ReqStopAstroAutoFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStopAstroAutoFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStopAstroAutoFocus message, length delimited. Does not implicitly {@link ReqStopAstroAutoFocus.verify|verify} messages.
+     * @param message ReqStopAstroAutoFocus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStopAstroAutoFocus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStopAstroAutoFocus message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStopAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStopAstroAutoFocus;
+
+    /**
+     * Decodes a ReqStopAstroAutoFocus message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStopAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStopAstroAutoFocus;
+
+    /**
+     * Verifies a ReqStopAstroAutoFocus message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStopAstroAutoFocus message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStopAstroAutoFocus
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStopAstroAutoFocus;
+
+    /**
+     * Creates a plain object from a ReqStopAstroAutoFocus message. Also converts values to other types if specified.
+     * @param message ReqStopAstroAutoFocus
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStopAstroAutoFocus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStopAstroAutoFocus to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStopAstroAutoFocus
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** State enum. */
 export enum State {
     STATE_IDLE = 0,
@@ -7887,8 +8427,16 @@ export enum ModuleId {
     MODULE_PANORAMA = 10
 }
 
-/** AstroCMD enum. */
-export enum AstroCMD {
+/** MessageTypeId enum. */
+export enum MessageTypeId {
+    TYPE_REQUEST = 0,
+    TYPE_REQUEST_RESPONSE = 1,
+    TYPE_NOTIFICATION = 2,
+    TYPE_NOTIFICATION_RESPONSE = 3
+}
+
+/** DwarfCMD enum. */
+export enum DwarfCMD {
     NO_CMD = 0,
     CMD_CAMERA_TELE_OPEN_CAMERA = 10000,
     CMD_CAMERA_TELE_CLOSE_CAMERA = 10001,
@@ -7977,6 +8525,18 @@ export enum AstroCMD {
     CMD_SYSTEM_SET_TIME_ZONE = 13001,
     CMD_SYSTEM_SET_MTP_MODE = 13002,
     CMD_SYSTEM_SET_CPU_MODE = 13003,
+    CMD_RGB_POWER_OPEN_RGB = 13500,
+    CMD_RGB_POWER_CLOSE_RGB = 13501,
+    CMD_RGB_POWER_POWER_DOWN = 13502,
+    CMD_RGB_POWER_POWERIND_ON = 13503,
+    CMD_RGB_POWER_POWERIND_OFF = 13504,
+    CMD_RGB_POWER_REBOOT = 13505,
+    CMD_FOCUS_AUTO_FOCUS = 15000,
+    CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS = 15001,
+    CMD_FOCUS_START_MANUAL_CONTINU_FOCUS = 15002,
+    CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS = 15003,
+    CMD_FOCUS_START_ASTRO_AUTO_FOCUS = 15004,
+    CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS = 15005,
     CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING = 15200,
     CMD_NOTIFY_ELE = 15201,
     CMD_NOTIFY_CHARGE = 15202,
@@ -8009,8 +8569,8 @@ export enum AstroCMD {
     CMD_NOTIFY_POWER_OFF = 15229
 }
 
-/** ErrorCodeAstro enum. */
-export enum ErrorCodeAstro {
+/** DwarfErrorCode enum. */
+export enum DwarfErrorCode {
     NO_ERROR = 0,
     WS_PARSE_PROTOBUF_ERROR = -1,
     WS_SDCARD_NOT_EXIST = -2,
@@ -8051,6 +8611,19 @@ export enum ErrorCodeAstro {
 export enum AstroTrackingSpecial {
     TRACKING_SUN = 0,
     TRACKING_MOON = 1
+}
+
+/** SolarSystemTarget enum. */
+export enum SolarSystemTarget {
+    Mercury = 1,
+    Venus = 2,
+    Mars = 3,
+    Jupiter = 4,
+    Saturn = 5,
+    Uranus = 6,
+    Neptune = 7,
+    Moon = 8,
+    Sun = 9
 }
 
 /** Represents a ReqSetTime. */

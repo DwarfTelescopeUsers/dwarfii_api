@@ -19,15 +19,91 @@ export function nowUTCFileName(): string | undefined;
  * @returns {string|undefined}
  */
 export function nowLocalFileName(): string | undefined;
-export function test_apiV2(socket: any): void;
 /**
  * Execute socket's send command
  * @param {WebSocket} socket
  * @param {Object} WS_Packet
  */
 export function socketSend(socket: WebSocket, WS_Packet: any): void;
-export function decodePacket(WS_Packet: any, classDecode: any): any;
-export function messageTeleGetSystemWorkingStat(): any;
-export function createPacket(message_buffer: any, module_id: any, interface_id: any, type_id: any): any;
-export function analysePacket(message_buffer: any): number;
+/**
+ * Execute Decoding Received Packet from the Dwarf II
+ * @param {Uint8Array} WS_Packet
+ * @param {Object} classDecode Class of Message depending on the command
+ * @returns {Object}
+ */
+export function decodePacket(WS_Packet: Uint8Array, classDecode: any): any;
+/**
+ * Generic Create Encoded Packet Function
+ * @param {Object} message
+ * @param {Object} class_message
+ * @param {number} module_id
+ * @param {number} interface_id instruction
+ * @param {number} type_id Message type
+ * @returns {Uint8Array}
+ */
+export function createPacket(message: any, class_message: any, module_id: number, interface_id: number, type_id: number): Uint8Array;
+/**
+ * Generic Analysing Encoded Received Packet Function
+ * @param {ArrayBuffer|string} message_buffer Encoded Message Buffer
+ * @returns {string}
+ */
+export function analyzePacket(message_buffer: ArrayBuffer | string): string;
+export function messageTeleGetSystemWorkingState2(): any;
+/**
+ * Create Encoded Packet for the command messageTeleGetSystemWorkingState
+ * @returns {Uint8Array}
+ */
+export function messageTeleGetSystemWorkingState(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_SYSTEM_SET_TIME
+ * @returns {Uint8Array}
+ */
+export function messageSetTime(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_SYSTEM_SET_TIME_ZONE
+ * @param {string} timezone
+ * @returns {Uint8Array}
+ */
+export function messageSetTimezone(timezone: string): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_ASTRO_START_CALIBRATION
+ * @returns {Uint8Array}
+ */
+export function messageAstroStartCalibration(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_ASTRO_STOP_CALIBRATION
+ * @returns {Uint8Array}
+ */
+export function messageAstroStopCalibration(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_ASTRO_START_GOTO_DSO
+ * @param {number} ra Right Ascension
+ * @param {number} dec Declination
+ * @param {string} target_name
+ * @returns {Uint8Array}
+ */
+export function messageAstroStartGotoDso(ra: number, dec: number, target_name: string): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_ASTRO_START_GOTO_SOLAR_SYSTEM
+ * @param {number} index SolarSystemTargetNumber
+ * @param {number} lon Longitude
+ * @param {number} lat Lattitude
+ * @param {string} target_name
+ * @returns {Uint8Array}
+ */
+export function messageAstroStartGotoSolarSystem(index: number, lon: number, lat: number, target_name: string): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_ASTRO_STOP_GOTO
+ * @returns {Uint8Array}
+ */
+export function messageAstroStopGoto(): Uint8Array;
+export const Dwarfii_Api: any;
+export class ping_dwarf {
+    constructor(socket: any);
+    pingInterval: number;
+    ws: any;
+    ping(): void;
+    timoutId: NodeJS.Timeout;
+    close(): void;
+}
 //# sourceMappingURL=api_utils.d.ts.map

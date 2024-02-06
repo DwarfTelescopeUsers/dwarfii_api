@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
-    "moduleResolution":"node"
+    "moduleResolution":"node",
   },
   "include": ["src/*.js","index.js", "node_modules/dwarfii_api/dist/index.d.ts"],
   "exclude": ["src/protobuf/protobuf.js", "node_modules"]

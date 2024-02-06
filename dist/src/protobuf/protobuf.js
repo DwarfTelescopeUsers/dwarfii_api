@@ -11923,6 +11923,1129 @@ $root.ReqGetJpgQuality = (function () {
     };
     return ReqGetJpgQuality;
 })();
+$root.ReqManualSingleStepFocus = (function () {
+    /**
+     * Properties of a ReqManualSingleStepFocus.
+     * @exports IReqManualSingleStepFocus
+     * @interface IReqManualSingleStepFocus
+     * @property {number|null} [direction] ReqManualSingleStepFocus direction
+     */
+    /**
+     * Constructs a new ReqManualSingleStepFocus.
+     * @exports ReqManualSingleStepFocus
+     * @classdesc Represents a ReqManualSingleStepFocus.
+     * @implements IReqManualSingleStepFocus
+     * @constructor
+     * @param {IReqManualSingleStepFocus=} [properties] Properties to set
+     */
+    function ReqManualSingleStepFocus(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqManualSingleStepFocus direction.
+     * @member {number} direction
+     * @memberof ReqManualSingleStepFocus
+     * @instance
+     */
+    ReqManualSingleStepFocus.prototype.direction = 0;
+    /**
+     * Creates a new ReqManualSingleStepFocus instance using the specified properties.
+     * @function create
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {IReqManualSingleStepFocus=} [properties] Properties to set
+     * @returns {ReqManualSingleStepFocus} ReqManualSingleStepFocus instance
+     */
+    ReqManualSingleStepFocus.create = function create(properties) {
+        return new ReqManualSingleStepFocus(properties);
+    };
+    /**
+     * Encodes the specified ReqManualSingleStepFocus message. Does not implicitly {@link ReqManualSingleStepFocus.verify|verify} messages.
+     * @function encode
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {IReqManualSingleStepFocus} message ReqManualSingleStepFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqManualSingleStepFocus.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.direction != null &&
+            Object.hasOwnProperty.call(message, "direction"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).uint32(message.direction);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqManualSingleStepFocus message, length delimited. Does not implicitly {@link ReqManualSingleStepFocus.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {IReqManualSingleStepFocus} message ReqManualSingleStepFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqManualSingleStepFocus.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqManualSingleStepFocus message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqManualSingleStepFocus} ReqManualSingleStepFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqManualSingleStepFocus.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqManualSingleStepFocus();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.direction = reader.uint32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqManualSingleStepFocus message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqManualSingleStepFocus} ReqManualSingleStepFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqManualSingleStepFocus.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqManualSingleStepFocus message.
+     * @function verify
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqManualSingleStepFocus.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.direction != null && message.hasOwnProperty("direction"))
+            if (!$util.isInteger(message.direction))
+                return "direction: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqManualSingleStepFocus message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqManualSingleStepFocus} ReqManualSingleStepFocus
+     */
+    ReqManualSingleStepFocus.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqManualSingleStepFocus)
+            return object;
+        var message = new $root.ReqManualSingleStepFocus();
+        if (object.direction != null)
+            message.direction = object.direction >>> 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqManualSingleStepFocus message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {ReqManualSingleStepFocus} message ReqManualSingleStepFocus
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqManualSingleStepFocus.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.direction = 0;
+        if (message.direction != null && message.hasOwnProperty("direction"))
+            object.direction = message.direction;
+        return object;
+    };
+    /**
+     * Converts this ReqManualSingleStepFocus to JSON.
+     * @function toJSON
+     * @memberof ReqManualSingleStepFocus
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqManualSingleStepFocus.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqManualSingleStepFocus
+     * @function getTypeUrl
+     * @memberof ReqManualSingleStepFocus
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqManualSingleStepFocus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqManualSingleStepFocus";
+    };
+    return ReqManualSingleStepFocus;
+})();
+$root.ReqManualContinuFocus = (function () {
+    /**
+     * Properties of a ReqManualContinuFocus.
+     * @exports IReqManualContinuFocus
+     * @interface IReqManualContinuFocus
+     * @property {number|null} [direction] ReqManualContinuFocus direction
+     */
+    /**
+     * Constructs a new ReqManualContinuFocus.
+     * @exports ReqManualContinuFocus
+     * @classdesc Represents a ReqManualContinuFocus.
+     * @implements IReqManualContinuFocus
+     * @constructor
+     * @param {IReqManualContinuFocus=} [properties] Properties to set
+     */
+    function ReqManualContinuFocus(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqManualContinuFocus direction.
+     * @member {number} direction
+     * @memberof ReqManualContinuFocus
+     * @instance
+     */
+    ReqManualContinuFocus.prototype.direction = 0;
+    /**
+     * Creates a new ReqManualContinuFocus instance using the specified properties.
+     * @function create
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {IReqManualContinuFocus=} [properties] Properties to set
+     * @returns {ReqManualContinuFocus} ReqManualContinuFocus instance
+     */
+    ReqManualContinuFocus.create = function create(properties) {
+        return new ReqManualContinuFocus(properties);
+    };
+    /**
+     * Encodes the specified ReqManualContinuFocus message. Does not implicitly {@link ReqManualContinuFocus.verify|verify} messages.
+     * @function encode
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {IReqManualContinuFocus} message ReqManualContinuFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqManualContinuFocus.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.direction != null &&
+            Object.hasOwnProperty.call(message, "direction"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).uint32(message.direction);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqManualContinuFocus message, length delimited. Does not implicitly {@link ReqManualContinuFocus.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {IReqManualContinuFocus} message ReqManualContinuFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqManualContinuFocus.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqManualContinuFocus message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqManualContinuFocus} ReqManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqManualContinuFocus.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqManualContinuFocus();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.direction = reader.uint32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqManualContinuFocus message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqManualContinuFocus} ReqManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqManualContinuFocus.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqManualContinuFocus message.
+     * @function verify
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqManualContinuFocus.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.direction != null && message.hasOwnProperty("direction"))
+            if (!$util.isInteger(message.direction))
+                return "direction: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqManualContinuFocus message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqManualContinuFocus} ReqManualContinuFocus
+     */
+    ReqManualContinuFocus.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqManualContinuFocus)
+            return object;
+        var message = new $root.ReqManualContinuFocus();
+        if (object.direction != null)
+            message.direction = object.direction >>> 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqManualContinuFocus message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {ReqManualContinuFocus} message ReqManualContinuFocus
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqManualContinuFocus.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.direction = 0;
+        if (message.direction != null && message.hasOwnProperty("direction"))
+            object.direction = message.direction;
+        return object;
+    };
+    /**
+     * Converts this ReqManualContinuFocus to JSON.
+     * @function toJSON
+     * @memberof ReqManualContinuFocus
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqManualContinuFocus.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqManualContinuFocus
+     * @function getTypeUrl
+     * @memberof ReqManualContinuFocus
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqManualContinuFocus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqManualContinuFocus";
+    };
+    return ReqManualContinuFocus;
+})();
+$root.ReqStopManualContinuFocus = (function () {
+    /**
+     * Properties of a ReqStopManualContinuFocus.
+     * @exports IReqStopManualContinuFocus
+     * @interface IReqStopManualContinuFocus
+     */
+    /**
+     * Constructs a new ReqStopManualContinuFocus.
+     * @exports ReqStopManualContinuFocus
+     * @classdesc Represents a ReqStopManualContinuFocus.
+     * @implements IReqStopManualContinuFocus
+     * @constructor
+     * @param {IReqStopManualContinuFocus=} [properties] Properties to set
+     */
+    function ReqStopManualContinuFocus(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * Creates a new ReqStopManualContinuFocus instance using the specified properties.
+     * @function create
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {IReqStopManualContinuFocus=} [properties] Properties to set
+     * @returns {ReqStopManualContinuFocus} ReqStopManualContinuFocus instance
+     */
+    ReqStopManualContinuFocus.create = function create(properties) {
+        return new ReqStopManualContinuFocus(properties);
+    };
+    /**
+     * Encodes the specified ReqStopManualContinuFocus message. Does not implicitly {@link ReqStopManualContinuFocus.verify|verify} messages.
+     * @function encode
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {IReqStopManualContinuFocus} message ReqStopManualContinuFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStopManualContinuFocus.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqStopManualContinuFocus message, length delimited. Does not implicitly {@link ReqStopManualContinuFocus.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {IReqStopManualContinuFocus} message ReqStopManualContinuFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStopManualContinuFocus.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqStopManualContinuFocus message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqStopManualContinuFocus} ReqStopManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStopManualContinuFocus.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqStopManualContinuFocus();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqStopManualContinuFocus message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqStopManualContinuFocus} ReqStopManualContinuFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStopManualContinuFocus.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqStopManualContinuFocus message.
+     * @function verify
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqStopManualContinuFocus.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        return null;
+    };
+    /**
+     * Creates a ReqStopManualContinuFocus message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqStopManualContinuFocus} ReqStopManualContinuFocus
+     */
+    ReqStopManualContinuFocus.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqStopManualContinuFocus)
+            return object;
+        return new $root.ReqStopManualContinuFocus();
+    };
+    /**
+     * Creates a plain object from a ReqStopManualContinuFocus message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {ReqStopManualContinuFocus} message ReqStopManualContinuFocus
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqStopManualContinuFocus.toObject = function toObject() {
+        return {};
+    };
+    /**
+     * Converts this ReqStopManualContinuFocus to JSON.
+     * @function toJSON
+     * @memberof ReqStopManualContinuFocus
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqStopManualContinuFocus.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqStopManualContinuFocus
+     * @function getTypeUrl
+     * @memberof ReqStopManualContinuFocus
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqStopManualContinuFocus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqStopManualContinuFocus";
+    };
+    return ReqStopManualContinuFocus;
+})();
+$root.ReqNormalAutoFocus = (function () {
+    /**
+     * Properties of a ReqNormalAutoFocus.
+     * @exports IReqNormalAutoFocus
+     * @interface IReqNormalAutoFocus
+     * @property {number|null} [mode] ReqNormalAutoFocus mode
+     * @property {number|null} [centerX] ReqNormalAutoFocus centerX
+     * @property {number|null} [centerY] ReqNormalAutoFocus centerY
+     */
+    /**
+     * Constructs a new ReqNormalAutoFocus.
+     * @exports ReqNormalAutoFocus
+     * @classdesc Represents a ReqNormalAutoFocus.
+     * @implements IReqNormalAutoFocus
+     * @constructor
+     * @param {IReqNormalAutoFocus=} [properties] Properties to set
+     */
+    function ReqNormalAutoFocus(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqNormalAutoFocus mode.
+     * @member {number} mode
+     * @memberof ReqNormalAutoFocus
+     * @instance
+     */
+    ReqNormalAutoFocus.prototype.mode = 0;
+    /**
+     * ReqNormalAutoFocus centerX.
+     * @member {number} centerX
+     * @memberof ReqNormalAutoFocus
+     * @instance
+     */
+    ReqNormalAutoFocus.prototype.centerX = 0;
+    /**
+     * ReqNormalAutoFocus centerY.
+     * @member {number} centerY
+     * @memberof ReqNormalAutoFocus
+     * @instance
+     */
+    ReqNormalAutoFocus.prototype.centerY = 0;
+    /**
+     * Creates a new ReqNormalAutoFocus instance using the specified properties.
+     * @function create
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {IReqNormalAutoFocus=} [properties] Properties to set
+     * @returns {ReqNormalAutoFocus} ReqNormalAutoFocus instance
+     */
+    ReqNormalAutoFocus.create = function create(properties) {
+        return new ReqNormalAutoFocus(properties);
+    };
+    /**
+     * Encodes the specified ReqNormalAutoFocus message. Does not implicitly {@link ReqNormalAutoFocus.verify|verify} messages.
+     * @function encode
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {IReqNormalAutoFocus} message ReqNormalAutoFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqNormalAutoFocus.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).uint32(message.mode);
+        if (message.centerX != null &&
+            Object.hasOwnProperty.call(message, "centerX"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).uint32(message.centerX);
+        if (message.centerY != null &&
+            Object.hasOwnProperty.call(message, "centerY"))
+            writer.uint32(/* id 3, wireType 0 =*/ 24).uint32(message.centerY);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqNormalAutoFocus message, length delimited. Does not implicitly {@link ReqNormalAutoFocus.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {IReqNormalAutoFocus} message ReqNormalAutoFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqNormalAutoFocus.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqNormalAutoFocus message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqNormalAutoFocus} ReqNormalAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqNormalAutoFocus.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqNormalAutoFocus();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.mode = reader.uint32();
+                    break;
+                }
+                case 2: {
+                    message.centerX = reader.uint32();
+                    break;
+                }
+                case 3: {
+                    message.centerY = reader.uint32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqNormalAutoFocus message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqNormalAutoFocus} ReqNormalAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqNormalAutoFocus.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqNormalAutoFocus message.
+     * @function verify
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqNormalAutoFocus.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.mode != null && message.hasOwnProperty("mode"))
+            if (!$util.isInteger(message.mode))
+                return "mode: integer expected";
+        if (message.centerX != null && message.hasOwnProperty("centerX"))
+            if (!$util.isInteger(message.centerX))
+                return "centerX: integer expected";
+        if (message.centerY != null && message.hasOwnProperty("centerY"))
+            if (!$util.isInteger(message.centerY))
+                return "centerY: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqNormalAutoFocus message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqNormalAutoFocus} ReqNormalAutoFocus
+     */
+    ReqNormalAutoFocus.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqNormalAutoFocus)
+            return object;
+        var message = new $root.ReqNormalAutoFocus();
+        if (object.mode != null)
+            message.mode = object.mode >>> 0;
+        if (object.centerX != null)
+            message.centerX = object.centerX >>> 0;
+        if (object.centerY != null)
+            message.centerY = object.centerY >>> 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqNormalAutoFocus message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {ReqNormalAutoFocus} message ReqNormalAutoFocus
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqNormalAutoFocus.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.mode = 0;
+            object.centerX = 0;
+            object.centerY = 0;
+        }
+        if (message.mode != null && message.hasOwnProperty("mode"))
+            object.mode = message.mode;
+        if (message.centerX != null && message.hasOwnProperty("centerX"))
+            object.centerX = message.centerX;
+        if (message.centerY != null && message.hasOwnProperty("centerY"))
+            object.centerY = message.centerY;
+        return object;
+    };
+    /**
+     * Converts this ReqNormalAutoFocus to JSON.
+     * @function toJSON
+     * @memberof ReqNormalAutoFocus
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqNormalAutoFocus.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqNormalAutoFocus
+     * @function getTypeUrl
+     * @memberof ReqNormalAutoFocus
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqNormalAutoFocus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqNormalAutoFocus";
+    };
+    return ReqNormalAutoFocus;
+})();
+$root.ReqAstroAutoFocus = (function () {
+    /**
+     * Properties of a ReqAstroAutoFocus.
+     * @exports IReqAstroAutoFocus
+     * @interface IReqAstroAutoFocus
+     * @property {number|null} [mode] ReqAstroAutoFocus mode
+     */
+    /**
+     * Constructs a new ReqAstroAutoFocus.
+     * @exports ReqAstroAutoFocus
+     * @classdesc Represents a ReqAstroAutoFocus.
+     * @implements IReqAstroAutoFocus
+     * @constructor
+     * @param {IReqAstroAutoFocus=} [properties] Properties to set
+     */
+    function ReqAstroAutoFocus(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqAstroAutoFocus mode.
+     * @member {number} mode
+     * @memberof ReqAstroAutoFocus
+     * @instance
+     */
+    ReqAstroAutoFocus.prototype.mode = 0;
+    /**
+     * Creates a new ReqAstroAutoFocus instance using the specified properties.
+     * @function create
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {IReqAstroAutoFocus=} [properties] Properties to set
+     * @returns {ReqAstroAutoFocus} ReqAstroAutoFocus instance
+     */
+    ReqAstroAutoFocus.create = function create(properties) {
+        return new ReqAstroAutoFocus(properties);
+    };
+    /**
+     * Encodes the specified ReqAstroAutoFocus message. Does not implicitly {@link ReqAstroAutoFocus.verify|verify} messages.
+     * @function encode
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {IReqAstroAutoFocus} message ReqAstroAutoFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqAstroAutoFocus.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).uint32(message.mode);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqAstroAutoFocus message, length delimited. Does not implicitly {@link ReqAstroAutoFocus.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {IReqAstroAutoFocus} message ReqAstroAutoFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqAstroAutoFocus.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqAstroAutoFocus message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqAstroAutoFocus} ReqAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqAstroAutoFocus.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqAstroAutoFocus();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.mode = reader.uint32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqAstroAutoFocus message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqAstroAutoFocus} ReqAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqAstroAutoFocus.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqAstroAutoFocus message.
+     * @function verify
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqAstroAutoFocus.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.mode != null && message.hasOwnProperty("mode"))
+            if (!$util.isInteger(message.mode))
+                return "mode: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqAstroAutoFocus message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqAstroAutoFocus} ReqAstroAutoFocus
+     */
+    ReqAstroAutoFocus.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqAstroAutoFocus)
+            return object;
+        var message = new $root.ReqAstroAutoFocus();
+        if (object.mode != null)
+            message.mode = object.mode >>> 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqAstroAutoFocus message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {ReqAstroAutoFocus} message ReqAstroAutoFocus
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqAstroAutoFocus.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.mode = 0;
+        if (message.mode != null && message.hasOwnProperty("mode"))
+            object.mode = message.mode;
+        return object;
+    };
+    /**
+     * Converts this ReqAstroAutoFocus to JSON.
+     * @function toJSON
+     * @memberof ReqAstroAutoFocus
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqAstroAutoFocus.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqAstroAutoFocus
+     * @function getTypeUrl
+     * @memberof ReqAstroAutoFocus
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqAstroAutoFocus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqAstroAutoFocus";
+    };
+    return ReqAstroAutoFocus;
+})();
+$root.ReqStopAstroAutoFocus = (function () {
+    /**
+     * Properties of a ReqStopAstroAutoFocus.
+     * @exports IReqStopAstroAutoFocus
+     * @interface IReqStopAstroAutoFocus
+     */
+    /**
+     * Constructs a new ReqStopAstroAutoFocus.
+     * @exports ReqStopAstroAutoFocus
+     * @classdesc Represents a ReqStopAstroAutoFocus.
+     * @implements IReqStopAstroAutoFocus
+     * @constructor
+     * @param {IReqStopAstroAutoFocus=} [properties] Properties to set
+     */
+    function ReqStopAstroAutoFocus(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * Creates a new ReqStopAstroAutoFocus instance using the specified properties.
+     * @function create
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {IReqStopAstroAutoFocus=} [properties] Properties to set
+     * @returns {ReqStopAstroAutoFocus} ReqStopAstroAutoFocus instance
+     */
+    ReqStopAstroAutoFocus.create = function create(properties) {
+        return new ReqStopAstroAutoFocus(properties);
+    };
+    /**
+     * Encodes the specified ReqStopAstroAutoFocus message. Does not implicitly {@link ReqStopAstroAutoFocus.verify|verify} messages.
+     * @function encode
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {IReqStopAstroAutoFocus} message ReqStopAstroAutoFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStopAstroAutoFocus.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqStopAstroAutoFocus message, length delimited. Does not implicitly {@link ReqStopAstroAutoFocus.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {IReqStopAstroAutoFocus} message ReqStopAstroAutoFocus message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStopAstroAutoFocus.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqStopAstroAutoFocus message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqStopAstroAutoFocus} ReqStopAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStopAstroAutoFocus.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqStopAstroAutoFocus();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqStopAstroAutoFocus message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqStopAstroAutoFocus} ReqStopAstroAutoFocus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStopAstroAutoFocus.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqStopAstroAutoFocus message.
+     * @function verify
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqStopAstroAutoFocus.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        return null;
+    };
+    /**
+     * Creates a ReqStopAstroAutoFocus message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqStopAstroAutoFocus} ReqStopAstroAutoFocus
+     */
+    ReqStopAstroAutoFocus.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqStopAstroAutoFocus)
+            return object;
+        return new $root.ReqStopAstroAutoFocus();
+    };
+    /**
+     * Creates a plain object from a ReqStopAstroAutoFocus message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {ReqStopAstroAutoFocus} message ReqStopAstroAutoFocus
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqStopAstroAutoFocus.toObject = function toObject() {
+        return {};
+    };
+    /**
+     * Converts this ReqStopAstroAutoFocus to JSON.
+     * @function toJSON
+     * @memberof ReqStopAstroAutoFocus
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqStopAstroAutoFocus.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqStopAstroAutoFocus
+     * @function getTypeUrl
+     * @memberof ReqStopAstroAutoFocus
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqStopAstroAutoFocus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqStopAstroAutoFocus";
+    };
+    return ReqStopAstroAutoFocus;
+})();
 /**
  * State enum.
  * @exports State
@@ -16984,8 +18107,25 @@ $root.ModuleId = (function () {
     return values;
 })();
 /**
- * AstroCMD enum.
- * @exports AstroCMD
+ * MessageTypeId enum.
+ * @exports MessageTypeId
+ * @enum {number}
+ * @property {number} TYPE_REQUEST=0 TYPE_REQUEST value
+ * @property {number} TYPE_REQUEST_RESPONSE=1 TYPE_REQUEST_RESPONSE value
+ * @property {number} TYPE_NOTIFICATION=2 TYPE_NOTIFICATION value
+ * @property {number} TYPE_NOTIFICATION_RESPONSE=3 TYPE_NOTIFICATION_RESPONSE value
+ */
+$root.MessageTypeId = (function () {
+    var valuesById = {}, values = Object.create(valuesById);
+    values[(valuesById[0] = "TYPE_REQUEST")] = 0;
+    values[(valuesById[1] = "TYPE_REQUEST_RESPONSE")] = 1;
+    values[(valuesById[2] = "TYPE_NOTIFICATION")] = 2;
+    values[(valuesById[3] = "TYPE_NOTIFICATION_RESPONSE")] = 3;
+    return values;
+})();
+/**
+ * DwarfCMD enum.
+ * @exports DwarfCMD
  * @enum {number}
  * @property {number} NO_CMD=0 NO_CMD value
  * @property {number} CMD_CAMERA_TELE_OPEN_CAMERA=10000 CMD_CAMERA_TELE_OPEN_CAMERA value
@@ -17075,6 +18215,18 @@ $root.ModuleId = (function () {
  * @property {number} CMD_SYSTEM_SET_TIME_ZONE=13001 CMD_SYSTEM_SET_TIME_ZONE value
  * @property {number} CMD_SYSTEM_SET_MTP_MODE=13002 CMD_SYSTEM_SET_MTP_MODE value
  * @property {number} CMD_SYSTEM_SET_CPU_MODE=13003 CMD_SYSTEM_SET_CPU_MODE value
+ * @property {number} CMD_RGB_POWER_OPEN_RGB=13500 CMD_RGB_POWER_OPEN_RGB value
+ * @property {number} CMD_RGB_POWER_CLOSE_RGB=13501 CMD_RGB_POWER_CLOSE_RGB value
+ * @property {number} CMD_RGB_POWER_POWER_DOWN=13502 CMD_RGB_POWER_POWER_DOWN value
+ * @property {number} CMD_RGB_POWER_POWERIND_ON=13503 CMD_RGB_POWER_POWERIND_ON value
+ * @property {number} CMD_RGB_POWER_POWERIND_OFF=13504 CMD_RGB_POWER_POWERIND_OFF value
+ * @property {number} CMD_RGB_POWER_REBOOT=13505 CMD_RGB_POWER_REBOOT value
+ * @property {number} CMD_FOCUS_AUTO_FOCUS=15000 CMD_FOCUS_AUTO_FOCUS value
+ * @property {number} CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15001 CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
+ * @property {number} CMD_FOCUS_START_MANUAL_CONTINU_FOCUS=15002 CMD_FOCUS_START_MANUAL_CONTINU_FOCUS value
+ * @property {number} CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS=15003 CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS value
+ * @property {number} CMD_FOCUS_START_ASTRO_AUTO_FOCUS=15004 CMD_FOCUS_START_ASTRO_AUTO_FOCUS value
+ * @property {number} CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS=15005 CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS value
  * @property {number} CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING=15200 CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING value
  * @property {number} CMD_NOTIFY_ELE=15201 CMD_NOTIFY_ELE value
  * @property {number} CMD_NOTIFY_CHARGE=15202 CMD_NOTIFY_CHARGE value
@@ -17106,7 +18258,7 @@ $root.ModuleId = (function () {
  * @property {number} CMD_NOTIFY_STATE_ASTRO_TRACKING_SPECIAL=15228 CMD_NOTIFY_STATE_ASTRO_TRACKING_SPECIAL value
  * @property {number} CMD_NOTIFY_POWER_OFF=15229 CMD_NOTIFY_POWER_OFF value
  */
-$root.AstroCMD = (function () {
+$root.DwarfCMD = (function () {
     var valuesById = {}, values = Object.create(valuesById);
     values[(valuesById[0] = "NO_CMD")] = 0;
     values[(valuesById[10000] = "CMD_CAMERA_TELE_OPEN_CAMERA")] = 10000;
@@ -17196,6 +18348,18 @@ $root.AstroCMD = (function () {
     values[(valuesById[13001] = "CMD_SYSTEM_SET_TIME_ZONE")] = 13001;
     values[(valuesById[13002] = "CMD_SYSTEM_SET_MTP_MODE")] = 13002;
     values[(valuesById[13003] = "CMD_SYSTEM_SET_CPU_MODE")] = 13003;
+    values[(valuesById[13500] = "CMD_RGB_POWER_OPEN_RGB")] = 13500;
+    values[(valuesById[13501] = "CMD_RGB_POWER_CLOSE_RGB")] = 13501;
+    values[(valuesById[13502] = "CMD_RGB_POWER_POWER_DOWN")] = 13502;
+    values[(valuesById[13503] = "CMD_RGB_POWER_POWERIND_ON")] = 13503;
+    values[(valuesById[13504] = "CMD_RGB_POWER_POWERIND_OFF")] = 13504;
+    values[(valuesById[13505] = "CMD_RGB_POWER_REBOOT")] = 13505;
+    values[(valuesById[15000] = "CMD_FOCUS_AUTO_FOCUS")] = 15000;
+    values[(valuesById[15001] = "CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS")] = 15001;
+    values[(valuesById[15002] = "CMD_FOCUS_START_MANUAL_CONTINU_FOCUS")] = 15002;
+    values[(valuesById[15003] = "CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS")] = 15003;
+    values[(valuesById[15004] = "CMD_FOCUS_START_ASTRO_AUTO_FOCUS")] = 15004;
+    values[(valuesById[15005] = "CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS")] = 15005;
     values[(valuesById[15200] = "CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING")] = 15200;
     values[(valuesById[15201] = "CMD_NOTIFY_ELE")] = 15201;
     values[(valuesById[15202] = "CMD_NOTIFY_CHARGE")] = 15202;
@@ -17229,8 +18393,8 @@ $root.AstroCMD = (function () {
     return values;
 })();
 /**
- * ErrorCodeAstro enum.
- * @exports ErrorCodeAstro
+ * DwarfErrorCode enum.
+ * @exports DwarfErrorCode
  * @enum {number}
  * @property {number} NO_ERROR=0 NO_ERROR value
  * @property {number} WS_PARSE_PROTOBUF_ERROR=-1 WS_PARSE_PROTOBUF_ERROR value
@@ -17267,7 +18431,7 @@ $root.AstroCMD = (function () {
  * @property {number} CODE_PANORAMA_PHOTO_FAILED=-15600 CODE_PANORAMA_PHOTO_FAILED value
  * @property {number} CODE_PANORAMA_MOTOR_RESET_FAILED=-15601 CODE_PANORAMA_MOTOR_RESET_FAILED value
  */
-$root.ErrorCodeAstro = (function () {
+$root.DwarfErrorCode = (function () {
     var valuesById = {}, values = Object.create(valuesById);
     values[(valuesById[0] = "NO_ERROR")] = 0;
     values[(valuesById[-1] = "WS_PARSE_PROTOBUF_ERROR")] = -1;
@@ -17318,6 +18482,33 @@ $root.AstroTrackingSpecial = (function () {
     var valuesById = {}, values = Object.create(valuesById);
     values[(valuesById[0] = "TRACKING_SUN")] = 0;
     values[(valuesById[1] = "TRACKING_MOON")] = 1;
+    return values;
+})();
+/**
+ * SolarSystemTarget enum.
+ * @exports SolarSystemTarget
+ * @enum {number}
+ * @property {number} Mercury=1 Mercury value
+ * @property {number} Venus=2 Venus value
+ * @property {number} Mars=3 Mars value
+ * @property {number} Jupiter=4 Jupiter value
+ * @property {number} Saturn=5 Saturn value
+ * @property {number} Uranus=6 Uranus value
+ * @property {number} Neptune=7 Neptune value
+ * @property {number} Moon=8 Moon value
+ * @property {number} Sun=9 Sun value
+ */
+$root.SolarSystemTarget = (function () {
+    var valuesById = {}, values = Object.create(valuesById);
+    values[(valuesById[1] = "Mercury")] = 1;
+    values[(valuesById[2] = "Venus")] = 2;
+    values[(valuesById[3] = "Mars")] = 3;
+    values[(valuesById[4] = "Jupiter")] = 4;
+    values[(valuesById[5] = "Saturn")] = 5;
+    values[(valuesById[6] = "Uranus")] = 6;
+    values[(valuesById[7] = "Neptune")] = 7;
+    values[(valuesById[8] = "Moon")] = 8;
+    values[(valuesById[9] = "Sun")] = 9;
     return values;
 })();
 $root.ReqSetTime = (function () {
