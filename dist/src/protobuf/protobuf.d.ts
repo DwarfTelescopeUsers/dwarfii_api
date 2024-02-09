@@ -8571,7 +8571,7 @@ export enum DwarfCMD {
 
 /** DwarfErrorCode enum. */
 export enum DwarfErrorCode {
-    NO_ERROR = 0,
+    OK = 0,
     WS_PARSE_PROTOBUF_ERROR = -1,
     WS_SDCARD_NOT_EXIST = -2,
     WS_INVALID_PARAM = -3,
@@ -8624,6 +8624,546 @@ export enum SolarSystemTarget {
     Neptune = 7,
     Moon = 8,
     Sun = 9
+}
+
+/** PhotoMode enum. */
+export enum PhotoMode {
+    Auto = 0,
+    Manual = 1
+}
+
+/** WBMode enum. */
+export enum WBMode {
+    ColorTemperature = 0,
+    SceneMode = 1
+}
+
+/** IrCut enum. */
+export enum IrCut {
+    CUT = 0,
+    PASS = 1
+}
+
+/** Represents a ReqOpenRgb. */
+export class ReqOpenRgb implements IReqOpenRgb {
+
+    /**
+     * Constructs a new ReqOpenRgb.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqOpenRgb);
+
+    /**
+     * Creates a new ReqOpenRgb instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqOpenRgb instance
+     */
+    public static create(properties?: IReqOpenRgb): ReqOpenRgb;
+
+    /**
+     * Encodes the specified ReqOpenRgb message. Does not implicitly {@link ReqOpenRgb.verify|verify} messages.
+     * @param message ReqOpenRgb message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqOpenRgb, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqOpenRgb message, length delimited. Does not implicitly {@link ReqOpenRgb.verify|verify} messages.
+     * @param message ReqOpenRgb message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqOpenRgb, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqOpenRgb message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqOpenRgb
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqOpenRgb;
+
+    /**
+     * Decodes a ReqOpenRgb message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqOpenRgb
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqOpenRgb;
+
+    /**
+     * Verifies a ReqOpenRgb message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqOpenRgb message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqOpenRgb
+     */
+    public static fromObject(object: { [k: string]: any }): ReqOpenRgb;
+
+    /**
+     * Creates a plain object from a ReqOpenRgb message. Also converts values to other types if specified.
+     * @param message ReqOpenRgb
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqOpenRgb, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqOpenRgb to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqOpenRgb
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqCloseRgb. */
+export class ReqCloseRgb implements IReqCloseRgb {
+
+    /**
+     * Constructs a new ReqCloseRgb.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqCloseRgb);
+
+    /**
+     * Creates a new ReqCloseRgb instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqCloseRgb instance
+     */
+    public static create(properties?: IReqCloseRgb): ReqCloseRgb;
+
+    /**
+     * Encodes the specified ReqCloseRgb message. Does not implicitly {@link ReqCloseRgb.verify|verify} messages.
+     * @param message ReqCloseRgb message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqCloseRgb, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqCloseRgb message, length delimited. Does not implicitly {@link ReqCloseRgb.verify|verify} messages.
+     * @param message ReqCloseRgb message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqCloseRgb, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqCloseRgb message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqCloseRgb
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqCloseRgb;
+
+    /**
+     * Decodes a ReqCloseRgb message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqCloseRgb
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqCloseRgb;
+
+    /**
+     * Verifies a ReqCloseRgb message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqCloseRgb message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqCloseRgb
+     */
+    public static fromObject(object: { [k: string]: any }): ReqCloseRgb;
+
+    /**
+     * Creates a plain object from a ReqCloseRgb message. Also converts values to other types if specified.
+     * @param message ReqCloseRgb
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqCloseRgb, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqCloseRgb to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqCloseRgb
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqPowerDown. */
+export class ReqPowerDown implements IReqPowerDown {
+
+    /**
+     * Constructs a new ReqPowerDown.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqPowerDown);
+
+    /**
+     * Creates a new ReqPowerDown instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqPowerDown instance
+     */
+    public static create(properties?: IReqPowerDown): ReqPowerDown;
+
+    /**
+     * Encodes the specified ReqPowerDown message. Does not implicitly {@link ReqPowerDown.verify|verify} messages.
+     * @param message ReqPowerDown message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqPowerDown, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqPowerDown message, length delimited. Does not implicitly {@link ReqPowerDown.verify|verify} messages.
+     * @param message ReqPowerDown message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqPowerDown, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqPowerDown message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqPowerDown
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqPowerDown;
+
+    /**
+     * Decodes a ReqPowerDown message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqPowerDown
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqPowerDown;
+
+    /**
+     * Verifies a ReqPowerDown message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqPowerDown message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqPowerDown
+     */
+    public static fromObject(object: { [k: string]: any }): ReqPowerDown;
+
+    /**
+     * Creates a plain object from a ReqPowerDown message. Also converts values to other types if specified.
+     * @param message ReqPowerDown
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqPowerDown, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqPowerDown to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqPowerDown
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqOpenPowerInd. */
+export class ReqOpenPowerInd implements IReqOpenPowerInd {
+
+    /**
+     * Constructs a new ReqOpenPowerInd.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqOpenPowerInd);
+
+    /**
+     * Creates a new ReqOpenPowerInd instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqOpenPowerInd instance
+     */
+    public static create(properties?: IReqOpenPowerInd): ReqOpenPowerInd;
+
+    /**
+     * Encodes the specified ReqOpenPowerInd message. Does not implicitly {@link ReqOpenPowerInd.verify|verify} messages.
+     * @param message ReqOpenPowerInd message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqOpenPowerInd, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqOpenPowerInd message, length delimited. Does not implicitly {@link ReqOpenPowerInd.verify|verify} messages.
+     * @param message ReqOpenPowerInd message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqOpenPowerInd, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqOpenPowerInd message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqOpenPowerInd
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqOpenPowerInd;
+
+    /**
+     * Decodes a ReqOpenPowerInd message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqOpenPowerInd
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqOpenPowerInd;
+
+    /**
+     * Verifies a ReqOpenPowerInd message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqOpenPowerInd message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqOpenPowerInd
+     */
+    public static fromObject(object: { [k: string]: any }): ReqOpenPowerInd;
+
+    /**
+     * Creates a plain object from a ReqOpenPowerInd message. Also converts values to other types if specified.
+     * @param message ReqOpenPowerInd
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqOpenPowerInd, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqOpenPowerInd to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqOpenPowerInd
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqClosePowerInd. */
+export class ReqClosePowerInd implements IReqClosePowerInd {
+
+    /**
+     * Constructs a new ReqClosePowerInd.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqClosePowerInd);
+
+    /**
+     * Creates a new ReqClosePowerInd instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqClosePowerInd instance
+     */
+    public static create(properties?: IReqClosePowerInd): ReqClosePowerInd;
+
+    /**
+     * Encodes the specified ReqClosePowerInd message. Does not implicitly {@link ReqClosePowerInd.verify|verify} messages.
+     * @param message ReqClosePowerInd message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqClosePowerInd, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqClosePowerInd message, length delimited. Does not implicitly {@link ReqClosePowerInd.verify|verify} messages.
+     * @param message ReqClosePowerInd message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqClosePowerInd, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqClosePowerInd message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqClosePowerInd
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqClosePowerInd;
+
+    /**
+     * Decodes a ReqClosePowerInd message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqClosePowerInd
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqClosePowerInd;
+
+    /**
+     * Verifies a ReqClosePowerInd message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqClosePowerInd message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqClosePowerInd
+     */
+    public static fromObject(object: { [k: string]: any }): ReqClosePowerInd;
+
+    /**
+     * Creates a plain object from a ReqClosePowerInd message. Also converts values to other types if specified.
+     * @param message ReqClosePowerInd
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqClosePowerInd, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqClosePowerInd to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqClosePowerInd
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqReboot. */
+export class ReqReboot implements IReqReboot {
+
+    /**
+     * Constructs a new ReqReboot.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqReboot);
+
+    /**
+     * Creates a new ReqReboot instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqReboot instance
+     */
+    public static create(properties?: IReqReboot): ReqReboot;
+
+    /**
+     * Encodes the specified ReqReboot message. Does not implicitly {@link ReqReboot.verify|verify} messages.
+     * @param message ReqReboot message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqReboot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqReboot message, length delimited. Does not implicitly {@link ReqReboot.verify|verify} messages.
+     * @param message ReqReboot message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqReboot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqReboot message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqReboot
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqReboot;
+
+    /**
+     * Decodes a ReqReboot message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqReboot
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqReboot;
+
+    /**
+     * Verifies a ReqReboot message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqReboot message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqReboot
+     */
+    public static fromObject(object: { [k: string]: any }): ReqReboot;
+
+    /**
+     * Creates a plain object from a ReqReboot message. Also converts values to other types if specified.
+     * @param message ReqReboot
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqReboot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqReboot to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqReboot
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Represents a ReqSetTime. */

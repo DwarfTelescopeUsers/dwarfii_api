@@ -162,7 +162,7 @@ enum DwarfCMD {
 }
 
 enum DwarfErrorCode {
-    NO_ERROR = 0; // No Error
+    OK = 0; // OK : No Error
     WS_PARSE_PROTOBUF_ERROR = -1; // Protobuf parsing failed
     WS_SDCARD_NOT_EXIST = -2; // SD card not detected
     WS_INVALID_PARAM = -3; // Invalid parameter
@@ -218,4 +218,19 @@ enum SolarSystemTarget {
     Neptune = 7;
     Moon = 8;
     Sun = 9;
+}
+
+enum PhotoMode {
+    Auto = 0; 
+    Manual = 1; 
+}
+
+enum WBMode {
+    ColorTemperature = 0; 
+    SceneMode = 1; 
+}
+
+enum IrCut {
+    CUT = 0; 
+    PASS = 1; 
 }

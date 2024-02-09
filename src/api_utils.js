@@ -1,7 +1,13 @@
 // Import the generated protobuf module
 import $root from "./protobuf/protobuf.js";
 export const Dwarfii_Api = $root;
-import { cmdMapping, responseMapping, notifyMapping } from "./cmd_mapping.js";
+import {
+  cmdMapping,
+  responseMapping,
+  notifyMapping,
+  getClassStateMappings,
+  getClassModeMappings,
+} from "./cmd_mapping.js";
 /** @module api_utils */
 /**
  * Returns the now UTC time as 'yyyy-mm-dd hh:mm:ss'
@@ -116,7 +122,8 @@ export function createPacket(
   let minor_version = Dwarfii_Api.WsMinorVersion.WS_MINOR_VERSION_NUMBER;
   let device_id = 1; // DWARF II
   // message
-  let message_buffer = class_message.encode(message).finish();
+  let message_buffer = undefined;
+  message_buffer = class_message.encode(message).finish();
   console.log(
     `message_buffer = ${Array.prototype.toString.call(message_buffer)}`
   );
@@ -132,34 +139,76 @@ export function createPacket(
     clientId: "0000DAF2-0000-1000-8000-00805F9B34FB",
   };
   console.log(`payload = ${JSON.stringify(payload)}`);
+
   // Verify the payload if necessary (i.e. when possibly incomplete or invalid)
   let errMsg = Dwarfii_Api.WsPacket.verify(payload);
   if (errMsg) throw Error(errMsg);
+
   // Create a new message
   let message_payload = Dwarfii_Api.WsPacket.create(payload); // or use .fromObject if conversion is necessary
   console.log(`sending message_payload = ${JSON.stringify(message_payload)}`);
-  // Encode a message to an Uint8Array (browser) or Buffer (node)
+  // Encode Final Buffer
   let buffer = Dwarfii_Api.WsPacket.encode(message_payload).finish();
-  console.log(`sending buffer = ${Array.prototype.toString.call(buffer)}`);
-  // ... return the encoded buffer
+  console.log(`buffer to Send = ${Array.prototype.toString.call(buffer)}`);
+
+  // For Testing Only : try to decode it
+  let result_buffer = analyzePacket(buffer);
+  console.debug(`Test decoded Payload : ${result_buffer}`);
+
   return buffer;
 }
+
+// Test Code no need finally
+/*
+// Seems somtimes the encode function doesn't reture UintArray
+function convert_to_binary_if_need(message_buffer) {
+  // Check message_buffer as string encoded
+  if (
+    message_buffer instanceof Uint8Array ||
+    message_buffer instanceof ArrayBuffer
+  )
+    return message_buffer;
+  // Check message_buffer as string encoded
+  if (typeof message_buffer === "string") {
+    // Count the occurrences of commas
+    const numberOfCommas = (message_buffer.match(/,/g) || []).length;
+
+    if (numberOfCommas > 5) {
+      console.log(" -> Convert Text data Found..as binary");
+
+      // Split the string into an array of numeric strings
+      const numericValues = message_buffer
+        .toString()
+        .split(",")
+        .map(Number)
+        .filter((value) => !isNaN(value));
+
+      // Create a Uint8Array from the numeric values
+      return new Uint8Array(numericValues);
+    }
+  }
+  return message_buffer;
+}
+*/
+
 /**
  * Generic Analysing Encoded Received Packet Function
  * @param {ArrayBuffer|string} message_buffer Encoded Message Buffer
  * @returns {string}
  */
 export function analyzePacket(message_buffer) {
-  // Check message_buffer
-  if (message_buffer instanceof ArrayBuffer) {
+  // Check if binary message_buffer
+  if (
+    message_buffer instanceof Uint8Array ||
+    message_buffer instanceof ArrayBuffer
+  ) {
     // binary frame
-    // transform data to the typed array needed
-    console.log(" -> Binary data .....");
+    console.debug(" -> Binary data .....");
   } else {
     // text frame ping ?
-    console.log(" -> Text data .....");
     if (message_buffer !== undefined && message_buffer !== null) {
-      console.log(`Text Frame Received : ${message_buffer}`);
+      console.debug(" -> Text data .....");
+      console.debug(`Text Frame Received : ${message_buffer}`);
       return JSON.stringify({ text: message_buffer });
     } else {
       // Handle the case where message_buffer is undefined or null
@@ -167,8 +216,8 @@ export function analyzePacket(message_buffer) {
     }
   }
   // Get buffer received
-  const data_rcv = new Uint8Array(message_buffer);
-  console.log(data_rcv);
+  let data_rcv = new Uint8Array(message_buffer);
+  console.debug(data_rcv);
   // Obtain a message type
   let decoded_message = {};
   let WsPacket_message = new Dwarfii_Api.WsPacket();
@@ -176,109 +225,86 @@ export function analyzePacket(message_buffer) {
   let data_class = "";
   // Decoding buffer received
   WsPacket_message = decodePacket(data_rcv, Dwarfii_Api.WsPacket);
-  console.log(
+  console.debug(
     `receive message.majorVersion = ${WsPacket_message.majorVersion}`
   );
-  console.log(
+  console.debug(
     `receive message.minorVersion = ${WsPacket_message.minorVersion}`
   );
-  console.log(`receive message.deviceId = ${WsPacket_message.deviceId}`);
-  console.log(`receive message.moduleId = ${WsPacket_message.moduleId}`);
-  console.log(`=> ${Dwarfii_Api.ModuleId[WsPacket_message.moduleId]}`);
-  console.log(`receive message.cmd = ${WsPacket_message.cmd}`);
-  console.log(`=> ${Dwarfii_Api.DwarfCMD[WsPacket_message.cmd]}`);
-  console.log(`receive message.type = ${WsPacket_message.type}`);
-  console.log(`receive message.clientId = ${WsPacket_message.clientId}`);
+  console.debug(`receive message.deviceId = ${WsPacket_message.deviceId}`);
+  console.debug(`receive message.moduleId = ${WsPacket_message.moduleId}`);
+  console.debug(`=> ${Dwarfii_Api.ModuleId[WsPacket_message.moduleId]}`);
+  console.debug(`receive message.cmd = ${WsPacket_message.cmd}`);
+  console.debug(`=> ${Dwarfii_Api.DwarfCMD[WsPacket_message.cmd]}`);
+  console.debug(`receive message.type = ${WsPacket_message.type}`);
+  console.debug(`receive message.clientId = ${WsPacket_message.clientId}`);
   // Analyze Data : depends of cmd and type value of response packet.
   const cmdClass = cmdMapping[WsPacket_message.cmd];
-  console.log(`cmdClass: ${cmdClass}`);
+  console.debug(`cmdClass: ${cmdClass}`);
   const responseClass = responseMapping[WsPacket_message.cmd];
-  console.log(`responseClass: ${responseClass}`);
+  console.debug(`responseClass: ${responseClass}`);
   const notifyClass = notifyMapping[WsPacket_message.cmd];
-  console.log(`notifyClass: ${notifyClass}`);
+  console.debug(`notifyClass: ${notifyClass}`);
   // Automatic Analyse Data
   if (WsPacket_message.type == 0) {
     // Request
-    console.log(
+    console.debug(
       `Decoding Request Frame => ${Dwarfii_Api.DwarfCMD[WsPacket_message.cmd]}`
     );
     // Get Response Class Object
-    console.log(`cmdClass: ${cmdClass}`);
+    console.debug(`cmdClass: ${cmdClass}`);
     data_class = "Dwarfii_Api." + cmdClass;
     Response_message = eval(`new Dwarfii_Api.${cmdClass}()`);
     Response_message = decodePacket(
       WsPacket_message.data,
       eval(`Dwarfii_Api.${cmdClass}`)
     );
-    console.log(`Not all Data!>> ${JSON.stringify(Response_message)}`);
-  } else if (WsPacket_message.cmd == Dwarfii_Api.DwarfCMD.CMD_NOTIFY_CPU_MODE) {
-    console.log("--TEST-- Decoding Response CMD_NOTIFY_CPU_MODE Frame");
-    data_class = "Dwarfii_Api.ResNotifyCPUMode";
-    Response_message = new Dwarfii_Api.ResNotifyStateAstroGoto();
-    data_class = "Dwarfii_Api.ResNotifyStateAstroGoto";
-    Response_message = new Dwarfii_Api.ResNotifyStateAstroGoto();
-    Response_message = decodePacket(
-      WsPacket_message.data,
-      Dwarfii_Api.ResNotifyStateAstroGoto
-    );
-    console.log(`receive request response data >> ${Response_message.mode}`);
-    // replace data value with new keys and also prototype key assigned by default.
-    // escape toJSON property
-    let test_message = Object.assign({}, WsPacket_message);
-    // Ensure 'data' property is defined
-    test_message.data = {};
-    for (let key in Response_message) {
-      if (key !== "toJSON") {
-        test_message.data[key] = Response_message[key];
-      }
-    }
-    console.log(`Test Message >> ${JSON.stringify(test_message)}`);
-    console.log(`Not all Data!>> ${JSON.stringify(Response_message)}`);
+    console.debug(`Not all Data!>> ${JSON.stringify(Response_message)}`);
   } else if (WsPacket_message.type == 1) {
     // Response
-    console.log(
+    console.debug(
       `Decoding Response Request Frame => ${
         Dwarfii_Api.DwarfCMD[WsPacket_message.cmd]
       }`
     );
-    console.log(`responseClass: ${responseClass}`);
+    console.debug(`responseClass: ${responseClass}`);
     data_class = "Dwarfii_Api." + responseClass;
     Response_message = eval(`new Dwarfii_Api.${responseClass}()`);
     Response_message = decodePacket(
       WsPacket_message.data,
       eval(`Dwarfii_Api.${responseClass}`)
     );
-    console.log(`Not all Data!>> ${JSON.stringify(Response_message)}`);
+    console.debug(`Not all Data!>> ${JSON.stringify(Response_message)}`);
   } else if (WsPacket_message.type == 2) {
     // Notification
-    console.log(
+    console.debug(
       `Decoding Notification Frame => ${
         Dwarfii_Api.DwarfCMD[WsPacket_message.cmd]
       }`
     );
-    console.log(`notifyClass: ${notifyClass}`);
+    console.debug(`notifyClass: ${notifyClass}`);
     data_class = "Dwarfii_Api." + notifyClass;
     Response_message = eval(`new Dwarfii_Api.${notifyClass}()`);
     Response_message = decodePacket(
       WsPacket_message.data,
       eval(`Dwarfii_Api.${notifyClass}`)
     );
-    console.log(`Not all Data!>> ${JSON.stringify(Response_message)}`);
+    console.debug(`Not all Data!>> ${JSON.stringify(Response_message)}`);
   } else if (WsPacket_message.type == 3) {
     // Notification Response
-    console.log(
+    console.debug(
       `Decoding Notification Response Frame => ${
         Dwarfii_Api.DwarfCMD[WsPacket_message.cmd]
       }`
     );
-    console.log(`responseClass: ${responseClass}`);
+    console.debug(`responseClass: ${responseClass}`);
     data_class = "Dwarfii_Api." + responseClass;
     Response_message = eval(`new Dwarfii_Api.${responseClass}()`);
     Response_message = decodePacket(
       WsPacket_message.data,
       eval(`Dwarfii_Api.${responseClass}`)
     );
-    console.log(`Not all Data!>> ${JSON.stringify(Response_message)}`);
+    console.debug(`Not all Data!>> ${JSON.stringify(Response_message)}`);
   }
   // replace data value with new keys and also prototype key assigned by default.
   // escape toJSON property of object
@@ -292,20 +318,45 @@ export function analyzePacket(message_buffer) {
     }
   }
   // add command in plain text
+  let value = "";
   if (decoded_message.cmd) {
-    decoded_message.data.cmd = {};
-    decoded_message.data.cmd = Dwarfii_Api.DwarfCMD[decoded_message.cmd];
+    decoded_message.data.cmdText = {};
+    decoded_message.data.cmdText = Dwarfii_Api.DwarfCMD[decoded_message.cmd];
   }
-  // add error code
-  if (decoded_message.data.code) {
-    decoded_message.data.error = {};
-    decoded_message.data.error =
+  // add mode response code in plain text
+  if (decoded_message.data.mode !== undefined) {
+    value = getClassModeMappings(data_class, decoded_message.data.mode);
+    if (value) {
+      decoded_message.data.modeText = {};
+      decoded_message.data.modeText = value;
+    }
+  }
+  // add state response code in plain text
+  if (decoded_message.data.state !== undefined) {
+    value = getClassStateMappings(data_class, decoded_message.data.state);
+    if (value) {
+      decoded_message.data.stateText = {};
+      decoded_message.data.stateText = value;
+    } else {
+      // Protobuf get the correct Txt value with toObject function except for 0
+      value = JSON.parse(JSON.stringify(Response_message)).state;
+      if (value && typeof value == "string") {
+        decoded_message.data.stateText = {};
+        decoded_message.data.stateText = value;
+      }
+    }
+  }
+  // add error code in plain text
+  if (decoded_message.data.hasOwnProperty("code")) {
+    decoded_message.data.errorTxt = {};
+    decoded_message.data.errorTxt =
       Dwarfii_Api.DwarfErrorCode[decoded_message.data.code];
   }
   console.log(`>> ${JSON.stringify(decoded_message)}`);
   return JSON.stringify(decoded_message);
 }
-export function messageTeleGetSystemWorkingState2() {
+
+export function messageTeleGetSystemWorkingState_TEST() {
   let module_id = Dwarfii_Api.ModuleId["MODULE_CAMERA_TELE"];
   let interface_id =
     Dwarfii_Api.DwarfCMD["CMD_CAMERA_TELE_GET_SYSTEM_WORKING_STATE"];
@@ -366,7 +417,9 @@ export function messageTeleGetSystemWorkingState() {
   let class_message = eval(`Dwarfii_Api.${cmdClass}`);
   // Encode message
   let message = class_message.create({});
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -385,7 +438,9 @@ export function messageSetTime() {
   let message = class_message.create({
     timestamp: Math.floor(Date.now() / 1000),
   });
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -403,7 +458,9 @@ export function messageSetTimezone(timezone) {
   let class_message = eval(`Dwarfii_Api.${cmdClass}`);
   // Encode message
   let message = class_message.create({ timezone: timezone });
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -420,7 +477,9 @@ export function messageAstroStartCalibration() {
   let class_message = eval(`Dwarfii_Api.${cmdClass}`);
   // Encode message
   let message = class_message.create({});
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -437,7 +496,9 @@ export function messageAstroStopCalibration() {
   let class_message = eval(`Dwarfii_Api.${cmdClass}`);
   // Encode message
   let message = class_message.create({});
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -461,7 +522,9 @@ export function messageAstroStartGotoDso(ra, dec, target_name) {
     dec: dec,
     target_name: target_name,
   });
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -470,10 +533,10 @@ export function messageAstroStartGotoDso(ra, dec, target_name) {
  * @param {number} index SolarSystemTargetNumber
  * @param {number} lon Longitude
  * @param {number} lat Lattitude
- * @param {string} target_name
+ * @param {string} targetName
  * @returns {Uint8Array}
  */
-export function messageAstroStartGotoSolarSystem(index, lon, lat, target_name) {
+export function messageAstroStartGotoSolarSystem(index, lon, lat, targetName) {
   let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
   let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_GOTO_SOLAR_SYSTEM;
   let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
@@ -486,9 +549,11 @@ export function messageAstroStartGotoSolarSystem(index, lon, lat, target_name) {
     index: index,
     lon: lon,
     lat: lat,
-    target_name: target_name,
+    targetName: targetName,
   });
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -506,7 +571,130 @@ export function messageAstroStopGoto() {
   let class_message = eval(`Dwarfii_Api.${cmdClass}`);
   // Encode message
   let message = class_message.create({});
-  console.log(`created message = ${JSON.stringify(message)}`);
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * Create Encoded Packet for the command CMD_RGB_POWER_POWER_DOWN
+ * @returns {Uint8Array}
+ */
+export function messageRgbPowerDown() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_RGB_POWER;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_RGB_POWER_POWER_DOWN;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * Create Encoded Packet for the command CMD_RGB_POWER_REBOOT
+ * @returns {Uint8Array}
+ */
+export function messageRgbPowerReboot() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_RGB_POWER;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_RGB_POWER_REBOOT;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_OPEN_CAMERA
+ * @param {boolean} binning ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleOpenCamera(binning = false) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_OPEN_CAMERA;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ binning: binning });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_CLOSE_CAMERA
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleCloseCamera() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_CLOSE_CAMERA;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_WIDE_OPEN_CAMERA
+ * @returns {Uint8Array}
+ */
+export function messageCameraWideOpenCamera() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_WIDE_OPEN_CAMERA;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_WIDE_CLOSE_CAMERA
+ * @returns {Uint8Array}
+ */
+export function messageCameraWideCloseCamera() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_WIDE_CLOSE_CAMERA;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

@@ -48,7 +48,7 @@ export function createPacket(message: any, class_message: any, module_id: number
  * @returns {string}
  */
 export function analyzePacket(message_buffer: ArrayBuffer | string): string;
-export function messageTeleGetSystemWorkingState2(): any;
+export function messageTeleGetSystemWorkingState_TEST(): any;
 /**
  * Create Encoded Packet for the command messageTeleGetSystemWorkingState
  * @returns {Uint8Array}
@@ -88,15 +88,46 @@ export function messageAstroStartGotoDso(ra: number, dec: number, target_name: s
  * @param {number} index SolarSystemTargetNumber
  * @param {number} lon Longitude
  * @param {number} lat Lattitude
- * @param {string} target_name
+ * @param {string} targetName
  * @returns {Uint8Array}
  */
-export function messageAstroStartGotoSolarSystem(index: number, lon: number, lat: number, target_name: string): Uint8Array;
+export function messageAstroStartGotoSolarSystem(index: number, lon: number, lat: number, targetName: string): Uint8Array;
 /**
  * Create Encoded Packet for the command CMD_ASTRO_STOP_GOTO
  * @returns {Uint8Array}
  */
 export function messageAstroStopGoto(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_RGB_POWER_POWER_DOWN
+ * @returns {Uint8Array}
+ */
+export function messageRgbPowerDown(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_RGB_POWER_REBOOT
+ * @returns {Uint8Array}
+ */
+export function messageRgbPowerReboot(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_OPEN_CAMERA
+ * @param {boolean} binning ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleOpenCamera(binning?: boolean): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_CLOSE_CAMERA
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleCloseCamera(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_WIDE_OPEN_CAMERA
+ * @returns {Uint8Array}
+ */
+export function messageCameraWideOpenCamera(): Uint8Array;
+/**
+ * Create Encoded Packet for the command CMD_CAMERA_WIDE_CLOSE_CAMERA
+ * @returns {Uint8Array}
+ */
+export function messageCameraWideCloseCamera(): Uint8Array;
 export const Dwarfii_Api: any;
 export class ping_dwarf {
     constructor(socket: any);

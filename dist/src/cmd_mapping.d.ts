@@ -1,3 +1,5 @@
+export function getClassStateMappings(className: any, value: any): any;
+export function getClassModeMappings(className: any, value: any): any;
 export const cmdMapping: {
     10000: string;
     10001: string;

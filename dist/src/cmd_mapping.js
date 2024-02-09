@@ -235,3 +235,45 @@ export const notifyMapping = {
     15228: "ResNotifyStateAstroTrackingSpecial", // Sun and moon tracking status
     15229: "ResNotifyPowerOff", // Shutdown notification
 };
+const classStateMappings = {
+    "Dwarfii_Api.ResNotifyStateAstroGoto:0": "ASTRO_STATE_IDLE",
+    "Dwarfii_Api.ResNotifyStateAstroCalibration:0": "ASTRO_STATE_IDLE",
+    "Dwarfii_Api.ResNotifyStateAstroTracking:0": "OPERATION_STATE_IDLE",
+    "Dwarfii_Api.ResNotifyStateAstroTrackingSpecial:0": "OPERATION_STATE_IDLE",
+    "Dwarfii_Api.ResNotifyOperationState:0": "OPERATION_STATE_IDLE",
+    "Dwarfii_Api.ResNotifyCamFunctionState:0": "OPERATION_STATE_IDLE",
+    "Dwarfii_Api.ResNotifyRgbState:0": "OFF",
+    "Dwarfii_Api.ResNotifyRgbState:1": "ON",
+    "Dwarfii_Api.ResNotifyPowerIndState:0": "OFF",
+    "Dwarfii_Api.ResNotifyPowerIndState:1": "ON",
+};
+const classModeMappings = {
+    "Dwarfii_Api.ResNotifyHostSlaveMode:0": "HOST",
+    "Dwarfii_Api.ResNotifyHostSlaveMode:1": "SLAVE",
+    "Dwarfii_Api.ResNotifyMTPState:0": "OFF",
+    "Dwarfii_Api.Dwarfii_Api.ResNotifyMTPState:1": "ON",
+    "Dwarfii_Api.ResNotifyCPUMode:0": "Normal",
+    "Dwarfii_Api.ResNotifyCPUMode:1": "Performance",
+    "Dwarfii_Api.ReqSetExpMod:0": "Auto",
+    "Dwarfii_Api.ReqSetExpMod:1": "Manual",
+    "Dwarfii_Api.ReqSetGainMode:0": "Auto",
+    "Dwarfii_Api.ReqSetGainMode:1": "Manual",
+    "Dwarfii_Api.ReqSetIrCut:0": "CUT",
+    "Dwarfii_Api.ReqSetIrCut:1": "PASS",
+    "Dwarfii_Api.ReqSetWBMode:0": "ColorTemperature",
+    "Dwarfii_Api.ReqSetWBMode:1": "SceneMode",
+    "Dwarfii_Api.ReqAstroAutoFocus:0": "Auto",
+    "Dwarfii_Api.ReqAstroAutoFocus:1": "Manual",
+    "Dwarfii_Api.Dwarfii_Api.ReqSetMtpMode:0": "OFF",
+    "Dwarfii_Api.ReqSetMtpMode:1": "ON",
+    "Dwarfii_Api.ReqSetCpuMode:0": "Normal",
+    "Dwarfii_Api.ReqSetCpuMode:1": "Performance",
+};
+export function getClassStateMappings(className, value) {
+    const key = `${className + ":" + value}`;
+    return classStateMappings[key] || "";
+}
+export function getClassModeMappings(className, value) {
+    const key = `${className + ":" + value}`;
+    return classModeMappings[key] || "";
+}
