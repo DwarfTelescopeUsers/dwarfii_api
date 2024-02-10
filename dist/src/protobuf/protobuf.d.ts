@@ -8615,6 +8615,7 @@ export enum AstroTrackingSpecial {
 
 /** SolarSystemTarget enum. */
 export enum SolarSystemTarget {
+    Unknown = 0,
     Mercury = 1,
     Venus = 2,
     Mars = 3,

@@ -18488,6 +18488,7 @@ $root.AstroTrackingSpecial = (function () {
  * SolarSystemTarget enum.
  * @exports SolarSystemTarget
  * @enum {number}
+ * @property {number} Unknown=0 Unknown value
  * @property {number} Mercury=1 Mercury value
  * @property {number} Venus=2 Venus value
  * @property {number} Mars=3 Mars value
@@ -18500,6 +18501,7 @@ $root.AstroTrackingSpecial = (function () {
  */
 $root.SolarSystemTarget = (function () {
     var valuesById = {}, values = Object.create(valuesById);
+    values[(valuesById[0] = "Unknown")] = 0;
     values[(valuesById[1] = "Mercury")] = 1;
     values[(valuesById[2] = "Venus")] = 2;
     values[(valuesById[3] = "Mars")] = 3;

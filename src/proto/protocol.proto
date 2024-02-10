@@ -209,6 +209,7 @@ enum AstroTrackingSpecial {
 }
 
 enum SolarSystemTarget {
+    Unknown = 0;
     Mercury = 1; 
     Venus = 2;
     Mars = 3;
