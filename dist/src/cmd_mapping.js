@@ -235,6 +235,107 @@ export const notifyMapping = {
     15228: "ResNotifyStateAstroTrackingSpecial", // Sun and moon tracking status
     15229: "ResNotifyPowerOff", // Shutdown notification
 };
+export const notifyResponseMapping = {
+    10000: "ComResponse", // Turn on the camera
+    10001: "ComResponse", // Turn off the camera
+    10002: "ComResponse", // Take photos
+    10003: "ComResponse", // Start continuous shooting
+    10004: "ComResponse", // Stop continuous shooting
+    10005: "ComResponse", // Start recording
+    10006: "ComResponse", // Stop recording
+    10007: "ComResponse", // Set exposure mode
+    10008: "ComResWithInt", // Acquire exposure mode
+    10009: "ComResponse", // Set exposure value
+    10010: "ComResWithDouble", // Get exposure value
+    10011: "ComResponse", // Set gain mode
+    10012: "ComResWithInt", // Acquisition gain mode
+    10013: "ComResponse", // Set gain value
+    10014: "ComResWithInt", // Get gain value
+    10015: "ComResponse", // Set brightness
+    10016: "ComResWithInt", // Acquire brightness
+    10017: "ComResponse", // Set contrast
+    10018: "ComResWithInt", // Get contrast
+    10019: "ComResponse", // Set saturation
+    10020: "ComResWithInt", // Acquire saturation
+    10021: "ComResponse", // Set tone
+    10022: "ComResWithInt", // Get hue
+    10023: "ComResponse", // Set sharpness
+    10024: "ComResWithInt", // Acquire sharpness
+    10025: "ComResponse", // Set white balance mode
+    10026: "ComResWithInt", // Acquire white balance mode
+    10027: "ComResponse", // Set white balance scene
+    10028: "ComResWithInt", // Get white balance scene
+    10029: "ComResponse", // Set the white balance color temperature value
+    10030: "ComResWithInt", // Obtain the white balance color temperature value
+    10031: "ComResponse", // Set IRCUT
+    10032: "ComResWithInt", // Get IRCUT status
+    10033: "ComResponse", // Start time-lapse photography
+    10034: "ComResponse", // Stop time-lapse photography
+    10035: "ComResponse", // Set all parameters
+    10036: "ResGetAllParams", // Get all parameters
+    10037: "ComResponse", // Set feature parameters
+    10038: "ResGetAllFeatureParams", // Get all feature parameters
+    10039: "ComResponse", // Get the working status of the whole machine
+    10040: "ComResponse", // Set jpg preview quality
+    11000: "ComResponse", // Start calibration
+    11001: "ComResponse", // Stop calibration
+    11002: "ComResponse", // Start GOTO Deep Space Object
+    11003: "ComResponse", // Start GOTO Solar System Target
+    11004: "ComResponse", // Stop GOTO
+    11005: "ComResponse", // Start stacking
+    11006: "ComResponse", // Stop overlay
+    11007: "ComResponse", // Start shooting dark scenes
+    11008: "ComResponse", // Stop filming darkfield
+    11009: "ResCheckDarkFrame", // Inquire about the dark field that has been shot
+    11010: "ComResponse", // GO LIVE interface
+    11011: "ComResponse", // Start tracking the sun and moon
+    11012: "ComResponse", // Stop tracking the sun and moon
+    12000: "ComResponse", // Turn on the camera
+    12001: "ComResponse", // Turn off the camera
+    12002: "ComResponse", // Set exposure mode
+    12003: "ComResWithInt", // Acquire exposure mode
+    12004: "ComResponse", // Set exposure value
+    12005: "ComResWithDouble", // Get exposure value
+    12006: "ComResponse", // Set gain
+    12007: "ComResWithInt", // Acquisition gain
+    12008: "ComResponse", // Set brightness
+    12009: "ComResWithInt", // Acquire brightness
+    12010: "ComResponse", // Set contrast
+    12011: "ComResWithInt", // Get contrast
+    12012: "ComResponse", // Set saturation
+    12013: "ComResWithInt", // Acquire saturation
+    12014: "ComResponse", // Set tone
+    12015: "ComResWithInt", // Get hue
+    12016: "ComResponse", // Set sharpness
+    12017: "ComResWithInt", // Acquire sharpness
+    12018: "ComResponse", // Set white balance mode
+    12019: "ComResWithInt", // Acquire white balance mode
+    12020: "ComResponse", // Set white balance color temperature
+    12021: "ComResWithInt", // Obtain white balance color temperature
+    12022: "ComResponse", // Take photos
+    12023: "ComResponse", // Continuous shooting
+    12024: "ComResponse", // Stop continuous shooting
+    12025: "ComResponse", // Start time-lapse photography
+    12026: "ComResponse", // Stop time-lapse photography
+    12027: "ResGetAllParams", // Get all parameters
+    12028: "ComResponse", // Set all parameters
+    13000: "ComResponse", // Set the system time
+    13001: "ComResponse", // Set the time zone
+    13002: "ComResponse", // Set MTP mode
+    13003: "ComResponse", // Set CPU mode
+    13500: "ComResponse", // Turn on the ring light
+    13501: "ComResponse", // Turn off the ring light
+    13502: "ComResponse", // Shut down
+    13503: "ComResponse", // Turn on the battery indicator
+    13504: "ComResponse", // Turn off battery indicator =
+    13505: "ComResponse", // Restart
+    15000: "ComResponse", // Normal mode autofocus
+    15001: "ComResponse", // Manual single-step focusing
+    15002: "ComResponse", // Start manual continuous focus
+    15003: "ComResponse", // Stop manual continuous focus
+    15004: "ComResponse", // Start astronomical autofocus
+    15005: "ComResponse", // Stop astronomical autofocus
+};
 const classStateMappings = {
     "Dwarfii_Api.ResNotifyStateAstroGoto:0": "ASTRO_STATE_IDLE",
     "Dwarfii_Api.ResNotifyStateAstroCalibration:0": "ASTRO_STATE_IDLE",

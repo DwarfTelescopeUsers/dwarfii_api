@@ -10,7 +10,7 @@ export const wsURL = (IP) => `ws://${IP}:9900`;
  * @param {string} IP
  * @returns {string}
  */
-export const wideangleURL = (IP) => `http://${IP}:8092/thirdstream`;
+export const wideangleURL = (IP) => `http://${IP}:8092/secondstream`;
 /**
  * @param {string} IP
  * @returns {string}
@@ -20,74 +20,30 @@ export const telephotoURL = (IP) => `http://${IP}:8092/mainstream`;
  * @param {string} IP
  * @returns {string}
  */
-export const rawPreviewURL = (IP) => `http://${IP}:8092/rawstream`;
-/**
- * @param {string} IP
- * @returns {string}
- */
-export const utcURL = (IP) => `http://${IP}:8092/date?date=`;
-/**
- * @param {string} IP
- * @returns {string}
- */
-export const timeZoneURL = (IP) => `http://${IP}:8092/timezone?timezone=`;
+// old ip : not working anymore in V2
+//export const rawPreviewURL = (IP) => `http://${IP}:8092/rawstream`;
+export const rawPreviewURL = (IP) => `http://${IP}:8092/mainstream`;
 /**
  * @param {string} IP
  * @returns {string}
  */
 export const firmwareVersion = (IP) => `http://${IP}:8082/firmwareVersion`;
+/**
+ * @param {string} IP
+ * @returns {string}
+ */
+export const getDefaultParamsConfig = (IP) => `http://${IP}:8082/getDefaultParamsConfig`;
 // ===============
-// 3.1 image transmission
 // ===============
-// camera
-export const turnOnCameraCmd = 10000;
-export const turnOffCameraCmd = 10017;
-export const telephotoCamera = 0;
-export const wideangleCamera = 1;
-export const previewImageQuality = 10016;
-// ===============
-// 3.2 photo and video
-// ===============
-// photo
-export const takePhotoCmd = 10006;
-export const photoSingleShot = 0;
-export const photoContinuous = 1;
-// video
-export const startRecordingCmd = 10007;
-export const stopRecordingCmd = 10009;
-// timelapse photos
-export const startTimelapseCmd = 10018;
-export const stopTimelapseCmd = 10019;
-// ===============
-// 3.3 ISP settings
-// ===============
+// exposition - gain
 export const modeAuto = 0;
 export const modeManual = 1;
-// brightness
-export const setBrightnessValueCmd = 10204;
-// contrast
-export const setContrastValueCmd = 10205;
-// saturation
-export const setSaturationValueCmd = 10206;
-// hue
-export const setHueValueCmd = 10207;
-// sharpness
-export const setSharpnessValueCmd = 10208;
-// exposure
-export const setExposureModeCmd = 10001;
-export const setExposureValueCmd = 10003;
-export const exposureTelephotoModeAuto = 0;
-export const exposureWideangleModeAuto = 3;
-// gain
-export const setGainModeCmd = 10004;
-export const setGainValueCmd = 10005;
 // autofocus
-export const autofocusCmd = 10211;
 export const autofocusGlobal = 0;
 export const autofocusArea = 1;
+export const exposureTelephotoModeAuto = 0;
+export const exposureWideangleModeAuto = 3;
 // whitebalance
-export const setWhiteBalanceModeCmd = 10212;
-export const setWhiteBalanceScenceCmd = 10213;
 export const whiteBalanceScenesIDValue = {
     0: "incandescent lamp",
     1: "fluorescent lamp",
@@ -106,110 +62,25 @@ export const whiteBalanceScenesValueID = {
     "evening twilight": 5,
     shadow: 6,
 };
-export const setWhiteBalanceColorCmd = 10214;
 // IR
-export const setIRCmd = 10203;
 export const IRCut = 0;
 export const IRPass = 3;
-// ===============
-// 3.4 status
-// ===============
-// telephoto
-export const statusTelephotoCmd = 10215;
-export const statusIRTelephotoCmd = 10216;
-export const statusWorkingStateTelephotoCmd = 10022;
-// wideangle
-export const statusWideangleCmd = 10217;
-// ===============
-// 4.1 Astro
-// ===============
-// goto
-export const calibrateGotoCmd = 11205;
-export const startGotoCmd = 11203;
-export const stopGotoCmd = 11204;
-export const planetsValueId = {
-    Mercury: 0,
-    Venus: 1,
-    Mars: 2,
-    Jupiter: 3,
-    Saturn: 4,
-    Uranus: 5,
-    Neptune: 6,
-    Moon: 7,
-};
-export const planetsIdValue = {
-    0: "Mercury",
-    1: "Venus",
-    2: "Mars",
-    3: "Jupiter",
-    4: "Saturn",
-    5: "Uranus",
-    6: "Neptune",
-    7: "Moon",
-};
-// RAW astro photo
-export const takeAstroPhotoCmd = 10011;
-export const stopAstroPhotoCmd = 10015;
 export const binning1x1 = 0;
 export const binning2x2 = 1;
 export const fileFits = 0;
 export const fileTiff = 1;
-export const numberRawImagesCmd = 10014;
-export const numberSuperImposedImages = 10023;
 // raw preview
-export const setRAWPreviewCmd = 10020;
 export const rawPreviewContinousSuperimpose = 0;
 export const rawPreviewSingle15 = 1;
 export const rawPreviewSingleComposite = 2;
-// astro dark frames
-export const takeAstroDarkFramesCmd = 10026;
-export const darkGainDefault = 65528;
-// query shot field
-export const queryShotFieldCmd = 10027;
-// astro Autofocus
-export const astroAutofocusCmd = 10031;
-// ===============
-// 4.2 tracking
-// ===============
-export const traceInitCmd = 11200;
-export const startTrackingCmd = 11201;
-export const stopTrackingCmd = 11202;
-// ===============
-// 4.3 panoromic
-// ===============
-export const startPanoCmd = 10103;
-export const stopPanoCmd = 10106;
 // ===============
 // 5 motion control
 // ===============
-export const startMotionCmd = 10100;
 export const continuous_mode = 1;
 export const pulse_mode = 2;
-export const stopMotionCmd = 10101;
-export const setSpeedCmd = 10107;
 export const speedDecelerate = 0;
 export const speedAccelerate = 1;
-export const setDirectionCmd = 10108;
 export const anticlockwise = 0;
 export const clockwise = 1;
-export const setSubdivideCmd = 10109;
 export const spinMotor = 1;
 export const pitchMotor = 2;
-// ===============
-// 7.1 system status
-// ===============
-export const systemStatusCmd = 11407;
-// ===============
-// 7.2 microsd card status
-// ===============
-export const microsdStatusCmd = 11405;
-export const microsdAvailableCmd = 11409;
-// ===============
-// 7.4 dwarf status
-// ===============
-export const dwarfSoftwareVersionCmd = 11410;
-export const dwarfChargingStatusCmd = 11011;
-// ===============
-// 7.11 shut down
-// ===============
-export const shutDownCmd = 11004;

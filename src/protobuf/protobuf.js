@@ -13750,6 +13750,2861 @@ $root.ReqStopAstroAutoFocus = (function () {
   return ReqStopAstroAutoFocus;
 })();
 
+$root.ReqMotorServiceJoystick = (function () {
+  /**
+   * Properties of a ReqMotorServiceJoystick.
+   * @exports IReqMotorServiceJoystick
+   * @interface IReqMotorServiceJoystick
+   * @property {number|null} [vectorAngle] ReqMotorServiceJoystick vectorAngle
+   * @property {number|null} [vectorLength] ReqMotorServiceJoystick vectorLength
+   * @property {number|null} [speed] ReqMotorServiceJoystick speed
+   */
+
+  /**
+   * Constructs a new ReqMotorServiceJoystick.
+   * @exports ReqMotorServiceJoystick
+   * @classdesc Represents a ReqMotorServiceJoystick.
+   * @implements IReqMotorServiceJoystick
+   * @constructor
+   * @param {IReqMotorServiceJoystick=} [properties] Properties to set
+   */
+  function ReqMotorServiceJoystick(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorServiceJoystick vectorAngle.
+   * @member {number} vectorAngle
+   * @memberof ReqMotorServiceJoystick
+   * @instance
+   */
+  ReqMotorServiceJoystick.prototype.vectorAngle = 0;
+
+  /**
+   * ReqMotorServiceJoystick vectorLength.
+   * @member {number} vectorLength
+   * @memberof ReqMotorServiceJoystick
+   * @instance
+   */
+  ReqMotorServiceJoystick.prototype.vectorLength = 0;
+
+  /**
+   * ReqMotorServiceJoystick speed.
+   * @member {number} speed
+   * @memberof ReqMotorServiceJoystick
+   * @instance
+   */
+  ReqMotorServiceJoystick.prototype.speed = 0;
+
+  /**
+   * Creates a new ReqMotorServiceJoystick instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {IReqMotorServiceJoystick=} [properties] Properties to set
+   * @returns {ReqMotorServiceJoystick} ReqMotorServiceJoystick instance
+   */
+  ReqMotorServiceJoystick.create = function create(properties) {
+    return new ReqMotorServiceJoystick(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorServiceJoystick message. Does not implicitly {@link ReqMotorServiceJoystick.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {IReqMotorServiceJoystick} message ReqMotorServiceJoystick message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorServiceJoystick.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (
+      message.vectorAngle != null &&
+      Object.hasOwnProperty.call(message, "vectorAngle")
+    )
+      writer.uint32(/* id 1, wireType 1 =*/ 9).double(message.vectorAngle);
+    if (
+      message.vectorLength != null &&
+      Object.hasOwnProperty.call(message, "vectorLength")
+    )
+      writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.vectorLength);
+    if (message.speed != null && Object.hasOwnProperty.call(message, "speed"))
+      writer.uint32(/* id 3, wireType 1 =*/ 25).double(message.speed);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorServiceJoystick message, length delimited. Does not implicitly {@link ReqMotorServiceJoystick.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {IReqMotorServiceJoystick} message ReqMotorServiceJoystick message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorServiceJoystick.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorServiceJoystick message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorServiceJoystick} ReqMotorServiceJoystick
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorServiceJoystick.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorServiceJoystick();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.vectorAngle = reader.double();
+          break;
+        }
+        case 2: {
+          message.vectorLength = reader.double();
+          break;
+        }
+        case 3: {
+          message.speed = reader.double();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorServiceJoystick message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorServiceJoystick} ReqMotorServiceJoystick
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorServiceJoystick.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorServiceJoystick message.
+   * @function verify
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorServiceJoystick.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.vectorAngle != null && message.hasOwnProperty("vectorAngle"))
+      if (typeof message.vectorAngle !== "number")
+        return "vectorAngle: number expected";
+    if (message.vectorLength != null && message.hasOwnProperty("vectorLength"))
+      if (typeof message.vectorLength !== "number")
+        return "vectorLength: number expected";
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      if (typeof message.speed !== "number") return "speed: number expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorServiceJoystick message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorServiceJoystick} ReqMotorServiceJoystick
+   */
+  ReqMotorServiceJoystick.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorServiceJoystick) return object;
+    var message = new $root.ReqMotorServiceJoystick();
+    if (object.vectorAngle != null)
+      message.vectorAngle = Number(object.vectorAngle);
+    if (object.vectorLength != null)
+      message.vectorLength = Number(object.vectorLength);
+    if (object.speed != null) message.speed = Number(object.speed);
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorServiceJoystick message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {ReqMotorServiceJoystick} message ReqMotorServiceJoystick
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorServiceJoystick.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.vectorAngle = 0;
+      object.vectorLength = 0;
+      object.speed = 0;
+    }
+    if (message.vectorAngle != null && message.hasOwnProperty("vectorAngle"))
+      object.vectorAngle =
+        options.json && !isFinite(message.vectorAngle)
+          ? String(message.vectorAngle)
+          : message.vectorAngle;
+    if (message.vectorLength != null && message.hasOwnProperty("vectorLength"))
+      object.vectorLength =
+        options.json && !isFinite(message.vectorLength)
+          ? String(message.vectorLength)
+          : message.vectorLength;
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      object.speed =
+        options.json && !isFinite(message.speed)
+          ? String(message.speed)
+          : message.speed;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorServiceJoystick to JSON.
+   * @function toJSON
+   * @memberof ReqMotorServiceJoystick
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorServiceJoystick.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorServiceJoystick
+   * @function getTypeUrl
+   * @memberof ReqMotorServiceJoystick
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorServiceJoystick.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorServiceJoystick";
+  };
+
+  return ReqMotorServiceJoystick;
+})();
+
+$root.ReqMotorServiceJoystickFixedAngle = (function () {
+  /**
+   * Properties of a ReqMotorServiceJoystickFixedAngle.
+   * @exports IReqMotorServiceJoystickFixedAngle
+   * @interface IReqMotorServiceJoystickFixedAngle
+   * @property {number|null} [vectorAngle] ReqMotorServiceJoystickFixedAngle vectorAngle
+   * @property {number|null} [vectorLength] ReqMotorServiceJoystickFixedAngle vectorLength
+   * @property {number|null} [speed] ReqMotorServiceJoystickFixedAngle speed
+   */
+
+  /**
+   * Constructs a new ReqMotorServiceJoystickFixedAngle.
+   * @exports ReqMotorServiceJoystickFixedAngle
+   * @classdesc Represents a ReqMotorServiceJoystickFixedAngle.
+   * @implements IReqMotorServiceJoystickFixedAngle
+   * @constructor
+   * @param {IReqMotorServiceJoystickFixedAngle=} [properties] Properties to set
+   */
+  function ReqMotorServiceJoystickFixedAngle(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorServiceJoystickFixedAngle vectorAngle.
+   * @member {number} vectorAngle
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @instance
+   */
+  ReqMotorServiceJoystickFixedAngle.prototype.vectorAngle = 0;
+
+  /**
+   * ReqMotorServiceJoystickFixedAngle vectorLength.
+   * @member {number} vectorLength
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @instance
+   */
+  ReqMotorServiceJoystickFixedAngle.prototype.vectorLength = 0;
+
+  /**
+   * ReqMotorServiceJoystickFixedAngle speed.
+   * @member {number} speed
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @instance
+   */
+  ReqMotorServiceJoystickFixedAngle.prototype.speed = 0;
+
+  /**
+   * Creates a new ReqMotorServiceJoystickFixedAngle instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {IReqMotorServiceJoystickFixedAngle=} [properties] Properties to set
+   * @returns {ReqMotorServiceJoystickFixedAngle} ReqMotorServiceJoystickFixedAngle instance
+   */
+  ReqMotorServiceJoystickFixedAngle.create = function create(properties) {
+    return new ReqMotorServiceJoystickFixedAngle(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorServiceJoystickFixedAngle message. Does not implicitly {@link ReqMotorServiceJoystickFixedAngle.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {IReqMotorServiceJoystickFixedAngle} message ReqMotorServiceJoystickFixedAngle message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorServiceJoystickFixedAngle.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (
+      message.vectorAngle != null &&
+      Object.hasOwnProperty.call(message, "vectorAngle")
+    )
+      writer.uint32(/* id 1, wireType 1 =*/ 9).double(message.vectorAngle);
+    if (
+      message.vectorLength != null &&
+      Object.hasOwnProperty.call(message, "vectorLength")
+    )
+      writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.vectorLength);
+    if (message.speed != null && Object.hasOwnProperty.call(message, "speed"))
+      writer.uint32(/* id 3, wireType 1 =*/ 25).double(message.speed);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorServiceJoystickFixedAngle message, length delimited. Does not implicitly {@link ReqMotorServiceJoystickFixedAngle.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {IReqMotorServiceJoystickFixedAngle} message ReqMotorServiceJoystickFixedAngle message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorServiceJoystickFixedAngle.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorServiceJoystickFixedAngle message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorServiceJoystickFixedAngle} ReqMotorServiceJoystickFixedAngle
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorServiceJoystickFixedAngle.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorServiceJoystickFixedAngle();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.vectorAngle = reader.double();
+          break;
+        }
+        case 2: {
+          message.vectorLength = reader.double();
+          break;
+        }
+        case 3: {
+          message.speed = reader.double();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorServiceJoystickFixedAngle message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorServiceJoystickFixedAngle} ReqMotorServiceJoystickFixedAngle
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorServiceJoystickFixedAngle.decodeDelimited = function decodeDelimited(
+    reader
+  ) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorServiceJoystickFixedAngle message.
+   * @function verify
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorServiceJoystickFixedAngle.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.vectorAngle != null && message.hasOwnProperty("vectorAngle"))
+      if (typeof message.vectorAngle !== "number")
+        return "vectorAngle: number expected";
+    if (message.vectorLength != null && message.hasOwnProperty("vectorLength"))
+      if (typeof message.vectorLength !== "number")
+        return "vectorLength: number expected";
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      if (typeof message.speed !== "number") return "speed: number expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorServiceJoystickFixedAngle message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorServiceJoystickFixedAngle} ReqMotorServiceJoystickFixedAngle
+   */
+  ReqMotorServiceJoystickFixedAngle.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorServiceJoystickFixedAngle)
+      return object;
+    var message = new $root.ReqMotorServiceJoystickFixedAngle();
+    if (object.vectorAngle != null)
+      message.vectorAngle = Number(object.vectorAngle);
+    if (object.vectorLength != null)
+      message.vectorLength = Number(object.vectorLength);
+    if (object.speed != null) message.speed = Number(object.speed);
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorServiceJoystickFixedAngle message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {ReqMotorServiceJoystickFixedAngle} message ReqMotorServiceJoystickFixedAngle
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorServiceJoystickFixedAngle.toObject = function toObject(
+    message,
+    options
+  ) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.vectorAngle = 0;
+      object.vectorLength = 0;
+      object.speed = 0;
+    }
+    if (message.vectorAngle != null && message.hasOwnProperty("vectorAngle"))
+      object.vectorAngle =
+        options.json && !isFinite(message.vectorAngle)
+          ? String(message.vectorAngle)
+          : message.vectorAngle;
+    if (message.vectorLength != null && message.hasOwnProperty("vectorLength"))
+      object.vectorLength =
+        options.json && !isFinite(message.vectorLength)
+          ? String(message.vectorLength)
+          : message.vectorLength;
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      object.speed =
+        options.json && !isFinite(message.speed)
+          ? String(message.speed)
+          : message.speed;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorServiceJoystickFixedAngle to JSON.
+   * @function toJSON
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorServiceJoystickFixedAngle.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorServiceJoystickFixedAngle
+   * @function getTypeUrl
+   * @memberof ReqMotorServiceJoystickFixedAngle
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorServiceJoystickFixedAngle.getTypeUrl = function getTypeUrl(
+    typeUrlPrefix
+  ) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorServiceJoystickFixedAngle";
+  };
+
+  return ReqMotorServiceJoystickFixedAngle;
+})();
+
+$root.ReqMotorServiceJoystickStop = (function () {
+  /**
+   * Properties of a ReqMotorServiceJoystickStop.
+   * @exports IReqMotorServiceJoystickStop
+   * @interface IReqMotorServiceJoystickStop
+   */
+
+  /**
+   * Constructs a new ReqMotorServiceJoystickStop.
+   * @exports ReqMotorServiceJoystickStop
+   * @classdesc Represents a ReqMotorServiceJoystickStop.
+   * @implements IReqMotorServiceJoystickStop
+   * @constructor
+   * @param {IReqMotorServiceJoystickStop=} [properties] Properties to set
+   */
+  function ReqMotorServiceJoystickStop(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * Creates a new ReqMotorServiceJoystickStop instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {IReqMotorServiceJoystickStop=} [properties] Properties to set
+   * @returns {ReqMotorServiceJoystickStop} ReqMotorServiceJoystickStop instance
+   */
+  ReqMotorServiceJoystickStop.create = function create(properties) {
+    return new ReqMotorServiceJoystickStop(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorServiceJoystickStop message. Does not implicitly {@link ReqMotorServiceJoystickStop.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {IReqMotorServiceJoystickStop} message ReqMotorServiceJoystickStop message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorServiceJoystickStop.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorServiceJoystickStop message, length delimited. Does not implicitly {@link ReqMotorServiceJoystickStop.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {IReqMotorServiceJoystickStop} message ReqMotorServiceJoystickStop message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorServiceJoystickStop.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorServiceJoystickStop message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorServiceJoystickStop} ReqMotorServiceJoystickStop
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorServiceJoystickStop.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorServiceJoystickStop();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorServiceJoystickStop message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorServiceJoystickStop} ReqMotorServiceJoystickStop
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorServiceJoystickStop.decodeDelimited = function decodeDelimited(
+    reader
+  ) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorServiceJoystickStop message.
+   * @function verify
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorServiceJoystickStop.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorServiceJoystickStop message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorServiceJoystickStop} ReqMotorServiceJoystickStop
+   */
+  ReqMotorServiceJoystickStop.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorServiceJoystickStop) return object;
+    return new $root.ReqMotorServiceJoystickStop();
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorServiceJoystickStop message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {ReqMotorServiceJoystickStop} message ReqMotorServiceJoystickStop
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorServiceJoystickStop.toObject = function toObject() {
+    return {};
+  };
+
+  /**
+   * Converts this ReqMotorServiceJoystickStop to JSON.
+   * @function toJSON
+   * @memberof ReqMotorServiceJoystickStop
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorServiceJoystickStop.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorServiceJoystickStop
+   * @function getTypeUrl
+   * @memberof ReqMotorServiceJoystickStop
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorServiceJoystickStop.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorServiceJoystickStop";
+  };
+
+  return ReqMotorServiceJoystickStop;
+})();
+
+$root.ReqMotorRun = (function () {
+  /**
+   * Properties of a ReqMotorRun.
+   * @exports IReqMotorRun
+   * @interface IReqMotorRun
+   * @property {number|null} [id] ReqMotorRun id
+   * @property {number|null} [speed] ReqMotorRun speed
+   * @property {boolean|null} [direction] ReqMotorRun direction
+   * @property {number|null} [speedRamping] ReqMotorRun speedRamping
+   * @property {number|null} [resolutionLevel] ReqMotorRun resolutionLevel
+   */
+
+  /**
+   * Constructs a new ReqMotorRun.
+   * @exports ReqMotorRun
+   * @classdesc Represents a ReqMotorRun.
+   * @implements IReqMotorRun
+   * @constructor
+   * @param {IReqMotorRun=} [properties] Properties to set
+   */
+  function ReqMotorRun(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorRun id.
+   * @member {number} id
+   * @memberof ReqMotorRun
+   * @instance
+   */
+  ReqMotorRun.prototype.id = 0;
+
+  /**
+   * ReqMotorRun speed.
+   * @member {number} speed
+   * @memberof ReqMotorRun
+   * @instance
+   */
+  ReqMotorRun.prototype.speed = 0;
+
+  /**
+   * ReqMotorRun direction.
+   * @member {boolean} direction
+   * @memberof ReqMotorRun
+   * @instance
+   */
+  ReqMotorRun.prototype.direction = false;
+
+  /**
+   * ReqMotorRun speedRamping.
+   * @member {number} speedRamping
+   * @memberof ReqMotorRun
+   * @instance
+   */
+  ReqMotorRun.prototype.speedRamping = 0;
+
+  /**
+   * ReqMotorRun resolutionLevel.
+   * @member {number} resolutionLevel
+   * @memberof ReqMotorRun
+   * @instance
+   */
+  ReqMotorRun.prototype.resolutionLevel = 0;
+
+  /**
+   * Creates a new ReqMotorRun instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorRun
+   * @static
+   * @param {IReqMotorRun=} [properties] Properties to set
+   * @returns {ReqMotorRun} ReqMotorRun instance
+   */
+  ReqMotorRun.create = function create(properties) {
+    return new ReqMotorRun(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorRun message. Does not implicitly {@link ReqMotorRun.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorRun
+   * @static
+   * @param {IReqMotorRun} message ReqMotorRun message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorRun.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    if (message.speed != null && Object.hasOwnProperty.call(message, "speed"))
+      writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.speed);
+    if (
+      message.direction != null &&
+      Object.hasOwnProperty.call(message, "direction")
+    )
+      writer.uint32(/* id 3, wireType 0 =*/ 24).bool(message.direction);
+    if (
+      message.speedRamping != null &&
+      Object.hasOwnProperty.call(message, "speedRamping")
+    )
+      writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.speedRamping);
+    if (
+      message.resolutionLevel != null &&
+      Object.hasOwnProperty.call(message, "resolutionLevel")
+    )
+      writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.resolutionLevel);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorRun message, length delimited. Does not implicitly {@link ReqMotorRun.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorRun
+   * @static
+   * @param {IReqMotorRun} message ReqMotorRun message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorRun.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorRun message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorRun
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorRun} ReqMotorRun
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorRun.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorRun();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        case 2: {
+          message.speed = reader.double();
+          break;
+        }
+        case 3: {
+          message.direction = reader.bool();
+          break;
+        }
+        case 4: {
+          message.speedRamping = reader.int32();
+          break;
+        }
+        case 5: {
+          message.resolutionLevel = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorRun message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorRun
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorRun} ReqMotorRun
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorRun.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorRun message.
+   * @function verify
+   * @memberof ReqMotorRun
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorRun.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      if (typeof message.speed !== "number") return "speed: number expected";
+    if (message.direction != null && message.hasOwnProperty("direction"))
+      if (typeof message.direction !== "boolean")
+        return "direction: boolean expected";
+    if (message.speedRamping != null && message.hasOwnProperty("speedRamping"))
+      if (!$util.isInteger(message.speedRamping))
+        return "speedRamping: integer expected";
+    if (
+      message.resolutionLevel != null &&
+      message.hasOwnProperty("resolutionLevel")
+    )
+      if (!$util.isInteger(message.resolutionLevel))
+        return "resolutionLevel: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorRun message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorRun
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorRun} ReqMotorRun
+   */
+  ReqMotorRun.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorRun) return object;
+    var message = new $root.ReqMotorRun();
+    if (object.id != null) message.id = object.id | 0;
+    if (object.speed != null) message.speed = Number(object.speed);
+    if (object.direction != null) message.direction = Boolean(object.direction);
+    if (object.speedRamping != null)
+      message.speedRamping = object.speedRamping | 0;
+    if (object.resolutionLevel != null)
+      message.resolutionLevel = object.resolutionLevel | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorRun message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorRun
+   * @static
+   * @param {ReqMotorRun} message ReqMotorRun
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorRun.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.id = 0;
+      object.speed = 0;
+      object.direction = false;
+      object.speedRamping = 0;
+      object.resolutionLevel = 0;
+    }
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      object.speed =
+        options.json && !isFinite(message.speed)
+          ? String(message.speed)
+          : message.speed;
+    if (message.direction != null && message.hasOwnProperty("direction"))
+      object.direction = message.direction;
+    if (message.speedRamping != null && message.hasOwnProperty("speedRamping"))
+      object.speedRamping = message.speedRamping;
+    if (
+      message.resolutionLevel != null &&
+      message.hasOwnProperty("resolutionLevel")
+    )
+      object.resolutionLevel = message.resolutionLevel;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorRun to JSON.
+   * @function toJSON
+   * @memberof ReqMotorRun
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorRun.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorRun
+   * @function getTypeUrl
+   * @memberof ReqMotorRun
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorRun.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorRun";
+  };
+
+  return ReqMotorRun;
+})();
+
+$root.ReqMotorRunTo = (function () {
+  /**
+   * Properties of a ReqMotorRunTo.
+   * @exports IReqMotorRunTo
+   * @interface IReqMotorRunTo
+   * @property {number|null} [id] ReqMotorRunTo id
+   * @property {number|null} [endPosition] ReqMotorRunTo endPosition
+   * @property {number|null} [speed] ReqMotorRunTo speed
+   * @property {number|null} [speedRamping] ReqMotorRunTo speedRamping
+   * @property {number|null} [resolutionLevel] ReqMotorRunTo resolutionLevel
+   */
+
+  /**
+   * Constructs a new ReqMotorRunTo.
+   * @exports ReqMotorRunTo
+   * @classdesc Represents a ReqMotorRunTo.
+   * @implements IReqMotorRunTo
+   * @constructor
+   * @param {IReqMotorRunTo=} [properties] Properties to set
+   */
+  function ReqMotorRunTo(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorRunTo id.
+   * @member {number} id
+   * @memberof ReqMotorRunTo
+   * @instance
+   */
+  ReqMotorRunTo.prototype.id = 0;
+
+  /**
+   * ReqMotorRunTo endPosition.
+   * @member {number} endPosition
+   * @memberof ReqMotorRunTo
+   * @instance
+   */
+  ReqMotorRunTo.prototype.endPosition = 0;
+
+  /**
+   * ReqMotorRunTo speed.
+   * @member {number} speed
+   * @memberof ReqMotorRunTo
+   * @instance
+   */
+  ReqMotorRunTo.prototype.speed = 0;
+
+  /**
+   * ReqMotorRunTo speedRamping.
+   * @member {number} speedRamping
+   * @memberof ReqMotorRunTo
+   * @instance
+   */
+  ReqMotorRunTo.prototype.speedRamping = 0;
+
+  /**
+   * ReqMotorRunTo resolutionLevel.
+   * @member {number} resolutionLevel
+   * @memberof ReqMotorRunTo
+   * @instance
+   */
+  ReqMotorRunTo.prototype.resolutionLevel = 0;
+
+  /**
+   * Creates a new ReqMotorRunTo instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {IReqMotorRunTo=} [properties] Properties to set
+   * @returns {ReqMotorRunTo} ReqMotorRunTo instance
+   */
+  ReqMotorRunTo.create = function create(properties) {
+    return new ReqMotorRunTo(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorRunTo message. Does not implicitly {@link ReqMotorRunTo.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {IReqMotorRunTo} message ReqMotorRunTo message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorRunTo.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    if (
+      message.endPosition != null &&
+      Object.hasOwnProperty.call(message, "endPosition")
+    )
+      writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.endPosition);
+    if (message.speed != null && Object.hasOwnProperty.call(message, "speed"))
+      writer.uint32(/* id 3, wireType 1 =*/ 25).double(message.speed);
+    if (
+      message.speedRamping != null &&
+      Object.hasOwnProperty.call(message, "speedRamping")
+    )
+      writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.speedRamping);
+    if (
+      message.resolutionLevel != null &&
+      Object.hasOwnProperty.call(message, "resolutionLevel")
+    )
+      writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.resolutionLevel);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorRunTo message, length delimited. Does not implicitly {@link ReqMotorRunTo.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {IReqMotorRunTo} message ReqMotorRunTo message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorRunTo.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorRunTo message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorRunTo} ReqMotorRunTo
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorRunTo.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorRunTo();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        case 2: {
+          message.endPosition = reader.double();
+          break;
+        }
+        case 3: {
+          message.speed = reader.double();
+          break;
+        }
+        case 4: {
+          message.speedRamping = reader.int32();
+          break;
+        }
+        case 5: {
+          message.resolutionLevel = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorRunTo message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorRunTo} ReqMotorRunTo
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorRunTo.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorRunTo message.
+   * @function verify
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorRunTo.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    if (message.endPosition != null && message.hasOwnProperty("endPosition"))
+      if (typeof message.endPosition !== "number")
+        return "endPosition: number expected";
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      if (typeof message.speed !== "number") return "speed: number expected";
+    if (message.speedRamping != null && message.hasOwnProperty("speedRamping"))
+      if (!$util.isInteger(message.speedRamping))
+        return "speedRamping: integer expected";
+    if (
+      message.resolutionLevel != null &&
+      message.hasOwnProperty("resolutionLevel")
+    )
+      if (!$util.isInteger(message.resolutionLevel))
+        return "resolutionLevel: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorRunTo message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorRunTo} ReqMotorRunTo
+   */
+  ReqMotorRunTo.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorRunTo) return object;
+    var message = new $root.ReqMotorRunTo();
+    if (object.id != null) message.id = object.id | 0;
+    if (object.endPosition != null)
+      message.endPosition = Number(object.endPosition);
+    if (object.speed != null) message.speed = Number(object.speed);
+    if (object.speedRamping != null)
+      message.speedRamping = object.speedRamping | 0;
+    if (object.resolutionLevel != null)
+      message.resolutionLevel = object.resolutionLevel | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorRunTo message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {ReqMotorRunTo} message ReqMotorRunTo
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorRunTo.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.id = 0;
+      object.endPosition = 0;
+      object.speed = 0;
+      object.speedRamping = 0;
+      object.resolutionLevel = 0;
+    }
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    if (message.endPosition != null && message.hasOwnProperty("endPosition"))
+      object.endPosition =
+        options.json && !isFinite(message.endPosition)
+          ? String(message.endPosition)
+          : message.endPosition;
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      object.speed =
+        options.json && !isFinite(message.speed)
+          ? String(message.speed)
+          : message.speed;
+    if (message.speedRamping != null && message.hasOwnProperty("speedRamping"))
+      object.speedRamping = message.speedRamping;
+    if (
+      message.resolutionLevel != null &&
+      message.hasOwnProperty("resolutionLevel")
+    )
+      object.resolutionLevel = message.resolutionLevel;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorRunTo to JSON.
+   * @function toJSON
+   * @memberof ReqMotorRunTo
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorRunTo.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorRunTo
+   * @function getTypeUrl
+   * @memberof ReqMotorRunTo
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorRunTo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorRunTo";
+  };
+
+  return ReqMotorRunTo;
+})();
+
+$root.ReqMotorStop = (function () {
+  /**
+   * Properties of a ReqMotorStop.
+   * @exports IReqMotorStop
+   * @interface IReqMotorStop
+   * @property {number|null} [id] ReqMotorStop id
+   */
+
+  /**
+   * Constructs a new ReqMotorStop.
+   * @exports ReqMotorStop
+   * @classdesc Represents a ReqMotorStop.
+   * @implements IReqMotorStop
+   * @constructor
+   * @param {IReqMotorStop=} [properties] Properties to set
+   */
+  function ReqMotorStop(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorStop id.
+   * @member {number} id
+   * @memberof ReqMotorStop
+   * @instance
+   */
+  ReqMotorStop.prototype.id = 0;
+
+  /**
+   * Creates a new ReqMotorStop instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorStop
+   * @static
+   * @param {IReqMotorStop=} [properties] Properties to set
+   * @returns {ReqMotorStop} ReqMotorStop instance
+   */
+  ReqMotorStop.create = function create(properties) {
+    return new ReqMotorStop(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorStop message. Does not implicitly {@link ReqMotorStop.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorStop
+   * @static
+   * @param {IReqMotorStop} message ReqMotorStop message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorStop.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorStop message, length delimited. Does not implicitly {@link ReqMotorStop.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorStop
+   * @static
+   * @param {IReqMotorStop} message ReqMotorStop message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorStop.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorStop message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorStop
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorStop} ReqMotorStop
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorStop.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorStop();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorStop message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorStop
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorStop} ReqMotorStop
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorStop.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorStop message.
+   * @function verify
+   * @memberof ReqMotorStop
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorStop.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorStop message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorStop
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorStop} ReqMotorStop
+   */
+  ReqMotorStop.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorStop) return object;
+    var message = new $root.ReqMotorStop();
+    if (object.id != null) message.id = object.id | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorStop message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorStop
+   * @static
+   * @param {ReqMotorStop} message ReqMotorStop
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorStop.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) object.id = 0;
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorStop to JSON.
+   * @function toJSON
+   * @memberof ReqMotorStop
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorStop.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorStop
+   * @function getTypeUrl
+   * @memberof ReqMotorStop
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorStop.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorStop";
+  };
+
+  return ReqMotorStop;
+})();
+
+$root.ReqMotorReset = (function () {
+  /**
+   * Properties of a ReqMotorReset.
+   * @exports IReqMotorReset
+   * @interface IReqMotorReset
+   * @property {number|null} [id] ReqMotorReset id
+   * @property {boolean|null} [direction] ReqMotorReset direction
+   */
+
+  /**
+   * Constructs a new ReqMotorReset.
+   * @exports ReqMotorReset
+   * @classdesc Represents a ReqMotorReset.
+   * @implements IReqMotorReset
+   * @constructor
+   * @param {IReqMotorReset=} [properties] Properties to set
+   */
+  function ReqMotorReset(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorReset id.
+   * @member {number} id
+   * @memberof ReqMotorReset
+   * @instance
+   */
+  ReqMotorReset.prototype.id = 0;
+
+  /**
+   * ReqMotorReset direction.
+   * @member {boolean} direction
+   * @memberof ReqMotorReset
+   * @instance
+   */
+  ReqMotorReset.prototype.direction = false;
+
+  /**
+   * Creates a new ReqMotorReset instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorReset
+   * @static
+   * @param {IReqMotorReset=} [properties] Properties to set
+   * @returns {ReqMotorReset} ReqMotorReset instance
+   */
+  ReqMotorReset.create = function create(properties) {
+    return new ReqMotorReset(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorReset message. Does not implicitly {@link ReqMotorReset.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorReset
+   * @static
+   * @param {IReqMotorReset} message ReqMotorReset message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorReset.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    if (
+      message.direction != null &&
+      Object.hasOwnProperty.call(message, "direction")
+    )
+      writer.uint32(/* id 2, wireType 0 =*/ 16).bool(message.direction);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorReset message, length delimited. Does not implicitly {@link ReqMotorReset.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorReset
+   * @static
+   * @param {IReqMotorReset} message ReqMotorReset message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorReset.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorReset message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorReset
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorReset} ReqMotorReset
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorReset.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorReset();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        case 2: {
+          message.direction = reader.bool();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorReset message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorReset
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorReset} ReqMotorReset
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorReset.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorReset message.
+   * @function verify
+   * @memberof ReqMotorReset
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorReset.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    if (message.direction != null && message.hasOwnProperty("direction"))
+      if (typeof message.direction !== "boolean")
+        return "direction: boolean expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorReset message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorReset
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorReset} ReqMotorReset
+   */
+  ReqMotorReset.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorReset) return object;
+    var message = new $root.ReqMotorReset();
+    if (object.id != null) message.id = object.id | 0;
+    if (object.direction != null) message.direction = Boolean(object.direction);
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorReset message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorReset
+   * @static
+   * @param {ReqMotorReset} message ReqMotorReset
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorReset.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.id = 0;
+      object.direction = false;
+    }
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    if (message.direction != null && message.hasOwnProperty("direction"))
+      object.direction = message.direction;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorReset to JSON.
+   * @function toJSON
+   * @memberof ReqMotorReset
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorReset.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorReset
+   * @function getTypeUrl
+   * @memberof ReqMotorReset
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorReset.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorReset";
+  };
+
+  return ReqMotorReset;
+})();
+
+$root.ReqMotorChangeSpeed = (function () {
+  /**
+   * Properties of a ReqMotorChangeSpeed.
+   * @exports IReqMotorChangeSpeed
+   * @interface IReqMotorChangeSpeed
+   * @property {number|null} [id] ReqMotorChangeSpeed id
+   * @property {number|null} [speed] ReqMotorChangeSpeed speed
+   */
+
+  /**
+   * Constructs a new ReqMotorChangeSpeed.
+   * @exports ReqMotorChangeSpeed
+   * @classdesc Represents a ReqMotorChangeSpeed.
+   * @implements IReqMotorChangeSpeed
+   * @constructor
+   * @param {IReqMotorChangeSpeed=} [properties] Properties to set
+   */
+  function ReqMotorChangeSpeed(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorChangeSpeed id.
+   * @member {number} id
+   * @memberof ReqMotorChangeSpeed
+   * @instance
+   */
+  ReqMotorChangeSpeed.prototype.id = 0;
+
+  /**
+   * ReqMotorChangeSpeed speed.
+   * @member {number} speed
+   * @memberof ReqMotorChangeSpeed
+   * @instance
+   */
+  ReqMotorChangeSpeed.prototype.speed = 0;
+
+  /**
+   * Creates a new ReqMotorChangeSpeed instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {IReqMotorChangeSpeed=} [properties] Properties to set
+   * @returns {ReqMotorChangeSpeed} ReqMotorChangeSpeed instance
+   */
+  ReqMotorChangeSpeed.create = function create(properties) {
+    return new ReqMotorChangeSpeed(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorChangeSpeed message. Does not implicitly {@link ReqMotorChangeSpeed.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {IReqMotorChangeSpeed} message ReqMotorChangeSpeed message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorChangeSpeed.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    if (message.speed != null && Object.hasOwnProperty.call(message, "speed"))
+      writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.speed);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorChangeSpeed message, length delimited. Does not implicitly {@link ReqMotorChangeSpeed.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {IReqMotorChangeSpeed} message ReqMotorChangeSpeed message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorChangeSpeed.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorChangeSpeed message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorChangeSpeed} ReqMotorChangeSpeed
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorChangeSpeed.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorChangeSpeed();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        case 2: {
+          message.speed = reader.double();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorChangeSpeed message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorChangeSpeed} ReqMotorChangeSpeed
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorChangeSpeed.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorChangeSpeed message.
+   * @function verify
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorChangeSpeed.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      if (typeof message.speed !== "number") return "speed: number expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorChangeSpeed message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorChangeSpeed} ReqMotorChangeSpeed
+   */
+  ReqMotorChangeSpeed.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorChangeSpeed) return object;
+    var message = new $root.ReqMotorChangeSpeed();
+    if (object.id != null) message.id = object.id | 0;
+    if (object.speed != null) message.speed = Number(object.speed);
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorChangeSpeed message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {ReqMotorChangeSpeed} message ReqMotorChangeSpeed
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorChangeSpeed.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.id = 0;
+      object.speed = 0;
+    }
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    if (message.speed != null && message.hasOwnProperty("speed"))
+      object.speed =
+        options.json && !isFinite(message.speed)
+          ? String(message.speed)
+          : message.speed;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorChangeSpeed to JSON.
+   * @function toJSON
+   * @memberof ReqMotorChangeSpeed
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorChangeSpeed.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorChangeSpeed
+   * @function getTypeUrl
+   * @memberof ReqMotorChangeSpeed
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorChangeSpeed.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorChangeSpeed";
+  };
+
+  return ReqMotorChangeSpeed;
+})();
+
+$root.ReqMotorChangeDirection = (function () {
+  /**
+   * Properties of a ReqMotorChangeDirection.
+   * @exports IReqMotorChangeDirection
+   * @interface IReqMotorChangeDirection
+   * @property {number|null} [id] ReqMotorChangeDirection id
+   * @property {boolean|null} [direction] ReqMotorChangeDirection direction
+   */
+
+  /**
+   * Constructs a new ReqMotorChangeDirection.
+   * @exports ReqMotorChangeDirection
+   * @classdesc Represents a ReqMotorChangeDirection.
+   * @implements IReqMotorChangeDirection
+   * @constructor
+   * @param {IReqMotorChangeDirection=} [properties] Properties to set
+   */
+  function ReqMotorChangeDirection(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqMotorChangeDirection id.
+   * @member {number} id
+   * @memberof ReqMotorChangeDirection
+   * @instance
+   */
+  ReqMotorChangeDirection.prototype.id = 0;
+
+  /**
+   * ReqMotorChangeDirection direction.
+   * @member {boolean} direction
+   * @memberof ReqMotorChangeDirection
+   * @instance
+   */
+  ReqMotorChangeDirection.prototype.direction = false;
+
+  /**
+   * Creates a new ReqMotorChangeDirection instance using the specified properties.
+   * @function create
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {IReqMotorChangeDirection=} [properties] Properties to set
+   * @returns {ReqMotorChangeDirection} ReqMotorChangeDirection instance
+   */
+  ReqMotorChangeDirection.create = function create(properties) {
+    return new ReqMotorChangeDirection(properties);
+  };
+
+  /**
+   * Encodes the specified ReqMotorChangeDirection message. Does not implicitly {@link ReqMotorChangeDirection.verify|verify} messages.
+   * @function encode
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {IReqMotorChangeDirection} message ReqMotorChangeDirection message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorChangeDirection.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    if (
+      message.direction != null &&
+      Object.hasOwnProperty.call(message, "direction")
+    )
+      writer.uint32(/* id 2, wireType 0 =*/ 16).bool(message.direction);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqMotorChangeDirection message, length delimited. Does not implicitly {@link ReqMotorChangeDirection.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {IReqMotorChangeDirection} message ReqMotorChangeDirection message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqMotorChangeDirection.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqMotorChangeDirection message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqMotorChangeDirection} ReqMotorChangeDirection
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorChangeDirection.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqMotorChangeDirection();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        case 2: {
+          message.direction = reader.bool();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqMotorChangeDirection message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqMotorChangeDirection} ReqMotorChangeDirection
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqMotorChangeDirection.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqMotorChangeDirection message.
+   * @function verify
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqMotorChangeDirection.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    if (message.direction != null && message.hasOwnProperty("direction"))
+      if (typeof message.direction !== "boolean")
+        return "direction: boolean expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqMotorChangeDirection message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqMotorChangeDirection} ReqMotorChangeDirection
+   */
+  ReqMotorChangeDirection.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqMotorChangeDirection) return object;
+    var message = new $root.ReqMotorChangeDirection();
+    if (object.id != null) message.id = object.id | 0;
+    if (object.direction != null) message.direction = Boolean(object.direction);
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqMotorChangeDirection message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {ReqMotorChangeDirection} message ReqMotorChangeDirection
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqMotorChangeDirection.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.id = 0;
+      object.direction = false;
+    }
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    if (message.direction != null && message.hasOwnProperty("direction"))
+      object.direction = message.direction;
+    return object;
+  };
+
+  /**
+   * Converts this ReqMotorChangeDirection to JSON.
+   * @function toJSON
+   * @memberof ReqMotorChangeDirection
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqMotorChangeDirection.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqMotorChangeDirection
+   * @function getTypeUrl
+   * @memberof ReqMotorChangeDirection
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqMotorChangeDirection.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqMotorChangeDirection";
+  };
+
+  return ReqMotorChangeDirection;
+})();
+
+$root.ResMotor = (function () {
+  /**
+   * Properties of a ResMotor.
+   * @exports IResMotor
+   * @interface IResMotor
+   * @property {number|null} [id] ResMotor id
+   * @property {number|null} [code] ResMotor code
+   */
+
+  /**
+   * Constructs a new ResMotor.
+   * @exports ResMotor
+   * @classdesc Represents a ResMotor.
+   * @implements IResMotor
+   * @constructor
+   * @param {IResMotor=} [properties] Properties to set
+   */
+  function ResMotor(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ResMotor id.
+   * @member {number} id
+   * @memberof ResMotor
+   * @instance
+   */
+  ResMotor.prototype.id = 0;
+
+  /**
+   * ResMotor code.
+   * @member {number} code
+   * @memberof ResMotor
+   * @instance
+   */
+  ResMotor.prototype.code = 0;
+
+  /**
+   * Creates a new ResMotor instance using the specified properties.
+   * @function create
+   * @memberof ResMotor
+   * @static
+   * @param {IResMotor=} [properties] Properties to set
+   * @returns {ResMotor} ResMotor instance
+   */
+  ResMotor.create = function create(properties) {
+    return new ResMotor(properties);
+  };
+
+  /**
+   * Encodes the specified ResMotor message. Does not implicitly {@link ResMotor.verify|verify} messages.
+   * @function encode
+   * @memberof ResMotor
+   * @static
+   * @param {IResMotor} message ResMotor message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ResMotor.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    if (message.code != null && Object.hasOwnProperty.call(message, "code"))
+      writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.code);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ResMotor message, length delimited. Does not implicitly {@link ResMotor.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ResMotor
+   * @static
+   * @param {IResMotor} message ResMotor message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ResMotor.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ResMotor message from the specified reader or buffer.
+   * @function decode
+   * @memberof ResMotor
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ResMotor} ResMotor
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ResMotor.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ResMotor();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        case 2: {
+          message.code = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ResMotor message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ResMotor
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ResMotor} ResMotor
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ResMotor.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ResMotor message.
+   * @function verify
+   * @memberof ResMotor
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ResMotor.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    if (message.code != null && message.hasOwnProperty("code"))
+      if (!$util.isInteger(message.code)) return "code: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a ResMotor message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ResMotor
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ResMotor} ResMotor
+   */
+  ResMotor.fromObject = function fromObject(object) {
+    if (object instanceof $root.ResMotor) return object;
+    var message = new $root.ResMotor();
+    if (object.id != null) message.id = object.id | 0;
+    if (object.code != null) message.code = object.code | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ResMotor message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ResMotor
+   * @static
+   * @param {ResMotor} message ResMotor
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ResMotor.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.id = 0;
+      object.code = 0;
+    }
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    if (message.code != null && message.hasOwnProperty("code"))
+      object.code = message.code;
+    return object;
+  };
+
+  /**
+   * Converts this ResMotor to JSON.
+   * @function toJSON
+   * @memberof ResMotor
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ResMotor.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ResMotor
+   * @function getTypeUrl
+   * @memberof ResMotor
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ResMotor.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ResMotor";
+  };
+
+  return ResMotor;
+})();
+
+$root.ResMotorPosition = (function () {
+  /**
+   * Properties of a ResMotorPosition.
+   * @exports IResMotorPosition
+   * @interface IResMotorPosition
+   * @property {number|null} [id] ResMotorPosition id
+   * @property {number|null} [code] ResMotorPosition code
+   * @property {number|null} [position] ResMotorPosition position
+   */
+
+  /**
+   * Constructs a new ResMotorPosition.
+   * @exports ResMotorPosition
+   * @classdesc Represents a ResMotorPosition.
+   * @implements IResMotorPosition
+   * @constructor
+   * @param {IResMotorPosition=} [properties] Properties to set
+   */
+  function ResMotorPosition(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ResMotorPosition id.
+   * @member {number} id
+   * @memberof ResMotorPosition
+   * @instance
+   */
+  ResMotorPosition.prototype.id = 0;
+
+  /**
+   * ResMotorPosition code.
+   * @member {number} code
+   * @memberof ResMotorPosition
+   * @instance
+   */
+  ResMotorPosition.prototype.code = 0;
+
+  /**
+   * ResMotorPosition position.
+   * @member {number} position
+   * @memberof ResMotorPosition
+   * @instance
+   */
+  ResMotorPosition.prototype.position = 0;
+
+  /**
+   * Creates a new ResMotorPosition instance using the specified properties.
+   * @function create
+   * @memberof ResMotorPosition
+   * @static
+   * @param {IResMotorPosition=} [properties] Properties to set
+   * @returns {ResMotorPosition} ResMotorPosition instance
+   */
+  ResMotorPosition.create = function create(properties) {
+    return new ResMotorPosition(properties);
+  };
+
+  /**
+   * Encodes the specified ResMotorPosition message. Does not implicitly {@link ResMotorPosition.verify|verify} messages.
+   * @function encode
+   * @memberof ResMotorPosition
+   * @static
+   * @param {IResMotorPosition} message ResMotorPosition message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ResMotorPosition.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.id);
+    if (message.code != null && Object.hasOwnProperty.call(message, "code"))
+      writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.code);
+    if (
+      message.position != null &&
+      Object.hasOwnProperty.call(message, "position")
+    )
+      writer.uint32(/* id 3, wireType 1 =*/ 25).double(message.position);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ResMotorPosition message, length delimited. Does not implicitly {@link ResMotorPosition.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ResMotorPosition
+   * @static
+   * @param {IResMotorPosition} message ResMotorPosition message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ResMotorPosition.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ResMotorPosition message from the specified reader or buffer.
+   * @function decode
+   * @memberof ResMotorPosition
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ResMotorPosition} ResMotorPosition
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ResMotorPosition.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ResMotorPosition();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.id = reader.int32();
+          break;
+        }
+        case 2: {
+          message.code = reader.int32();
+          break;
+        }
+        case 3: {
+          message.position = reader.double();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ResMotorPosition message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ResMotorPosition
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ResMotorPosition} ResMotorPosition
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ResMotorPosition.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ResMotorPosition message.
+   * @function verify
+   * @memberof ResMotorPosition
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ResMotorPosition.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.id != null && message.hasOwnProperty("id"))
+      if (!$util.isInteger(message.id)) return "id: integer expected";
+    if (message.code != null && message.hasOwnProperty("code"))
+      if (!$util.isInteger(message.code)) return "code: integer expected";
+    if (message.position != null && message.hasOwnProperty("position"))
+      if (typeof message.position !== "number")
+        return "position: number expected";
+    return null;
+  };
+
+  /**
+   * Creates a ResMotorPosition message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ResMotorPosition
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ResMotorPosition} ResMotorPosition
+   */
+  ResMotorPosition.fromObject = function fromObject(object) {
+    if (object instanceof $root.ResMotorPosition) return object;
+    var message = new $root.ResMotorPosition();
+    if (object.id != null) message.id = object.id | 0;
+    if (object.code != null) message.code = object.code | 0;
+    if (object.position != null) message.position = Number(object.position);
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ResMotorPosition message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ResMotorPosition
+   * @static
+   * @param {ResMotorPosition} message ResMotorPosition
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ResMotorPosition.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.id = 0;
+      object.code = 0;
+      object.position = 0;
+    }
+    if (message.id != null && message.hasOwnProperty("id"))
+      object.id = message.id;
+    if (message.code != null && message.hasOwnProperty("code"))
+      object.code = message.code;
+    if (message.position != null && message.hasOwnProperty("position"))
+      object.position =
+        options.json && !isFinite(message.position)
+          ? String(message.position)
+          : message.position;
+    return object;
+  };
+
+  /**
+   * Converts this ResMotorPosition to JSON.
+   * @function toJSON
+   * @memberof ResMotorPosition
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ResMotorPosition.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ResMotorPosition
+   * @function getTypeUrl
+   * @memberof ResMotorPosition
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ResMotorPosition.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ResMotorPosition";
+  };
+
+  return ResMotorPosition;
+})();
+
+$root.ReqDualCameraLinkage = (function () {
+  /**
+   * Properties of a ReqDualCameraLinkage.
+   * @exports IReqDualCameraLinkage
+   * @interface IReqDualCameraLinkage
+   * @property {number|null} [x] ReqDualCameraLinkage x
+   * @property {number|null} [y] ReqDualCameraLinkage y
+   */
+
+  /**
+   * Constructs a new ReqDualCameraLinkage.
+   * @exports ReqDualCameraLinkage
+   * @classdesc Represents a ReqDualCameraLinkage.
+   * @implements IReqDualCameraLinkage
+   * @constructor
+   * @param {IReqDualCameraLinkage=} [properties] Properties to set
+   */
+  function ReqDualCameraLinkage(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqDualCameraLinkage x.
+   * @member {number} x
+   * @memberof ReqDualCameraLinkage
+   * @instance
+   */
+  ReqDualCameraLinkage.prototype.x = 0;
+
+  /**
+   * ReqDualCameraLinkage y.
+   * @member {number} y
+   * @memberof ReqDualCameraLinkage
+   * @instance
+   */
+  ReqDualCameraLinkage.prototype.y = 0;
+
+  /**
+   * Creates a new ReqDualCameraLinkage instance using the specified properties.
+   * @function create
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {IReqDualCameraLinkage=} [properties] Properties to set
+   * @returns {ReqDualCameraLinkage} ReqDualCameraLinkage instance
+   */
+  ReqDualCameraLinkage.create = function create(properties) {
+    return new ReqDualCameraLinkage(properties);
+  };
+
+  /**
+   * Encodes the specified ReqDualCameraLinkage message. Does not implicitly {@link ReqDualCameraLinkage.verify|verify} messages.
+   * @function encode
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {IReqDualCameraLinkage} message ReqDualCameraLinkage message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqDualCameraLinkage.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.x);
+    if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+      writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.y);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqDualCameraLinkage message, length delimited. Does not implicitly {@link ReqDualCameraLinkage.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {IReqDualCameraLinkage} message ReqDualCameraLinkage message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqDualCameraLinkage.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqDualCameraLinkage message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqDualCameraLinkage} ReqDualCameraLinkage
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqDualCameraLinkage.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqDualCameraLinkage();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.x = reader.int32();
+          break;
+        }
+        case 2: {
+          message.y = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqDualCameraLinkage message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqDualCameraLinkage} ReqDualCameraLinkage
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqDualCameraLinkage.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqDualCameraLinkage message.
+   * @function verify
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqDualCameraLinkage.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.x != null && message.hasOwnProperty("x"))
+      if (!$util.isInteger(message.x)) return "x: integer expected";
+    if (message.y != null && message.hasOwnProperty("y"))
+      if (!$util.isInteger(message.y)) return "y: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqDualCameraLinkage message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqDualCameraLinkage} ReqDualCameraLinkage
+   */
+  ReqDualCameraLinkage.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqDualCameraLinkage) return object;
+    var message = new $root.ReqDualCameraLinkage();
+    if (object.x != null) message.x = object.x | 0;
+    if (object.y != null) message.y = object.y | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqDualCameraLinkage message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {ReqDualCameraLinkage} message ReqDualCameraLinkage
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqDualCameraLinkage.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.x = 0;
+      object.y = 0;
+    }
+    if (message.x != null && message.hasOwnProperty("x")) object.x = message.x;
+    if (message.y != null && message.hasOwnProperty("y")) object.y = message.y;
+    return object;
+  };
+
+  /**
+   * Converts this ReqDualCameraLinkage to JSON.
+   * @function toJSON
+   * @memberof ReqDualCameraLinkage
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqDualCameraLinkage.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqDualCameraLinkage
+   * @function getTypeUrl
+   * @memberof ReqDualCameraLinkage
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqDualCameraLinkage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqDualCameraLinkage";
+  };
+
+  return ReqDualCameraLinkage;
+})();
+
 /**
  * State enum.
  * @exports State
@@ -19114,6 +21969,586 @@ $root.ResNotifyPowerOff = (function () {
   return ResNotifyPowerOff;
 })();
 
+$root.ReqStartPanoramaByGrid = (function () {
+  /**
+   * Properties of a ReqStartPanoramaByGrid.
+   * @exports IReqStartPanoramaByGrid
+   * @interface IReqStartPanoramaByGrid
+   */
+
+  /**
+   * Constructs a new ReqStartPanoramaByGrid.
+   * @exports ReqStartPanoramaByGrid
+   * @classdesc Represents a ReqStartPanoramaByGrid.
+   * @implements IReqStartPanoramaByGrid
+   * @constructor
+   * @param {IReqStartPanoramaByGrid=} [properties] Properties to set
+   */
+  function ReqStartPanoramaByGrid(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * Creates a new ReqStartPanoramaByGrid instance using the specified properties.
+   * @function create
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {IReqStartPanoramaByGrid=} [properties] Properties to set
+   * @returns {ReqStartPanoramaByGrid} ReqStartPanoramaByGrid instance
+   */
+  ReqStartPanoramaByGrid.create = function create(properties) {
+    return new ReqStartPanoramaByGrid(properties);
+  };
+
+  /**
+   * Encodes the specified ReqStartPanoramaByGrid message. Does not implicitly {@link ReqStartPanoramaByGrid.verify|verify} messages.
+   * @function encode
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {IReqStartPanoramaByGrid} message ReqStartPanoramaByGrid message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStartPanoramaByGrid.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqStartPanoramaByGrid message, length delimited. Does not implicitly {@link ReqStartPanoramaByGrid.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {IReqStartPanoramaByGrid} message ReqStartPanoramaByGrid message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStartPanoramaByGrid.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqStartPanoramaByGrid message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqStartPanoramaByGrid} ReqStartPanoramaByGrid
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStartPanoramaByGrid.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqStartPanoramaByGrid();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqStartPanoramaByGrid message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqStartPanoramaByGrid} ReqStartPanoramaByGrid
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStartPanoramaByGrid.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqStartPanoramaByGrid message.
+   * @function verify
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqStartPanoramaByGrid.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqStartPanoramaByGrid message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqStartPanoramaByGrid} ReqStartPanoramaByGrid
+   */
+  ReqStartPanoramaByGrid.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqStartPanoramaByGrid) return object;
+    return new $root.ReqStartPanoramaByGrid();
+  };
+
+  /**
+   * Creates a plain object from a ReqStartPanoramaByGrid message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {ReqStartPanoramaByGrid} message ReqStartPanoramaByGrid
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqStartPanoramaByGrid.toObject = function toObject() {
+    return {};
+  };
+
+  /**
+   * Converts this ReqStartPanoramaByGrid to JSON.
+   * @function toJSON
+   * @memberof ReqStartPanoramaByGrid
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqStartPanoramaByGrid.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqStartPanoramaByGrid
+   * @function getTypeUrl
+   * @memberof ReqStartPanoramaByGrid
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqStartPanoramaByGrid.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqStartPanoramaByGrid";
+  };
+
+  return ReqStartPanoramaByGrid;
+})();
+
+$root.ReqStartPanoramaByEulerRange = (function () {
+  /**
+   * Properties of a ReqStartPanoramaByEulerRange.
+   * @exports IReqStartPanoramaByEulerRange
+   * @interface IReqStartPanoramaByEulerRange
+   * @property {number|null} [yawRange] ReqStartPanoramaByEulerRange yawRange
+   * @property {number|null} [pitchRange] ReqStartPanoramaByEulerRange pitchRange
+   */
+
+  /**
+   * Constructs a new ReqStartPanoramaByEulerRange.
+   * @exports ReqStartPanoramaByEulerRange
+   * @classdesc Represents a ReqStartPanoramaByEulerRange.
+   * @implements IReqStartPanoramaByEulerRange
+   * @constructor
+   * @param {IReqStartPanoramaByEulerRange=} [properties] Properties to set
+   */
+  function ReqStartPanoramaByEulerRange(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqStartPanoramaByEulerRange yawRange.
+   * @member {number} yawRange
+   * @memberof ReqStartPanoramaByEulerRange
+   * @instance
+   */
+  ReqStartPanoramaByEulerRange.prototype.yawRange = 0;
+
+  /**
+   * ReqStartPanoramaByEulerRange pitchRange.
+   * @member {number} pitchRange
+   * @memberof ReqStartPanoramaByEulerRange
+   * @instance
+   */
+  ReqStartPanoramaByEulerRange.prototype.pitchRange = 0;
+
+  /**
+   * Creates a new ReqStartPanoramaByEulerRange instance using the specified properties.
+   * @function create
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {IReqStartPanoramaByEulerRange=} [properties] Properties to set
+   * @returns {ReqStartPanoramaByEulerRange} ReqStartPanoramaByEulerRange instance
+   */
+  ReqStartPanoramaByEulerRange.create = function create(properties) {
+    return new ReqStartPanoramaByEulerRange(properties);
+  };
+
+  /**
+   * Encodes the specified ReqStartPanoramaByEulerRange message. Does not implicitly {@link ReqStartPanoramaByEulerRange.verify|verify} messages.
+   * @function encode
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {IReqStartPanoramaByEulerRange} message ReqStartPanoramaByEulerRange message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStartPanoramaByEulerRange.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (
+      message.yawRange != null &&
+      Object.hasOwnProperty.call(message, "yawRange")
+    )
+      writer.uint32(/* id 1, wireType 5 =*/ 13).float(message.yawRange);
+    if (
+      message.pitchRange != null &&
+      Object.hasOwnProperty.call(message, "pitchRange")
+    )
+      writer.uint32(/* id 2, wireType 5 =*/ 21).float(message.pitchRange);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqStartPanoramaByEulerRange message, length delimited. Does not implicitly {@link ReqStartPanoramaByEulerRange.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {IReqStartPanoramaByEulerRange} message ReqStartPanoramaByEulerRange message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStartPanoramaByEulerRange.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqStartPanoramaByEulerRange message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqStartPanoramaByEulerRange} ReqStartPanoramaByEulerRange
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStartPanoramaByEulerRange.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqStartPanoramaByEulerRange();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.yawRange = reader.float();
+          break;
+        }
+        case 2: {
+          message.pitchRange = reader.float();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqStartPanoramaByEulerRange message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqStartPanoramaByEulerRange} ReqStartPanoramaByEulerRange
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStartPanoramaByEulerRange.decodeDelimited = function decodeDelimited(
+    reader
+  ) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqStartPanoramaByEulerRange message.
+   * @function verify
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqStartPanoramaByEulerRange.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.yawRange != null && message.hasOwnProperty("yawRange"))
+      if (typeof message.yawRange !== "number")
+        return "yawRange: number expected";
+    if (message.pitchRange != null && message.hasOwnProperty("pitchRange"))
+      if (typeof message.pitchRange !== "number")
+        return "pitchRange: number expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqStartPanoramaByEulerRange message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqStartPanoramaByEulerRange} ReqStartPanoramaByEulerRange
+   */
+  ReqStartPanoramaByEulerRange.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqStartPanoramaByEulerRange) return object;
+    var message = new $root.ReqStartPanoramaByEulerRange();
+    if (object.yawRange != null) message.yawRange = Number(object.yawRange);
+    if (object.pitchRange != null)
+      message.pitchRange = Number(object.pitchRange);
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqStartPanoramaByEulerRange message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {ReqStartPanoramaByEulerRange} message ReqStartPanoramaByEulerRange
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqStartPanoramaByEulerRange.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.yawRange = 0;
+      object.pitchRange = 0;
+    }
+    if (message.yawRange != null && message.hasOwnProperty("yawRange"))
+      object.yawRange =
+        options.json && !isFinite(message.yawRange)
+          ? String(message.yawRange)
+          : message.yawRange;
+    if (message.pitchRange != null && message.hasOwnProperty("pitchRange"))
+      object.pitchRange =
+        options.json && !isFinite(message.pitchRange)
+          ? String(message.pitchRange)
+          : message.pitchRange;
+    return object;
+  };
+
+  /**
+   * Converts this ReqStartPanoramaByEulerRange to JSON.
+   * @function toJSON
+   * @memberof ReqStartPanoramaByEulerRange
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqStartPanoramaByEulerRange.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqStartPanoramaByEulerRange
+   * @function getTypeUrl
+   * @memberof ReqStartPanoramaByEulerRange
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqStartPanoramaByEulerRange.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqStartPanoramaByEulerRange";
+  };
+
+  return ReqStartPanoramaByEulerRange;
+})();
+
+$root.ReqStopPanorama = (function () {
+  /**
+   * Properties of a ReqStopPanorama.
+   * @exports IReqStopPanorama
+   * @interface IReqStopPanorama
+   */
+
+  /**
+   * Constructs a new ReqStopPanorama.
+   * @exports ReqStopPanorama
+   * @classdesc Represents a ReqStopPanorama.
+   * @implements IReqStopPanorama
+   * @constructor
+   * @param {IReqStopPanorama=} [properties] Properties to set
+   */
+  function ReqStopPanorama(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * Creates a new ReqStopPanorama instance using the specified properties.
+   * @function create
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {IReqStopPanorama=} [properties] Properties to set
+   * @returns {ReqStopPanorama} ReqStopPanorama instance
+   */
+  ReqStopPanorama.create = function create(properties) {
+    return new ReqStopPanorama(properties);
+  };
+
+  /**
+   * Encodes the specified ReqStopPanorama message. Does not implicitly {@link ReqStopPanorama.verify|verify} messages.
+   * @function encode
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {IReqStopPanorama} message ReqStopPanorama message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStopPanorama.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqStopPanorama message, length delimited. Does not implicitly {@link ReqStopPanorama.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {IReqStopPanorama} message ReqStopPanorama message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStopPanorama.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqStopPanorama message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqStopPanorama} ReqStopPanorama
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStopPanorama.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqStopPanorama();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqStopPanorama message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqStopPanorama} ReqStopPanorama
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStopPanorama.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqStopPanorama message.
+   * @function verify
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqStopPanorama.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqStopPanorama message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqStopPanorama} ReqStopPanorama
+   */
+  ReqStopPanorama.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqStopPanorama) return object;
+    return new $root.ReqStopPanorama();
+  };
+
+  /**
+   * Creates a plain object from a ReqStopPanorama message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {ReqStopPanorama} message ReqStopPanorama
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqStopPanorama.toObject = function toObject() {
+    return {};
+  };
+
+  /**
+   * Converts this ReqStopPanorama to JSON.
+   * @function toJSON
+   * @memberof ReqStopPanorama
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqStopPanorama.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqStopPanorama
+   * @function getTypeUrl
+   * @memberof ReqStopPanorama
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqStopPanorama.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqStopPanorama";
+  };
+
+  return ReqStopPanorama;
+})();
+
 /**
  * ModuleId enum.
  * @exports ModuleId
@@ -21469,6 +24904,771 @@ $root.ReqSetCpuMode = (function () {
   };
 
   return ReqSetCpuMode;
+})();
+
+$root.ReqStartTrack = (function () {
+  /**
+   * Properties of a ReqStartTrack.
+   * @exports IReqStartTrack
+   * @interface IReqStartTrack
+   * @property {number|null} [x] ReqStartTrack x
+   * @property {number|null} [y] ReqStartTrack y
+   * @property {number|null} [w] ReqStartTrack w
+   * @property {number|null} [h] ReqStartTrack h
+   */
+
+  /**
+   * Constructs a new ReqStartTrack.
+   * @exports ReqStartTrack
+   * @classdesc Represents a ReqStartTrack.
+   * @implements IReqStartTrack
+   * @constructor
+   * @param {IReqStartTrack=} [properties] Properties to set
+   */
+  function ReqStartTrack(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqStartTrack x.
+   * @member {number} x
+   * @memberof ReqStartTrack
+   * @instance
+   */
+  ReqStartTrack.prototype.x = 0;
+
+  /**
+   * ReqStartTrack y.
+   * @member {number} y
+   * @memberof ReqStartTrack
+   * @instance
+   */
+  ReqStartTrack.prototype.y = 0;
+
+  /**
+   * ReqStartTrack w.
+   * @member {number} w
+   * @memberof ReqStartTrack
+   * @instance
+   */
+  ReqStartTrack.prototype.w = 0;
+
+  /**
+   * ReqStartTrack h.
+   * @member {number} h
+   * @memberof ReqStartTrack
+   * @instance
+   */
+  ReqStartTrack.prototype.h = 0;
+
+  /**
+   * Creates a new ReqStartTrack instance using the specified properties.
+   * @function create
+   * @memberof ReqStartTrack
+   * @static
+   * @param {IReqStartTrack=} [properties] Properties to set
+   * @returns {ReqStartTrack} ReqStartTrack instance
+   */
+  ReqStartTrack.create = function create(properties) {
+    return new ReqStartTrack(properties);
+  };
+
+  /**
+   * Encodes the specified ReqStartTrack message. Does not implicitly {@link ReqStartTrack.verify|verify} messages.
+   * @function encode
+   * @memberof ReqStartTrack
+   * @static
+   * @param {IReqStartTrack} message ReqStartTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStartTrack.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.x);
+    if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+      writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.y);
+    if (message.w != null && Object.hasOwnProperty.call(message, "w"))
+      writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.w);
+    if (message.h != null && Object.hasOwnProperty.call(message, "h"))
+      writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.h);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqStartTrack message, length delimited. Does not implicitly {@link ReqStartTrack.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqStartTrack
+   * @static
+   * @param {IReqStartTrack} message ReqStartTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStartTrack.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqStartTrack message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqStartTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqStartTrack} ReqStartTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStartTrack.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqStartTrack();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.x = reader.int32();
+          break;
+        }
+        case 2: {
+          message.y = reader.int32();
+          break;
+        }
+        case 3: {
+          message.w = reader.int32();
+          break;
+        }
+        case 4: {
+          message.h = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqStartTrack message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqStartTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqStartTrack} ReqStartTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStartTrack.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqStartTrack message.
+   * @function verify
+   * @memberof ReqStartTrack
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqStartTrack.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.x != null && message.hasOwnProperty("x"))
+      if (!$util.isInteger(message.x)) return "x: integer expected";
+    if (message.y != null && message.hasOwnProperty("y"))
+      if (!$util.isInteger(message.y)) return "y: integer expected";
+    if (message.w != null && message.hasOwnProperty("w"))
+      if (!$util.isInteger(message.w)) return "w: integer expected";
+    if (message.h != null && message.hasOwnProperty("h"))
+      if (!$util.isInteger(message.h)) return "h: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqStartTrack message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqStartTrack
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqStartTrack} ReqStartTrack
+   */
+  ReqStartTrack.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqStartTrack) return object;
+    var message = new $root.ReqStartTrack();
+    if (object.x != null) message.x = object.x | 0;
+    if (object.y != null) message.y = object.y | 0;
+    if (object.w != null) message.w = object.w | 0;
+    if (object.h != null) message.h = object.h | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqStartTrack message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqStartTrack
+   * @static
+   * @param {ReqStartTrack} message ReqStartTrack
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqStartTrack.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.x = 0;
+      object.y = 0;
+      object.w = 0;
+      object.h = 0;
+    }
+    if (message.x != null && message.hasOwnProperty("x")) object.x = message.x;
+    if (message.y != null && message.hasOwnProperty("y")) object.y = message.y;
+    if (message.w != null && message.hasOwnProperty("w")) object.w = message.w;
+    if (message.h != null && message.hasOwnProperty("h")) object.h = message.h;
+    return object;
+  };
+
+  /**
+   * Converts this ReqStartTrack to JSON.
+   * @function toJSON
+   * @memberof ReqStartTrack
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqStartTrack.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqStartTrack
+   * @function getTypeUrl
+   * @memberof ReqStartTrack
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqStartTrack.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqStartTrack";
+  };
+
+  return ReqStartTrack;
+})();
+
+$root.ReqStopTrack = (function () {
+  /**
+   * Properties of a ReqStopTrack.
+   * @exports IReqStopTrack
+   * @interface IReqStopTrack
+   */
+
+  /**
+   * Constructs a new ReqStopTrack.
+   * @exports ReqStopTrack
+   * @classdesc Represents a ReqStopTrack.
+   * @implements IReqStopTrack
+   * @constructor
+   * @param {IReqStopTrack=} [properties] Properties to set
+   */
+  function ReqStopTrack(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * Creates a new ReqStopTrack instance using the specified properties.
+   * @function create
+   * @memberof ReqStopTrack
+   * @static
+   * @param {IReqStopTrack=} [properties] Properties to set
+   * @returns {ReqStopTrack} ReqStopTrack instance
+   */
+  ReqStopTrack.create = function create(properties) {
+    return new ReqStopTrack(properties);
+  };
+
+  /**
+   * Encodes the specified ReqStopTrack message. Does not implicitly {@link ReqStopTrack.verify|verify} messages.
+   * @function encode
+   * @memberof ReqStopTrack
+   * @static
+   * @param {IReqStopTrack} message ReqStopTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStopTrack.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqStopTrack message, length delimited. Does not implicitly {@link ReqStopTrack.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqStopTrack
+   * @static
+   * @param {IReqStopTrack} message ReqStopTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqStopTrack.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqStopTrack message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqStopTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqStopTrack} ReqStopTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStopTrack.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqStopTrack();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqStopTrack message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqStopTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqStopTrack} ReqStopTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqStopTrack.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqStopTrack message.
+   * @function verify
+   * @memberof ReqStopTrack
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqStopTrack.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqStopTrack message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqStopTrack
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqStopTrack} ReqStopTrack
+   */
+  ReqStopTrack.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqStopTrack) return object;
+    return new $root.ReqStopTrack();
+  };
+
+  /**
+   * Creates a plain object from a ReqStopTrack message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqStopTrack
+   * @static
+   * @param {ReqStopTrack} message ReqStopTrack
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqStopTrack.toObject = function toObject() {
+    return {};
+  };
+
+  /**
+   * Converts this ReqStopTrack to JSON.
+   * @function toJSON
+   * @memberof ReqStopTrack
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqStopTrack.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqStopTrack
+   * @function getTypeUrl
+   * @memberof ReqStopTrack
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqStopTrack.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqStopTrack";
+  };
+
+  return ReqStopTrack;
+})();
+
+$root.ReqPauseTrack = (function () {
+  /**
+   * Properties of a ReqPauseTrack.
+   * @exports IReqPauseTrack
+   * @interface IReqPauseTrack
+   */
+
+  /**
+   * Constructs a new ReqPauseTrack.
+   * @exports ReqPauseTrack
+   * @classdesc Represents a ReqPauseTrack.
+   * @implements IReqPauseTrack
+   * @constructor
+   * @param {IReqPauseTrack=} [properties] Properties to set
+   */
+  function ReqPauseTrack(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * Creates a new ReqPauseTrack instance using the specified properties.
+   * @function create
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {IReqPauseTrack=} [properties] Properties to set
+   * @returns {ReqPauseTrack} ReqPauseTrack instance
+   */
+  ReqPauseTrack.create = function create(properties) {
+    return new ReqPauseTrack(properties);
+  };
+
+  /**
+   * Encodes the specified ReqPauseTrack message. Does not implicitly {@link ReqPauseTrack.verify|verify} messages.
+   * @function encode
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {IReqPauseTrack} message ReqPauseTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqPauseTrack.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqPauseTrack message, length delimited. Does not implicitly {@link ReqPauseTrack.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {IReqPauseTrack} message ReqPauseTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqPauseTrack.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqPauseTrack message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqPauseTrack} ReqPauseTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqPauseTrack.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqPauseTrack();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqPauseTrack message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqPauseTrack} ReqPauseTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqPauseTrack.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqPauseTrack message.
+   * @function verify
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqPauseTrack.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqPauseTrack message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqPauseTrack} ReqPauseTrack
+   */
+  ReqPauseTrack.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqPauseTrack) return object;
+    return new $root.ReqPauseTrack();
+  };
+
+  /**
+   * Creates a plain object from a ReqPauseTrack message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {ReqPauseTrack} message ReqPauseTrack
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqPauseTrack.toObject = function toObject() {
+    return {};
+  };
+
+  /**
+   * Converts this ReqPauseTrack to JSON.
+   * @function toJSON
+   * @memberof ReqPauseTrack
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqPauseTrack.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqPauseTrack
+   * @function getTypeUrl
+   * @memberof ReqPauseTrack
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqPauseTrack.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqPauseTrack";
+  };
+
+  return ReqPauseTrack;
+})();
+
+$root.ReqContinueTrack = (function () {
+  /**
+   * Properties of a ReqContinueTrack.
+   * @exports IReqContinueTrack
+   * @interface IReqContinueTrack
+   */
+
+  /**
+   * Constructs a new ReqContinueTrack.
+   * @exports ReqContinueTrack
+   * @classdesc Represents a ReqContinueTrack.
+   * @implements IReqContinueTrack
+   * @constructor
+   * @param {IReqContinueTrack=} [properties] Properties to set
+   */
+  function ReqContinueTrack(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * Creates a new ReqContinueTrack instance using the specified properties.
+   * @function create
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {IReqContinueTrack=} [properties] Properties to set
+   * @returns {ReqContinueTrack} ReqContinueTrack instance
+   */
+  ReqContinueTrack.create = function create(properties) {
+    return new ReqContinueTrack(properties);
+  };
+
+  /**
+   * Encodes the specified ReqContinueTrack message. Does not implicitly {@link ReqContinueTrack.verify|verify} messages.
+   * @function encode
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {IReqContinueTrack} message ReqContinueTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqContinueTrack.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqContinueTrack message, length delimited. Does not implicitly {@link ReqContinueTrack.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {IReqContinueTrack} message ReqContinueTrack message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqContinueTrack.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqContinueTrack message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqContinueTrack} ReqContinueTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqContinueTrack.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqContinueTrack();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqContinueTrack message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqContinueTrack} ReqContinueTrack
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqContinueTrack.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqContinueTrack message.
+   * @function verify
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqContinueTrack.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqContinueTrack message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqContinueTrack} ReqContinueTrack
+   */
+  ReqContinueTrack.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqContinueTrack) return object;
+    return new $root.ReqContinueTrack();
+  };
+
+  /**
+   * Creates a plain object from a ReqContinueTrack message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {ReqContinueTrack} message ReqContinueTrack
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqContinueTrack.toObject = function toObject() {
+    return {};
+  };
+
+  /**
+   * Converts this ReqContinueTrack to JSON.
+   * @function toJSON
+   * @memberof ReqContinueTrack
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqContinueTrack.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqContinueTrack
+   * @function getTypeUrl
+   * @memberof ReqContinueTrack
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqContinueTrack.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqContinueTrack";
+  };
+
+  return ReqContinueTrack;
 })();
 
 export default $root;

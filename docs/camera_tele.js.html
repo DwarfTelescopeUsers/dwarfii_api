@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>camera_tele.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/DwarfTelescopeUsers/dwarfii_api" target="_blank" class="menu-item" id="website_link" >Github repo</a></h2><h3>Modules</h3><ul><li><a href="module-AstroState.html">AstroState</a></li><li><a href="module-AstroTrackingSpecial.html">AstroTrackingSpecial</a></li><li><a href="module-DwarfCMD.html">DwarfCMD</a></li><li><a href="module-DwarfErrorCode.html">DwarfErrorCode</a></li><li><a href="module-IrCut.html">IrCut</a></li><li><a href="module-MessageTypeId.html">MessageTypeId</a></li><li><a href="module-ModuleId.html">ModuleId</a></li><li><a href="module-OperationState.html">OperationState</a></li><li><a href="module-PhotoMode.html">PhotoMode</a></li><li><a href="module-SolarSystemTarget.html">SolarSystemTarget</a></li><li><a href="module-State.html">State</a></li><li><a href="module-WBMode.html">WBMode</a></li><li><a href="module-WsMajorVersion.html">WsMajorVersion</a></li><li><a href="module-WsMinorVersion.html">WsMinorVersion</a></li><li><a href="module-api_codes.html">api_codes</a><ul class='members'><li data-type='member'><a href="module-api_codes.html#.firmwareVersion">firmwareVersion</a></li><li data-type='member'><a href="module-api_codes.html#.getDefaultParamsConfig">getDefaultParamsConfig</a></li><li data-type='member'><a href="module-api_codes.html#.rawPreviewURL">rawPreviewURL</a></li><li data-type='member'><a href="module-api_codes.html#.telephotoURL">telephotoURL</a></li><li data-type='member'><a href="module-api_codes.html#.wideangleURL">wideangleURL</a></li><li data-type='member'><a href="module-api_codes.html#.wsURL">wsURL</a></li></ul></li><li><a href="module-api_utils.html">api_utils</a><ul class='methods'><li data-type='method'><a href="module-api_utils.html#.analyzePacket">analyzePacket</a></li><li data-type='method'><a href="module-api_utils.html#.createPacket">createPacket</a></li><li data-type='method'><a href="module-api_utils.html#.decodePacket">decodePacket</a></li><li data-type='method'><a href="module-api_utils.html#.nowLocal">nowLocal</a></li><li data-type='method'><a href="module-api_utils.html#.nowLocalFileName">nowLocalFileName</a></li><li data-type='method'><a href="module-api_utils.html#.nowUTC">nowUTC</a></li><li data-type='method'><a href="module-api_utils.html#.nowUTCFileName">nowUTCFileName</a></li><li data-type='method'><a href="module-api_utils.html#.setDwarfClientID">setDwarfClientID</a></li><li data-type='method'><a href="module-api_utils.html#.socketSend">socketSend</a></li></ul></li><li><a href="module-astro.html">astro</a><ul class='methods'><li data-type='method'><a href="module-astro.html#.messageAstroCheckGotDark">messageAstroCheckGotDark</a></li><li data-type='method'><a href="module-astro.html#.messageAstroGoLive">messageAstroGoLive</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStartCalibration">messageAstroStartCalibration</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStartCaptureRawDark">messageAstroStartCaptureRawDark</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStartCaptureRawLiveStacking">messageAstroStartCaptureRawLiveStacking</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStartGotoDso">messageAstroStartGotoDso</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStartGotoSolarSystem">messageAstroStartGotoSolarSystem</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStartTrackSpecialTarget">messageAstroStartTrackSpecialTarget</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStopCalibration">messageAstroStopCalibration</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStopCaptureRawDark">messageAstroStopCaptureRawDark</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStopCaptureRawLiveStacking">messageAstroStopCaptureRawLiveStacking</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStopGoto">messageAstroStopGoto</a></li><li data-type='method'><a href="module-astro.html#.messageAstroStopTrackSpecialTarget">messageAstroStopTrackSpecialTarget</a></li></ul></li><li><a href="module-camera_tele.html">camera_tele</a><ul class='methods'><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleCloseCamera">messageCameraTeleCloseCamera</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetAllFeatureParams">messageCameraTeleGetAllFeatureParams</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetAllParams">messageCameraTeleGetAllParams</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetExp">messageCameraTeleGetExp</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetExpMode">messageCameraTeleGetExpMode</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetGain">messageCameraTeleGetGain</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetGainMode">messageCameraTeleGetGainMode</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetIRCut">messageCameraTeleGetIRCut</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleGetSystemWorkingState">messageCameraTeleGetSystemWorkingState</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleOpenCamera">messageCameraTeleOpenCamera</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTelePhotograph">messageCameraTelePhotograph</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetAllParams">messageCameraTeleSetAllParams</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetExp">messageCameraTeleSetExp</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetExpMode">messageCameraTeleSetExpMode</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetFeatureParams">messageCameraTeleSetFeatureParams</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetGain">messageCameraTeleSetGain</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetGainMode">messageCameraTeleSetGainMode</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetIRCut">messageCameraTeleSetIRCut</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleSetJPGQuality">messageCameraTeleSetJPGQuality</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleStartBurst">messageCameraTeleStartBurst</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleStartRecord">messageCameraTeleStartRecord</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleStartTimeLapsePhoto">messageCameraTeleStartTimeLapsePhoto</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleStopBurst">messageCameraTeleStopBurst</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleStopRecord">messageCameraTeleStopRecord</a></li><li data-type='method'><a href="module-camera_tele.html#.messageCameraTeleStopTimeLapsePhoto">messageCameraTeleStopTimeLapsePhoto</a></li></ul></li><li><a href="module-camera_wide.html">camera_wide</a><ul class='methods'><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideCloseCamera">messageCameraWideCloseCamera</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideGetAllParams">messageCameraWideGetAllParams</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideGetExp">messageCameraWideGetExp</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideGetExpMode">messageCameraWideGetExpMode</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideGetGain">messageCameraWideGetGain</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideGetGainMode">messageCameraWideGetGainMode</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideOpenCamera">messageCameraWideOpenCamera</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWidePhotograph">messageCameraWidePhotograph</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideSetAllParams">messageCameraWideSetAllParams</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideSetExp">messageCameraWideSetExp</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideSetExpMode">messageCameraWideSetExpMode</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideSetGain">messageCameraWideSetGain</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideSetGainMode">messageCameraWideSetGainMode</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideStartBurst">messageCameraWideStartBurst</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideStartTimeLapsePhoto">messageCameraWideStartTimeLapsePhoto</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideStopBurst">messageCameraWideStopBurst</a></li><li data-type='method'><a href="module-camera_wide.html#.messageCameraWideStopTimeLapsePhoto">messageCameraWideStopTimeLapsePhoto</a></li></ul></li><li><a href="module-focus.html">focus</a><ul class='methods'><li data-type='method'><a href="module-focus.html#.messageFocusAutoFocus">messageFocusAutoFocus</a></li><li data-type='method'><a href="module-focus.html#.messageFocusManualSingleStepFocus">messageFocusManualSingleStepFocus</a></li><li data-type='method'><a href="module-focus.html#.messageFocusStartAstroAutoFocus">messageFocusStartAstroAutoFocus</a></li><li data-type='method'><a href="module-focus.html#.messageFocusStartManualContinuFocus">messageFocusStartManualContinuFocus</a></li><li data-type='method'><a href="module-focus.html#.messageFocusStopAstroAutoFocus">messageFocusStopAstroAutoFocus</a></li><li data-type='method'><a href="module-focus.html#.messageFocusStopManualContinuFocus">messageFocusStopManualContinuFocus</a></li></ul></li><li><a href="module-rgp_power.html">rgp_power</a><ul class='methods'><li data-type='method'><a href="module-rgp_power.html#.messageRgbPowerCloseRGB">messageRgbPowerCloseRGB</a></li><li data-type='method'><a href="module-rgp_power.html#.messageRgbPowerDown">messageRgbPowerDown</a></li><li data-type='method'><a href="module-rgp_power.html#.messageRgbPowerOpenRGB">messageRgbPowerOpenRGB</a></li><li data-type='method'><a href="module-rgp_power.html#.messageRgbPowerPowerIndOFF">messageRgbPowerPowerIndOFF</a></li><li data-type='method'><a href="module-rgp_power.html#.messageRgbPowerPowerIndON">messageRgbPowerPowerIndON</a></li><li data-type='method'><a href="module-rgp_power.html#.messageRgbPowerReboot">messageRgbPowerReboot</a></li></ul></li><li><a href="module-system.html">system</a><ul class='methods'><li data-type='method'><a href="module-system.html#.messageSystemSetCpuMode">messageSystemSetCpuMode</a></li><li data-type='method'><a href="module-system.html#.messageSystemSetMtpMode">messageSystemSetMtpMode</a></li><li data-type='method'><a href="module-system.html#.messageSystemSetTime">messageSystemSetTime</a></li><li data-type='method'><a href="module-system.html#.messageSystemSetTimezone">messageSystemSetTimezone</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">camera_tele.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module camera_tele */
+// Import the generated protobuf module
+import $root from "./protobuf/protobuf.js";
+const Dwarfii_Api = $root;
+import { createPacket } from "./api_utils.js";
+import { cmdMapping } from "./cmd_mapping.js";
+
+/*** ---------------------------------------------------- ***/
+/*** ---------------- MODULE CAMERA TELE ---------------- ***/
+/*** ---------------------------------------------------- ***/
+/**
+ * 3.7.3 Turn on the camera
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_OPEN_CAMERA
+ * @param {boolean} binning ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleOpenCamera(binning = false) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_OPEN_CAMERA;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ binning: binning });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.4 Turn off the camera
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_CLOSE_CAMERA
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleCloseCamera() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_CLOSE_CAMERA;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.5 Set all camera parameters
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_ALL_PARAMS
+ * @param {number} exp_mode ; // 0: Auto 1: Manual
+ * @param {number} exp_index ;
+ * @param {number} gain_mode ;
+ * @param {number} gain_index ;
+ * @param {number} ircut_value ; //IRCUT value 0: CUT 1: PASS
+ * @param {number} wb_mode ; //white balance mode 0: automatic 1: manual
+ * @param {number} wb_index_type ; //White Balance Manual Mode Index Type: 0: Color Temperature Mode 1: Scene Mode
+ * @param {number} wb_index ;
+ * @param {number} brightness ;
+ * @param {number} contrast ;
+ * @param {number} hue ;
+ * @param {number} saturation ;
+ * @param {number} sharpness ;
+ * @param {number} jpg_quality ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetAllParams(
+  exp_mode,
+  exp_index,
+  gain_mode,
+  gain_index,
+  ircut_value,
+  wb_mode,
+  wb_index_type,
+  wb_index,
+  brightness,
+  contrast,
+  hue,
+  saturation,
+  sharpness,
+  jpg_quality
+) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_ALL_PARAMS;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({
+    expMode: exp_mode,
+    expIndex: exp_index,
+    gainMode: gain_mode,
+    gainIndex: gain_index,
+    ircutValue: ircut_value,
+    wbMode: wb_mode,
+    wbIndex_type: wb_index_type,
+    wbIndex: wb_index,
+    brightness: brightness,
+    contrast: contrast,
+    hue: hue,
+    saturation: saturation,
+    sharpness: sharpness,
+    jpgQuality: jpg_quality,
+  });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.6 Get all camera parameters
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_ALL_PARAMS
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetAllParams() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_ALL_PARAMS;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.7 Set feature parameters
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_FEATURE_PARAM
+ * @param {Object} param  ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetFeatureParams(param) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_FEATURE_PARAM;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ param: param });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.8 Get all feature parameters
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_ALL_FEATURE_PARAMS
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetAllFeatureParams() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id =
+    Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_ALL_FEATURE_PARAMS;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.9 Get the working status of the whole machine
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_SYSTEM_WORKING_STATE
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetSystemWorkingState() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id =
+    Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_SYSTEM_WORKING_STATE;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.10 Take photos
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_PHOTOGRAPH
+ * @returns {Uint8Array}
+ */
+export function messageCameraTelePhotograph() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_PHOTOGRAPH;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.11 Start continuous shooting
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_BURST
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleStartBurst() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_BURST;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.12 Stop continuous shooting
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_STOP_BURST
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleStopBurst() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_STOP_BURST;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.13 Start recording
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_START_RECORD
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleStartRecord() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_START_RECORD;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.14 Stop recording
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_STOP_RECORD
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleStopRecord() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_STOP_RECORD;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.15 Start time-lapse photography
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_START_TIMELAPSE_PHOTO
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleStartTimeLapsePhoto() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_START_TIMELAPSE_PHOTO;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.16 Stop time-lapse photography
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_STOP_TIMELAPSE_PHOTO
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleStopTimeLapsePhoto() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_STOP_TIMELAPSE_PHOTO;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.17 Set exposure mode
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_EXP_MODE
+ * @param {number} mode ; //0: Auto 1: Manual  ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetExpMode(mode) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_EXP_MODE;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ mode: mode });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.18 Acquire exposure mode
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_EXP_MODE
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetExpMode() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_EXP_MODE;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.19 Set exposure value
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_EXP
+ * @param {number} index  ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetExp(index) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_EXP;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ index: index });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.20 Get exposure value
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_EXP
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetExp() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_EXP;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.21 Set gain mode
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_GAIN_MODE
+ * @param {number} mode ; //0: Auto 1: Manual  ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetGainMode(mode) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_GAIN_MODE;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ mode: mode });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.22 Acquisition gain mode
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_GAIN_MODE
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetGainMode() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_GAIN_MODE;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.23 Set gain value
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_GAIN
+ * @param {number} index  ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetGain(index) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_GAIN;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ index: index });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.24 Get gain value
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_GAIN
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetGain() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_GAIN;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.25 Set IRCUT
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_IRCUT
+ * @param {number} value  ; //IRCUT value 0: CUT 1: PASS
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetIRCut(value) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_IRCUT;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ value: value });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.7.26 Get IRCUT status
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_IRCUT
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleGetIRCut() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_GET_IRCUT;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+
+/**
+ * 3.7.43 Set jpg preview quality
+ * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_JPG_QUALITY
+ * @param {number} quality  ;
+ * @returns {Uint8Array}
+ */
+export function messageCameraTeleSetJPGQuality(quality) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_JPG_QUALITY;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ quality: quality });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 10:02:11 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

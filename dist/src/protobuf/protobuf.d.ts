@@ -6329,6 +6329,1140 @@ export class ReqStopAstroAutoFocus implements IReqStopAstroAutoFocus {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a ReqMotorServiceJoystick. */
+export class ReqMotorServiceJoystick implements IReqMotorServiceJoystick {
+
+    /**
+     * Constructs a new ReqMotorServiceJoystick.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorServiceJoystick);
+
+    /** ReqMotorServiceJoystick vectorAngle. */
+    public vectorAngle: number;
+
+    /** ReqMotorServiceJoystick vectorLength. */
+    public vectorLength: number;
+
+    /** ReqMotorServiceJoystick speed. */
+    public speed: number;
+
+    /**
+     * Creates a new ReqMotorServiceJoystick instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorServiceJoystick instance
+     */
+    public static create(properties?: IReqMotorServiceJoystick): ReqMotorServiceJoystick;
+
+    /**
+     * Encodes the specified ReqMotorServiceJoystick message. Does not implicitly {@link ReqMotorServiceJoystick.verify|verify} messages.
+     * @param message ReqMotorServiceJoystick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorServiceJoystick, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorServiceJoystick message, length delimited. Does not implicitly {@link ReqMotorServiceJoystick.verify|verify} messages.
+     * @param message ReqMotorServiceJoystick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorServiceJoystick, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorServiceJoystick message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorServiceJoystick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorServiceJoystick;
+
+    /**
+     * Decodes a ReqMotorServiceJoystick message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorServiceJoystick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorServiceJoystick;
+
+    /**
+     * Verifies a ReqMotorServiceJoystick message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorServiceJoystick message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorServiceJoystick
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorServiceJoystick;
+
+    /**
+     * Creates a plain object from a ReqMotorServiceJoystick message. Also converts values to other types if specified.
+     * @param message ReqMotorServiceJoystick
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorServiceJoystick, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorServiceJoystick to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorServiceJoystick
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorServiceJoystickFixedAngle. */
+export class ReqMotorServiceJoystickFixedAngle implements IReqMotorServiceJoystickFixedAngle {
+
+    /**
+     * Constructs a new ReqMotorServiceJoystickFixedAngle.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorServiceJoystickFixedAngle);
+
+    /** ReqMotorServiceJoystickFixedAngle vectorAngle. */
+    public vectorAngle: number;
+
+    /** ReqMotorServiceJoystickFixedAngle vectorLength. */
+    public vectorLength: number;
+
+    /** ReqMotorServiceJoystickFixedAngle speed. */
+    public speed: number;
+
+    /**
+     * Creates a new ReqMotorServiceJoystickFixedAngle instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorServiceJoystickFixedAngle instance
+     */
+    public static create(properties?: IReqMotorServiceJoystickFixedAngle): ReqMotorServiceJoystickFixedAngle;
+
+    /**
+     * Encodes the specified ReqMotorServiceJoystickFixedAngle message. Does not implicitly {@link ReqMotorServiceJoystickFixedAngle.verify|verify} messages.
+     * @param message ReqMotorServiceJoystickFixedAngle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorServiceJoystickFixedAngle, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorServiceJoystickFixedAngle message, length delimited. Does not implicitly {@link ReqMotorServiceJoystickFixedAngle.verify|verify} messages.
+     * @param message ReqMotorServiceJoystickFixedAngle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorServiceJoystickFixedAngle, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorServiceJoystickFixedAngle message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorServiceJoystickFixedAngle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorServiceJoystickFixedAngle;
+
+    /**
+     * Decodes a ReqMotorServiceJoystickFixedAngle message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorServiceJoystickFixedAngle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorServiceJoystickFixedAngle;
+
+    /**
+     * Verifies a ReqMotorServiceJoystickFixedAngle message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorServiceJoystickFixedAngle message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorServiceJoystickFixedAngle
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorServiceJoystickFixedAngle;
+
+    /**
+     * Creates a plain object from a ReqMotorServiceJoystickFixedAngle message. Also converts values to other types if specified.
+     * @param message ReqMotorServiceJoystickFixedAngle
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorServiceJoystickFixedAngle, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorServiceJoystickFixedAngle to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorServiceJoystickFixedAngle
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorServiceJoystickStop. */
+export class ReqMotorServiceJoystickStop implements IReqMotorServiceJoystickStop {
+
+    /**
+     * Constructs a new ReqMotorServiceJoystickStop.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorServiceJoystickStop);
+
+    /**
+     * Creates a new ReqMotorServiceJoystickStop instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorServiceJoystickStop instance
+     */
+    public static create(properties?: IReqMotorServiceJoystickStop): ReqMotorServiceJoystickStop;
+
+    /**
+     * Encodes the specified ReqMotorServiceJoystickStop message. Does not implicitly {@link ReqMotorServiceJoystickStop.verify|verify} messages.
+     * @param message ReqMotorServiceJoystickStop message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorServiceJoystickStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorServiceJoystickStop message, length delimited. Does not implicitly {@link ReqMotorServiceJoystickStop.verify|verify} messages.
+     * @param message ReqMotorServiceJoystickStop message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorServiceJoystickStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorServiceJoystickStop message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorServiceJoystickStop
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorServiceJoystickStop;
+
+    /**
+     * Decodes a ReqMotorServiceJoystickStop message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorServiceJoystickStop
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorServiceJoystickStop;
+
+    /**
+     * Verifies a ReqMotorServiceJoystickStop message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorServiceJoystickStop message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorServiceJoystickStop
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorServiceJoystickStop;
+
+    /**
+     * Creates a plain object from a ReqMotorServiceJoystickStop message. Also converts values to other types if specified.
+     * @param message ReqMotorServiceJoystickStop
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorServiceJoystickStop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorServiceJoystickStop to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorServiceJoystickStop
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorRun. */
+export class ReqMotorRun implements IReqMotorRun {
+
+    /**
+     * Constructs a new ReqMotorRun.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorRun);
+
+    /** ReqMotorRun id. */
+    public id: number;
+
+    /** ReqMotorRun speed. */
+    public speed: number;
+
+    /** ReqMotorRun direction. */
+    public direction: boolean;
+
+    /** ReqMotorRun speedRamping. */
+    public speedRamping: number;
+
+    /** ReqMotorRun resolutionLevel. */
+    public resolutionLevel: number;
+
+    /**
+     * Creates a new ReqMotorRun instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorRun instance
+     */
+    public static create(properties?: IReqMotorRun): ReqMotorRun;
+
+    /**
+     * Encodes the specified ReqMotorRun message. Does not implicitly {@link ReqMotorRun.verify|verify} messages.
+     * @param message ReqMotorRun message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorRun, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorRun message, length delimited. Does not implicitly {@link ReqMotorRun.verify|verify} messages.
+     * @param message ReqMotorRun message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorRun, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorRun message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorRun
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorRun;
+
+    /**
+     * Decodes a ReqMotorRun message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorRun
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorRun;
+
+    /**
+     * Verifies a ReqMotorRun message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorRun message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorRun
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorRun;
+
+    /**
+     * Creates a plain object from a ReqMotorRun message. Also converts values to other types if specified.
+     * @param message ReqMotorRun
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorRun, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorRun to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorRun
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorRunTo. */
+export class ReqMotorRunTo implements IReqMotorRunTo {
+
+    /**
+     * Constructs a new ReqMotorRunTo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorRunTo);
+
+    /** ReqMotorRunTo id. */
+    public id: number;
+
+    /** ReqMotorRunTo endPosition. */
+    public endPosition: number;
+
+    /** ReqMotorRunTo speed. */
+    public speed: number;
+
+    /** ReqMotorRunTo speedRamping. */
+    public speedRamping: number;
+
+    /** ReqMotorRunTo resolutionLevel. */
+    public resolutionLevel: number;
+
+    /**
+     * Creates a new ReqMotorRunTo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorRunTo instance
+     */
+    public static create(properties?: IReqMotorRunTo): ReqMotorRunTo;
+
+    /**
+     * Encodes the specified ReqMotorRunTo message. Does not implicitly {@link ReqMotorRunTo.verify|verify} messages.
+     * @param message ReqMotorRunTo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorRunTo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorRunTo message, length delimited. Does not implicitly {@link ReqMotorRunTo.verify|verify} messages.
+     * @param message ReqMotorRunTo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorRunTo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorRunTo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorRunTo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorRunTo;
+
+    /**
+     * Decodes a ReqMotorRunTo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorRunTo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorRunTo;
+
+    /**
+     * Verifies a ReqMotorRunTo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorRunTo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorRunTo
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorRunTo;
+
+    /**
+     * Creates a plain object from a ReqMotorRunTo message. Also converts values to other types if specified.
+     * @param message ReqMotorRunTo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorRunTo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorRunTo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorRunTo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorStop. */
+export class ReqMotorStop implements IReqMotorStop {
+
+    /**
+     * Constructs a new ReqMotorStop.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorStop);
+
+    /** ReqMotorStop id. */
+    public id: number;
+
+    /**
+     * Creates a new ReqMotorStop instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorStop instance
+     */
+    public static create(properties?: IReqMotorStop): ReqMotorStop;
+
+    /**
+     * Encodes the specified ReqMotorStop message. Does not implicitly {@link ReqMotorStop.verify|verify} messages.
+     * @param message ReqMotorStop message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorStop message, length delimited. Does not implicitly {@link ReqMotorStop.verify|verify} messages.
+     * @param message ReqMotorStop message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorStop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorStop message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorStop
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorStop;
+
+    /**
+     * Decodes a ReqMotorStop message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorStop
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorStop;
+
+    /**
+     * Verifies a ReqMotorStop message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorStop message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorStop
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorStop;
+
+    /**
+     * Creates a plain object from a ReqMotorStop message. Also converts values to other types if specified.
+     * @param message ReqMotorStop
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorStop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorStop to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorStop
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorReset. */
+export class ReqMotorReset implements IReqMotorReset {
+
+    /**
+     * Constructs a new ReqMotorReset.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorReset);
+
+    /** ReqMotorReset id. */
+    public id: number;
+
+    /** ReqMotorReset direction. */
+    public direction: boolean;
+
+    /**
+     * Creates a new ReqMotorReset instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorReset instance
+     */
+    public static create(properties?: IReqMotorReset): ReqMotorReset;
+
+    /**
+     * Encodes the specified ReqMotorReset message. Does not implicitly {@link ReqMotorReset.verify|verify} messages.
+     * @param message ReqMotorReset message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorReset, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorReset message, length delimited. Does not implicitly {@link ReqMotorReset.verify|verify} messages.
+     * @param message ReqMotorReset message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorReset, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorReset message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorReset
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorReset;
+
+    /**
+     * Decodes a ReqMotorReset message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorReset
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorReset;
+
+    /**
+     * Verifies a ReqMotorReset message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorReset message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorReset
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorReset;
+
+    /**
+     * Creates a plain object from a ReqMotorReset message. Also converts values to other types if specified.
+     * @param message ReqMotorReset
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorReset, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorReset to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorReset
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorChangeSpeed. */
+export class ReqMotorChangeSpeed implements IReqMotorChangeSpeed {
+
+    /**
+     * Constructs a new ReqMotorChangeSpeed.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorChangeSpeed);
+
+    /** ReqMotorChangeSpeed id. */
+    public id: number;
+
+    /** ReqMotorChangeSpeed speed. */
+    public speed: number;
+
+    /**
+     * Creates a new ReqMotorChangeSpeed instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorChangeSpeed instance
+     */
+    public static create(properties?: IReqMotorChangeSpeed): ReqMotorChangeSpeed;
+
+    /**
+     * Encodes the specified ReqMotorChangeSpeed message. Does not implicitly {@link ReqMotorChangeSpeed.verify|verify} messages.
+     * @param message ReqMotorChangeSpeed message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorChangeSpeed, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorChangeSpeed message, length delimited. Does not implicitly {@link ReqMotorChangeSpeed.verify|verify} messages.
+     * @param message ReqMotorChangeSpeed message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorChangeSpeed, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorChangeSpeed message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorChangeSpeed
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorChangeSpeed;
+
+    /**
+     * Decodes a ReqMotorChangeSpeed message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorChangeSpeed
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorChangeSpeed;
+
+    /**
+     * Verifies a ReqMotorChangeSpeed message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorChangeSpeed message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorChangeSpeed
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorChangeSpeed;
+
+    /**
+     * Creates a plain object from a ReqMotorChangeSpeed message. Also converts values to other types if specified.
+     * @param message ReqMotorChangeSpeed
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorChangeSpeed, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorChangeSpeed to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorChangeSpeed
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorChangeDirection. */
+export class ReqMotorChangeDirection implements IReqMotorChangeDirection {
+
+    /**
+     * Constructs a new ReqMotorChangeDirection.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorChangeDirection);
+
+    /** ReqMotorChangeDirection id. */
+    public id: number;
+
+    /** ReqMotorChangeDirection direction. */
+    public direction: boolean;
+
+    /**
+     * Creates a new ReqMotorChangeDirection instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorChangeDirection instance
+     */
+    public static create(properties?: IReqMotorChangeDirection): ReqMotorChangeDirection;
+
+    /**
+     * Encodes the specified ReqMotorChangeDirection message. Does not implicitly {@link ReqMotorChangeDirection.verify|verify} messages.
+     * @param message ReqMotorChangeDirection message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorChangeDirection, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorChangeDirection message, length delimited. Does not implicitly {@link ReqMotorChangeDirection.verify|verify} messages.
+     * @param message ReqMotorChangeDirection message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorChangeDirection, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorChangeDirection message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorChangeDirection
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorChangeDirection;
+
+    /**
+     * Decodes a ReqMotorChangeDirection message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorChangeDirection
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorChangeDirection;
+
+    /**
+     * Verifies a ReqMotorChangeDirection message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorChangeDirection message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorChangeDirection
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorChangeDirection;
+
+    /**
+     * Creates a plain object from a ReqMotorChangeDirection message. Also converts values to other types if specified.
+     * @param message ReqMotorChangeDirection
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorChangeDirection, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorChangeDirection to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorChangeDirection
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResMotor. */
+export class ResMotor implements IResMotor {
+
+    /**
+     * Constructs a new ResMotor.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResMotor);
+
+    /** ResMotor id. */
+    public id: number;
+
+    /** ResMotor code. */
+    public code: number;
+
+    /**
+     * Creates a new ResMotor instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResMotor instance
+     */
+    public static create(properties?: IResMotor): ResMotor;
+
+    /**
+     * Encodes the specified ResMotor message. Does not implicitly {@link ResMotor.verify|verify} messages.
+     * @param message ResMotor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResMotor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResMotor message, length delimited. Does not implicitly {@link ResMotor.verify|verify} messages.
+     * @param message ResMotor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResMotor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResMotor message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResMotor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResMotor;
+
+    /**
+     * Decodes a ResMotor message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResMotor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResMotor;
+
+    /**
+     * Verifies a ResMotor message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResMotor message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResMotor
+     */
+    public static fromObject(object: { [k: string]: any }): ResMotor;
+
+    /**
+     * Creates a plain object from a ResMotor message. Also converts values to other types if specified.
+     * @param message ResMotor
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResMotor, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResMotor to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResMotor
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResMotorPosition. */
+export class ResMotorPosition implements IResMotorPosition {
+
+    /**
+     * Constructs a new ResMotorPosition.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResMotorPosition);
+
+    /** ResMotorPosition id. */
+    public id: number;
+
+    /** ResMotorPosition code. */
+    public code: number;
+
+    /** ResMotorPosition position. */
+    public position: number;
+
+    /**
+     * Creates a new ResMotorPosition instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResMotorPosition instance
+     */
+    public static create(properties?: IResMotorPosition): ResMotorPosition;
+
+    /**
+     * Encodes the specified ResMotorPosition message. Does not implicitly {@link ResMotorPosition.verify|verify} messages.
+     * @param message ResMotorPosition message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResMotorPosition, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResMotorPosition message, length delimited. Does not implicitly {@link ResMotorPosition.verify|verify} messages.
+     * @param message ResMotorPosition message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResMotorPosition, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResMotorPosition message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResMotorPosition
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResMotorPosition;
+
+    /**
+     * Decodes a ResMotorPosition message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResMotorPosition
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResMotorPosition;
+
+    /**
+     * Verifies a ResMotorPosition message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResMotorPosition message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResMotorPosition
+     */
+    public static fromObject(object: { [k: string]: any }): ResMotorPosition;
+
+    /**
+     * Creates a plain object from a ResMotorPosition message. Also converts values to other types if specified.
+     * @param message ResMotorPosition
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResMotorPosition, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResMotorPosition to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResMotorPosition
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqDualCameraLinkage. */
+export class ReqDualCameraLinkage implements IReqDualCameraLinkage {
+
+    /**
+     * Constructs a new ReqDualCameraLinkage.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqDualCameraLinkage);
+
+    /** ReqDualCameraLinkage x. */
+    public x: number;
+
+    /** ReqDualCameraLinkage y. */
+    public y: number;
+
+    /**
+     * Creates a new ReqDualCameraLinkage instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqDualCameraLinkage instance
+     */
+    public static create(properties?: IReqDualCameraLinkage): ReqDualCameraLinkage;
+
+    /**
+     * Encodes the specified ReqDualCameraLinkage message. Does not implicitly {@link ReqDualCameraLinkage.verify|verify} messages.
+     * @param message ReqDualCameraLinkage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqDualCameraLinkage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqDualCameraLinkage message, length delimited. Does not implicitly {@link ReqDualCameraLinkage.verify|verify} messages.
+     * @param message ReqDualCameraLinkage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqDualCameraLinkage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqDualCameraLinkage message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqDualCameraLinkage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqDualCameraLinkage;
+
+    /**
+     * Decodes a ReqDualCameraLinkage message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqDualCameraLinkage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqDualCameraLinkage;
+
+    /**
+     * Verifies a ReqDualCameraLinkage message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqDualCameraLinkage message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqDualCameraLinkage
+     */
+    public static fromObject(object: { [k: string]: any }): ReqDualCameraLinkage;
+
+    /**
+     * Creates a plain object from a ReqDualCameraLinkage message. Also converts values to other types if specified.
+     * @param message ReqDualCameraLinkage
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqDualCameraLinkage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqDualCameraLinkage to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqDualCameraLinkage
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** State enum. */
 export enum State {
     STATE_IDLE = 0,
@@ -8412,6 +9546,273 @@ export class ResNotifyPowerOff implements IResNotifyPowerOff {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a ReqStartPanoramaByGrid. */
+export class ReqStartPanoramaByGrid implements IReqStartPanoramaByGrid {
+
+    /**
+     * Constructs a new ReqStartPanoramaByGrid.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStartPanoramaByGrid);
+
+    /**
+     * Creates a new ReqStartPanoramaByGrid instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStartPanoramaByGrid instance
+     */
+    public static create(properties?: IReqStartPanoramaByGrid): ReqStartPanoramaByGrid;
+
+    /**
+     * Encodes the specified ReqStartPanoramaByGrid message. Does not implicitly {@link ReqStartPanoramaByGrid.verify|verify} messages.
+     * @param message ReqStartPanoramaByGrid message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStartPanoramaByGrid, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStartPanoramaByGrid message, length delimited. Does not implicitly {@link ReqStartPanoramaByGrid.verify|verify} messages.
+     * @param message ReqStartPanoramaByGrid message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStartPanoramaByGrid, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStartPanoramaByGrid message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStartPanoramaByGrid
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStartPanoramaByGrid;
+
+    /**
+     * Decodes a ReqStartPanoramaByGrid message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStartPanoramaByGrid
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStartPanoramaByGrid;
+
+    /**
+     * Verifies a ReqStartPanoramaByGrid message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStartPanoramaByGrid message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStartPanoramaByGrid
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStartPanoramaByGrid;
+
+    /**
+     * Creates a plain object from a ReqStartPanoramaByGrid message. Also converts values to other types if specified.
+     * @param message ReqStartPanoramaByGrid
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStartPanoramaByGrid, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStartPanoramaByGrid to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStartPanoramaByGrid
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqStartPanoramaByEulerRange. */
+export class ReqStartPanoramaByEulerRange implements IReqStartPanoramaByEulerRange {
+
+    /**
+     * Constructs a new ReqStartPanoramaByEulerRange.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStartPanoramaByEulerRange);
+
+    /** ReqStartPanoramaByEulerRange yawRange. */
+    public yawRange: number;
+
+    /** ReqStartPanoramaByEulerRange pitchRange. */
+    public pitchRange: number;
+
+    /**
+     * Creates a new ReqStartPanoramaByEulerRange instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStartPanoramaByEulerRange instance
+     */
+    public static create(properties?: IReqStartPanoramaByEulerRange): ReqStartPanoramaByEulerRange;
+
+    /**
+     * Encodes the specified ReqStartPanoramaByEulerRange message. Does not implicitly {@link ReqStartPanoramaByEulerRange.verify|verify} messages.
+     * @param message ReqStartPanoramaByEulerRange message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStartPanoramaByEulerRange, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStartPanoramaByEulerRange message, length delimited. Does not implicitly {@link ReqStartPanoramaByEulerRange.verify|verify} messages.
+     * @param message ReqStartPanoramaByEulerRange message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStartPanoramaByEulerRange, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStartPanoramaByEulerRange message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStartPanoramaByEulerRange
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStartPanoramaByEulerRange;
+
+    /**
+     * Decodes a ReqStartPanoramaByEulerRange message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStartPanoramaByEulerRange
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStartPanoramaByEulerRange;
+
+    /**
+     * Verifies a ReqStartPanoramaByEulerRange message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStartPanoramaByEulerRange message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStartPanoramaByEulerRange
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStartPanoramaByEulerRange;
+
+    /**
+     * Creates a plain object from a ReqStartPanoramaByEulerRange message. Also converts values to other types if specified.
+     * @param message ReqStartPanoramaByEulerRange
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStartPanoramaByEulerRange, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStartPanoramaByEulerRange to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStartPanoramaByEulerRange
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqStopPanorama. */
+export class ReqStopPanorama implements IReqStopPanorama {
+
+    /**
+     * Constructs a new ReqStopPanorama.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStopPanorama);
+
+    /**
+     * Creates a new ReqStopPanorama instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStopPanorama instance
+     */
+    public static create(properties?: IReqStopPanorama): ReqStopPanorama;
+
+    /**
+     * Encodes the specified ReqStopPanorama message. Does not implicitly {@link ReqStopPanorama.verify|verify} messages.
+     * @param message ReqStopPanorama message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStopPanorama, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStopPanorama message, length delimited. Does not implicitly {@link ReqStopPanorama.verify|verify} messages.
+     * @param message ReqStopPanorama message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStopPanorama, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStopPanorama message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStopPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStopPanorama;
+
+    /**
+     * Decodes a ReqStopPanorama message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStopPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStopPanorama;
+
+    /**
+     * Verifies a ReqStopPanorama message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStopPanorama message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStopPanorama
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStopPanorama;
+
+    /**
+     * Creates a plain object from a ReqStopPanorama message. Also converts values to other types if specified.
+     * @param message ReqStopPanorama
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStopPanorama, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStopPanorama to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStopPanorama
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** ModuleId enum. */
 export enum ModuleId {
     MODULE_NONE = 0,
@@ -9521,6 +10922,366 @@ export class ReqSetCpuMode implements IReqSetCpuMode {
 
     /**
      * Gets the default type url for ReqSetCpuMode
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqStartTrack. */
+export class ReqStartTrack implements IReqStartTrack {
+
+    /**
+     * Constructs a new ReqStartTrack.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStartTrack);
+
+    /** ReqStartTrack x. */
+    public x: number;
+
+    /** ReqStartTrack y. */
+    public y: number;
+
+    /** ReqStartTrack w. */
+    public w: number;
+
+    /** ReqStartTrack h. */
+    public h: number;
+
+    /**
+     * Creates a new ReqStartTrack instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStartTrack instance
+     */
+    public static create(properties?: IReqStartTrack): ReqStartTrack;
+
+    /**
+     * Encodes the specified ReqStartTrack message. Does not implicitly {@link ReqStartTrack.verify|verify} messages.
+     * @param message ReqStartTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStartTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStartTrack message, length delimited. Does not implicitly {@link ReqStartTrack.verify|verify} messages.
+     * @param message ReqStartTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStartTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStartTrack message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStartTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStartTrack;
+
+    /**
+     * Decodes a ReqStartTrack message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStartTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStartTrack;
+
+    /**
+     * Verifies a ReqStartTrack message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStartTrack message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStartTrack
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStartTrack;
+
+    /**
+     * Creates a plain object from a ReqStartTrack message. Also converts values to other types if specified.
+     * @param message ReqStartTrack
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStartTrack, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStartTrack to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStartTrack
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqStopTrack. */
+export class ReqStopTrack implements IReqStopTrack {
+
+    /**
+     * Constructs a new ReqStopTrack.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStopTrack);
+
+    /**
+     * Creates a new ReqStopTrack instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStopTrack instance
+     */
+    public static create(properties?: IReqStopTrack): ReqStopTrack;
+
+    /**
+     * Encodes the specified ReqStopTrack message. Does not implicitly {@link ReqStopTrack.verify|verify} messages.
+     * @param message ReqStopTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStopTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStopTrack message, length delimited. Does not implicitly {@link ReqStopTrack.verify|verify} messages.
+     * @param message ReqStopTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStopTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStopTrack message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStopTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStopTrack;
+
+    /**
+     * Decodes a ReqStopTrack message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStopTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStopTrack;
+
+    /**
+     * Verifies a ReqStopTrack message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStopTrack message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStopTrack
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStopTrack;
+
+    /**
+     * Creates a plain object from a ReqStopTrack message. Also converts values to other types if specified.
+     * @param message ReqStopTrack
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStopTrack, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStopTrack to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStopTrack
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqPauseTrack. */
+export class ReqPauseTrack implements IReqPauseTrack {
+
+    /**
+     * Constructs a new ReqPauseTrack.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqPauseTrack);
+
+    /**
+     * Creates a new ReqPauseTrack instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqPauseTrack instance
+     */
+    public static create(properties?: IReqPauseTrack): ReqPauseTrack;
+
+    /**
+     * Encodes the specified ReqPauseTrack message. Does not implicitly {@link ReqPauseTrack.verify|verify} messages.
+     * @param message ReqPauseTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqPauseTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqPauseTrack message, length delimited. Does not implicitly {@link ReqPauseTrack.verify|verify} messages.
+     * @param message ReqPauseTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqPauseTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqPauseTrack message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqPauseTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqPauseTrack;
+
+    /**
+     * Decodes a ReqPauseTrack message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqPauseTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqPauseTrack;
+
+    /**
+     * Verifies a ReqPauseTrack message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqPauseTrack message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqPauseTrack
+     */
+    public static fromObject(object: { [k: string]: any }): ReqPauseTrack;
+
+    /**
+     * Creates a plain object from a ReqPauseTrack message. Also converts values to other types if specified.
+     * @param message ReqPauseTrack
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqPauseTrack, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqPauseTrack to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqPauseTrack
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqContinueTrack. */
+export class ReqContinueTrack implements IReqContinueTrack {
+
+    /**
+     * Constructs a new ReqContinueTrack.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqContinueTrack);
+
+    /**
+     * Creates a new ReqContinueTrack instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqContinueTrack instance
+     */
+    public static create(properties?: IReqContinueTrack): ReqContinueTrack;
+
+    /**
+     * Encodes the specified ReqContinueTrack message. Does not implicitly {@link ReqContinueTrack.verify|verify} messages.
+     * @param message ReqContinueTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqContinueTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqContinueTrack message, length delimited. Does not implicitly {@link ReqContinueTrack.verify|verify} messages.
+     * @param message ReqContinueTrack message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqContinueTrack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqContinueTrack message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqContinueTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqContinueTrack;
+
+    /**
+     * Decodes a ReqContinueTrack message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqContinueTrack
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqContinueTrack;
+
+    /**
+     * Verifies a ReqContinueTrack message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqContinueTrack message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqContinueTrack
+     */
+    public static fromObject(object: { [k: string]: any }): ReqContinueTrack;
+
+    /**
+     * Creates a plain object from a ReqContinueTrack message. Also converts values to other types if specified.
+     * @param message ReqContinueTrack
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqContinueTrack, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqContinueTrack to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqContinueTrack
      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
      * @returns The default type url
      */
