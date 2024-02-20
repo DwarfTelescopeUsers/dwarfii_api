@@ -81,41 +81,6 @@ export function nowLocalFileName() {
     return matches.join("");
   }
 }
-export class ping_dwarf {
-  constructor(socket) {
-    this.pingInterval = 10000;
-    this.ws = socket;
-    console.log("start ...");
-  }
-  ping() {
-    try {
-      if (this.ws && this.ws.readyState == WebSocket.OPEN) {
-        this.ws.send("ping");
-        console.log("sending ping ...");
-        this.timoutId = setTimeout(() => {
-          this.ping();
-        }, this.pingInterval);
-      } else {
-        this.close();
-      }
-    } catch (err) {
-      console.log(`error: ${err}`);
-    }
-  }
-  close() {
-    clearTimeout(this.timoutId);
-    this.ws = false;
-  }
-}
-/**
- * Execute socket's send command
- * @param {WebSocket} socket
- * @param {Object} WS_Packet
- */
-export function socketSend(socket, WS_Packet) {
-  // eslint-disable-next-line no-undef
-  socket.send(WS_Packet);
-}
 /**
  * Execute Decoding Received Packet from the Dwarf II
  * @param {Uint8Array} WS_Packet
@@ -151,7 +116,7 @@ export function createPacket(
   // message
   let message_buffer = undefined;
   message_buffer = class_message.encode(message).finish();
-  console.log(
+  console.debug(
     `message_buffer = ${Array.prototype.toString.call(message_buffer)}`
   );
   // payload
@@ -165,7 +130,7 @@ export function createPacket(
     data: message_buffer,
     clientId: DwarfClientID,
   };
-  console.log(`payload = ${JSON.stringify(payload)}`);
+  console.log(`Packet payload = ${JSON.stringify(payload)}`);
 
   // Verify the payload if necessary (i.e. when possibly incomplete or invalid)
   let errMsg = Dwarfii_Api.WsPacket.verify(payload);
@@ -173,14 +138,13 @@ export function createPacket(
 
   // Create a new message
   let message_payload = Dwarfii_Api.WsPacket.create(payload); // or use .fromObject if conversion is necessary
-  console.log(`sending message_payload = ${JSON.stringify(message_payload)}`);
+  console.log(`Sending message_payload = ${JSON.stringify(message_payload)}`);
   // Encode Final Buffer
   let buffer = Dwarfii_Api.WsPacket.encode(message_payload).finish();
-  console.log(`buffer to Send = ${Array.prototype.toString.call(buffer)}`);
+  console.debug(`buffer to Send = ${Array.prototype.toString.call(buffer)}`);
 
   // For Testing Only : try to decode it
-  let result_buffer = analyzePacket(buffer);
-  console.debug(`Test decoded Payload : ${result_buffer}`);
+  let result_buffer = analyzePacket(buffer, false);
 
   return buffer;
 }
@@ -189,7 +153,7 @@ export function createPacket(
  * @param {ArrayBuffer|string} message_buffer Encoded Message Buffer
  * @returns {string}
  */
-export function analyzePacket(message_buffer) {
+export function analyzePacket(message_buffer, input_data_log = true) {
   // Check if binary message_buffer
   if (
     message_buffer instanceof Uint8Array ||
@@ -349,6 +313,14 @@ export function analyzePacket(message_buffer) {
       decoded_message.data.errorTxt =
         Dwarfii_Api.DwarfErrorCode[decoded_message.data.code];
   }
-  console.log(`>> ${JSON.stringify(decoded_message)}`);
+  if (input_data_log)
+    console.log(
+      `End Analyze Input Packet >> ${JSON.stringify(decoded_message)}`
+    );
+  else
+    console.log(
+      `End Analyze Output Packet >> ${JSON.stringify(decoded_message)}`
+    );
+
   return JSON.stringify(decoded_message);
 }

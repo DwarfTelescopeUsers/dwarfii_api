@@ -26,14 +26,14 @@ export function messageFocusStopAstroAutoFocus(): Uint8Array;
 /**
  * 3.8.6 Manual single-step focusing
  * Create Encoded Packet for the command CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS
- * @param {number} direction = 1; //Focus direction 0: far focus 1: near focus ;
+ * @param {number} direction //Focus direction 0: far focus 1: near focus ;
  * @returns {Uint8Array}
  */
 export function messageFocusManualSingleStepFocus(direction: number): Uint8Array;
 /**
  * 3.8.7 Start manual continuous focus
  * Create Encoded Packet for the command CMD_FOCUS_START_MANUAL_CONTINU_FOCUS
- * @param {number} direction = 1; //Focus direction 0: far focus 1: near focus ;
+ * @param {number} direction //Focus direction 0: far focus 1: near focus ;
  * @returns {Uint8Array}
  */
 export function messageFocusStartManualContinuFocus(direction: number): Uint8Array;

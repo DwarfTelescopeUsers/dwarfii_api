@@ -24,12 +24,6 @@ export function nowUTCFileName(): string | undefined;
  */
 export function nowLocalFileName(): string | undefined;
 /**
- * Execute socket's send command
- * @param {WebSocket} socket
- * @param {Object} WS_Packet
- */
-export function socketSend(socket: WebSocket, WS_Packet: any): void;
-/**
  * Execute Decoding Received Packet from the Dwarf II
  * @param {Uint8Array} WS_Packet
  * @param {Object} classDecode Class of Message depending on the command
@@ -51,14 +45,6 @@ export function createPacket(message: any, class_message: any, module_id: number
  * @param {ArrayBuffer|string} message_buffer Encoded Message Buffer
  * @returns {string}
  */
-export function analyzePacket(message_buffer: ArrayBuffer | string): string;
+export function analyzePacket(message_buffer: ArrayBuffer | string, input_data_log?: boolean): string;
 export const Dwarfii_Api: any;
-export class ping_dwarf {
-    constructor(socket: any);
-    pingInterval: number;
-    ws: any;
-    ping(): void;
-    timoutId: NodeJS.Timeout;
-    close(): void;
-}
 //# sourceMappingURL=api_utils.d.ts.map

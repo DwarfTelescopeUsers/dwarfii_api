@@ -100,7 +100,7 @@ export function messageCameraTeleSetAllParams(
     gainIndex: gain_index,
     ircutValue: ircut_value,
     wbMode: wb_mode,
-    wbIndex_type: wb_index_type,
+    wbIndexType: wb_index_type,
     wbIndex: wb_index,
     brightness: brightness,
     contrast: contrast,
@@ -138,10 +138,22 @@ export function messageCameraTeleGetAllParams() {
 /**
  * 3.7.7 Set feature parameters
  * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_FEATURE_PARAM
- * @param {Object} param  ;
+ * @param {boolean} has_auto
+ * @param {number} auto_mode
+ * @param {number} id
+ * @param {number} mode_index
+ * @param {number} index
+ * @param {number} continue_value
  * @returns {Uint8Array}
  */
-export function messageCameraTeleSetFeatureParams(param) {
+export function messageCameraTeleSetFeatureParams(
+  has_auto,
+  auto_mode,
+  id,
+  mode_index,
+  index,
+  continue_value
+) {
   let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
   let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_SET_FEATURE_PARAM;
   let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
@@ -149,7 +161,17 @@ export function messageCameraTeleSetFeatureParams(param) {
   const cmdClass = cmdMapping[interface_id];
   let class_message = eval(`Dwarfii_Api.${cmdClass}`);
   // Encode message
-  let message = class_message.create({ param: param });
+  let param = Dwarfii_Api.CommonParam.create({
+    hasAuto: has_auto,
+    autoMode: auto_mode,
+    id: id,
+    modeIndex: mode_index,
+    index: index,
+    continueValue: continue_value,
+  });
+  let message = class_message.create({
+    param: param,
+  });
   console.log(
     `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
   );

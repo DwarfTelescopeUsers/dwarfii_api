@@ -86,8 +86,8 @@ export const cmdMapping = {
   12024: "ReqStopBurstPhoto", // Stop continuous shooting
   12025: "ReqStartTimeLapse", // Start time-lapse photography
   12026: "ReqStopTimeLapse", // Stop time-lapse photography
-  12027: "ReqSetAllParams", // Get all parameters
-  12028: "ReqGetAllParams", // Set all parameters
+  12027: "ReqGetAllParams", // Get all parameters
+  12028: "ReqSetAllParams", // Set all parameters
 
   13000: "ReqSetTime", // Set the system time
   13001: "ReqSetTimezone", // Set the time zone

@@ -43,10 +43,15 @@ export function messageCameraTeleGetAllParams(): Uint8Array;
 /**
  * 3.7.7 Set feature parameters
  * Create Encoded Packet for the command CMD_CAMERA_TELE_SET_FEATURE_PARAM
- * @param {Object} param  ;
+ * @param {boolean} has_auto
+ * @param {number} auto_mode
+ * @param {number} id
+ * @param {number} mode_index
+ * @param {number} index
+ * @param {number} continue_value
  * @returns {Uint8Array}
  */
-export function messageCameraTeleSetFeatureParams(param: any): Uint8Array;
+export function messageCameraTeleSetFeatureParams(has_auto: boolean, auto_mode: number, id: number, mode_index: number, index: number, continue_value: number): Uint8Array;
 /**
  * 3.7.8 Get all feature parameters
  * Create Encoded Packet for the command CMD_CAMERA_TELE_GET_ALL_FEATURE_PARAMS

@@ -31,7 +31,7 @@ export const whiteBalanceScenesValueID: {
     shadow: number;
 };
 export const IRCut: 0;
-export const IRPass: 3;
+export const IRPass: 1;
 export const binning1x1: 0;
 export const binning2x2: 1;
 export const fileFits: 0;
