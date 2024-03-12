@@ -100,6 +100,14 @@ export const cmdMapping: {
     15003: string;
     15004: string;
     15005: string;
+    1: string;
+    2: string;
+    3: string;
+    4: string;
+    5: string;
+    6: string;
+    7: string;
+    8: string;
 };
 export const responseMapping: {
     10000: string;
@@ -201,6 +209,15 @@ export const responseMapping: {
     15003: string;
     15004: string;
     15005: string;
+    0: string;
+    1: string;
+    2: string;
+    3: string;
+    4: string;
+    5: string;
+    6: string;
+    7: string;
+    8: string;
 };
 export const notifyMapping: {
     15200: string;

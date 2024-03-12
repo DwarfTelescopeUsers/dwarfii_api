@@ -189,14 +189,15 @@ export class WebSocketHandler {
   }
 
   start() {
+    this.is_running = true;
+
     // Start ping command
     this.is_pong_received = true;
-    this.ping();
+    this.pingDwarf();
 
     // start send function
     this.send();
 
-    this.is_running = true;
     this.sendCallbackConnectStates(true);
   }
 
@@ -263,26 +264,40 @@ export class WebSocketHandler {
     console.debug("websocket_class : prepare function ending...");
   }
 
-  async ping() {
+  async pingDwarf() {
+    console.debug("websocket_class : init ping function...");
+
     this.is_ping_stopped = false;
-    await sleep(250);
+    await sleep(10);
 
     while (!this.is_running) {
       await sleep(10);
     }
 
     console.debug("websocket_class : ping function...");
+    console.debug("websocket_class : is_running...", this.is_running);
+    console.debug("websocket_class : is_stopping...", this.is_stopping);
+    console.debug(
+      "websocket_class : signal_ping_stop...",
+      this.signal_ping_stop
+    );
+    console.debug("websocket_class : is_stopping...", this.is_stopping);
+    console.debug(
+      "websocket_class : is_pong_received...",
+      this.is_pong_received
+    );
 
     this.is_sending = false;
 
     while (!this.is_stopping && !this.signal_ping_stop) {
       await sleep(100);
 
-      if (!this.is_buffered && !this.is_sending && this.is_pong_received) {
+      if (!this.is_sending && this.is_pong_received && this.isConnected) {
         console.debug("websocket_class : ping function starting...");
         this.is_sending = true;
 
         // Send Command:
+        //this.socket.ping("");
         this.socket.send("ping");
         console.log("websocket_class : sending ping");
         this.is_sending = false;
@@ -324,11 +339,13 @@ export class WebSocketHandler {
 
     while (!this.is_stopping) {
       await sleep(10);
+      let lenQueue = this.sendingQueue.length;
 
       if (
         !this.is_buffered &&
         !this.is_sending &&
-        this.sendingQueue.length > 0
+        this.sendingQueue.length > 0 &&
+        this.isConnected
       ) {
         console.debug("websocket_class : send function starting...");
         this.is_sending = true;
@@ -336,16 +353,20 @@ export class WebSocketHandler {
         this.WS_Packet = this.sendingQueue.shift();
 
         // Send Command:
-        this.socket.send(this.WS_Packet);
-        console.log(
-          `websocket_class : sending buffer = ${Array.prototype.toString.call(
-            this.WS_Packet
-          )}`
-        );
-        await sleep(250);
-
+        if (this.WS_Packet) {
+          this.socket.send(this.WS_Packet);
+          console.log(
+            `websocket_class : sending buffer = ${Array.prototype.toString.call(
+              this.WS_Packet
+            )}`
+          );
+          await sleep(100);
+        } else {
+          console.error(
+            `websocket_class : sending buffer empty : lenqueue = ${lenQueue}`
+          );
+        }
         this.is_sending = false;
-
         console.debug("websocket_class : send function stopping...");
       }
     }
@@ -434,6 +455,7 @@ export class WebSocketHandler {
         // test pong received ?
         if (event.data == "pong") {
           this.is_pong_received = true;
+          console.log("Pong Received");
         }
         find_real_string_buffer = true;
       } else console.log("Received: a string buffer that matchs a binary one");

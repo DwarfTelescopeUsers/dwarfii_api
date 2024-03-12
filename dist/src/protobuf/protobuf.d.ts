@@ -1856,6 +1856,1697 @@ export class CommonParam implements ICommonParam {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** DwarfBleErrorCode enum. */
+export enum DwarfBleErrorCode {
+    BLE_OK = 0,
+    BLE_PASSWORD_ERROR = -1,
+    BLE_MESSAGE_MALLOC_ERROR = -2,
+    BLE_MESSAGE_PARSE_ERROR = -3,
+    BLE_MESSAGE_CRC_ERROR = -4,
+    BLE_WIFI_CONFIGING = -5,
+    BLE_WIFI_CONFIGED = -6,
+    BLE_GET_WIFI_LIST_ERROR = -7,
+    BLE_WIFI_STA_PASSWORD_EMPTY = -8,
+    BLE_WIFI_STA_PASSWORD_ERROR = -9,
+    BLE_WIFI_SET_SSID_PSD_ERROR = -10,
+    BLE_WIFI_RESET_WAITING = -11,
+    BLE_WIFI_RESETED = -12,
+    BLE_GET_SYSTEM_INFO_ERROR = -13,
+    BLE_RECEIVE_FRAME_HEAD_ERROR = -14,
+    BLE_RECEIVE_FRAME_TAIL_ERROR = -15,
+    BLE_CHECK_FILE_NOT_EXIST = -16,
+    BLE_CHECK_FILE_MD5_ERROR = -17,
+    BLE_WIFI_RESET_FAILED = -18
+}
+
+/** Represents a ReqGetconfig. */
+export class ReqGetconfig implements IReqGetconfig {
+
+    /**
+     * Constructs a new ReqGetconfig.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqGetconfig);
+
+    /** ReqGetconfig cmd. */
+    public cmd: number;
+
+    /** ReqGetconfig blePsd. */
+    public blePsd: string;
+
+    /**
+     * Creates a new ReqGetconfig instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqGetconfig instance
+     */
+    public static create(properties?: IReqGetconfig): ReqGetconfig;
+
+    /**
+     * Encodes the specified ReqGetconfig message. Does not implicitly {@link ReqGetconfig.verify|verify} messages.
+     * @param message ReqGetconfig message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqGetconfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqGetconfig message, length delimited. Does not implicitly {@link ReqGetconfig.verify|verify} messages.
+     * @param message ReqGetconfig message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqGetconfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqGetconfig message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqGetconfig
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqGetconfig;
+
+    /**
+     * Decodes a ReqGetconfig message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqGetconfig
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqGetconfig;
+
+    /**
+     * Verifies a ReqGetconfig message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqGetconfig message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqGetconfig
+     */
+    public static fromObject(object: { [k: string]: any }): ReqGetconfig;
+
+    /**
+     * Creates a plain object from a ReqGetconfig message. Also converts values to other types if specified.
+     * @param message ReqGetconfig
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqGetconfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqGetconfig to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqGetconfig
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqAp. */
+export class ReqAp implements IReqAp {
+
+    /**
+     * Constructs a new ReqAp.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqAp);
+
+    /** ReqAp cmd. */
+    public cmd: number;
+
+    /** ReqAp wifiType. */
+    public wifiType: number;
+
+    /** ReqAp autoStart. */
+    public autoStart: number;
+
+    /** ReqAp countryList. */
+    public countryList: number;
+
+    /** ReqAp country. */
+    public country: string;
+
+    /** ReqAp blePsd. */
+    public blePsd: string;
+
+    /**
+     * Creates a new ReqAp instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqAp instance
+     */
+    public static create(properties?: IReqAp): ReqAp;
+
+    /**
+     * Encodes the specified ReqAp message. Does not implicitly {@link ReqAp.verify|verify} messages.
+     * @param message ReqAp message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqAp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqAp message, length delimited. Does not implicitly {@link ReqAp.verify|verify} messages.
+     * @param message ReqAp message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqAp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqAp message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqAp
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqAp;
+
+    /**
+     * Decodes a ReqAp message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqAp
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqAp;
+
+    /**
+     * Verifies a ReqAp message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqAp message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqAp
+     */
+    public static fromObject(object: { [k: string]: any }): ReqAp;
+
+    /**
+     * Creates a plain object from a ReqAp message. Also converts values to other types if specified.
+     * @param message ReqAp
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqAp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqAp to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqAp
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqSta. */
+export class ReqSta implements IReqSta {
+
+    /**
+     * Constructs a new ReqSta.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqSta);
+
+    /** ReqSta cmd. */
+    public cmd: number;
+
+    /** ReqSta autoStart. */
+    public autoStart: number;
+
+    /** ReqSta blePsd. */
+    public blePsd: string;
+
+    /** ReqSta ssid. */
+    public ssid: string;
+
+    /** ReqSta psd. */
+    public psd: string;
+
+    /**
+     * Creates a new ReqSta instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqSta instance
+     */
+    public static create(properties?: IReqSta): ReqSta;
+
+    /**
+     * Encodes the specified ReqSta message. Does not implicitly {@link ReqSta.verify|verify} messages.
+     * @param message ReqSta message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqSta, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqSta message, length delimited. Does not implicitly {@link ReqSta.verify|verify} messages.
+     * @param message ReqSta message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqSta, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqSta message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqSta
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqSta;
+
+    /**
+     * Decodes a ReqSta message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqSta
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqSta;
+
+    /**
+     * Verifies a ReqSta message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqSta message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqSta
+     */
+    public static fromObject(object: { [k: string]: any }): ReqSta;
+
+    /**
+     * Creates a plain object from a ReqSta message. Also converts values to other types if specified.
+     * @param message ReqSta
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqSta, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqSta to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqSta
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqSetblewifi. */
+export class ReqSetblewifi implements IReqSetblewifi {
+
+    /**
+     * Constructs a new ReqSetblewifi.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqSetblewifi);
+
+    /** ReqSetblewifi cmd. */
+    public cmd: number;
+
+    /** ReqSetblewifi mode. */
+    public mode: number;
+
+    /** ReqSetblewifi blePsd. */
+    public blePsd: string;
+
+    /** ReqSetblewifi value. */
+    public value: string;
+
+    /**
+     * Creates a new ReqSetblewifi instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqSetblewifi instance
+     */
+    public static create(properties?: IReqSetblewifi): ReqSetblewifi;
+
+    /**
+     * Encodes the specified ReqSetblewifi message. Does not implicitly {@link ReqSetblewifi.verify|verify} messages.
+     * @param message ReqSetblewifi message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqSetblewifi, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqSetblewifi message, length delimited. Does not implicitly {@link ReqSetblewifi.verify|verify} messages.
+     * @param message ReqSetblewifi message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqSetblewifi, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqSetblewifi message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqSetblewifi
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqSetblewifi;
+
+    /**
+     * Decodes a ReqSetblewifi message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqSetblewifi
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqSetblewifi;
+
+    /**
+     * Verifies a ReqSetblewifi message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqSetblewifi message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqSetblewifi
+     */
+    public static fromObject(object: { [k: string]: any }): ReqSetblewifi;
+
+    /**
+     * Creates a plain object from a ReqSetblewifi message. Also converts values to other types if specified.
+     * @param message ReqSetblewifi
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqSetblewifi, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqSetblewifi to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqSetblewifi
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqReset. */
+export class ReqReset implements IReqReset {
+
+    /**
+     * Constructs a new ReqReset.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqReset);
+
+    /** ReqReset cmd. */
+    public cmd: number;
+
+    /**
+     * Creates a new ReqReset instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqReset instance
+     */
+    public static create(properties?: IReqReset): ReqReset;
+
+    /**
+     * Encodes the specified ReqReset message. Does not implicitly {@link ReqReset.verify|verify} messages.
+     * @param message ReqReset message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqReset, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqReset message, length delimited. Does not implicitly {@link ReqReset.verify|verify} messages.
+     * @param message ReqReset message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqReset, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqReset message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqReset
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqReset;
+
+    /**
+     * Decodes a ReqReset message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqReset
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqReset;
+
+    /**
+     * Verifies a ReqReset message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqReset message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqReset
+     */
+    public static fromObject(object: { [k: string]: any }): ReqReset;
+
+    /**
+     * Creates a plain object from a ReqReset message. Also converts values to other types if specified.
+     * @param message ReqReset
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqReset, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqReset to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqReset
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqGetwifilist. */
+export class ReqGetwifilist implements IReqGetwifilist {
+
+    /**
+     * Constructs a new ReqGetwifilist.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqGetwifilist);
+
+    /** ReqGetwifilist cmd. */
+    public cmd: number;
+
+    /**
+     * Creates a new ReqGetwifilist instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqGetwifilist instance
+     */
+    public static create(properties?: IReqGetwifilist): ReqGetwifilist;
+
+    /**
+     * Encodes the specified ReqGetwifilist message. Does not implicitly {@link ReqGetwifilist.verify|verify} messages.
+     * @param message ReqGetwifilist message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqGetwifilist, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqGetwifilist message, length delimited. Does not implicitly {@link ReqGetwifilist.verify|verify} messages.
+     * @param message ReqGetwifilist message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqGetwifilist, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqGetwifilist message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqGetwifilist
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqGetwifilist;
+
+    /**
+     * Decodes a ReqGetwifilist message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqGetwifilist
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqGetwifilist;
+
+    /**
+     * Verifies a ReqGetwifilist message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqGetwifilist message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqGetwifilist
+     */
+    public static fromObject(object: { [k: string]: any }): ReqGetwifilist;
+
+    /**
+     * Creates a plain object from a ReqGetwifilist message. Also converts values to other types if specified.
+     * @param message ReqGetwifilist
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqGetwifilist, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqGetwifilist to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqGetwifilist
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqGetsysteminfo. */
+export class ReqGetsysteminfo implements IReqGetsysteminfo {
+
+    /**
+     * Constructs a new ReqGetsysteminfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqGetsysteminfo);
+
+    /** ReqGetsysteminfo cmd. */
+    public cmd: number;
+
+    /**
+     * Creates a new ReqGetsysteminfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqGetsysteminfo instance
+     */
+    public static create(properties?: IReqGetsysteminfo): ReqGetsysteminfo;
+
+    /**
+     * Encodes the specified ReqGetsysteminfo message. Does not implicitly {@link ReqGetsysteminfo.verify|verify} messages.
+     * @param message ReqGetsysteminfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqGetsysteminfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqGetsysteminfo message, length delimited. Does not implicitly {@link ReqGetsysteminfo.verify|verify} messages.
+     * @param message ReqGetsysteminfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqGetsysteminfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqGetsysteminfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqGetsysteminfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqGetsysteminfo;
+
+    /**
+     * Decodes a ReqGetsysteminfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqGetsysteminfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqGetsysteminfo;
+
+    /**
+     * Verifies a ReqGetsysteminfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqGetsysteminfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqGetsysteminfo
+     */
+    public static fromObject(object: { [k: string]: any }): ReqGetsysteminfo;
+
+    /**
+     * Creates a plain object from a ReqGetsysteminfo message. Also converts values to other types if specified.
+     * @param message ReqGetsysteminfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqGetsysteminfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqGetsysteminfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqGetsysteminfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqCheckFile. */
+export class ReqCheckFile implements IReqCheckFile {
+
+    /**
+     * Constructs a new ReqCheckFile.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqCheckFile);
+
+    /** ReqCheckFile cmd. */
+    public cmd: number;
+
+    /** ReqCheckFile filePath. */
+    public filePath: string;
+
+    /** ReqCheckFile md5. */
+    public md5: string;
+
+    /**
+     * Creates a new ReqCheckFile instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqCheckFile instance
+     */
+    public static create(properties?: IReqCheckFile): ReqCheckFile;
+
+    /**
+     * Encodes the specified ReqCheckFile message. Does not implicitly {@link ReqCheckFile.verify|verify} messages.
+     * @param message ReqCheckFile message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqCheckFile, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqCheckFile message, length delimited. Does not implicitly {@link ReqCheckFile.verify|verify} messages.
+     * @param message ReqCheckFile message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqCheckFile, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqCheckFile message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqCheckFile
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqCheckFile;
+
+    /**
+     * Decodes a ReqCheckFile message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqCheckFile
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqCheckFile;
+
+    /**
+     * Verifies a ReqCheckFile message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqCheckFile message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqCheckFile
+     */
+    public static fromObject(object: { [k: string]: any }): ReqCheckFile;
+
+    /**
+     * Creates a plain object from a ReqCheckFile message. Also converts values to other types if specified.
+     * @param message ReqCheckFile
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqCheckFile, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqCheckFile to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqCheckFile
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResGetconfig. */
+export class ResGetconfig implements IResGetconfig {
+
+    /**
+     * Constructs a new ResGetconfig.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResGetconfig);
+
+    /** ResGetconfig cmd. */
+    public cmd: number;
+
+    /** ResGetconfig code. */
+    public code: number;
+
+    /** ResGetconfig state. */
+    public state: number;
+
+    /** ResGetconfig wifiMode. */
+    public wifiMode: number;
+
+    /** ResGetconfig apMode. */
+    public apMode: number;
+
+    /** ResGetconfig autoStart. */
+    public autoStart: number;
+
+    /** ResGetconfig apCountryList. */
+    public apCountryList: number;
+
+    /** ResGetconfig ssid. */
+    public ssid: string;
+
+    /** ResGetconfig psd. */
+    public psd: string;
+
+    /** ResGetconfig ip. */
+    public ip: string;
+
+    /** ResGetconfig apCountry. */
+    public apCountry: string;
+
+    /**
+     * Creates a new ResGetconfig instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResGetconfig instance
+     */
+    public static create(properties?: IResGetconfig): ResGetconfig;
+
+    /**
+     * Encodes the specified ResGetconfig message. Does not implicitly {@link ResGetconfig.verify|verify} messages.
+     * @param message ResGetconfig message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResGetconfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResGetconfig message, length delimited. Does not implicitly {@link ResGetconfig.verify|verify} messages.
+     * @param message ResGetconfig message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResGetconfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResGetconfig message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResGetconfig
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResGetconfig;
+
+    /**
+     * Decodes a ResGetconfig message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResGetconfig
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResGetconfig;
+
+    /**
+     * Verifies a ResGetconfig message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResGetconfig message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResGetconfig
+     */
+    public static fromObject(object: { [k: string]: any }): ResGetconfig;
+
+    /**
+     * Creates a plain object from a ResGetconfig message. Also converts values to other types if specified.
+     * @param message ResGetconfig
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResGetconfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResGetconfig to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResGetconfig
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResAp. */
+export class ResAp implements IResAp {
+
+    /**
+     * Constructs a new ResAp.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResAp);
+
+    /** ResAp cmd. */
+    public cmd: number;
+
+    /** ResAp code. */
+    public code: number;
+
+    /** ResAp mode. */
+    public mode: number;
+
+    /** ResAp ssid. */
+    public ssid: string;
+
+    /** ResAp psd. */
+    public psd: string;
+
+    /**
+     * Creates a new ResAp instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResAp instance
+     */
+    public static create(properties?: IResAp): ResAp;
+
+    /**
+     * Encodes the specified ResAp message. Does not implicitly {@link ResAp.verify|verify} messages.
+     * @param message ResAp message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResAp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResAp message, length delimited. Does not implicitly {@link ResAp.verify|verify} messages.
+     * @param message ResAp message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResAp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResAp message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResAp
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResAp;
+
+    /**
+     * Decodes a ResAp message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResAp
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResAp;
+
+    /**
+     * Verifies a ResAp message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResAp message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResAp
+     */
+    public static fromObject(object: { [k: string]: any }): ResAp;
+
+    /**
+     * Creates a plain object from a ResAp message. Also converts values to other types if specified.
+     * @param message ResAp
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResAp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResAp to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResAp
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResSta. */
+export class ResSta implements IResSta {
+
+    /**
+     * Constructs a new ResSta.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResSta);
+
+    /** ResSta cmd. */
+    public cmd: number;
+
+    /** ResSta code. */
+    public code: number;
+
+    /** ResSta ssid. */
+    public ssid: string;
+
+    /** ResSta psd. */
+    public psd: string;
+
+    /** ResSta ip. */
+    public ip: string;
+
+    /**
+     * Creates a new ResSta instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResSta instance
+     */
+    public static create(properties?: IResSta): ResSta;
+
+    /**
+     * Encodes the specified ResSta message. Does not implicitly {@link ResSta.verify|verify} messages.
+     * @param message ResSta message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResSta, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResSta message, length delimited. Does not implicitly {@link ResSta.verify|verify} messages.
+     * @param message ResSta message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResSta, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResSta message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResSta
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResSta;
+
+    /**
+     * Decodes a ResSta message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResSta
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResSta;
+
+    /**
+     * Verifies a ResSta message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResSta message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResSta
+     */
+    public static fromObject(object: { [k: string]: any }): ResSta;
+
+    /**
+     * Creates a plain object from a ResSta message. Also converts values to other types if specified.
+     * @param message ResSta
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResSta, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResSta to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResSta
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResSetblewifi. */
+export class ResSetblewifi implements IResSetblewifi {
+
+    /**
+     * Constructs a new ResSetblewifi.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResSetblewifi);
+
+    /** ResSetblewifi cmd. */
+    public cmd: number;
+
+    /** ResSetblewifi code. */
+    public code: number;
+
+    /** ResSetblewifi mode. */
+    public mode: number;
+
+    /** ResSetblewifi value. */
+    public value: string;
+
+    /**
+     * Creates a new ResSetblewifi instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResSetblewifi instance
+     */
+    public static create(properties?: IResSetblewifi): ResSetblewifi;
+
+    /**
+     * Encodes the specified ResSetblewifi message. Does not implicitly {@link ResSetblewifi.verify|verify} messages.
+     * @param message ResSetblewifi message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResSetblewifi, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResSetblewifi message, length delimited. Does not implicitly {@link ResSetblewifi.verify|verify} messages.
+     * @param message ResSetblewifi message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResSetblewifi, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResSetblewifi message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResSetblewifi
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResSetblewifi;
+
+    /**
+     * Decodes a ResSetblewifi message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResSetblewifi
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResSetblewifi;
+
+    /**
+     * Verifies a ResSetblewifi message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResSetblewifi message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResSetblewifi
+     */
+    public static fromObject(object: { [k: string]: any }): ResSetblewifi;
+
+    /**
+     * Creates a plain object from a ResSetblewifi message. Also converts values to other types if specified.
+     * @param message ResSetblewifi
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResSetblewifi, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResSetblewifi to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResSetblewifi
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResReset. */
+export class ResReset implements IResReset {
+
+    /**
+     * Constructs a new ResReset.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResReset);
+
+    /** ResReset cmd. */
+    public cmd: number;
+
+    /** ResReset code. */
+    public code: number;
+
+    /**
+     * Creates a new ResReset instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResReset instance
+     */
+    public static create(properties?: IResReset): ResReset;
+
+    /**
+     * Encodes the specified ResReset message. Does not implicitly {@link ResReset.verify|verify} messages.
+     * @param message ResReset message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResReset, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResReset message, length delimited. Does not implicitly {@link ResReset.verify|verify} messages.
+     * @param message ResReset message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResReset, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResReset message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResReset
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResReset;
+
+    /**
+     * Decodes a ResReset message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResReset
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResReset;
+
+    /**
+     * Verifies a ResReset message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResReset message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResReset
+     */
+    public static fromObject(object: { [k: string]: any }): ResReset;
+
+    /**
+     * Creates a plain object from a ResReset message. Also converts values to other types if specified.
+     * @param message ResReset
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResReset, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResReset to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResReset
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResWifilist. */
+export class ResWifilist implements IResWifilist {
+
+    /**
+     * Constructs a new ResWifilist.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResWifilist);
+
+    /** ResWifilist cmd. */
+    public cmd: number;
+
+    /** ResWifilist code. */
+    public code: number;
+
+    /** ResWifilist ssid. */
+    public ssid: string[];
+
+    /**
+     * Creates a new ResWifilist instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResWifilist instance
+     */
+    public static create(properties?: IResWifilist): ResWifilist;
+
+    /**
+     * Encodes the specified ResWifilist message. Does not implicitly {@link ResWifilist.verify|verify} messages.
+     * @param message ResWifilist message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResWifilist, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResWifilist message, length delimited. Does not implicitly {@link ResWifilist.verify|verify} messages.
+     * @param message ResWifilist message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResWifilist, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResWifilist message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResWifilist
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResWifilist;
+
+    /**
+     * Decodes a ResWifilist message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResWifilist
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResWifilist;
+
+    /**
+     * Verifies a ResWifilist message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResWifilist message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResWifilist
+     */
+    public static fromObject(object: { [k: string]: any }): ResWifilist;
+
+    /**
+     * Creates a plain object from a ResWifilist message. Also converts values to other types if specified.
+     * @param message ResWifilist
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResWifilist, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResWifilist to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResWifilist
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResGetsysteminfo. */
+export class ResGetsysteminfo implements IResGetsysteminfo {
+
+    /**
+     * Constructs a new ResGetsysteminfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResGetsysteminfo);
+
+    /** ResGetsysteminfo cmd. */
+    public cmd: number;
+
+    /** ResGetsysteminfo code. */
+    public code: number;
+
+    /** ResGetsysteminfo protocolVersion. */
+    public protocolVersion: number;
+
+    /** ResGetsysteminfo device. */
+    public device: string;
+
+    /** ResGetsysteminfo macAddress. */
+    public macAddress: string;
+
+    /** ResGetsysteminfo dwarfOtaVersion. */
+    public dwarfOtaVersion: string;
+
+    /**
+     * Creates a new ResGetsysteminfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResGetsysteminfo instance
+     */
+    public static create(properties?: IResGetsysteminfo): ResGetsysteminfo;
+
+    /**
+     * Encodes the specified ResGetsysteminfo message. Does not implicitly {@link ResGetsysteminfo.verify|verify} messages.
+     * @param message ResGetsysteminfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResGetsysteminfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResGetsysteminfo message, length delimited. Does not implicitly {@link ResGetsysteminfo.verify|verify} messages.
+     * @param message ResGetsysteminfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResGetsysteminfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResGetsysteminfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResGetsysteminfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResGetsysteminfo;
+
+    /**
+     * Decodes a ResGetsysteminfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResGetsysteminfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResGetsysteminfo;
+
+    /**
+     * Verifies a ResGetsysteminfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResGetsysteminfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResGetsysteminfo
+     */
+    public static fromObject(object: { [k: string]: any }): ResGetsysteminfo;
+
+    /**
+     * Creates a plain object from a ResGetsysteminfo message. Also converts values to other types if specified.
+     * @param message ResGetsysteminfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResGetsysteminfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResGetsysteminfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResGetsysteminfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResReceiveDataError. */
+export class ResReceiveDataError implements IResReceiveDataError {
+
+    /**
+     * Constructs a new ResReceiveDataError.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResReceiveDataError);
+
+    /** ResReceiveDataError cmd. */
+    public cmd: number;
+
+    /** ResReceiveDataError code. */
+    public code: number;
+
+    /**
+     * Creates a new ResReceiveDataError instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResReceiveDataError instance
+     */
+    public static create(properties?: IResReceiveDataError): ResReceiveDataError;
+
+    /**
+     * Encodes the specified ResReceiveDataError message. Does not implicitly {@link ResReceiveDataError.verify|verify} messages.
+     * @param message ResReceiveDataError message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResReceiveDataError, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResReceiveDataError message, length delimited. Does not implicitly {@link ResReceiveDataError.verify|verify} messages.
+     * @param message ResReceiveDataError message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResReceiveDataError, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResReceiveDataError message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResReceiveDataError
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResReceiveDataError;
+
+    /**
+     * Decodes a ResReceiveDataError message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResReceiveDataError
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResReceiveDataError;
+
+    /**
+     * Verifies a ResReceiveDataError message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResReceiveDataError message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResReceiveDataError
+     */
+    public static fromObject(object: { [k: string]: any }): ResReceiveDataError;
+
+    /**
+     * Creates a plain object from a ResReceiveDataError message. Also converts values to other types if specified.
+     * @param message ResReceiveDataError
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResReceiveDataError, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResReceiveDataError to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResReceiveDataError
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResCheckFile. */
+export class ResCheckFile implements IResCheckFile {
+
+    /**
+     * Constructs a new ResCheckFile.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResCheckFile);
+
+    /** ResCheckFile cmd. */
+    public cmd: number;
+
+    /** ResCheckFile code. */
+    public code: number;
+
+    /**
+     * Creates a new ResCheckFile instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResCheckFile instance
+     */
+    public static create(properties?: IResCheckFile): ResCheckFile;
+
+    /**
+     * Encodes the specified ResCheckFile message. Does not implicitly {@link ResCheckFile.verify|verify} messages.
+     * @param message ResCheckFile message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResCheckFile, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResCheckFile message, length delimited. Does not implicitly {@link ResCheckFile.verify|verify} messages.
+     * @param message ResCheckFile message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResCheckFile, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResCheckFile message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResCheckFile
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResCheckFile;
+
+    /**
+     * Decodes a ResCheckFile message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResCheckFile
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResCheckFile;
+
+    /**
+     * Verifies a ResCheckFile message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResCheckFile message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResCheckFile
+     */
+    public static fromObject(object: { [k: string]: any }): ResCheckFile;
+
+    /**
+     * Creates a plain object from a ResCheckFile message. Also converts values to other types if specified.
+     * @param message ResCheckFile
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResCheckFile, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResCheckFile to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResCheckFile
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Represents a ReqOpenCamera. */
 export class ReqOpenCamera implements IReqOpenCamera {
 

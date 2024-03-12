@@ -27,7 +27,7 @@ export class WebSocketHandler {
     run(): Promise<boolean>;
     start(): void;
     prepare(WS_Packet: any, senderId: any, expectedResponseCmd?: any[], callbackMessage?: () => void, callbackConnectState?: () => void, callbackError?: () => void): Promise<void>;
-    ping(): Promise<void>;
+    pingDwarf(): Promise<void>;
     wait_ping_stop(): Promise<void>;
     send(): Promise<void>;
     stop(senderId: any): void;
