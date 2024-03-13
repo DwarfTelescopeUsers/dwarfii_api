@@ -58,14 +58,18 @@ export class WebSocketHandler {
         this.signal_ping_stop = false;
         this.ping_interval = 10;
         this.IPDwarf = IPDwarf;
+        console.info("Creating a new WebSocketHandler with IP: ", IPDwarf);
     }
-    setIpDwarf(IPDwarf) {
+    setNewIpDwarf(IPDwarf) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.debug("websocket_class : setIpDwarf : ", IPDwarf);
             if (IPDwarf != this.IPDwarf) {
+                console.debug("websocket_class : new IP received, closing old one :", this.IPDwarf);
                 this.close();
                 yield sleep(1000);
             }
             this.IPDwarf = IPDwarf;
+            console.debug("websocket_class : new Ip : ", this.IPDwarf);
         });
     }
     setPingInterval(IntervalInSecond) {
@@ -241,7 +245,7 @@ export class WebSocketHandler {
             this.is_sending = false;
             while (!this.is_stopping && !this.signal_ping_stop) {
                 yield sleep(100);
-                if (!this.is_sending && this.is_pong_received && this.isConnected) {
+                if (!this.is_sending && this.is_pong_received && this.isConnected()) {
                     console.debug("websocket_class : ping function starting...");
                     this.is_sending = true;
                     // Send Command:
@@ -286,7 +290,7 @@ export class WebSocketHandler {
                 if (!this.is_buffered &&
                     !this.is_sending &&
                     this.sendingQueue.length > 0 &&
-                    this.isConnected) {
+                    this.isConnected()) {
                     console.debug("websocket_class : send function starting...");
                     this.is_sending = true;
                     this.WS_Packet = this.sendingQueue.shift();

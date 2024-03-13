@@ -21,7 +21,7 @@ export class WebSocketHandler {
     is_ping_stopped: boolean;
     signal_ping_stop: boolean;
     ping_interval: number;
-    setIpDwarf(IPDwarf: any): Promise<void>;
+    setNewIpDwarf(IPDwarf: any): Promise<void>;
     setPingInterval(IntervalInSecond: any): void;
     isConnected(): boolean;
     run(): Promise<boolean>;
