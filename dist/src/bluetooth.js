@@ -2,9 +2,7 @@
 // Import the generated protobuf module
 import $root from "./protobuf/protobuf.js";
 const Dwarfii_Api = $root;
-import { createPacket, decodePacket } from "./api_utils.js";
-import { cmdMapping } from "./cmd_mapping.js";
-import { responseMapping } from "./cmd_mapping.js";
+import { cmdMapping, responseMapping } from "./cmd_mapping.js";
 /*** -------------------------------------------- ***/
 /*** ---------------- MODULE_BLE ---------------- ***/
 /*** -------------------------------------------- ***/
@@ -85,7 +83,20 @@ export function testEncode() {
 }
 */
 /**
- * Generic Create Encoded Packet Function
+ * Execute Decoding Received Bluetooth Packet from the Dwarf II
+ * @param {Uint8Array} buffer
+ * @param {Object} classDecode Class of Message depending on the command
+ * @returns {Object}
+ */
+export function decodePacketBle(buffer, classDecode) {
+    // eslint-disable-next-line no-undef
+    // Obtain a message type
+    let decoded = classDecode.decode(buffer);
+    console.log(`decoded data = ${JSON.stringify(decoded)}`);
+    return decoded;
+}
+/**
+ * Generic Create Encoded Bluetooth Packet Function
  * @param {number} cmd
  * @param {Object} message
  * @param {Object} class_message
@@ -94,7 +105,7 @@ export function testEncode() {
 export function createPacketBle(cmd, message, class_message) {
     let frame_header = 0xaa;
     let frame_end = 0x0d;
-    let protocol_id = 0x02;
+    let protocol_id = 0x01;
     let package_id = 0x00;
     let total_id = 0x01;
     let reserved1_id = 0x00;
@@ -178,7 +189,7 @@ export function analyzePacketBle(message_buffer, input_data = true) {
         console.debug(`cmdClass: ${cmdClass}`);
         data_class = "Dwarfii_Api." + cmdClass;
         Response_message = eval(`new Dwarfii_Api.${cmdClass}()`);
-        Response_message = decodePacket(data_buffer, eval(`Dwarfii_Api.${cmdClass}`));
+        Response_message = decodePacketBle(data_buffer, eval(`Dwarfii_Api.${cmdClass}`));
         console.debug(`Not all Data!>> ${JSON.stringify(Response_message)}`);
     }
     else {
@@ -186,7 +197,7 @@ export function analyzePacketBle(message_buffer, input_data = true) {
         console.debug(`responseClass: ${responseClass}`);
         data_class = "Dwarfii_Api." + responseClass;
         Response_message = eval(`new Dwarfii_Api.${responseClass}()`);
-        Response_message = decodePacket(data_buffer, eval(`Dwarfii_Api.${responseClass}`));
+        Response_message = decodePacketBle(data_buffer, eval(`Dwarfii_Api.${responseClass}`));
         console.debug(`Not all Data!>> ${JSON.stringify(Response_message)}`);
     }
     // replace data value with new keys and also prototype key assigned by default.
@@ -212,7 +223,8 @@ export function messageGetconfig(ble_psd) {
     // Obtain a message class
     var cmd = 1;
     const cmdClass = cmdMapping[cmd];
-    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // let class_message = eval(`Dwarfii_Api.${cmdClass}`); // error in production!
+    let class_message = Dwarfii_Api.ReqGetconfig;
     // Encode message
     let message = class_message.create({
         cmd: cmd,

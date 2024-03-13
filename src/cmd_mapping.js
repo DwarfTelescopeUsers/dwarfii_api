@@ -3,6 +3,16 @@
 // console.log(openCameraClass); // diplay "ReqOpenCamera"
 
 export const cmdMapping = {
+  // BLE Class Command
+  1: "ReqGetconfig", // Get WiFi configuration
+  2: "ReqAp", // Configure WiFi AP mode
+  3: "ReqSta", // Configure WiFi STA mode
+  4: "ReqSetblewifi", // Configure BLE wifi
+  5: "ReqReset", // Reset Bluetooth WiFi
+  6: "ReqWifilist", // Get WiFi list
+  7: "ReqGetsysteminfo", // Obtain device information
+  8: "ReqCheckFile", // Check File
+
   10000: "ReqOpenCamera", // Turn on the camera
   10001: "ReqCloseCamera", // Turn off the camera
   10002: "ReqPhoto", // Take photos
@@ -107,19 +117,20 @@ export const cmdMapping = {
   15003: "ReqStopManualContinuFocus", // Stop manual continuous focus
   15004: "ReqAstroAutoFocus", // Start astronomical autofocus
   15005: "ReqStopAstroAutoFocus", // Stop astronomical autofocus
-
-  // BLE Class Command
-  1: "ReqGetconfig", // Get WiFi configuration
-  2: "ReqAp", // Configure WiFi AP mode
-  3: "ReqSta", // Configure WiFi STA mode
-  4: "ReqSetblewifi", // Configure BLE wifi
-  5: "ReqReset", // Reset Bluetooth WiFi
-  6: "ReqWifilist", // Get WiFi list
-  7: "ReqGetsysteminfo", // Obtain device information
-  8: "ReqCheckFile", // Check File
 };
 
 export const responseMapping = {
+  // BLE Class Response
+  0: "ResReceiveDataError", // Get Error
+  1: "ResGetconfig", // Get WiFi configuration
+  2: "ResAp", // Configure WiFi AP mode
+  3: "ResSta", // Configure WiFi STA mode
+  4: "ResSetblewifi", // Configure BLE wifi
+  5: "ResReset", // Reset Bluetooth WiFi
+  6: "ResWifilist", // Get WiFi list
+  7: "ResGetsysteminfo", // Obtain device information
+  8: "ResCheckFile", // Check File
+
   10000: "ComResponse", // Turn on the camera
   10001: "ComResponse", // Turn off the camera
   10002: "ComResponse", // Take photos
@@ -224,17 +235,6 @@ export const responseMapping = {
   15003: "ComResponse", // Stop manual continuous focus
   15004: "ComResponse", // Start astronomical autofocus
   15005: "ComResponse", // Stop astronomical autofocus
-
-  // BLE Class Response
-  0: "ResReceiveDataError", // Get Error
-  1: "ResGetconfig", // Get WiFi configuration
-  2: "ResAp", // Configure WiFi AP mode
-  3: "ResSta", // Configure WiFi STA mode
-  4: "ResSetblewifi", // Configure BLE wifi
-  5: "ResReset", // Reset Bluetooth WiFi
-  6: "ResWifilist", // Get WiFi list
-  7: "ResGetsysteminfo", // Obtain device information
-  8: "ResCheckFile", // Check File
 };
 
 export const notifyMapping = {

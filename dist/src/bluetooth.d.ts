@@ -1,5 +1,12 @@
 /**
- * Generic Create Encoded Packet Function
+ * Execute Decoding Received Bluetooth Packet from the Dwarf II
+ * @param {Uint8Array} buffer
+ * @param {Object} classDecode Class of Message depending on the command
+ * @returns {Object}
+ */
+export function decodePacketBle(buffer: Uint8Array, classDecode: any): any;
+/**
+ * Generic Create Encoded Bluetooth Packet Function
  * @param {number} cmd
  * @param {Object} message
  * @param {Object} class_message
