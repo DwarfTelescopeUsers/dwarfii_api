@@ -4,7 +4,7 @@ Wrapper functions for Dwarf II (aka Dwarf 2) API V2.
 
 Dwarf Lab's [API V2 documentation](https://tinyphoton.feishu.cn/docx/GBkcdldTIo3SrdxFJDscYVYDnvf?fbclid=IwAR0_Vypm8DPk1PPtwllptpWDZmxbCgi3NKVQKV8khDXIvnNay_o67AUgtq4).
 
-[Documentation](https://github.com/stevejcl/dwarfii_api/) for this package.
+[Documentation](https://stevejcl.github.io/dwarfii_api/) for this package.
 
 ## Install
 
