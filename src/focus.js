@@ -27,8 +27,8 @@ export function messageFocusAutoFocus(mode, center_x, center_y) {
   // Encode message
   let message = class_message.create({
     mode: mode,
-    center_x: center_x,
-    center_y: center_y,
+    centerX: center_x,
+    centerY: center_y,
   });
   console.log(
     `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`

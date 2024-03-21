@@ -12,9 +12,10 @@
     "ts": "tsc -p ./tsconfig.json",
     "typecheck": "tsc -p ./tsconfig.json",
     "compile-proto": "npx pbjs -t static-module -w ./wrapper/wrapper.js --dependency protobufjs/minimal.js -o ./src/protobuf/protobuf.js ./src/proto/*.proto && prettier --write \"./src/protobuf/protobuf.js\"",
+    "compile-protoJS": "npx pbjs -t static-module -w ./wrapper/wrapper.js --dependency ./minimal.js -o ./dist_js/src/protobuf/protobuf.js ./src/proto/*.proto && prettier --write \"./dist_js/src/protobuf/protobuf.js\" && eslint ./dist_js/src/protobuf/protobuf.js",
     "generate-types": "npx pbts -o dist/src/protobuf/protobuf.d.ts ./dist/src/protobuf/protobuf.js",
     "copy-files": "copyfiles -u 1 src/proto/*.proto dist/src/",
-    "build": "npm run compile-proto && npm run CI && npm run ts && npm run generate-types && npm run copy-files && npm run generate-docs"
+    "build": "npm run compile-proto && npm run compile-protoJS && npm run CI && npm run ts && npm run generate-types && npm run copy-files && npm run generate-docs"
   },
   "type": "module",
   "author": "wykhuh & stevejcl",

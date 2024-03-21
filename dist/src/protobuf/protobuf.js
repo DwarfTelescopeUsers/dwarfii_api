@@ -25092,6 +25092,8 @@ $root.ReqStartPanoramaByGrid = (function () {
      * Properties of a ReqStartPanoramaByGrid.
      * @exports IReqStartPanoramaByGrid
      * @interface IReqStartPanoramaByGrid
+     * @property {number|null} [rows] ReqStartPanoramaByGrid rows
+     * @property {number|null} [cols] ReqStartPanoramaByGrid cols
      */
     /**
      * Constructs a new ReqStartPanoramaByGrid.
@@ -25107,6 +25109,20 @@ $root.ReqStartPanoramaByGrid = (function () {
                 if (properties[keys[i]] != null)
                     this[keys[i]] = properties[keys[i]];
     }
+    /**
+     * ReqStartPanoramaByGrid rows.
+     * @member {number} rows
+     * @memberof ReqStartPanoramaByGrid
+     * @instance
+     */
+    ReqStartPanoramaByGrid.prototype.rows = 0;
+    /**
+     * ReqStartPanoramaByGrid cols.
+     * @member {number} cols
+     * @memberof ReqStartPanoramaByGrid
+     * @instance
+     */
+    ReqStartPanoramaByGrid.prototype.cols = 0;
     /**
      * Creates a new ReqStartPanoramaByGrid instance using the specified properties.
      * @function create
@@ -25130,6 +25146,10 @@ $root.ReqStartPanoramaByGrid = (function () {
     ReqStartPanoramaByGrid.encode = function encode(message, writer) {
         if (!writer)
             writer = $Writer.create();
+        if (message.rows != null && Object.hasOwnProperty.call(message, "rows"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).uint32(message.rows);
+        if (message.cols != null && Object.hasOwnProperty.call(message, "cols"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).uint32(message.cols);
         return writer;
     };
     /**
@@ -25162,6 +25182,14 @@ $root.ReqStartPanoramaByGrid = (function () {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
+                case 1: {
+                    message.rows = reader.uint32();
+                    break;
+                }
+                case 2: {
+                    message.cols = reader.uint32();
+                    break;
+                }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -25195,6 +25223,12 @@ $root.ReqStartPanoramaByGrid = (function () {
     ReqStartPanoramaByGrid.verify = function verify(message) {
         if (typeof message !== "object" || message === null)
             return "object expected";
+        if (message.rows != null && message.hasOwnProperty("rows"))
+            if (!$util.isInteger(message.rows))
+                return "rows: integer expected";
+        if (message.cols != null && message.hasOwnProperty("cols"))
+            if (!$util.isInteger(message.cols))
+                return "cols: integer expected";
         return null;
     };
     /**
@@ -25208,7 +25242,12 @@ $root.ReqStartPanoramaByGrid = (function () {
     ReqStartPanoramaByGrid.fromObject = function fromObject(object) {
         if (object instanceof $root.ReqStartPanoramaByGrid)
             return object;
-        return new $root.ReqStartPanoramaByGrid();
+        var message = new $root.ReqStartPanoramaByGrid();
+        if (object.rows != null)
+            message.rows = object.rows >>> 0;
+        if (object.cols != null)
+            message.cols = object.cols >>> 0;
+        return message;
     };
     /**
      * Creates a plain object from a ReqStartPanoramaByGrid message. Also converts values to other types if specified.
@@ -25219,8 +25258,19 @@ $root.ReqStartPanoramaByGrid = (function () {
      * @param {$protobuf.IConversionOptions} [options] Conversion options
      * @returns {Object.<string,*>} Plain object
      */
-    ReqStartPanoramaByGrid.toObject = function toObject() {
-        return {};
+    ReqStartPanoramaByGrid.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.rows = 0;
+            object.cols = 0;
+        }
+        if (message.rows != null && message.hasOwnProperty("rows"))
+            object.rows = message.rows;
+        if (message.cols != null && message.hasOwnProperty("cols"))
+            object.cols = message.cols;
+        return object;
     };
     /**
      * Converts this ReqStartPanoramaByGrid to JSON.
@@ -25774,6 +25824,14 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_RGB_POWER_POWERIND_ON=13503 CMD_RGB_POWER_POWERIND_ON value
  * @property {number} CMD_RGB_POWER_POWERIND_OFF=13504 CMD_RGB_POWER_POWERIND_OFF value
  * @property {number} CMD_RGB_POWER_REBOOT=13505 CMD_RGB_POWER_REBOOT value
+ * @property {number} CMD_STEP_MOTOR_RUN=14000 CMD_STEP_MOTOR_RUN value
+ * @property {number} CMD_STEP_MOTOR_STOP=14002 CMD_STEP_MOTOR_STOP value
+ * @property {number} CMD_STEP_MOTOR_SERVICE_JOYSTICK=14006 CMD_STEP_MOTOR_SERVICE_JOYSTICK value
+ * @property {number} CMD_STEP_MOTOR_SERVICE_JOYSTICK_FIXED_ANGLE=14007 CMD_STEP_MOTOR_SERVICE_JOYSTICK_FIXED_ANGLE value
+ * @property {number} CMD_STEP_MOTOR_SERVICE_JOYSTICK_STOP=14008 CMD_STEP_MOTOR_SERVICE_JOYSTICK_STOP value
+ * @property {number} CMD_STEP_MOTOR_SERVICE_DUAL_CAMERA_LINKAGE=14009 CMD_STEP_MOTOR_SERVICE_DUAL_CAMERA_LINKAGE value
+ * @property {number} CMD_TRACK_START_TRACK=14800 CMD_TRACK_START_TRACK value
+ * @property {number} CMD_TRACK_STOP_TRACK=14801 CMD_TRACK_STOP_TRACK value
  * @property {number} CMD_FOCUS_AUTO_FOCUS=15000 CMD_FOCUS_AUTO_FOCUS value
  * @property {number} CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15001 CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
  * @property {number} CMD_FOCUS_START_MANUAL_CONTINU_FOCUS=15002 CMD_FOCUS_START_MANUAL_CONTINU_FOCUS value
@@ -25810,6 +25868,8 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_NOTIFY_CPU_MODE=15227 CMD_NOTIFY_CPU_MODE value
  * @property {number} CMD_NOTIFY_STATE_ASTRO_TRACKING_SPECIAL=15228 CMD_NOTIFY_STATE_ASTRO_TRACKING_SPECIAL value
  * @property {number} CMD_NOTIFY_POWER_OFF=15229 CMD_NOTIFY_POWER_OFF value
+ * @property {number} CMD_PANORAMA_START_GRID=15500 CMD_PANORAMA_START_GRID value
+ * @property {number} CMD_PANORAMA_STOP=15501 CMD_PANORAMA_STOP value
  */
 $root.DwarfCMD = (function () {
     var valuesById = {}, values = Object.create(valuesById);
@@ -25907,6 +25967,14 @@ $root.DwarfCMD = (function () {
     values[(valuesById[13503] = "CMD_RGB_POWER_POWERIND_ON")] = 13503;
     values[(valuesById[13504] = "CMD_RGB_POWER_POWERIND_OFF")] = 13504;
     values[(valuesById[13505] = "CMD_RGB_POWER_REBOOT")] = 13505;
+    values[(valuesById[14000] = "CMD_STEP_MOTOR_RUN")] = 14000;
+    values[(valuesById[14002] = "CMD_STEP_MOTOR_STOP")] = 14002;
+    values[(valuesById[14006] = "CMD_STEP_MOTOR_SERVICE_JOYSTICK")] = 14006;
+    values[(valuesById[14007] = "CMD_STEP_MOTOR_SERVICE_JOYSTICK_FIXED_ANGLE")] = 14007;
+    values[(valuesById[14008] = "CMD_STEP_MOTOR_SERVICE_JOYSTICK_STOP")] = 14008;
+    values[(valuesById[14009] = "CMD_STEP_MOTOR_SERVICE_DUAL_CAMERA_LINKAGE")] = 14009;
+    values[(valuesById[14800] = "CMD_TRACK_START_TRACK")] = 14800;
+    values[(valuesById[14801] = "CMD_TRACK_STOP_TRACK")] = 14801;
     values[(valuesById[15000] = "CMD_FOCUS_AUTO_FOCUS")] = 15000;
     values[(valuesById[15001] = "CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS")] = 15001;
     values[(valuesById[15002] = "CMD_FOCUS_START_MANUAL_CONTINU_FOCUS")] = 15002;
@@ -25943,6 +26011,8 @@ $root.DwarfCMD = (function () {
     values[(valuesById[15227] = "CMD_NOTIFY_CPU_MODE")] = 15227;
     values[(valuesById[15228] = "CMD_NOTIFY_STATE_ASTRO_TRACKING_SPECIAL")] = 15228;
     values[(valuesById[15229] = "CMD_NOTIFY_POWER_OFF")] = 15229;
+    values[(valuesById[15500] = "CMD_PANORAMA_START_GRID")] = 15500;
+    values[(valuesById[15501] = "CMD_PANORAMA_STOP")] = 15501;
     return values;
 })();
 /**
@@ -25958,6 +26028,7 @@ $root.DwarfCMD = (function () {
  * @property {number} CODE_CAMERA_TELE_CLOSED=-10501 CODE_CAMERA_TELE_CLOSED value
  * @property {number} CODE_CAMERA_TELE_ISP_SET_FAILED=-10502 CODE_CAMERA_TELE_ISP_SET_FAILED value
  * @property {number} CODE_CAMERA_TELE_OPEN_FAILED=-10504 CODE_CAMERA_TELE_OPEN_FAILED value
+ * @property {number} CODE_CAMERA_TELE_RECORDING=-10506 CODE_CAMERA_TELE_RECORDING value
  * @property {number} CODE_CAMERA_TELE_WORKING_BUSY_STACK=-10507 CODE_CAMERA_TELE_WORKING_BUSY_STACK value
  * @property {number} CODE_CAMERA_TELE_CAPTURE_RAW_FAILED=-10510 CODE_CAMERA_TELE_CAPTURE_RAW_FAILED value
  * @property {number} CODE_CAMERA_TELE_WORKING_BUSY=-10511 CODE_CAMERA_TELE_WORKING_BUSY value
@@ -25979,8 +26050,13 @@ $root.DwarfCMD = (function () {
  * @property {number} CODE_SYSTEM_SET_TIME_FAILED=-13300 CODE_SYSTEM_SET_TIME_FAILED value
  * @property {number} CODE_SYSTEM_SET_TIMEZONE_FAILED=-13301 CODE_SYSTEM_SET_TIMEZONE_FAILED value
  * @property {number} CODE_SYSTEM_SETTING_TIMEZONE_FAILED=-13302 CODE_SYSTEM_SETTING_TIMEZONE_FAILED value
+ * @property {number} CODE_RGB_POWER_UART_INIT_FAILED=-13800 CODE_RGB_POWER_UART_INIT_FAILED value
  * @property {number} CODE_STEP_MOTOR_LIMIT_POSITION_WARNING=-14518 CODE_STEP_MOTOR_LIMIT_POSITION_WARNING value
  * @property {number} CODE_STEP_MOTOR_LIMIT_POSITION_HITTED=-14519 CODE_STEP_MOTOR_LIMIT_POSITION_HITTED value
+ * @property {number} CODE_TRACK_TRACKER_INITING=-14900 CODE_TRACK_TRACKER_INITING value
+ * @property {number} CODE_TRACK_TRACKER_FAILED=-14901 CODE_TRACK_TRACKER_FAILED value
+ * @property {number} CODE_FOCUS_ASTRO_AUTO_FOCUS_SLOW_ERROR=-15100 CODE_FOCUS_ASTRO_AUTO_FOCUS_SLOW_ERROR value
+ * @property {number} CODE_FOCUS_ASTRO_AUTO_FOCUS_FAST_ERROR=-15101 CODE_FOCUS_ASTRO_AUTO_FOCUS_FAST_ERROR value
  * @property {number} CODE_PANORAMA_PHOTO_FAILED=-15600 CODE_PANORAMA_PHOTO_FAILED value
  * @property {number} CODE_PANORAMA_MOTOR_RESET_FAILED=-15601 CODE_PANORAMA_MOTOR_RESET_FAILED value
  */
@@ -25995,6 +26071,7 @@ $root.DwarfErrorCode = (function () {
     values[(valuesById[-10501] = "CODE_CAMERA_TELE_CLOSED")] = -10501;
     values[(valuesById[-10502] = "CODE_CAMERA_TELE_ISP_SET_FAILED")] = -10502;
     values[(valuesById[-10504] = "CODE_CAMERA_TELE_OPEN_FAILED")] = -10504;
+    values[(valuesById[-10506] = "CODE_CAMERA_TELE_RECORDING")] = -10506;
     values[(valuesById[-10507] = "CODE_CAMERA_TELE_WORKING_BUSY_STACK")] = -10507;
     values[(valuesById[-10510] = "CODE_CAMERA_TELE_CAPTURE_RAW_FAILED")] = -10510;
     values[(valuesById[-10511] = "CODE_CAMERA_TELE_WORKING_BUSY")] = -10511;
@@ -26016,10 +26093,17 @@ $root.DwarfErrorCode = (function () {
     values[(valuesById[-13300] = "CODE_SYSTEM_SET_TIME_FAILED")] = -13300;
     values[(valuesById[-13301] = "CODE_SYSTEM_SET_TIMEZONE_FAILED")] = -13301;
     values[(valuesById[-13302] = "CODE_SYSTEM_SETTING_TIMEZONE_FAILED")] = -13302;
+    values[(valuesById[-13800] = "CODE_RGB_POWER_UART_INIT_FAILED")] = -13800;
     values[(valuesById[-14518] = "CODE_STEP_MOTOR_LIMIT_POSITION_WARNING")] =
         -14518;
     values[(valuesById[-14519] = "CODE_STEP_MOTOR_LIMIT_POSITION_HITTED")] =
         -14519;
+    values[(valuesById[-14900] = "CODE_TRACK_TRACKER_INITING")] = -14900;
+    values[(valuesById[-14901] = "CODE_TRACK_TRACKER_FAILED")] = -14901;
+    values[(valuesById[-15100] = "CODE_FOCUS_ASTRO_AUTO_FOCUS_SLOW_ERROR")] =
+        -15100;
+    values[(valuesById[-15101] = "CODE_FOCUS_ASTRO_AUTO_FOCUS_FAST_ERROR")] =
+        -15101;
     values[(valuesById[-15600] = "CODE_PANORAMA_PHOTO_FAILED")] = -15600;
     values[(valuesById[-15601] = "CODE_PANORAMA_MOTOR_RESET_FAILED")] = -15601;
     return values;

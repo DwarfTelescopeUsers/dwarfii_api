@@ -102,12 +102,22 @@ export const cmdMapping: {
     13503: string;
     13504: string;
     13505: string;
+    14000: string;
+    14002: string;
+    14006: string;
+    14007: string;
+    14008: string;
+    14009: string;
+    14800: string;
+    14801: string;
     15000: string;
     15001: string;
     15002: string;
     15003: string;
     15004: string;
     15005: string;
+    15500: string;
+    15501: string;
 };
 export const responseMapping: {
     0: string;
@@ -212,12 +222,22 @@ export const responseMapping: {
     13503: string;
     13504: string;
     13505: string;
+    14000: string;
+    14002: string;
+    14006: string;
+    14007: string;
+    14008: string;
+    14009: string;
+    14800: string;
+    14801: string;
     15000: string;
     15001: string;
     15002: string;
     15003: string;
     15004: string;
     15005: string;
+    15500: string;
+    15501: string;
 };
 export const notifyMapping: {
     15200: string;
@@ -345,11 +365,21 @@ export const notifyResponseMapping: {
     13503: string;
     13504: string;
     13505: string;
+    14000: string;
+    14002: string;
+    14006: string;
+    14007: string;
+    14008: string;
+    14009: string;
+    14800: string;
+    14801: string;
     15000: string;
     15001: string;
     15002: string;
     15003: string;
     15004: string;
     15005: string;
+    15500: string;
+    15501: string;
 };
 //# sourceMappingURL=cmd_mapping.d.ts.map

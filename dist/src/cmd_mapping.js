@@ -104,12 +104,22 @@ export const cmdMapping = {
     13503: "ReqOpenPowerInd", // Turn on the battery indicator
     13504: "ReqClosePowerInd", // Turn off battery indicator =
     13505: "ReqReboot", // Restart
+    14000: "ReqMotorRun", // Motor motion
+    14002: "ReqMotorStop", // Motor stop
+    14006: "ReqMotorServiceJoystick", // Joystick
+    14007: "ReqMotorServiceJoystickFixedAngle", // Short press the arrow keys with the joystick
+    14008: "ReqMotorServiceJoystickStop", // Stop joystick
+    14009: "ReqDualCameraLinkage", // Dual camera linkage
+    14800: "ReqStartTrack", // Started tracking
+    14801: "ReqStopTrack", // Stop tracking
     15000: "ReqNormalAutoFocus", // Normal mode autofocus
     15001: "ReqManualSingleStepFocus", // Manual single-step focusing
     15002: "ReqManualContinuFocus", // Start manual continuous focus
     15003: "ReqStopManualContinuFocus", // Stop manual continuous focus
     15004: "ReqAstroAutoFocus", // Start astronomical autofocus
     15005: "ReqStopAstroAutoFocus", // Stop astronomical autofocus
+    15500: "ReqStartPanoramaByGrid", // Start panorama
+    15501: "ReqStopPanorama", // Stop panorama
 };
 export const responseMapping = {
     // BLE Class Response
@@ -215,12 +225,22 @@ export const responseMapping = {
     13503: "ComResponse", // Turn on the battery indicator
     13504: "ComResponse", // Turn off battery indicator =
     13505: "ComResponse", // Restart
+    14000: "ReqMotorRun", // Motor motion
+    14002: "ReqMotorStop", // Motor stop
+    14006: "ComResponse", // Joystick
+    14007: "ComResponse", // Short press the arrow keys with the joystick
+    14008: "ComResponse", // Stop joystick
+    14009: "ComResponse", // Dual camera linkage
+    14800: "ComResponse", // Started tracking
+    14801: "ComResponse", // Stop tracking
     15000: "ComResponse", // Normal mode autofocus
     15001: "ComResponse", // Manual single-step focusing
     15002: "ComResponse", // Start manual continuous focus
     15003: "ComResponse", // Stop manual continuous focus
     15004: "ComResponse", // Start astronomical autofocus
     15005: "ComResponse", // Stop astronomical autofocus
+    15500: "ComResponse", // Start panorama
+    15501: "ComResponse", // Stop panorama
 };
 export const notifyMapping = {
     15200: "ResNotifyPictureMatching", // Telephoto wide-angle image matching
@@ -348,12 +368,22 @@ export const notifyResponseMapping = {
     13503: "ComResponse", // Turn on the battery indicator
     13504: "ComResponse", // Turn off battery indicator =
     13505: "ComResponse", // Restart
+    14000: "ReqMotorRun", // Motor motion
+    14002: "ReqMotorStop", // Motor stop
+    14006: "ComResponse", // Joystick
+    14007: "ComResponse", // Short press the arrow keys with the joystick
+    14008: "ComResponse", // Stop joystick
+    14009: "ComResponse", // Dual camera linkage
+    14800: "ComResponse", // Started tracking
+    14801: "ComResponse", // Stop tracking
     15000: "ComResponse", // Normal mode autofocus
     15001: "ComResponse", // Manual single-step focusing
     15002: "ComResponse", // Start manual continuous focus
     15003: "ComResponse", // Stop manual continuous focus
     15004: "ComResponse", // Start astronomical autofocus
     15005: "ComResponse", // Stop astronomical autofocus
+    15500: "ComResponse", // Start panorama
+    15501: "ComResponse", // Stop panorama
 };
 const classStateMappings = {
     "Dwarfii_Api.ResNotifyStateAstroGoto:0": "ASTRO_STATE_IDLE",
