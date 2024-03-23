@@ -34,17 +34,42 @@ class Queue {
         this.elements.length = length;
     }
 }
+/**
+ * WebSocketHandler is the main interface to send messages to the Dwarf II via websocket
+ * It will analyse all messages received by the Dwarf II and send the recieved messages to the caller
+ * It's a singleton class
+ * @class
+ * @constructor
+ * @public
+ */
 export class WebSocketHandler {
+    /**
+     * Create a link to the Api and set the IP address of the dwarf II to connect to
+     * @param {string | undefined} IPDwarf ; Set the IP address of the dwarf II to connect to
+     */
     constructor(IPDwarf) {
         this.socket = null;
         this.is_opened = false;
-        this.IPDwarf = "";
+        this.IPDwarf = undefined;
         this.WS_Packet = {};
+        this.isCallbackMessages = false;
         this.packetCallbackMessages = {};
+        this.isCallbackErrors = false;
         this.packetCallbackErrors = {};
+        this.isCallbackConnectStates = false;
         this.packetCallbackConnectStates = {};
+        this.callbackReconnectFunction = undefined;
+        /**
+         * closeSocketTimer : Timer could be defined to manage a connection time of the dwarf that is too long
+         */
         this.closeSocketTimer = undefined;
+        /**
+         * closeTimerHandler : function could be defined : to close the timeout timer.
+         */
         this.closeTimerHandler = function () { };
+        /**
+         * onStopTimerHandler : function could be defined : this function will be called in case of error during connection
+         */
         this.onStopTimerHandler = function () { };
         this.keep_connection = false;
         this.is_running = false;
@@ -57,9 +82,21 @@ export class WebSocketHandler {
         this.is_ping_stopped = true;
         this.signal_ping_stop = false;
         this.ping_interval = 10;
-        this.IPDwarf = IPDwarf;
-        console.info("Creating a new WebSocketHandler with IP: ", IPDwarf);
+        this.nb_reconnect_default = 5;
+        this.nb_reconnect = 5;
+        if (IPDwarf)
+            this.IPDwarf = IPDwarf;
+        if (!WebSocketHandler.instance) {
+            WebSocketHandler.instance = this;
+            console.info("Creating a new WebSocketHandler with IP: ", IPDwarf);
+        }
+        return WebSocketHandler.instance;
     }
+    /**
+     * Set the IP address of the dwarf II to connect to
+     * @param {string} IPDwarf ; Set the IP address of the dwarf II to connect to, force another one that was configured when calling the constructor.
+     * @returns {Promise<void>}
+     */
     setNewIpDwarf(IPDwarf) {
         return __awaiter(this, void 0, void 0, function* () {
             console.debug("websocket_class : setIpDwarf : ", IPDwarf);
@@ -72,11 +109,28 @@ export class WebSocketHandler {
             console.debug("websocket_class : new Ip : ", this.IPDwarf);
         });
     }
+    /**
+     * Set the intervall of the build in Ping function defult is 10s
+     * @param {number} IntervalInSecond ; in Seconds
+     * @returns {void}
+     */
     setPingInterval(IntervalInSecond) {
         if (IntervalInSecond) {
             this.ping_interval = IntervalInSecond;
         }
     }
+    /**
+     * Set the nb of times for trying to reconnect to the dwarf if the connection closes, default is 5.
+     * @param {number} nbTimes ;
+     * @returns {void}
+     */
+    setDefaultReconnect(nbTimes) {
+        this.nb_reconnect_default = nbTimes;
+    }
+    /**
+     * Verify the status of the connection with the Dwarf II
+     * @returns {boolean} status of the connection
+     */
     isConnected() {
         if (this.socket &&
             this.is_opened &&
@@ -85,6 +139,10 @@ export class WebSocketHandler {
         else
             return false;
     }
+    /**
+     * Main function, to call after prepare function, send the message and start dialogue with the Dwarf II
+     * @returns {Promise<boolean>} false if the IP has not been set or if old Socket can't be closed
+     */
     run() {
         return __awaiter(this, void 0, void 0, function* () {
             // Check if ipDwarf is defined before calling wsURL
@@ -175,6 +233,7 @@ export class WebSocketHandler {
     }
     start() {
         this.is_running = true;
+        this.nb_reconnect = this.nb_reconnect_default;
         // Start ping command
         this.is_pong_received = true;
         this.pingDwarf();
@@ -182,8 +241,19 @@ export class WebSocketHandler {
         this.send();
         this.sendCallbackConnectStates(true);
     }
+    /**
+     * Prepare function : Define the message to send and the command to listen to and the callbacks functions
+     * @param {Object|Object[]} WS_Packet ; Message or Array of Messages from the API to send to the Dwarf II
+     * @param {string} senderId ; identifier of the sender
+     * @param {string[]} expectedResponseCmd ; List of the Command Id to listen to, can be "*" to get all commands.
+     * @param {function} callbackMessage ; Callback Fonction (const customMessageHandler = (txt_info:string, result_data:object)) to analyse reponses from the Dwarf II
+     * @param {function} callbackConnectState ; Callback Fonction (const customStateHandler = (state)) to get the status result of the current connection of the Dwarf II
+     * @param {function} callbackError ; Callback Fonction (const customErrorHandler = ()) called after an socket error.
+     * @param {function} callbackReconnect ; Callback Fonction (const customReconnectHandler = ()) called after a socket reconnection.
+     * @returns {Promise<void>}
+     */
     prepare(WS_Packet, // can be an array of Packets
-    senderId, expectedResponseCmd = [], callbackMessage = function () { }, callbackConnectState = function () { }, callbackError = function () { }) {
+    senderId, expectedResponseCmd = [], callbackMessage = function () { }, callbackConnectState = function () { }, callbackError = function () { }, callbackReconnect = undefined) {
         return __awaiter(this, void 0, void 0, function* () {
             console.debug("websocket_class : prepare function...");
             while (this.is_sending || this.is_receiving) {
@@ -214,6 +284,12 @@ export class WebSocketHandler {
                     this.packetCallbackErrors[senderId] = [];
                     this.packetCallbackErrors[senderId].push(callbackError);
                 }
+                if (callbackReconnect && typeof callbackReconnect === "function") {
+                    // empty the tab if exist : just one callback Reconnect function
+                    this.callbackReconnectFunction = callbackReconnect;
+                    console.log(` -> Add a callbackReconnect function => ${callbackReconnect}`);
+                }
+                this.verifyCallBacks();
             }
             if (Array.isArray(WS_Packet)) {
                 console.log(` -> Prepare ${WS_Packet.length} packets for ${senderId}`);
@@ -322,16 +398,27 @@ export class WebSocketHandler {
             }
             if (this.packetCallbackConnectStates[senderId]) {
                 this.packetCallbackConnectStates[senderId] = [];
+                this.isCallbackConnectStates = false;
             }
             if (this.packetCallbackErrors[senderId]) {
                 this.packetCallbackErrors[senderId] = [];
+                this.isCallbackErrors = false;
             }
         }
         else {
             this.packetCallbackMessages = {};
             this.packetCallbackErrors = {};
             this.packetCallbackConnectStates = {};
+            this.packetCallbackReconnect = [];
         }
+        this.verifyCallBacks();
+    }
+    verifyCallBacks() {
+        this.isCallbackMessages =
+            Object.keys(this.packetCallbackMessages).length > 0;
+        this.isCallbackConnectStates =
+            Object.keys(this.packetCallbackConnectStates).length > 0;
+        this.isCallbackErrors = Object.keys(this.packetCallbackErrors).length > 0;
     }
     sendCallbackConnectStates(state) {
         // Iterate over all stored callback functions
@@ -345,8 +432,6 @@ export class WebSocketHandler {
                 callbacksConnectStates[0](state);
             }
         });
-        // Retrieve the callback functions
-        const callbacksStateInfo = this.packetCallbackConnectStates;
     }
     sendCallbackErrors() {
         // Iterate over all stored callback functions
@@ -425,6 +510,11 @@ export class WebSocketHandler {
         // send Callback Error
         this.sendCallbackErrors();
     }
+    /**
+     * Handle close event of the socket connection with the dwarf II
+     * To call from a timeout function during the connection with the dwarf II
+     * @returns {Promise<void>}
+     */
     handleClose(message) {
         return __awaiter(this, void 0, void 0, function* () {
             // Stop Timer if exist
@@ -441,6 +531,10 @@ export class WebSocketHandler {
             yield this.wait_ping_stop();
         });
     }
+    /**
+     * Force close the socket connection with the dwarf II
+     * @returns {Promise<void>}
+     */
     close() {
         return __awaiter(this, void 0, void 0, function* () {
             // need closing socket if connected
@@ -460,24 +554,57 @@ export class WebSocketHandler {
     cleanup() {
         return __awaiter(this, void 0, void 0, function* () {
             console.log("WebSocketHandler cleanup");
+            let continue_cleanup = true;
+            let needDisconnect = !this.is_running;
+            if (this.is_running) {
+                // need to verify if callback functions are still OK if running
+                let testCallbackMessages = Object.keys(this.packetCallbackMessages).length > 0;
+                let testCallbackConnectStates = Object.keys(this.packetCallbackConnectStates).length > 0;
+                let testCallbackErrors = Object.keys(this.packetCallbackErrors).length > 0;
+                if (testCallbackMessages != this.isCallbackMessages ||
+                    testCallbackConnectStates != this.isCallbackConnectStates ||
+                    testCallbackErrors != this.isCallbackErrors) {
+                    needDisconnect = true;
+                    console.log("WebSocketHandler need to be disconnect");
+                }
+            }
             if (this.closeSocketTimer !== undefined)
                 clearTimeout(this.closeSocketTimer);
             this.is_stopping = true;
             this.is_running = false;
+            console.log("WebSocketHandler close ping");
             yield this.wait_ping_stop();
             // Remove event listeners during cleanup
             if (this.socket) {
-                this.socket.close();
                 this.socket.onopen = null;
                 this.socket.onmessage = null;
                 this.socket.onerror = null;
                 this.socket.onclose = null;
                 this.socket = undefined;
             }
-            this.is_opened = false;
+            console.log("WebSocketHandler try connection: %d", this.nb_reconnect_default);
+            if (!needDisconnect && this.nb_reconnect > 0) {
+                this.nb_reconnect -= 1;
+                console.log("WebSocketHandler retry connection: %d", this.nb_reconnect_default - this.nb_reconnect);
+                continue_cleanup = yield !this.run();
+                if (!continue_cleanup) {
+                    console.log("WebSocketHandler retry connection OK");
+                    if (this.callbackReconnectFunction) {
+                        console.log("WebSocketHandler launch Reconnect function");
+                        this.callbackReconnectFunction();
+                    }
+                }
+            }
+            if (continue_cleanup) {
+                // delete CallbacksFunction
+                console.log("WebSocketHandler final closing functions");
+                this.stop();
+                this.is_opened = false;
+            }
         });
     }
 }
+WebSocketHandler.instance = undefined;
 /*
 
 // Example usage:
@@ -526,7 +653,7 @@ export class WebSocketHandler {
     webSocketHandler.setIpDwarf(IPDwarf);
 
     webSocketHandler.closeTimerHandler = () => {
-      setConnecting(false);
+      setConnecting(true);
     };
     webSocketHandler.onStopTimerHandler = () => {
       setConnecting(false);
