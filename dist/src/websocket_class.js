@@ -82,8 +82,10 @@ export class WebSocketHandler {
         this.is_ping_stopped = true;
         this.signal_ping_stop = false;
         this.ping_interval = 10;
-        this.nb_reconnect_default = 5;
-        this.nb_reconnect = 5;
+        this.nb_reconnect_default = 3;
+        this.nb_reconnect = 3;
+        this.nb_ping_error_default = 10;
+        this.nb_ping_error = 10;
         if (IPDwarf)
             this.IPDwarf = IPDwarf;
         if (!WebSocketHandler.instance) {
@@ -128,6 +130,14 @@ export class WebSocketHandler {
         this.nb_reconnect_default = nbTimes;
     }
     /**
+     * Set the nb of times to stop connection after not receiving pong, default is 10.
+     * @param {number} nbTimes ;
+     * @returns {void}
+     */
+    setDefaultPongError(nbTimes) {
+        this.nb_ping_error_default = nbTimes;
+    }
+    /**
      * Verify the status of the connection with the Dwarf II
      * @returns {boolean} status of the connection
      */
@@ -160,23 +170,9 @@ export class WebSocketHandler {
             else {
                 if (this.socket && this.socket.readyState !== WebSocket.OPEN) {
                     // Socket still hangs, hard close
-                    this.socket.close();
                     console.log("Old Websocket force close");
-                    let nb = 10;
-                    while (nb &&
-                        this.socket &&
-                        this.socket.readyState !== WebSocket.CLOSED) {
-                        yield sleep(1000);
-                        nb = nb - 1;
-                        if (nb < 0)
-                            nb = 0;
-                    }
-                    if (nb == 0 &&
-                        this.socket &&
-                        this.socket.readyState != WebSocket.CLOSED) {
-                        console.log("Can't close old Websocket!");
-                        return false;
-                    }
+                    this.cleanup_socket();
+                    yield sleep(100);
                 }
             }
             if (this.keep_connection) {
@@ -224,7 +220,7 @@ export class WebSocketHandler {
                     if (this.is_opened) {
                         yield this.handleClose(message);
                     }
-                    this.cleanup();
+                    yield this.cleanup();
                 });
             }
             console.debug("class instance :", this);
@@ -232,6 +228,7 @@ export class WebSocketHandler {
         });
     }
     start() {
+        console.debug("websocket_class : start function ...");
         this.is_running = true;
         this.nb_reconnect = this.nb_reconnect_default;
         // Start ping command
@@ -319,24 +316,69 @@ export class WebSocketHandler {
             console.debug("websocket_class : is_stopping...", this.is_stopping);
             console.debug("websocket_class : is_pong_received...", this.is_pong_received);
             this.is_sending = false;
+            this.nb_ping_error = this.nb_ping_error_default;
+            let interval_no_ping = this.ping_interval * 10 + 1;
+            let interval = this.ping_interval;
+            let ping_send = false;
             while (!this.is_stopping && !this.signal_ping_stop) {
                 yield sleep(100);
                 if (!this.is_sending && this.is_pong_received && this.isConnected()) {
                     console.debug("websocket_class : ping function starting...");
                     this.is_sending = true;
+                    // reset interval_no_ping
+                    interval_no_ping = this.ping_interval * 10 + 1;
+                    this.nb_ping_error = this.nb_ping_error_default;
                     // Send Command:
+                    this.is_pong_received = false;
                     //this.socket.ping("");
                     this.socket.send("ping");
                     console.log("websocket_class : sending ping");
                     this.is_sending = false;
-                    this.is_pong_received = false;
+                    ping_send = true;
                     console.debug("websocket_class : ping function waiting...");
-                    let interval = this.ping_interval;
+                    interval = this.ping_interval;
+                    console.debug(`websocket_class : ping interval wait : ${interval}`);
                     while (interval > 0 && !this.is_stopping && !this.signal_ping_stop) {
                         yield sleep(1000);
                         interval = interval - 1;
                     }
+                    console.debug(`websocket_class : ping interval: ${interval}`);
+                    console.debug(`websocket_class : pong: ${this.is_pong_received}`);
+                    // Test if wet get Pong before the wait time in normal wait: no is_stopping nor signal_ping_stop
+                    if (interval == 0 &&
+                        !this.is_pong_received &&
+                        !this.is_stopping &&
+                        !this.signal_ping_stop) {
+                        this.nb_ping_error -= 1;
+                        console.error(`websocket_class : no pong received after sending Ping ${this.nb_ping_error_default - this.nb_ping_error}`);
+                    }
+                    else if (this.is_pong_received) {
+                        // OK or stop reset
+                        this.nb_ping_error = this.nb_ping_error_default;
+                    }
                     console.debug("websocket_class : ping function stopping...");
+                }
+                if (this.is_pong_received) {
+                    // OK or stop reset
+                    this.nb_ping_error = this.nb_ping_error_default;
+                    ping_send = false;
+                }
+                if (ping_send) {
+                    if (this.nb_ping_error != this.nb_ping_error_default) {
+                        interval_no_ping -= 1;
+                        if (interval_no_ping <= 0) {
+                            this.nb_ping_error -= 1;
+                            console.error(`websocket_class : no pong received after sending Ping ${this.nb_ping_error_default - this.nb_ping_error}`);
+                            if (this.nb_ping_error <= 0) {
+                                console.error(`websocket_class : no pong received after ${this.nb_ping_error_default} tries: deconnect!`);
+                                this.signal_ping_stop = true;
+                                this.cleanup(true);
+                            }
+                            else {
+                                interval_no_ping = this.ping_interval * 10;
+                            }
+                        }
+                    }
                 }
             }
             this.is_sending = false;
@@ -387,7 +429,12 @@ export class WebSocketHandler {
             console.debug("websocket_class : send function ending...");
         });
     }
-    stop(senderId) {
+    /**
+     * stopCallbacks function : Stop receiving on the callbacks functions
+     * @param {string} senderId ; Identifier of caller
+     * @returns {void}
+     **/
+    stopCallbacks(senderId) {
         this.deleteCallbacks(senderId);
     }
     deleteCallbacks(senderId = "") {
@@ -405,7 +452,7 @@ export class WebSocketHandler {
                 this.isCallbackErrors = false;
             }
         }
-        else {
+        else if (senderId == "*") {
             this.packetCallbackMessages = {};
             this.packetCallbackErrors = {};
             this.packetCallbackConnectStates = {};
@@ -543,7 +590,7 @@ export class WebSocketHandler {
                 this.socket.close();
                 yield sleep(1000);
             }
-            if (this.socket && (this.socket.OPEN || this.socket.CLOSING)) {
+            if (this.socket && this.socket.readyState != WebSocket.CLOSED) {
                 // Socket still hangs, hard close
                 this.socket.close();
                 console.log("Websocket force close");
@@ -551,12 +598,23 @@ export class WebSocketHandler {
             }
         });
     }
-    cleanup() {
+    /**
+     * cleanup function : Stop all the functions
+     * @param {boolean} forceStop ; if true do not try a reconnection, false by default
+     * @returns {Promise<void>}
+     **/
+    cleanup(forceStop = false) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log("WebSocketHandler cleanup");
+            if (forceStop) {
+                // send Callback Status KO
+                this.handleClose();
+                console.error("WebSocketHandler Force Stop!");
+            }
             let continue_cleanup = true;
-            let needDisconnect = !this.is_running;
-            if (this.is_running) {
+            let needDisconnect = forceStop || !this.is_running;
+            let initial_running = this.is_running;
+            if (!forceStop && this.is_running) {
                 // need to verify if callback functions are still OK if running
                 let testCallbackMessages = Object.keys(this.packetCallbackMessages).length > 0;
                 let testCallbackConnectStates = Object.keys(this.packetCallbackConnectStates).length > 0;
@@ -575,31 +633,44 @@ export class WebSocketHandler {
             console.log("WebSocketHandler close ping");
             yield this.wait_ping_stop();
             // Remove event listeners during cleanup
+            this.cleanup_socket();
+            yield sleep(2000);
+            let stop_try_reconnect = false;
+            if (initial_running) {
+                console.log("WebSocketHandler max try connection: %d", this.nb_reconnect_default);
+            }
+            if (!needDisconnect && this.nb_reconnect > 0) {
+                this.is_running = initial_running;
+                this.nb_reconnect -= 1;
+                console.log("WebSocketHandler retry connection: %d", this.nb_reconnect_default - this.nb_reconnect);
+                continue_cleanup = false;
+                console.log("WebSocketHandler retry connection OK");
+                if (this.callbackReconnectFunction) {
+                    console.log("WebSocketHandler launch Reconnect function");
+                    this.callbackReconnectFunction();
+                }
+                continue_cleanup = yield !this.run();
+            }
+            if (continue_cleanup) {
+                this.handleClose();
+                if (this.closeSocketTimer !== undefined)
+                    clearTimeout(this.closeSocketTimer);
+                // delete CallbacksFunction
+                console.log("WebSocketHandler final closing functions");
+                this.stopCallbacks("*");
+                this.is_opened = false;
+            }
+        });
+    }
+    cleanup_socket() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // Remove event listeners during cleanup
             if (this.socket) {
                 this.socket.onopen = null;
                 this.socket.onmessage = null;
                 this.socket.onerror = null;
                 this.socket.onclose = null;
                 this.socket = undefined;
-            }
-            console.log("WebSocketHandler try connection: %d", this.nb_reconnect_default);
-            if (!needDisconnect && this.nb_reconnect > 0) {
-                this.nb_reconnect -= 1;
-                console.log("WebSocketHandler retry connection: %d", this.nb_reconnect_default - this.nb_reconnect);
-                continue_cleanup = yield !this.run();
-                if (!continue_cleanup) {
-                    console.log("WebSocketHandler retry connection OK");
-                    if (this.callbackReconnectFunction) {
-                        console.log("WebSocketHandler launch Reconnect function");
-                        this.callbackReconnectFunction();
-                    }
-                }
-            }
-            if (continue_cleanup) {
-                // delete CallbacksFunction
-                console.log("WebSocketHandler final closing functions");
-                this.stop();
-                this.is_opened = false;
             }
         });
     }

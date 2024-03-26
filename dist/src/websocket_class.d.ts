@@ -49,6 +49,8 @@ export class WebSocketHandler {
     ping_interval: number;
     nb_reconnect_default: number;
     nb_reconnect: number;
+    nb_ping_error_default: number;
+    nb_ping_error: number;
     /**
      * Set the IP address of the dwarf II to connect to
      * @param {string} IPDwarf ; Set the IP address of the dwarf II to connect to, force another one that was configured when calling the constructor.
@@ -67,6 +69,12 @@ export class WebSocketHandler {
      * @returns {void}
      */
     setDefaultReconnect(nbTimes: number): void;
+    /**
+     * Set the nb of times to stop connection after not receiving pong, default is 10.
+     * @param {number} nbTimes ;
+     * @returns {void}
+     */
+    setDefaultPongError(nbTimes: number): void;
     /**
      * Verify the status of the connection with the Dwarf II
      * @returns {boolean} status of the connection
@@ -93,7 +101,12 @@ export class WebSocketHandler {
     pingDwarf(): Promise<void>;
     wait_ping_stop(): Promise<void>;
     send(): Promise<void>;
-    stop(senderId: any): void;
+    /**
+     * stopCallbacks function : Stop receiving on the callbacks functions
+     * @param {string} senderId ; Identifier of caller
+     * @returns {void}
+     **/
+    stopCallbacks(senderId: string): void;
     deleteCallbacks(senderId?: string): void;
     packetCallbackReconnect: any[];
     verifyCallBacks(): void;
@@ -112,7 +125,13 @@ export class WebSocketHandler {
      * @returns {Promise<void>}
      */
     close(): Promise<void>;
-    cleanup(): Promise<void>;
+    /**
+     * cleanup function : Stop all the functions
+     * @param {boolean} forceStop ; if true do not try a reconnection, false by default
+     * @returns {Promise<void>}
+     **/
+    cleanup(forceStop?: boolean): Promise<void>;
+    cleanup_socket(): Promise<void>;
 }
 declare class Queue {
     constructor(...elements: any[]);
