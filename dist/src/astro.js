@@ -1,144 +1,274 @@
 /** @module astro */
-import { telephotoCamera, calibrateGotoCmd, startGotoCmd, binning2x2, fileTiff, takeAstroPhotoCmd, takeAstroDarkFramesCmd, darkGainDefault, utcURL, stopAstroPhotoCmd, rawPreviewContinousSuperimpose, queryShotFieldCmd, setRAWPreviewCmd, } from "./api_codes.js";
-import { nowUTC, nowLocal, nowLocalFileName } from "./api_utils.js";
+// Import the generated protobuf module
+import $root from "./protobuf/protobuf.js";
+const Dwarfii_Api = $root;
+import { createPacket } from "./api_utils.js";
+import { cmdMapping } from "./cmd_mapping.js";
+/*** ---------------------------------------------- ***/
+/*** ---------------- MODULE ASTRO ---------------- ***/
+/*** ---------------------------------------------- ***/
 /**
- * 4.1.1 UTC+0 time
- * @param {string} IP
- * @returns {string}
+ * 3.10.2 Start calibration
+ * Create Encoded Packet for the command CMD_ASTRO_START_CALIBRATION
+ * @returns {Uint8Array}
  */
-export function formatUtcUrl(IP) {
-    return `${utcURL(IP)}${nowUTC()}`;
+export function messageAstroStartCalibration() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_CALIBRATION;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
 }
 /**
- * 4.1.2 correction
- * @param {number} latitude
- * @param {number} longitude
- * @returns {Object}
+ * 3.10.3 Stop calibration
+ * Create Encoded Packet for the command CMD_ASTRO_STOP_CALIBRATION
+ * @returns {Uint8Array}
  */
-export function calibrateGoto(latitude, longitude) {
-    const options = {
-        interface: calibrateGotoCmd,
-        camId: telephotoCamera,
-        lon: longitude,
-        lat: latitude,
-        date: nowLocal(),
-        path: `DWARF_GOTO_${nowLocalFileName()}`,
-    };
-    return options;
+export function messageAstroStopCalibration() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_STOP_CALIBRATION;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
 }
 /**
- * 4.1.3 Start goto
- * @param {number|null} planet
- * @param {string} rightAscension
- * @param {string} declination
- * @param {number} latitude
- * @param {number} longitude
- * @returns {Object}
+ * 3.10.4 Start GOTO and track deep space objects
+ * Create Encoded Packet for the command CMD_ASTRO_START_GOTO_DSO
+ * @param {number} ra Right Ascension
+ * @param {number} dec Declination
+ * @param {string} target_name
+ * @returns {Uint8Array}
  */
-export function startGoto(planet, rightAscension, declination, latitude, longitude) {
-    const options = {
-        interface: startGotoCmd,
-        camId: telephotoCamera,
-        lon: longitude,
-        lat: latitude,
-        date: nowLocal(),
-        path: `DWARF_GOTO_${nowLocalFileName()}`,
-    };
-    if (planet !== undefined && planet !== null) {
-        options.planet = planet;
-    }
-    else {
-        options.ra = rightAscension;
-        options.dec = declination;
-    }
-    return options;
+export function messageAstroStartGotoDso(ra, dec, target_name) {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_GOTO_DSO;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({
+        ra: ra,
+        dec: dec,
+        targetName: target_name,
+    });
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
 }
 /**
- * 4.1.4 Take raw pictures
- * @param {string} rightAscension
- * @param {string} declination
- * @param {number} exposureTime
- * @param {number} gain
- * @param {number} binning
- * @param {number} count
- * @param {number} fileFormat
- * @param {string} fileName
- * @returns {Object}
+ * 3.10.5 Start GOTO and track solar system targets
+ * Create Encoded Packet for the command CMD_ASTRO_START_GOTO_SOLAR_SYSTEM
+ * @param {number} index SolarSystemTargetNumber
+ * @param {number} lon Longitude
+ * @param {number} lat Lattitude
+ * @param {string} targetName
+ * @returns {Uint8Array}
  */
-export function takeAstroPhoto(rightAscension, declination, exposureTime, gain, binning = binning2x2, count = 1, fileFormat = fileTiff, fileName = `DWARF_RAW_${nowLocalFileName()}`) {
-    const options = {
-        interface: takeAstroPhotoCmd,
-        camId: telephotoCamera,
-        target: "NULL",
-        RA: rightAscension,
-        DEC: declination,
-        exp: exposureTime,
-        gain: gain,
-        binning: binning,
-        count: count,
-        name: fileName,
-        overlayCount: 1,
-        format: fileFormat,
-    };
-    return options;
+export function messageAstroStartGotoSolarSystem(index, lon, lat, targetName) {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_GOTO_SOLAR_SYSTEM;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({
+        index: index,
+        lon: lon,
+        lat: lat,
+        targetName: targetName,
+    });
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
 }
 /**
- * 4.1.7 Stop taking RAW images
- * @returns {Object}
+ * 3.10.6 Stop GOTO
+ * Create Encoded Packet for the command CMD_ASTRO_STOP_GOTO
+ * @returns {Uint8Array}
  */
-export function stopAstroPhoto() {
-    const options = {
-        interface: stopAstroPhotoCmd,
-    };
-    return options;
+export function messageAstroStopGoto() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_STOP_GOTO;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
 }
 /**
- * 4.1.9 Switch the RAW preview source
- * @param {number} source
- * @returns {Object}
+ * 3.10.7 Start Sun track & & Moon track
+ * Create Encoded Packet for the command CMD_ASTRO_START_TRACK_SPECIAL_TARGET
+ * @returns {Uint8Array}
  */
-export function updateRawPreviewSource(source = rawPreviewContinousSuperimpose) {
-    // 0:Continuous superposition graph
-    // 1:Single 15s exposure graph
-    // 2:Single sheet according to exposure time (more than 15s) composite image
-    const options = {
-        interface: setRAWPreviewCmd,
-        camId: telephotoCamera,
-        source,
-    };
-    return options;
-}
-// BUG: response is {interface: 11003, value: 100, code: 0} when darks already exists
-/**
- * 4.1.10 Taking dark field
- * @param {number} binning
- * @param {number} exposure
- * @param {number} count
- * @param {string} fileName
- * @returns {Object}
- */
-export function takeAstroDarks(binning, exposure, count = 40, fileName = `DWARF_DARK_${nowLocalFileName()}`) {
-    const options = {
-        interface: takeAstroDarkFramesCmd,
-        camId: telephotoCamera,
-        count,
-        name: fileName,
-        binning: binning,
-        darkGain: darkGainDefault,
-        darkExposure: exposure,
-    };
-    return options;
+export function messageAstroStartTrackSpecialTarget(index, lon, lat) {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_TRACK_SPECIAL_TARGET;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({
+        index: index,
+        lon: lon,
+        lat: lat,
+    });
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
 }
 /**
- * 4.1.11 Query the shot field
- * @param {number} binning
- * @returns {Object}
+ * 3.10.8 Stop sun and moon tracking
+ * Create Encoded Packet for the command CMD_ASTRO_STOP_TRACK_SPECIAL_TARGET
+ * @returns {Uint8Array}
  */
-export function queryShotField(binning) {
-    const options = {
-        interface: queryShotFieldCmd,
-        camId: telephotoCamera,
-        binning: binning,
-    };
-    return options;
+export function messageAstroStopTrackSpecialTarget() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_STOP_TRACK_SPECIAL_TARGET;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.10.9 Start stack
+ * Create Encoded Packet for the command CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING
+ * @returns {Uint8Array}
+ */
+export function messageAstroStartCaptureRawLiveStacking() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.10.10 stop stack
+ * Create Encoded Packet for the command CMD_ASTRO_STOP_CAPTURE_RAW_LIVE_STACKING
+ * @returns {Uint8Array}
+ */
+export function messageAstroStopCaptureRawLiveStacking() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_STOP_CAPTURE_RAW_LIVE_STACKING;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.10.11 Inquire about the dark field that has been shot
+ * Create Encoded Packet for the command CMD_ASTRO_CHECK_GOT_DARK
+ * @returns {Uint8Array}
+ */
+export function messageAstroCheckGotDark() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_CHECK_GOT_DARK;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.10.12 Start shooting dark scenes
+ * Create Encoded Packet for the command CMD_ASTRO_START_CAPTURE_RAW_DARK
+ * @param {number} reshoot // Whether to reshoot, 0: No; 1: Remake
+ * @returns {Uint8Array}
+ */
+export function messageAstroStartCaptureRawDark(reshoot) {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_CAPTURE_RAW_DARK;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({ reshoot: reshoot });
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.10.13 Stop shooting dark scenes
+ * Create Encoded Packet for the command CMD_ASTRO_STOP_CAPTURE_RAW_DARK
+ * @returns {Uint8Array}
+ */
+export function messageAstroStopCaptureRawDark() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_STOP_CAPTURE_RAW_DARK;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * 3.10.14 GO LIVE interface
+ * Create Encoded Packet for the command CMD_ASTRO_GO_LIVE
+ * @returns {Uint8Array}
+ */
+export function messageAstroGoLive() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_GO_LIVE;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    // Obtain classname depending of the command
+    // Obtain a message class
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+    // Encode message
+    let message = class_message.create({});
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    // return encoded Message Packet
+    return createPacket(message, class_message, module_id, interface_id, type_id);
 }

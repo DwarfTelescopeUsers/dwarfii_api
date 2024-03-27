@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message ReqStartPanoramaByGrid{
+    uint32 rows = 1;
+    uint32 cols = 2;
+}
+
+message ReqStartPanoramaByEulerRange{
+    float yaw_range = 1;
+    float pitch_range = 2;
+}
+
+message ReqStopPanorama{
+
+}

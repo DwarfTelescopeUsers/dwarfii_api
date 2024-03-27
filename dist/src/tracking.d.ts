@@ -1,20 +1,20 @@
+/*** --------------------------------------------- ***/
+/*** ---------------- MODULE TRACK---------------- ***/
+/*** --------------------------------------------- ***/
 /**
- * 4.2.1 Trace initialization
- * @returns {Object}
+ * 3.14.3 Started tracking
+ * Create Encoded Packet for the command CMD_TRACK_START_TRACK
+ * @param {number} x ; //x coordinate of the upper left point of the target box
+ * @param {number} y ; // The y coordinate of the upper left point of the target box
+ * @param {number} w ; // width of the target box
+ * @param {number} h ; //The length of the target box
+ * @returns {Uint8Array}
  */
-export function startTrace(): any;
+export function messageTrackStartTrack(x: number, y: number, w: number, h: number): Uint8Array;
 /**
- * 4.2.2 Start tracking
- * @param {number} x
- * @param {number} y
- * @param {number} width
- * @param {number} height
- * @returns {Object}
+ * 3.14.4 Stop tracking
+ * Create Encoded Packet for the command CMD_TRACK_STOP_TRACK
+ * @returns {Uint8Array}
  */
-export function startTracking(x: number, y: number, width: number, height: number): any;
-/**
- * 4.2.3 Stop tracking
- * @returns {Object}
- */
-export function stopTracking(): any;
+export function messageTrackStopTrack(): Uint8Array;
 //# sourceMappingURL=tracking.d.ts.map

@@ -6,8 +6,9 @@
     "outDir": "./dist",
     "skipLibCheck": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "moduleResolution":"node",
   },
-  "include": ["src/*", "index.js"],
-  "exclude": ["node_modules"]
+  "include": ["src/*.js","index.js", "node_modules/dwarfii_api/dist/index.d.ts"],
+  "exclude": ["src/protobuf/protobuf.js", "node_modules"]
 }

@@ -1,52 +1,56 @@
-/** @module tracking */
+/** @module track */
+// Import the generated protobuf module
+import $root from "./protobuf/protobuf.js";
+const Dwarfii_Api = $root;
+import { createPacket } from "./api_utils.js";
+import { cmdMapping } from "./cmd_mapping.js";
 
-import {
-  traceInitCmd,
-  startTrackingCmd,
-  stopTrackingCmd,
-  telephotoCamera,
-} from "./api_codes.js";
-
+/*** --------------------------------------------- ***/
+/*** ---------------- MODULE TRACK---------------- ***/
+/*** --------------------------------------------- ***/
 /**
- * 4.2.1 Trace initialization
- * @returns {Object}
+ * 3.14.3 Started tracking
+ * Create Encoded Packet for the command CMD_TRACK_START_TRACK
+ * @param {number} x ; //x coordinate of the upper left point of the target box
+ * @param {number} y ; // The y coordinate of the upper left point of the target box
+ * @param {number} w ; // width of the target box
+ * @param {number} h ; //The length of the target box
+ * @returns {Uint8Array}
  */
-export function startTrace() {
-  const options = { interface: traceInitCmd };
-  return options;
+export function messageTrackStartTrack(x, y, w, h) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_TRACK;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_TRACK_START_TRACK;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ x: x, y: y, w: w, h: h });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
 }
-
 /**
- * 4.2.2 Start tracking
- * @param {number} x
- * @param {number} y
- * @param {number} width
- * @param {number} height
- * @returns {Object}
+ * 3.14.4 Stop tracking
+ * Create Encoded Packet for the command CMD_TRACK_STOP_TRACK
+ * @returns {Uint8Array}
  */
-export function startTracking(x, y, width, height) {
-  // x 0-1920
-  // y 0-1080
-  // w 0-1920
-  // h 0-1080
-  const options = {
-    interface: startTrackingCmd,
-    camId: telephotoCamera,
-    x,
-    y,
-    w: width,
-    h: height,
-  };
-  return options;
-}
-
-/**
- * 4.2.3 Stop tracking
- * @returns {Object}
- */
-export function stopTracking() {
-  const options = {
-    interface: stopTrackingCmd,
-  };
-  return options;
+export function messageTrackStopTrack() {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_TRACK;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_TRACK_STOP_TRACK;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain classname depending of the command
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({});
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
 }

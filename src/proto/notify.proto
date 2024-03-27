@@ -1,0 +1,163 @@
+syntax = "proto3";
+
+import "base.proto";
+
+enum State {
+    STATE_IDLE = 0; // Idle state
+    STATE_RUNNING = 1; // Running
+    STATE_STOPPING = 2; // Is stopping
+    STATE_STOPPED = 3; // Has stopped
+    STATE_SUCCESS = 4; // Success
+    STATE_FAILED = 5; // Failure
+    STATE_ASTRO_PLATE_SOLVING = 6; // Astronomy is Plating Solving
+}
+
+enum OperationState {
+    OPERATION_STATE_IDLE = 0;
+    OPERATION_STATE_RUNNING = 1;
+    OPERATION_STATE_STOPPING = 2;
+    OPERATION_STATE_STOPPED = 3;
+}
+
+enum AstroState {
+    ASTRO_STATE_IDLE = 0; // Idle state
+    ASTRO_STATE_RUNNING = 1; // Running
+    ASTRO_STATE_STOPPING = 2; // Is stopping
+    ASTRO_STATE_STOPPED = 3; // Has stopped
+    ASTRO_STATE_PLATE_SOLVING = 4; // Astronomy is Plating Solving
+}
+
+// 长焦广角预览画面匹配结果
+message ResNotifyPictureMatching {
+    uint32 x = 1;
+    uint32 y = 2;
+    uint32 width = 3;
+    uint32 height = 4;
+    double value = 5;
+    int32 code = 6;
+}
+
+// SD卡容量信息
+message ResNotifySDcardInfo {
+    uint32 available_size = 1;
+    uint32 total_size = 2;
+    int32 code = 3;
+}
+
+// 录像时间显示
+message ResNotifyRecordTime {
+    int32 record_time = 1;
+}
+
+// 延时摄影时间显示
+message ResNotifyTimeLapseOutTime {
+    int32 interval = 1;
+    int32 out_time = 2;
+    int32 total_time = 3;
+}
+
+// 运行状态
+message ResNotifyOperationState {
+    OperationState state = 1;  
+}
+
+// 天文校准状态
+message ResNotifyStateAstroCalibration {
+    AstroState state = 1;  
+    int32 plate_solving_times = 2;
+}
+
+// 天文GOTO状态
+message ResNotifyStateAstroGoto {
+    AstroState state = 1;  
+}
+
+// 天文跟踪状态
+message ResNotifyStateAstroTracking {
+    OperationState state = 1;  
+    string target_name = 2;
+}
+
+// 天文暗场拍摄进度
+message ResNotifyProgressCaptureRawDark {
+    int32 progress = 1;
+    int32 remaining_time = 2;
+}
+
+// 天文叠图拍摄进度
+message ResNotifyProgressCaptureRawLiveStacking {
+    int32 total_count = 1;
+    int32 update_count_type = 2;
+    int32 current_count = 3;
+    int32 stacked_count = 4;
+    int32 exp_index = 5;
+    int32 gain_index = 6;
+    string target_name = 7;
+}
+
+// 参数回显
+message ResNotifyParam {
+    repeated CommonParam param = 1;
+}
+
+// 摄像头功能状态
+message ResNotifyCamFunctionState {
+    OperationState state = 1;
+    uint32 function_id = 2;
+}
+
+// 连拍进度
+message ResNotifyBurstProgress {
+    uint32 total_count = 1;
+    uint32 completed_count = 2;
+}
+
+// 全景拍摄进度
+message ResNotifyPanoramaProgress {
+    int32 total_count = 1;
+    int32 completed_count = 2;
+}
+
+// 环形灯状态
+message ResNotifyRgbState {
+    int32 state = 1;
+}
+
+// 电量指示灯状态
+message ResNotifyPowerIndState {
+    int32 state = 1;
+}
+
+// websocket主机从机模式状态
+message ResNotifyHostSlaveMode {
+    int32 mode = 1;
+}
+
+// mtp模式通知
+message ResNotifyMTPState {
+    int32 mode = 1;
+}
+
+// 跟踪结果通知
+message ResNotifyTrackResult {
+    int32 x = 1;
+    int32 y = 2;
+    int32 w = 3;
+    int32 h = 4;
+}
+
+// cpu mode
+message ResNotifyCPUMode {
+    int32 mode = 1;
+}
+
+// 日月跟踪通知
+message ResNotifyStateAstroTrackingSpecial {
+    OperationState state = 1;  
+    string target_name = 2;
+    int32 index = 3;
+}
+
+// 关机通知
+message ResNotifyPowerOff {
+}

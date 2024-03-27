@@ -17,7 +17,7 @@
     "sectionOrder": ["Modules"],
     "menu": {
       "Github repo": {
-        "href": "https://github.com/DwarfTelescopeUsers/dwarfii_api",
+        "href": "https://stevejcl.github.io/dwarfii_api/",
         "target": "_blank",
         "class": "menu-item",
         "id": "website_link"
