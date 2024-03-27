@@ -3,6 +3,7 @@
 import $root from "./protobuf/protobuf.js";
 const Dwarfii_Api = $root;
 import { createPacket } from "./api_utils.js";
+import { binning1x1 } from "./api_codes.js";
 import { cmdMapping } from "./cmd_mapping.js";
 /*** ---------------------------------------------------- ***/
 /*** ---------------- MODULE CAMERA TELE ---------------- ***/
@@ -10,10 +11,10 @@ import { cmdMapping } from "./cmd_mapping.js";
 /**
  * 3.7.3 Turn on the camera
  * Create Encoded Packet for the command CMD_CAMERA_TELE_OPEN_CAMERA
- * @param {boolean} binning ;
+ * @param {number} binning ; 0 : binning1x1 (default) 1: binning2x2
  * @returns {Uint8Array}
  */
-export function messageCameraTeleOpenCamera(binning = false) {
+export function messageCameraTeleOpenCamera(binning = binning1x1) {
     let module_id = Dwarfii_Api.ModuleId.MODULE_CAMERA_TELE;
     let interface_id = Dwarfii_Api.DwarfCMD.CMD_CAMERA_TELE_OPEN_CAMERA;
     let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;

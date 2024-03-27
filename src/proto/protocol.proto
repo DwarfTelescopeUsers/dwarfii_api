@@ -114,6 +114,7 @@ enum DwarfCMD {
     CMD_SYSTEM_SET_TIME_ZONE = 13001; // Set the time zone
     CMD_SYSTEM_SET_MTP_MODE = 13002; // Set MTP mode
     CMD_SYSTEM_SET_CPU_MODE = 13003; // Set CPU mode
+    CMD_SYSTEM_SET_HOST_MODE = 13004; // Set HOST mode
 
     CMD_RGB_POWER_OPEN_RGB = 13500; // Turn on the ring light
     CMD_RGB_POWER_CLOSE_RGB = 13501; // Turn off the ring light

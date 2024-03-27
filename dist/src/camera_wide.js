@@ -3,6 +3,7 @@
 import $root from "./protobuf/protobuf.js";
 const Dwarfii_Api = $root;
 import { createPacket } from "./api_utils.js";
+import { binning2x2 } from "./api_codes.js";
 import { cmdMapping } from "./cmd_mapping.js";
 /*** ---------------------------------------------------- ***/
 /*** ---------------- MODULE CAMERA WIDE ---------------- ***/
@@ -21,7 +22,7 @@ export function messageCameraWideOpenCamera() {
     const cmdClass = cmdMapping[interface_id];
     let class_message = eval(`Dwarfii_Api.${cmdClass}`);
     // Encode message
-    let message = class_message.create({});
+    let message = class_message.create({ binning: binning2x2 });
     console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
     // return encoded Message Packet
     return createPacket(message, class_message, module_id, interface_id, type_id);

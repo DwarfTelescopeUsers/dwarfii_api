@@ -4,10 +4,10 @@
 /**
  * 3.7.3 Turn on the camera
  * Create Encoded Packet for the command CMD_CAMERA_TELE_OPEN_CAMERA
- * @param {boolean} binning ;
+ * @param {number} binning ; 0 : binning1x1 (default) 1: binning2x2
  * @returns {Uint8Array}
  */
-export function messageCameraTeleOpenCamera(binning?: boolean): Uint8Array;
+export function messageCameraTeleOpenCamera(binning?: number): Uint8Array;
 /**
  * 3.7.4 Turn off the camera
  * Create Encoded Packet for the command CMD_CAMERA_TELE_CLOSE_CAMERA

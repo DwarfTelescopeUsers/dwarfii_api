@@ -96,6 +96,7 @@ export const cmdMapping: {
     13001: string;
     13002: string;
     13003: string;
+    13004: string;
     13500: string;
     13501: string;
     13502: string;
@@ -216,6 +217,7 @@ export const responseMapping: {
     13001: string;
     13002: string;
     13003: string;
+    13004: string;
     13500: string;
     13501: string;
     13502: string;
@@ -359,6 +361,7 @@ export const notifyResponseMapping: {
     13001: string;
     13002: string;
     13003: string;
+    13004: string;
     13500: string;
     13501: string;
     13502: string;

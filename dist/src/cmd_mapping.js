@@ -98,6 +98,7 @@ export const cmdMapping = {
     13001: "ReqSetTimezone", // Set the time zone
     13002: "ReqSetMtpMode", // Set MTP mode
     13003: "ReqSetCpuMode", // Set CPU mode
+    13004: "ReqSetHostSalveMode", // Set HOST SLAVE mode
     13500: "ReqOpenRgb", // Turn on the ring light
     13501: "ReqCloseRgb", // Turn off the ring light
     13502: "ReqPowerDown", // Shut down
@@ -219,6 +220,7 @@ export const responseMapping = {
     13001: "ComResponse", // Set the time zone
     13002: "ComResponse", // Set MTP mode
     13003: "ComResponse", // Set CPU mode
+    13004: "ComResponse", // Set HOST SLAVE mode
     13500: "ComResponse", // Turn on the ring light
     13501: "ComResponse", // Turn off the ring light
     13502: "ComResponse", // Shut down
@@ -362,6 +364,7 @@ export const notifyResponseMapping = {
     13001: "ComResponse", // Set the time zone
     13002: "ComResponse", // Set MTP mode
     13003: "ComResponse", // Set CPU mode
+    13004: "ComResponse", // Set HOST SLAVE mode
     13500: "ComResponse", // Turn on the ring light
     13501: "ComResponse", // Turn off the ring light
     13502: "ComResponse", // Shut down
@@ -418,6 +421,8 @@ const classModeMappings = {
     "Dwarfii_Api.ReqSetMtpMode:1": "ON",
     "Dwarfii_Api.ReqSetCpuMode:0": "Normal",
     "Dwarfii_Api.ReqSetCpuMode:1": "Performance",
+    "Dwarfii_Api.ReqSetHostSlaveMode:0": "HOST",
+    "Dwarfii_Api.ReqSetHostSlaveMode:1": "SLAVE",
 };
 export function getClassStateMappings(className, value) {
     const key = `${className + ":" + value}`;

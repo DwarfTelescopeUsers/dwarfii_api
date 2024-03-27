@@ -2612,12 +2612,12 @@ $root.WsMajorVersion = (function () {
  * @exports WsMinorVersion
  * @enum {number}
  * @property {number} WS_MINOR_VERSION_UNKNOWN=0 WS_MINOR_VERSION_UNKNOWN value
- * @property {number} WS_MINOR_VERSION_NUMBER=1 WS_MINOR_VERSION_NUMBER value
+ * @property {number} WS_MINOR_VERSION_NUMBER=2 WS_MINOR_VERSION_NUMBER value
  */
 $root.WsMinorVersion = (function () {
     var valuesById = {}, values = Object.create(valuesById);
     values[(valuesById[0] = "WS_MINOR_VERSION_UNKNOWN")] = 0;
-    values[(valuesById[1] = "WS_MINOR_VERSION_NUMBER")] = 1;
+    values[(valuesById[2] = "WS_MINOR_VERSION_NUMBER")] = 2;
     return values;
 })();
 $root.WsPacket = (function () {
@@ -25818,6 +25818,7 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_SYSTEM_SET_TIME_ZONE=13001 CMD_SYSTEM_SET_TIME_ZONE value
  * @property {number} CMD_SYSTEM_SET_MTP_MODE=13002 CMD_SYSTEM_SET_MTP_MODE value
  * @property {number} CMD_SYSTEM_SET_CPU_MODE=13003 CMD_SYSTEM_SET_CPU_MODE value
+ * @property {number} CMD_SYSTEM_SET_HOST_MODE=13004 CMD_SYSTEM_SET_HOST_MODE value
  * @property {number} CMD_RGB_POWER_OPEN_RGB=13500 CMD_RGB_POWER_OPEN_RGB value
  * @property {number} CMD_RGB_POWER_CLOSE_RGB=13501 CMD_RGB_POWER_CLOSE_RGB value
  * @property {number} CMD_RGB_POWER_POWER_DOWN=13502 CMD_RGB_POWER_POWER_DOWN value
@@ -25961,6 +25962,7 @@ $root.DwarfCMD = (function () {
     values[(valuesById[13001] = "CMD_SYSTEM_SET_TIME_ZONE")] = 13001;
     values[(valuesById[13002] = "CMD_SYSTEM_SET_MTP_MODE")] = 13002;
     values[(valuesById[13003] = "CMD_SYSTEM_SET_CPU_MODE")] = 13003;
+    values[(valuesById[13004] = "CMD_SYSTEM_SET_HOST_MODE")] = 13004;
     values[(valuesById[13500] = "CMD_RGB_POWER_OPEN_RGB")] = 13500;
     values[(valuesById[13501] = "CMD_RGB_POWER_CLOSE_RGB")] = 13501;
     values[(valuesById[13502] = "CMD_RGB_POWER_POWER_DOWN")] = 13502;
@@ -27941,6 +27943,194 @@ $root.ReqSetCpuMode = (function () {
         return typeUrlPrefix + "/ReqSetCpuMode";
     };
     return ReqSetCpuMode;
+})();
+$root.ReqSetHostMode = (function () {
+    /**
+     * Properties of a ReqSetHostMode.
+     * @exports IReqSetHostMode
+     * @interface IReqSetHostMode
+     * @property {number|null} [mode] ReqSetHostMode mode
+     */
+    /**
+     * Constructs a new ReqSetHostMode.
+     * @exports ReqSetHostMode
+     * @classdesc Represents a ReqSetHostMode.
+     * @implements IReqSetHostMode
+     * @constructor
+     * @param {IReqSetHostMode=} [properties] Properties to set
+     */
+    function ReqSetHostMode(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqSetHostMode mode.
+     * @member {number} mode
+     * @memberof ReqSetHostMode
+     * @instance
+     */
+    ReqSetHostMode.prototype.mode = 0;
+    /**
+     * Creates a new ReqSetHostMode instance using the specified properties.
+     * @function create
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {IReqSetHostMode=} [properties] Properties to set
+     * @returns {ReqSetHostMode} ReqSetHostMode instance
+     */
+    ReqSetHostMode.create = function create(properties) {
+        return new ReqSetHostMode(properties);
+    };
+    /**
+     * Encodes the specified ReqSetHostMode message. Does not implicitly {@link ReqSetHostMode.verify|verify} messages.
+     * @function encode
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {IReqSetHostMode} message ReqSetHostMode message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqSetHostMode.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.mode);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqSetHostMode message, length delimited. Does not implicitly {@link ReqSetHostMode.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {IReqSetHostMode} message ReqSetHostMode message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqSetHostMode.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqSetHostMode message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqSetHostMode} ReqSetHostMode
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqSetHostMode.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqSetHostMode();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.mode = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqSetHostMode message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqSetHostMode} ReqSetHostMode
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqSetHostMode.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqSetHostMode message.
+     * @function verify
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqSetHostMode.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.mode != null && message.hasOwnProperty("mode"))
+            if (!$util.isInteger(message.mode))
+                return "mode: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqSetHostMode message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqSetHostMode} ReqSetHostMode
+     */
+    ReqSetHostMode.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqSetHostMode)
+            return object;
+        var message = new $root.ReqSetHostMode();
+        if (object.mode != null)
+            message.mode = object.mode | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqSetHostMode message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {ReqSetHostMode} message ReqSetHostMode
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqSetHostMode.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.mode = 0;
+        if (message.mode != null && message.hasOwnProperty("mode"))
+            object.mode = message.mode;
+        return object;
+    };
+    /**
+     * Converts this ReqSetHostMode to JSON.
+     * @function toJSON
+     * @memberof ReqSetHostMode
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqSetHostMode.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqSetHostMode
+     * @function getTypeUrl
+     * @memberof ReqSetHostMode
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqSetHostMode.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqSetHostMode";
+    };
+    return ReqSetHostMode;
 })();
 $root.ReqStartTrack = (function () {
     /**

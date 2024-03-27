@@ -93,3 +93,24 @@ export function messageSystemSetCpuMode(mode) {
   // return encoded Message Packet
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
+/**
+ * 3.11.7 Set HOST mode
+ * Create Encoded Packet for the command CMD_SYSTEM_SET_HOSTSLAVE_MODE
+ * @param {number} mode //0: HOST mode 1: SLAVE
+ * @returns {Uint8Array}
+ */
+export function messageSystemSetHostSlaveMode(mode) {
+  let module_id = Dwarfii_Api.ModuleId.MODULE_SYSTEM;
+  let interface_id = Dwarfii_Api.DwarfCMD.CMD_SYSTEM_SET_HOST_MODE;
+  let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+  // Obtain a message class
+  const cmdClass = cmdMapping[interface_id];
+  let class_message = eval(`Dwarfii_Api.${cmdClass}`);
+  // Encode message
+  let message = class_message.create({ mode: mode });
+  console.log(
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+  );
+  // return encoded Message Packet
+  return createPacket(message, class_message, module_id, interface_id, type_id);
+}

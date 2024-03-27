@@ -19,3 +19,7 @@ message ReqSetMtpMode {
 message ReqSetCpuMode {
     int32 mode = 1;
 }
+
+message ReqSetHostMode {
+    int32 mode = 1;
+}

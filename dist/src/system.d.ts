@@ -28,4 +28,11 @@ export function messageSystemSetMtpMode(mode: number): Uint8Array;
  * @returns {Uint8Array}
  */
 export function messageSystemSetCpuMode(mode: number): Uint8Array;
+/**
+ * 3.11.7 Set HOST mode
+ * Create Encoded Packet for the command CMD_SYSTEM_SET_HOSTSLAVE_MODE
+ * @param {number} mode //0: HOST mode 1: SLAVE
+ * @returns {Uint8Array}
+ */
+export function messageSystemSetHostSlaveMode(mode: number): Uint8Array;
 //# sourceMappingURL=system.d.ts.map
